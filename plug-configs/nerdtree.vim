@@ -6,4 +6,7 @@ let g:NERDTreeMinimalMenu = 0
 let g:NERDTreeIgnore=['\node_modules$', '\.git$']
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowBookmarks = 1
-
+let g:NERDTreeAutoCenter = 1
+let g:NERDTreeCaseSensitiveSort = 1
+let g:NERDTreeHijackNetrw = 1
+let g:NERDTreeShowBookmarks = 1

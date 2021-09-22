@@ -4,6 +4,10 @@ call plug#begin('$HOME/.config/nvim/autoload/plugged')
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " Status Line
 Plug 'vim-airline/vim-airline'
 
