@@ -20,14 +20,8 @@ nnoremap th :FloatTermHide<cr>
 
 " For Workflow
 map rce :call Vimrc()<cr>
-function Vimrc()
-        silent !cd $HOME/.config/nvim
-        silent NERDTree $HOME/.config/nvim
+function! Vimrc()
+        silent !cd ~/.config/nvim
+        silent NERDTree ~/.config/nvim
         echo "Opened your NeoVim Config"
-endfunction
-
-map rcs :call SourceVimrc()<cr>
-function SourceVimrc()
-        silent source $HOME/.config/nvim/init.vim
-        echo "Sucessfully restsrted NeoVim"
 endfunction
