@@ -38,6 +38,9 @@ Plug 'gko/vim-coloresque'
 " Icons
 Plug 'ryanoasis/vim-devicons'
 
+" Whick Key
+Plug 'liuchengxu/vim-which-key'
+
 " Syntax Check
 Plug 'vim-syntastic/syntastic'
 
