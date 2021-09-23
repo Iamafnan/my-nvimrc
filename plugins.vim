@@ -4,25 +4,21 @@ call plug#begin('$HOME/.config/nvim/autoload/plugged')
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
 " Status Line
 Plug 'vim-airline/vim-airline'
 
 " Navigation
 Plug 'preservim/nerdtree'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-" Battery Integration
-Plug 'lambdalisue/battery.vim'
+" Welcome Screen
+Plug 'mhinz/vim-startify'
 
 " Auto Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
-Plug 'dense-analysis/ale'
 
 " Git Integration
 Plug 'tpope/vim-fugitive'
@@ -39,12 +35,16 @@ Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
 Plug 'gko/vim-coloresque'
 
+" Language Server
+Plug 'neovim/nvim-lspconfig'
+
+" Tabline
+Plug 'romgrk/barbar.nvim'
+
 " Icons
 Plug 'ryanoasis/vim-devicons'
-
-" Whick Key
-Plug 'liuchengxu/vim-which-key'
-
+Plug 'kyazdani42/nvim-web-devicons'
+        
 " Syntax Check
 Plug 'vim-syntastic/syntastic'
 
@@ -54,8 +54,4 @@ Plug 'vim-scripts/vim-auto-save'
 " Terminal
 Plug 'voldikss/vim-floaterm'
 
-" Multi Cursor
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-
 call plug#end()
-

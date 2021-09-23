@@ -8,4 +8,5 @@ source ~/.config/nvim/plug-configs/airline.vim
 source ~/.config/nvim/plug-configs/devicons.vim
 source ~/.config/nvim/plug-configs/auto-save.vim
 source ~/.config/nvim/plug-configs/ctrlp.vim
+source ~/.config/nvim/plug-configs/coc.vim
 source ~/.config/nvim/plug-configs/floatterm.vim
