@@ -9,8 +9,8 @@ Plug 'vim-airline/vim-airline'
 
 " Navigation
 Plug 'preservim/nerdtree'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Welcome Screen
 Plug 'mhinz/vim-startify'
@@ -33,10 +33,6 @@ Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'alvan/vim-closetag'
-Plug 'gko/vim-coloresque'
-
-" Language Server
-Plug 'neovim/nvim-lspconfig'
 
 " Tabline
 Plug 'romgrk/barbar.nvim'
@@ -47,11 +43,5 @@ Plug 'kyazdani42/nvim-web-devicons'
         
 " Syntax Check
 Plug 'vim-syntastic/syntastic'
-
-" Auto Save
-Plug 'vim-scripts/vim-auto-save'
-
-" Terminal
-Plug 'voldikss/vim-floaterm'
 
 call plug#end()

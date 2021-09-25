@@ -6,6 +6,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 
 " Basic Maps
 nnoremap q :q<cr>
+nnoremap w :w<cr>
 
 " Movement
 map <C-h> <C-w>h
