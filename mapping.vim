@@ -15,10 +15,6 @@ map <C-h> <C-w>h
 nnoremap nt :NERDTree<cr>
 nnoremap nf :NERDTreeFind<cr>
 
-" Float Term
-nnoremap tt :FloatTermToggle<cr>
-nnoremap th :FloatTermHide<cr>
-
 " For Workflow
 map rcs :so ~/.config/nvim/init.vim<cr> 
 map rce :call Vimrc()<cr>
