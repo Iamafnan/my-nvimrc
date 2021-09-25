@@ -10,12 +10,14 @@ nnoremap w :w<cr>
 
 " Movement
 map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " NERDTree
 nnoremap nt :NERDTree<cr>
 nnoremap nf :NERDTreeFind<cr>
 
-" For Workflow
 map rcs :so ~/.config/nvim/init.vim<cr> 
 map rce :call Vimrc()<cr>
 function! Vimrc()
