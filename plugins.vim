@@ -5,7 +5,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim'
 
 " Status Line
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
+Plug 'hoob3rt/lualine.nvim'
 
 " Navigation
 Plug 'preservim/nerdtree'

@@ -8,3 +8,4 @@ source ~/.config/nvim/plug-configs/airline.vim
 source ~/.config/nvim/plug-configs/devicons.vim
 source ~/.config/nvim/plug-configs/coc.vim
 source ~/.config/nvim/plug-configs/lsp-config.rc.vim
+source ~/.config/nvim/plug-configs/lualine.vim
