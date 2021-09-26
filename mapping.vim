@@ -14,14 +14,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Vim-Commentry
+nnoremap cm :Commentary<cr>
+
 " NERDTree
 nnoremap nt :NERDTree<cr>
 nnoremap nf :NERDTreeFind<cr>
 
 map rcs :so ~/.config/nvim/init.vim<cr> 
-map rce :call Vimrc()<cr>
-function! Vimrc()
-        silent !cd ~/.config/nvim
-        silent NERDTree ~/.config/nvim
-        echo "Opened your NeoVim Config"
-endfunction
