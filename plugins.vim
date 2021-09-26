@@ -22,6 +22,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 
+" LSP
+Plug 'neovim/nvim-lspconfig'
+
 " Snippets
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
