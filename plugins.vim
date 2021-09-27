@@ -32,7 +32,6 @@ Plug 'kabouzeid/nvim-lspinstall'
 
 " Snippets
 Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
 
 " Web Development
 Plug 'tpope/vim-surround'
