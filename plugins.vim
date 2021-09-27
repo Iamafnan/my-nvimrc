@@ -1,8 +1,9 @@
 call plug#begin('$HOME/.config/nvim/autoload/plugged')
 
 " Themes
-Plug 'vim-airline/vim-airline-themes'
-Plug 'dracula/vim'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 
 " Status Line
 " Plug 'vim-airline/vim-airline'
@@ -44,5 +45,8 @@ Plug 'kyazdani42/nvim-web-devicons'
         
 " Syntax Check
 Plug 'vim-syntastic/syntastic'
+
+" Which Key
+Plug 'folke/which-key.nvim'
 
 call plug#end()
