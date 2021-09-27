@@ -21,6 +21,6 @@ nnoremap cm :Commentary<cr>
 
 " NERDTree
 nnoremap nt :NERDTree<cr>
-nnoremap nf :NERDTreeFind<cr>
+nnoremap nf :NERDTreeFind
 
 map rcs :so ~/.config/nvim/init.vim<cr> 
