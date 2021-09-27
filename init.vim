@@ -10,3 +10,4 @@ source ~/.config/nvim/plug-configs/coc.vim
 " source ~/.config/nvim/plug-configs/lsp-config.rc.vim
 source ~/.config/nvim/plug-configs/lualine.vim
 source ~/.config/nvim/plug-configs/barber.vim
+luafile ~/.config/nvim/plug-configs/nvim-tree.lua

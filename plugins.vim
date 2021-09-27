@@ -11,7 +11,8 @@ Plug 'navarasu/onedark.nvim'
 Plug 'hoob3rt/lualine.nvim'
 
 " Navigation
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
