@@ -7,7 +7,7 @@ filetype plugin on
 filetype indent on
 
 " Colorscheme
-colorscheme gruvbox
+colorscheme onedark
 " Encoding 
 set encoding=utf-8
 set fileencoding=utf-8

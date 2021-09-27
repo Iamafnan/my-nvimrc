@@ -3,7 +3,8 @@ call plug#begin('$HOME/.config/nvim/autoload/plugged')
 " Themes
 " Plug 'vim-airline/vim-airline-themes'
 " Plug 'dracula/vim'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'navarasu/onedark.nvim'
 
 " Status Line
 " Plug 'vim-airline/vim-airline'
