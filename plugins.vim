@@ -1,17 +1,14 @@
 call plug#begin('$HOME/.config/nvim/autoload/plugged')
 
 " Themes
-" Plug 'vim-airline/vim-airline-themes'
-" Plug 'dracula/vim'
-" Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 Plug 'navarasu/onedark.nvim'
 
 " Status Line
-" Plug 'vim-airline/vim-airline'
 Plug 'hoob3rt/lualine.nvim'
 
 " Navigation
-" Plug 'preservim/nerdtree'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -21,6 +18,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 
+" Rest API Client
+Plug 'NTBBloodbath/rest.nvim'
+
 " Git Integration
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -28,6 +28,7 @@ Plug 'airblade/vim-gitgutter'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'kabouzeid/nvim-lspinstall'
 
 " Snippets
 Plug 'honza/vim-snippets'
@@ -43,6 +44,7 @@ Plug 'romgrk/barbar.nvim'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
+Plug 'yamatsum/nvim-nonicons'
 Plug 'kyazdani42/nvim-web-devicons'
         
 " Syntax Check
