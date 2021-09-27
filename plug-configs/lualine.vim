@@ -126,12 +126,6 @@ ins_right {
   color = {fg = colors.green, gui = 'bold'}
 }
 ins_right {
-  'fileformat',
-  upper = true,
-  icons_enabled = false,
-  color = {fg = colors.green, gui = 'bold'}
-}
-ins_right {
   'branch',
   icon = '',
   condition = conditions.check_git_workspace,
