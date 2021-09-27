@@ -2,6 +2,9 @@ set nocompatible
 
 set t_Co=256
 
+" Colors
+set termguicolors
+
 filetype on
 filetype plugin on
 filetype indent on

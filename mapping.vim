@@ -27,6 +27,3 @@ nnoremap nf :NvimTreeFindFile<cr>
 
 " For Nvim Costomization
 map rcs :so ~/.config/nvim/init.vim<cr> 
-
-" For Fugitive
-nnoremap gp :Git add .<cr> | :Git commit -m "See Diff"<cr> | :Git push origin main<cr>
