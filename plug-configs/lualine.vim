@@ -1,7 +1,5 @@
 lua <<EOF
-
 local lualine = require 'lualine'
-
 local colors = {
   bg = '#202328',
   fg = '#bbc2cf',
@@ -15,7 +13,6 @@ local colors = {
   blue = '#51afef',
   red = '#ec5f67'
 }
-
 local conditions = {
   buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
   hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
@@ -25,8 +22,6 @@ local conditions = {
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end
 }
-
--- Config
 local config = {
   options = {
     component_separators = "",
@@ -53,26 +48,20 @@ local config = {
     lualine_x = {}
   }
 }
-
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
 end
-
--- Inserts a component in lualine_x ot right section
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
 ins_left {
   function() return '▊' end,
-  color = {fg = colors.blue}, -- Sets highlighting of component
-  left_padding = 0 -- We don't need space before this
+  color = {fg = colors.blue},
+  left_padding = 0
 }
-
 ins_left {
-  -- mode component
   function()
-    -- auto change color according to neovims mode
     local mode_color = {
       n = colors.red,
       i = colors.green,
@@ -103,9 +92,8 @@ ins_left {
   color = "LualineMode",
   left_padding = 0
 }
-
 ins_left {
-  function()
+function()
     local function format_file_size(file)
       local size = vim.fn.getfsize(file)
       if size <= 0 then return '' end
@@ -123,55 +111,43 @@ ins_left {
   end,
   condition = conditions.buffer_not_empty
 }
-
 ins_left {
   'filename',
   condition = conditions.buffer_not_empty,
   color = {fg = colors.magenta, gui = 'bold'}
 }
-
 ins_left {'location'}
-
 ins_left {'progress', color = {fg = colors.fg, gui = 'bold'}}
-
 ins_left {function() return '%=' end}
-
 ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  upper = true, -- I'm not sure why it's upper case either ;)
+  'o:encoding',
+  upper = true,
   condition = conditions.hide_in_width,
   color = {fg = colors.green, gui = 'bold'}
 }
-
 ins_right {
   'fileformat',
   upper = true,
-  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+  icons_enabled = false,
   color = {fg = colors.green, gui = 'bold'}
 }
-
 ins_right {
   'branch',
   icon = '',
   condition = conditions.check_git_workspace,
   color = {fg = colors.violet, gui = 'bold'}
 }
-
 ins_right {
   'diff',
   symbols = {added = ' ', modified = '柳 ', removed = ' '},
   color_added = colors.green,
   color_modified = colors.orange,
   color_removed = colors.red,
-  condition = conditions.hide_in_width
 }
-
 ins_right {
   function() return '▊' end,
   color = {fg = colors.blue},
   right_padding = 0
 }
-
 lualine.setup(config)
-
 EOF
