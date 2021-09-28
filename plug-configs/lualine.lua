@@ -1,4 +1,3 @@
-lua <<EOF
 local lualine = require 'lualine'
 local colors = {
   bg = '#202328',
@@ -144,4 +143,3 @@ ins_right {
   right_padding = 0
 }
 lualine.setup(config)
-EOF
