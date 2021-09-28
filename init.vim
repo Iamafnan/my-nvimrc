@@ -2,16 +2,13 @@ source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/mapping.vim
 luafile ~/.config/nvim/settings.lua
 
-" Plug Configs
 source ~/.config/nvim/plug-configs/devicons.vim
 source ~/.config/nvim/plug-configs/barber.vim
 luafile ~/.config/nvim/plug-configs/lualine.lua
 luafile ~/.config/nvim/plug-configs/nvim-tree.lua
 luafile ~/.config/nvim/plug-configs/rest-nvim.lua
 luafile ~/.config/nvim/plug-configs/completion.lua
-
-" Lsp Related
-luafile ~/.config/nvim/plug-configs/lsp/lsp-config.lua
-luafile ~/.config/nvim/plug-configs/lsp/lsp-saga.lua
-luafile ~/.config/nvim/plug-configs/lsp/treesitter.lua
-luafile ~/.config/nvim/plug-configs/lsp/completion.lua
+luafile ~/.config/nvim/plug-configs/lsp-config.lua
+luafile ~/.config/nvim/plug-configs/lsp-saga.lua
+luafile ~/.config/nvim/plug-configs/treesitter.lua
+luafile ~/.config/nvim/plug-configs/completion.lua
