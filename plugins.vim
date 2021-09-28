@@ -16,7 +16,8 @@ Plug 'nvim-telescope/telescope.nvim'
 " Auto Completion
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
-Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-buffer'
 
 " Rest API Client
 Plug 'NTBBloodbath/rest.nvim'
@@ -31,6 +32,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
 Plug 'glepnir/lspsaga.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'hrsh7th/cmp-nvim-lsp'
 
 " Snippets
 Plug 'hrsh7th/vim-vsnip'

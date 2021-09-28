@@ -15,40 +15,13 @@ local on_attach = function(client, bufnr)
                 vim.api.nvim_command[[]]
                 vim.api.nvim_command[[augroup END]]
         end
-        require 'completion'.on_attach(client, bufnr)
         local on_attach = function(client, bufnr)
-        protocol.CompletionItemKind = {
-    '', -- Text
-    '', -- Method
-    '', -- Function
-    '', -- Constructor
-    '', -- Field
-    '', -- Variable
-    '', -- Class
-    'ﰮ', -- Interface
-    '', -- Module
-    '', -- Property
-    '', -- Unit
-    '', -- Value
-    '', -- Enum
-    '', -- Keyword
-    '﬌', -- Snippet
-    '', -- Color
-    '', -- File
-    '', -- Reference
-    '', -- Folder
-    '', -- EnumMember
-    '', -- Constant
-    '', -- Struct
-    '', -- Event
-    'ﬦ', -- Operator
-    '', -- TypeParameter
-  }
 end
 end
 
 nvim_lsp.tsserver.setup{
         on_attach = on_attach,
+capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
         filetypes = { 'typescript', 'typescriptreact', 'typescript.tsx' },
 
 }
