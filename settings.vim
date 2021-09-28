@@ -11,6 +11,7 @@ filetype indent on
 
 " Colorscheme
 colorscheme onedark
+
 " Encoding 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -35,6 +36,9 @@ set cmdheight=2
 set shortmess+=c
 set nobackup
 set nowritebackup
+
+" For Completion
+set completeopt=noinsert,noselect,menuone
 
 " Clipboard
 set clipboard=unnamedplus

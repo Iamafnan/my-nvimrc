@@ -25,5 +25,11 @@ nnoremap cm :Commentary<cr>
 nnoremap nt :NvimTreeOpen<cr>
 nnoremap nf :NvimTreeFindFile<cr>
 
+" Completion.Nvim
+inoremap <expr> <tab> pumvisible() ? "\<C-n>" : "\<tab>"
+inoremap <expr> <S-tab> pumvisible() ? "\<C-p>" : "\<S-tab>"
+imap <expr> <cr>  pumvisible() ? complete_info()["selected"] != "-1" ?
+                 \ "\<Plug>(completion_confirm_completion)"  : "\<c-e>\<CR>" :  "\<CR>"
+
 " For Nvim Costomization
 map rcs :so ~/.config/nvim/init.vim<cr> 

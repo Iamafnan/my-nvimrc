@@ -1,8 +1,8 @@
 call plug#begin('$HOME/.config/nvim/autoload/plugged')
 
 " Themes
-Plug 'dracula/vim'
-Plug 'morhetz/gruvbox'
+" Plug 'dracula/vim'
+" Plug 'morhetz/gruvbox'
 Plug 'navarasu/onedark.nvim'
 
 " Status Line
@@ -14,9 +14,9 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Auto Completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
+Plug 'nvim-lua/completion-nvim'
 
 " Rest API Client
 Plug 'NTBBloodbath/rest.nvim'
@@ -29,9 +29,14 @@ Plug 'airblade/vim-gitgutter'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'kabouzeid/nvim-lspinstall'
+Plug 'glepnir/lspsaga.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Snippets
-Plug 'honza/vim-snippets'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " Web Development
 Plug 'tpope/vim-surround'
