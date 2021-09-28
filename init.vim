@@ -1,6 +1,6 @@
 source $HOME/.config/nvim/plugins.vim
-source $HOME/.config/nvim/settings.vim
 source $HOME/.config/nvim/mapping.vim
+luafile ~/.config/nvim/settings.lua
 
 " Plug Configs
 source ~/.config/nvim/plug-configs/devicons.vim
