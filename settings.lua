@@ -5,7 +5,10 @@ vim.cmd('set t_Co=256')
 
 vim.cmd('colorscheme onedark')
 
--- Colors
+vim.cmd('filetype on')
+vim.cmd('filetype plugin on')
+vim.cmd('filetype indent on')
+
 set.termguicolors = true
 
 set.encoding = 'utf-8'
