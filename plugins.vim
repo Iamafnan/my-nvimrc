@@ -10,8 +10,11 @@ Plug 'hoob3rt/lualine.nvim'
 
 " Navigation
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+
+" telescope requirementa
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
 
 " Auto Completion
 Plug 'jiangmiao/auto-pairs'
@@ -52,7 +55,10 @@ Plug 'romgrk/barbar.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'yamatsum/nvim-nonicons'
 Plug 'kyazdani42/nvim-web-devicons'
-        
+
+" Indent Line
+Plug 'lukas-reineke/indent-blankline.nvim'
+
 " Syntax Check
 Plug 'vim-syntastic/syntastic'
 

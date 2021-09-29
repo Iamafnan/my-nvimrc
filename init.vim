@@ -12,3 +12,4 @@ luafile ~/.config/nvim/plug-configs/lsp-config.lua
 luafile ~/.config/nvim/plug-configs/lsp-saga.lua
 luafile ~/.config/nvim/plug-configs/treesitter.lua
 luafile ~/.config/nvim/plug-configs/cmp.lua
+luafile ~/.config/nvim/plug-configs/telescope.lua

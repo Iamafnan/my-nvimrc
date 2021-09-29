@@ -22,4 +22,8 @@ map('n', 'nt', ':NvimTreeToggle<CR>', { noremap = true })
 -- for quick rc sourcing
 map('n', 'rcs', ':so ~/.config/nvim/init.vim<CR>', { noremap = false })
 
+-- for telescope
+map('n', ',f', ':Telescope find_files<CR>', { noremap = true })
+map('n', '..', ':Telescope live_grep<CR>', { noremap =  true })
+
 -- autocmd InsertEnter * norm zz

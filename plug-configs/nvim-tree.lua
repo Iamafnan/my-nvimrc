@@ -14,13 +14,6 @@ require'nvim-tree'.setup{
         enable = false,
         update_cwd = false,
   },
-        show_icons = {
-        git = 1,
-        folders = 1,
-        files = 1,
-        folder_arrows = 1,
-        tree_width = 30,
-    },
     icons = {
       default = "",
       symlink = "",
