@@ -1,9 +1,0 @@
-let bufferline = get(g:, 'bufferline', {})
-let bufferline.add_in_buffer_number_order = v:false
-let bufferline.animation = v:true
-let bufferline.auto_hide = v:false
-let bufferline.tabpages = v:true
-let bufferline.clickable = v:true
-let bufferline.icons = v:true
-let bufferline.icon_custom_colors = v:false
-let bufferline.no_name_title = v:null
