@@ -1,4 +1,5 @@
 local lualine = require 'lualine'
+
 local colors = {
   bg = '#202328',
   fg = '#bbc2cf',
@@ -10,8 +11,11 @@ local colors = {
   violet = '#a9a1e1',
   magenta = '#c678dd',
   blue = '#51afef',
-  red = '#ec5f67'
+  red = '#ec5f67',
+  white = '#000000',
+  dracula_violet = '#bd93f9'
 }
+
 local conditions = {
   buffer_not_empty = function() return vim.fn.empty(vim.fn.expand('%:t')) ~= 1 end,
   hide_in_width = function() return vim.fn.winwidth(0) > 80 end,
@@ -21,6 +25,8 @@ local conditions = {
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end
 }
+
+-- Config
 local config = {
   options = {
     component_separators = "",
@@ -47,18 +53,21 @@ local config = {
     lualine_x = {}
   }
 }
+
 local function ins_left(component)
   table.insert(config.sections.lualine_c, component)
 end
+
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
 ins_left {
   function() return '▊' end,
-  color = {fg = colors.blue},
+  color = {fg = colors.dracula_violet},
   left_padding = 0
 }
+
 ins_left {
   function()
     local mode_color = {
@@ -91,8 +100,9 @@ ins_left {
   color = "LualineMode",
   left_padding = 0
 }
+
 ins_left {
-function()
+  function()
     local function format_file_size(file)
       local size = vim.fn.getfsize(file)
       if size <= 0 then return '' end
@@ -110,36 +120,65 @@ function()
   end,
   condition = conditions.buffer_not_empty
 }
+
 ins_left {
   'filename',
   condition = conditions.buffer_not_empty,
-  color = {fg = colors.magenta, gui = 'bold'}
+  color = {fg = colors.white, gui = 'bold'}
 }
+
 ins_left {'location'}
+
 ins_left {'progress', color = {fg = colors.fg, gui = 'bold'}}
-ins_left {function() return '%=' end}
-ins_right {
-  'o:encoding',
-  upper = true,
-  condition = conditions.hide_in_width,
-  color = {fg = colors.green, gui = 'bold'}
+
+ins_left {
+  'diagnostics',
+  sources = {'nvim_lsp'},
+  symbols = {error = ' ', warn = ' ', info = ' '},
+  color_error = colors.red,
+  color_warn = colors.yellow,
+  color_info = colors.cyan
 }
+
+ins_left {function() return '%=' end}
+
+ins_left {
+  function()
+    local msg = 'No Active Lsp'
+    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then return msg end
+    for _, client in ipairs(clients) do
+      local filetypes = client.config.filetypes
+      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+        return client.name
+      end
+    end
+    return msg
+  end,
+  icon = ' LSP:',
+  color = {fg = '#FF79C6', gui = 'bold'}
+}
+
 ins_right {
   'branch',
   icon = '',
   condition = conditions.check_git_workspace,
-  color = {fg = colors.violet, gui = 'bold'}
+  color = {fg = colors.dracula_violet, gui = 'bold'}
 }
+
 ins_right {
   'diff',
   symbols = {added = ' ', modified = '柳 ', removed = ' '},
-  color_added = colors.green,
-  color_modified = colors.orange,
-  color_removed = colors.red,
+  color_added = '#50FA7B',
+  color_modified = '#FFB86C',
+  color_removed = '#FF5555',
+  condition = conditions.hide_in_width
 }
 ins_right {
   function() return '▊' end,
-  color = {fg = colors.blue},
+  color = {fg = colors.dracula_violet},
   right_padding = 0
 }
+
 lualine.setup(config)
