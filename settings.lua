@@ -3,7 +3,7 @@ local set = vim.opt
 vim.cmd('set nocompatible')
 vim.cmd('set t_Co=256')
 
-vim.cmd('colorscheme onedark')
+vim.cmd('colorscheme dracula')
 
 vim.cmd('filetype on')
 vim.cmd('filetype plugin on')
