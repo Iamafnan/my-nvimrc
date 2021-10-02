@@ -25,19 +25,12 @@ use { 'romgrk/barbar.nvim',
         requires = {'kyazdani42/nvim-web-devicons'}}
 
 -- Auto Completion
-use { 'hrsh7th/nvim-cmp' }
-use { 'hrsh7th/cmp-buffer' }
-use { 'hrsh7th/cmp-nvim-lsp' }
 use { 'jiangmiao/auto-pairs' }
+use { 'neoclide/coc.nvim',
+        branch = 'release'}
 
--- Snippets
-use { 'hrsh7th/vim-vsnip' }
-use { 'hrsh7th/vim-vsnip-integ' }
-use { 'honza/vim-snippets' }
-use { 'Shougo/neosnippet.vim' }
-use { 'Shougo/neosnippet-snippets' }
-use { 'Shougo/deoppet.nvim',
-        run = ':UpdateRemotePlugins'}
+-- Better Syntax Highlighting
+use { 'nvim-treesitter/nvim-treesitter' }
 
 -- Commenting
 use { 'tpope/vim-commentary' }
@@ -45,14 +38,6 @@ use { 'tpope/vim-commentary' }
 -- Git Integration
 use { 'airblade/vim-gitgutter' }
 use { 'kdheepak/lazygit.nvim' }
-
--- Language Server Protocol
-use { 'neovim/nvim-lspconfig' }
-use { 'kabouzeid/nvim-lspinstall' }
-use { 'glepnir/lspsaga.nvim' }
-use {'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'}
-use { 'hrsh7th/cmp-nvim-lsp' }
 
 -- Rest API Client
 use { "NTBBloodbath/rest.nvim",
