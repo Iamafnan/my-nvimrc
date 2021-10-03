@@ -39,10 +39,6 @@ use { 'tpope/vim-commentary' }
 use { 'airblade/vim-gitgutter' }
 use { 'kdheepak/lazygit.nvim' }
 
--- Rest API Client
-use { "NTBBloodbath/rest.nvim",
-        requires = { "nvim-lua/plenary.nvim" }}
-
 -- Web Development
 use { 'tpope/vim-surround' }
 use { 'mattn/emmet-vim' }

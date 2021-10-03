@@ -33,7 +33,8 @@ set.writebackup = false
 
 set.completeopt = { 'noinsert','noselect', 'menuone' }
 
-set.clipboard = 'unnamedplus'
+-- set.clipboard = 'unnamedplus'
+vim.cmd('set clipboard=unnamedplus')
 
 set.autoindent = true
 set.smartindent = true
