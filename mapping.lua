@@ -6,6 +6,7 @@ map('n', 'q', ':quit<CR>', { noremap = true })
 map('', 'i', 'a', { noremap = false })
 map('', 'k', 'gk', { noremap = false })
 map('', 'j' , 'gj', { noremap = false })
+map('n', '<CR>', '<esc>o', { silent = true, noremap = true } )
 
 -- for buffers movement
 map('n', ',q', ':BufferClose<CR>', { noremap = true , silent = true})
