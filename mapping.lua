@@ -32,4 +32,4 @@ map('n', ',f', ':Telescope find_files<CR>', { noremap = true , silent = true })
 map('n', ',,', ':Telescope live_grep<CR>', { noremap =  true , silent = true})
 
 -- for lazygit
-map('n', 'gh', ':LazyGit', { noremap = true , silent = true })
+map('n', 'gh', ':LazyGit<CR>', { noremap = true , silent = true })
