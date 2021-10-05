@@ -32,6 +32,7 @@ use { 'romgrk/barbar.nvim',
 use { 'jiangmiao/auto-pairs' }
 use { 'neoclide/coc.nvim',
         branch = 'release'}
+use { 'rafcamlet/coc-nvim-lua' }
 
 -- Better Syntax Highlighting
 use { 'nvim-treesitter/nvim-treesitter' }
