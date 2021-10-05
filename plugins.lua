@@ -28,6 +28,12 @@ use { 'hoob3rt/lualine.nvim',
 use { 'romgrk/barbar.nvim',
         requires = {'kyazdani42/nvim-web-devicons'}}
 
+-- Tag Bar
+use { 'preservim/tagbar' }
+
+-- Undo Tree
+use { 'mbbill/undotree' }
+
 -- Auto Completion
 use { 'jiangmiao/auto-pairs' }
 use { 'neoclide/coc.nvim',
