@@ -28,8 +28,9 @@ map('n', 'nt', ':NvimTreeToggle<CR>', { noremap = true , silent = true })
 map('n', 'rcs', ':so ~/.config/nvim/init.vim<CR>', { noremap = false })
 
 -- for telescope
-map('n', ',f', ':Telescope find_files<CR>', { noremap = true , silent = true })
-map('n', ',,', ':Telescope live_grep<CR>', { noremap =  true , silent = true})
+map('n', ',ff', ':Telescope find_files<CR>', { noremap = true , silent = true })
+map('n', ',lg', ':Telescope live_grep<CR>', { noremap =  true , silent = true})
+map('n', ',gf', ':Telescope git_files<CR>', { noremap = true , silent = true })
 
 -- for lazygit
 map('n', 'gh', ':LazyGit<CR>', { noremap = true , silent = true })
