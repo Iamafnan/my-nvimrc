@@ -16,6 +16,10 @@ use {'nvim-telescope/telescope.nvim',
                     'kyazdani42/nvim-web-devicons',
                     'nvim-lua/popup.nvim'}}
 
+-- Snippets
+use { 'SirVer/ultisnips' }
+use { 'honza/vim-snippets' }
+
 -- Status Line
 use { 'hoob3rt/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}}
