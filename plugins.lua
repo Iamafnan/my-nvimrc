@@ -40,6 +40,9 @@ use { 'preservim/tagbar' }
 -- Undo Tree
 use { 'mbbill/undotree' }
 
+-- NodeJs Development
+use { 'moll/vim-node' }
+
 -- Auto Completion
 use { 'jiangmiao/auto-pairs' }
 use { 'neoclide/coc.nvim',
