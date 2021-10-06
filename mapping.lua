@@ -1,7 +1,7 @@
 local map = vim.api.nvim_set_keymap
 
 -- basic maps
-map('n','w', ':write<CR>', { noremap = true })
+map('n','w', ':write<CR> | :lua require("notify")("Succesfully saved your file")<CR>', { noremap = true , silent = true })
 map('n', 'q', ':quit<CR>', { noremap = true })
 map('', 'i', 'a', { noremap = false })
 map('', 'k', 'gk', { noremap = false })
@@ -25,7 +25,7 @@ map('n', 'cm', ':Commentary<CR>', { noremap = true , silent = true })
 map('n', 'nt', ':NvimTreeToggle<CR>', { noremap = true , silent = true })
 
 -- for quick rc sourcing
-map('n', 'rcs', ':so ~/.config/nvim/init.vim<CR>', { noremap = false })
+map('n', 'rcs', ':so ~/.config/nvim/init.vim<CR> | :lua require("notify")("Succesfully Reloaded init.vim")', { noremap = false })
 
 -- for telescope
 map('n', ',ff', ':Telescope find_files<CR>', { noremap = true , silent = true })

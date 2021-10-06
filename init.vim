@@ -9,3 +9,5 @@ luafile ~/.config/nvim/plug-configs/nvim-tree.lua
 luafile ~/.config/nvim/plug-configs/treesitter.lua
 luafile ~/.config/nvim/plug-configs/telescope.lua
 luafile ~/.config/nvim/plug-configs/emmet.lua
+luafile ~/.config/nvim/plug-configs/vim-js.lua
+luafile ~/.config/nvim/plug-configs/shade.lua

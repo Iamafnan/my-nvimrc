@@ -7,6 +7,7 @@ use 'wbthomason/packer.nvim'
 use {'dracula/vim', as = 'dracula'}
 use { 'navarasu/onedark.nvim', as = 'onedark' }
 use { 'morhetz/gruvbox', as = 'gruvbox' }
+use { 'nekonako/xresources-nvim', as = 'xresources' }
 
 -- Navigation
 use {'kyazdani42/nvim-tree.lua',
@@ -16,9 +17,14 @@ use {'nvim-telescope/telescope.nvim',
                     'kyazdani42/nvim-web-devicons',
                     'nvim-lua/popup.nvim'}}
 
+-- UI Inhancement    
+use { 'MunifTanjim/nui.nvim' }
+use { 'rcarriga/nvim-notify' }
+use { 'sunjon/shade.nvim' }
+
 -- Snippets
-use { 'SirVer/ultisnips' }
-use { 'honza/vim-snippets' }
+-- use { 'SirVer/ultisnips' }
+-- use { 'honza/vim-snippets' }
 
 -- Status Line
 use { 'hoob3rt/lualine.nvim',
@@ -42,6 +48,7 @@ use { 'rafcamlet/coc-nvim-lua' }
 
 -- Better Syntax Highlighting
 use { 'nvim-treesitter/nvim-treesitter' }
+use { 'pangloss/vim-javascript' }
 
 -- Commenting
 use { 'tpope/vim-commentary' }
@@ -54,6 +61,7 @@ use { 'kdheepak/lazygit.nvim' }
 use { 'tpope/vim-surround' }
 use { 'mattn/emmet-vim' }
 use { 'alvan/vim-closetag' }
+use { 'mg979/vim-visual-multi' }
 
 -- Syntax Check
 use { 'vim-syntastic/syntastic' }
