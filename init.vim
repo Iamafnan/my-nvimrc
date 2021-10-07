@@ -3,11 +3,14 @@ luafile ~/.config/nvim/settings.lua
 luafile ~/.config/nvim/mapping.lua
 luafile ~/.config/nvim/autocommands.lua
 
-luafile ~/.config/nvim/plug-configs/barber.lua
-luafile ~/.config/nvim/plug-configs/lualine.lua
-luafile ~/.config/nvim/plug-configs/nvim-tree.lua
-luafile ~/.config/nvim/plug-configs/treesitter.lua
-luafile ~/.config/nvim/plug-configs/telescope.lua
-luafile ~/.config/nvim/plug-configs/emmet.lua
-luafile ~/.config/nvim/plug-configs/vim-js.lua
-luafile ~/.config/nvim/plug-configs/shade.lua
+luafile ~/.config/nvim/configs/barber.lua
+luafile ~/.config/nvim/configs/lualine.lua
+luafile ~/.config/nvim/configs/treesitter.lua
+luafile ~/.config/nvim/configs/telescope.lua
+luafile ~/.config/nvim/configs/emmet.lua
+luafile ~/.config/nvim/configs/vim-js.lua
+luafile ~/.config/nvim/configs/shade.lua
+luafile ~/.config/nvim/configs/bufferline.lua
+
+lua require('lsp')
+lua require('auto-completion')

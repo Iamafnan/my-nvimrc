@@ -5,34 +5,28 @@ use 'wbthomason/packer.nvim'
 
 -- Colorschemes
 use {'dracula/vim', as = 'dracula'}
-use { 'navarasu/onedark.nvim', as = 'onedark' }
-use { 'morhetz/gruvbox', as = 'gruvbox' }
-use { 'nekonako/xresources-nvim', as = 'xresources' }
 
 -- Navigation
-use {'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons'}
 use {'nvim-telescope/telescope.nvim',
         requires = {'nvim-lua/plenary.nvim',
                     'kyazdani42/nvim-web-devicons',
                     'nvim-lua/popup.nvim'}}
 
 -- UI Inhancement    
-use { 'MunifTanjim/nui.nvim' }
 use { 'rcarriga/nvim-notify' }
 use { 'sunjon/shade.nvim' }
 
 -- Snippets
--- use { 'SirVer/ultisnips' }
--- use { 'honza/vim-snippets' }
+use { 'L3MON4D3/LuaSnip' }
+use "saadparwaiz1/cmp_luasnip"
 
 -- Status Line
 use { 'hoob3rt/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 
 -- Tab Line
-use { 'romgrk/barbar.nvim',
-        requires = {'kyazdani42/nvim-web-devicons'}}
+use {'akinsho/bufferline.nvim',
+        requires = 'kyazdani42/nvim-web-devicons'}
 
 -- Tag Bar
 use { 'preservim/tagbar' }
@@ -45,9 +39,11 @@ use { 'moll/vim-node' }
 
 -- Auto Completion
 use { 'jiangmiao/auto-pairs' }
-use { 'neoclide/coc.nvim',
-        branch = 'release'}
-use { 'rafcamlet/coc-nvim-lua' }
+use { 'hrsh7th/cmp-nvim-lsp' }  
+use { 'hrsh7th/cmp-buffer' }
+use { 'hrsh7th/nvim-cmp' }
+use "hrsh7th/cmp-path"
+use "hrsh7th/cmp-nvim-lua"
 
 -- Better Syntax Highlighting
 use { 'nvim-treesitter/nvim-treesitter' }
@@ -64,6 +60,8 @@ use { 'kdheepak/lazygit.nvim' }
 use { 'tpope/vim-surround' }
 use { 'mattn/emmet-vim' }
 use { 'alvan/vim-closetag' }
+
+-- Multi Cursor
 use { 'mg979/vim-visual-multi' }
 
 -- Syntax Check
@@ -71,6 +69,10 @@ use { 'vim-syntastic/syntastic' }
 
 -- Icon Packs
 use { 'kyazdani42/nvim-web-devicons' }
+
+-- LSP
+use { 'neovim/nvim-lspconfig' }
+use { 'onsails/lspkind-nvim' }
 
 end
         )
