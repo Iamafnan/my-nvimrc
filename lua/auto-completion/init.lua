@@ -16,8 +16,6 @@ cmp.setup({
                         ['<C-Space>'] = cmp.mapping.complete(),
                         ['<C-e>'] = cmp.mapping.close(),
                         ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                        behavior = cmp.ConfirmBehavior.Insert,
-                        select = true,
                         },
                 sources = {
                         { name = 'nvim_lsp' },
@@ -27,6 +25,12 @@ cmp.setup({
                         { name = 'nvim_lua' }
                         },
                 formatting = {
-                        format = lspkind.cmp_format({with_text = false})
+                        format = lspkind.cmp_format({with_text = true, menu = ({
+                        buffer = "[Buffer]",
+                        nvim_lsp = "[LSP]",
+                        luasnip = "[LuaSnip]",
+                        nvim_lua = "[Lua]",
+                        latex_symbols = "[Latex]",
+                        })}),
                         },
 })

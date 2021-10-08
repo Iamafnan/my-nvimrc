@@ -49,6 +49,7 @@ set.laststatus = 2
 
 set.showtabline = 2
 
-set.updatetime = 300
+set.updatetime = 250
+
 
 set.scrolloff = 7
