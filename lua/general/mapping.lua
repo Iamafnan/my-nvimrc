@@ -33,3 +33,8 @@ map('n', ',gf', ':Telescope git_files<CR>', { noremap = true , silent = true })
 
 -- for lazygit
 map('n', 'gh', ':LazyGit<CR>', { noremap = true , silent = true })
+
+-- for lsp-diag
+map('n', '<space>dw', '<cmd>lua require("vimway-lsp-diag").open_all_diagnostics()<CR>', { noremap = true , silent = true })
+map('n', '<space>da', '<cmd>lua require("vimway-lsp-diag").open_buffer_diagnostics()<cr>', { noremap = true , silent = true })
+

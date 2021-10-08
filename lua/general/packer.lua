@@ -73,6 +73,8 @@ use { 'kyazdani42/nvim-web-devicons' }
 -- LSP
 use { 'neovim/nvim-lspconfig' }
 use { 'onsails/lspkind-nvim' }
+use { 'ray-x/lsp_signature.nvim' }
+use { 'onsails/vimway-lsp-diag.nvim' }
 
 end
         )
