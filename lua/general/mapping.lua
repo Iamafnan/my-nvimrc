@@ -1,40 +1,37 @@
 local map = vim.api.nvim_set_keymap
+local opts = { noremap = true , silent = true }
 
 -- basic maps
-map('n','w', ':write<CR>', { noremap = true , silent = true })
-map('n', 'q', ':quit<CR>', { noremap = true , silent = true })
-map('', 'i', 'a', { noremap = false })
-map('', 'k', 'gk', { noremap = false })
-map('', 'j' , 'gj', { noremap = false })
-map('n', '<CR>', '<esc>o', { silent = true, noremap = true } )
+map('n','w', ':write<CR>' , opts)
+map('n', 'q', ':quit<CR>' , opts)
+map('', 'i', 'a', opts)
+map('', 'k', 'gk', opts)
+map('', 'j' , 'gj', opts)
+map('n', '<CR>', '<esc>o',  opts )
 
 -- for buffers movement
-map('n', ',l', ':Buffer<CR>', { noremap = true , silent = true })
+map('n', ',l', ':Buffer<CR>', opts)
 
 -- for split movement
-map('', '<C-h>', '<C-w>h', { noremap = false , silent = true } )
-map('', '<C-j>', '<C-w>j', { noremap = false , silent = true } )
-map('', '<C-k>', '<C-w>k', { noremap = false , silent = true } )
-map('', '<C-l>', '<C-w>l', { noremap = false , silent = true } )
+map('', '<C-h>', '<C-w>h', opts )
+map('', '<C-j>', '<C-w>j', opts )
+map('', '<C-k>', '<C-w>k', opts )
+map('', '<C-l>', '<C-w>l', opts )
 
 -- for commentary
-map('n', 'cm', ':Commentary<CR>', { noremap = true , silent = true })
+map('n', 'cm', ':Commentary<CR>', opts)
 
 -- for nvimtree
-map('n', 'nt', ':NvimTreeToggle<CR>', { noremap = true , silent = true })
+map('n', 'nt', ':NvimTreeToggle<CR>', opts)
 
 -- for quick rc sourcing
-map('n', 'rcs', ':so ~/.config/nvim/init.vim<CR>', { noremap = false , silent = true })
+map('n', 'rcs', ':so ~/.config/nvim/init.lua<CR>', opts)
 
 -- for telescope
-map('n', ',ff', ':Telescope find_files<CR>', { noremap = true , silent = true })
-map('n', ',lg', ':Telescope live_grep<CR>', { noremap =  true , silent = true})
-map('n', ',gf', ':Telescope git_files<CR>', { noremap = true , silent = true })
-
+map('n', ',ff', ':Telescope find_files<CR>', opts)
+map('n', ',lg', ':Telescope live_grep<CR>', opts)
+map('n', ',gf', ':Telescope git_files<CR>', opts)  
+map('n', ',fb', ':Telescope file_browser<CR>', opts)
+ 
 -- for lazygit
-map('n', 'gh', ':LazyGit<CR>', { noremap = true , silent = true })
-
--- for lsp-diag
-map('n', '<space>dw', '<cmd>lua require("vimway-lsp-diag").open_all_diagnostics()<CR>', { noremap = true , silent = true })
-map('n', '<space>da', '<cmd>lua require("vimway-lsp-diag").open_buffer_diagnostics()<cr>', { noremap = true , silent = true })
-
+map('n', 'gh', ':LazyGit<CR>', opts)

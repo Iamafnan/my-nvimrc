@@ -31,9 +31,6 @@ use {'akinsho/bufferline.nvim',
 -- Tag Bar
 use { 'preservim/tagbar' }
 
--- Undo Tree
-use { 'mbbill/undotree' }
-
 -- NodeJs Development
 use { 'moll/vim-node' }
 
@@ -42,8 +39,8 @@ use { 'jiangmiao/auto-pairs' }
 use { 'hrsh7th/cmp-nvim-lsp' }  
 use { 'hrsh7th/cmp-buffer' }
 use { 'hrsh7th/nvim-cmp' }
-use "hrsh7th/cmp-path"
-use "hrsh7th/cmp-nvim-lua"
+use {  "hrsh7th/cmp-path" }
+use {"hrsh7th/cmp-nvim-lua"}
 
 -- Better Syntax Highlighting
 use { 'nvim-treesitter/nvim-treesitter' }
@@ -74,7 +71,6 @@ use { 'kyazdani42/nvim-web-devicons' }
 use { 'neovim/nvim-lspconfig' }
 use { 'onsails/lspkind-nvim' }
 use { 'ray-x/lsp_signature.nvim' }
-use { 'onsails/vimway-lsp-diag.nvim' }
 
 end
         )
