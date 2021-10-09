@@ -8,9 +8,7 @@ map('', 'i', 'a', opts)
 map('', 'k', 'gk', opts)
 map('', 'j' , 'gj', opts)
 map('n', '<CR>', '<esc>o',  opts )
-
--- for buffers movement
-map('n', ',l', ':Buffer<CR>', opts)
+map('n', '<space>ps', ':PackerSync<CR>', opts )
 
 -- for split movement
 map('', '<C-h>', '<C-w>h', opts )
@@ -21,11 +19,8 @@ map('', '<C-l>', '<C-w>l', opts )
 -- for commentary
 map('n', 'cm', ':Commentary<CR>', opts)
 
--- for nvimtree
-map('n', 'nt', ':NvimTreeToggle<CR>', opts)
-
 -- for quick rc sourcing
-map('n', 'rcs', ':so ~/.config/nvim/init.lua<CR>', opts)
+map('n', 'rcs', ':so %<CR>', opts)
 
 -- for telescope
 map('n', ',ff', ':Telescope find_files<CR>', opts)
@@ -35,3 +30,6 @@ map('n', ',fb', ':Telescope file_browser<CR>', opts)
  
 -- for lazygit
 map('n', 'gh', ':LazyGit<CR>', opts)
+
+-- for tagbar
+map('n', 'tb', ':TagbarToggle<CR>', opts)
