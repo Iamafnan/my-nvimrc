@@ -33,3 +33,7 @@ map('n', 'gh', ':LazyGit<CR>', opts)
 
 -- for tagbar
 map('n', 'tb', ':TagbarToggle<CR>', opts)
+
+-- for sideways
+map('n', 'sl', '<ESC>:SidewaysRight<CR>i', opts)
+map('n', 'sj', '<ESC>:SidewaysLeft<CR>i', opts)

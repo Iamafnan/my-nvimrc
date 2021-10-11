@@ -70,5 +70,8 @@ use { 'neovim/nvim-lspconfig' }
 use { 'onsails/lspkind-nvim' }
 use { 'ray-x/lsp_signature.nvim' }
 
+-- Quick Movemnet within buffer
+use { 'AndrewRadev/sideways.vim' }
+
 end
         )
