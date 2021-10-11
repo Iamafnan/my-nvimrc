@@ -1,9 +1,16 @@
 local nvim_lsp = require('lspconfig')
 local protocol = require('vim.lsp.protocol')
 local lsp_signature = require('lsp_signature')
+local cmp_lsp = require('cmp_nvim_lsp')
 local capabilities = protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
 local filetypes = { 'typescript', 'typescriptreact' , 'typescript.tsx', 'javascript', 'javascriptreact', 'javascript.jsx', 'vim', 'python' , 'lua', 'html', 'css', 'sh'}
 
 local on_attach = function(client, bufnr)

@@ -20,9 +20,8 @@ cmp.setup({
                 sources = {
                         { name = 'nvim_lsp' },
                         { name = 'buffer' },
-                        { name = 'path' },
-                        { name = 'luasnip' },
-                        { name = 'nvim_lua' }
+                        { name = 'nvim_lua' },
+                        { name = 'luasnip' }
                         },
                 formatting = {
                         format = lspkind.cmp_format({with_text = true, menu = ({
