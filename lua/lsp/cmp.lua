@@ -6,7 +6,7 @@ end
 local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
--- Setup nvim-cmp.
+
 local cmp = require'cmp'
 local lspkind = require('lspkind')
 
@@ -48,6 +48,11 @@ cmp.setup({
     { name = 'vsnip' },
     { name = 'luasnip' },
     { name = 'buffer' },
+    { name = 'path' },
+    { name = 'nvim_lua' },
+    { name = 'look', keyword_length = 2 },
+    { name = 'calc' },
+    { name = 'spell' }
   },
   formatting = {
     format = lspkind.cmp_format({with_text = false, maxwidth = 50})

@@ -71,7 +71,11 @@ use { 'ray-x/lsp_signature.nvim' }
 use { 'hrsh7th/nvim-cmp' }
 use { 'hrsh7th/cmp-nvim-lsp' }
 use { 'hrsh7th/cmp-buffer' }
-
+use { 'hrsh7th/cmp-path' }
+use { 'hrsh7th/cmp-nvim-lua' }
+use { 'octaltree/cmp-look' }
+use { 'hrsh7th/cmp-calc' }
+use { 'f3fora/cmp-spell' }
 
 -- Quick Movemnet within buffer
 use { 'AndrewRadev/sideways.vim' }
