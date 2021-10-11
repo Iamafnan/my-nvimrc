@@ -19,6 +19,8 @@ use { 'sunjon/shade.nvim' }
 -- Snippets
 use { 'L3MON4D3/LuaSnip' }
 use "saadparwaiz1/cmp_luasnip"
+use { 'hrsh7th/vim-vsnip' }
+use { 'hrsh7th/cmp-vsnip' }
 
 -- Status Line
 use { 'hoob3rt/lualine.nvim',
@@ -36,9 +38,6 @@ use { 'moll/vim-node' }
 
 -- Auto Completion
 use { 'jiangmiao/auto-pairs' }
-use { 'hrsh7th/nvim-compe' }
-use { 'hrsh7th/nvim-cmp' }
-use { 'hrsh7th/cmp-nvim-lsp' }
 
 -- Better Syntax Highlighting
 use { 'nvim-treesitter/nvim-treesitter' }
@@ -69,6 +68,10 @@ use { 'kyazdani42/nvim-web-devicons' }
 use { 'neovim/nvim-lspconfig' }
 use { 'onsails/lspkind-nvim' }
 use { 'ray-x/lsp_signature.nvim' }
+use { 'hrsh7th/nvim-cmp' }
+use { 'hrsh7th/cmp-nvim-lsp' }
+use { 'hrsh7th/cmp-buffer' }
+
 
 -- Quick Movemnet within buffer
 use { 'AndrewRadev/sideways.vim' }
