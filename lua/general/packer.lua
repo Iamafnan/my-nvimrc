@@ -11,6 +11,9 @@ use { 'ahmedkhalf/project.nvim' }
 -- Colorschemes
 use {'dracula/vim', as = 'dracula'}
 
+-- Which Key
+use { 'folke/which-key.nvim' }
+
 -- Navigation
 use {'nvim-telescope/telescope.nvim',
         requires = {'nvim-lua/plenary.nvim',

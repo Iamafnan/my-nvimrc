@@ -1,3 +1,4 @@
+vim.g.mapleader = ' '
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true , silent = true }
 
@@ -8,6 +9,12 @@ map('', 'i', 'a', opts)
 map('', 'k', 'gk', opts)
 map('', 'j' , 'gj', opts)
 map('n', '<CR>', '<esc>o',  opts )
+
+-- basic visual mode maps
+map('v', '<', '<gv', opts)
+map('v', '>', '>gv', opts)
+
+-- for packer.nvim
 map('n', '<space>ps', ':PackerSync<CR>', opts )
 
 -- for split movement
