@@ -37,6 +37,12 @@ local langservers = {
   'sumneko_lua'
 }
 
+local signature = require('lsp_signature')
+
+local on_attach = function( client , bufnr )
+        signature.on_attach()
+end
+
 for _, server in ipairs(langservers) do
   if server == 'sumneko_lua' then
     require'lspconfig'[server].setup {
@@ -62,7 +68,8 @@ for _, server in ipairs(langservers) do
     }
   else
     require'lspconfig'[server].setup {
-      capabilities = capabilities
+      capabilities = capabilities,
+      on_attach = on_attach
     }
   end
 end

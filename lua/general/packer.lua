@@ -3,6 +3,11 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function()
 use 'wbthomason/packer.nvim'
 
+use 'lewis6991/impatient.nvim'
+
+-- Projwct Management
+use { 'ahmedkhalf/project.nvim' }
+
 -- Colorschemes
 use {'dracula/vim', as = 'dracula'}
 

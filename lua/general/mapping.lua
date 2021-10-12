@@ -27,6 +27,7 @@ map('n', ',ff', ':Telescope find_files<CR>', opts)
 map('n', ',lg', ':Telescope live_grep<CR>', opts)
 map('n', ',gf', ':Telescope git_files<CR>', opts)  
 map('n', ',fb', ':Telescope file_browser<CR>', opts)
+map('n', ',pr', ':Telescope projects<CR>', opts)
  
 -- for lazygit
 map('n', 'gh', ':LazyGit<CR>', opts)
