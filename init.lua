@@ -9,23 +9,18 @@
 
 
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
--- Author: Mohammad Afnan (@Iamafnan)                                           "
---                                                                              "
---                                                                              "
---                                                                              "
---                                                                              "
+-- "  Author: Mohammad Afnan (@Iamafnan)                                        "
+-- "  Creation Date :                                                           "
+-- "                                                                            "
+-- "                                                                            "
+-- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 require('general')
 require('telescope-config')
-require('tabline')
-require('statusline')
 require('ui')
-require('vim-js')
-require('treesitter')
 require('lsp')
 require('project-nvim')
 require('whichkey')
 require('autopairs')
-vim.cmd('source ~/.config/nvim/lua/general/term.vim')
