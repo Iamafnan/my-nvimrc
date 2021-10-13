@@ -6,7 +6,7 @@ function! OpenTerminal()
   split term://zsh
   resize 10
 endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
+nnoremap <silent>  <c-t> :call OpenTerminal()<CR>
 
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j

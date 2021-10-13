@@ -75,7 +75,9 @@ use { 'kyazdani42/nvim-web-devicons' }
 -- LSP
 use { 'neovim/nvim-lspconfig' }
 use { 'onsails/lspkind-nvim' }
+use { 'glepnir/lspsaga.nvim' }
 use { 'ray-x/lsp_signature.nvim' }
+use { 'kosayoda/nvim-lightbulb' }
 use { 'hrsh7th/nvim-cmp' }
 use { 'hrsh7th/cmp-nvim-lsp' }
 use { 'hrsh7th/cmp-buffer' }

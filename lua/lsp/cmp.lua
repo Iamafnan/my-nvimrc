@@ -57,10 +57,27 @@ cmp.setup({
     { name = 'calc' },
     { name = 'spell' }
   },
+  documentation = {
+    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  },
   formatting = {
-    format = lspkind.cmp_format({with_text = false, maxwidth = 50})
-  }
-})
+          format = function(entry , vim_item)
+                        vim_item.kind = string.format("%s %s", lspkind.presets.default[vim_item.kind], vim_item.kind)
+                        vim_item.menu = ({
+                                nvim_lsp = '[LSP]',
+                                look = '[LOOK]',
+                                buffer = '[BUFFER]',
+                                vsnip = '[VSNIP]',
+                                luasnip = '[LUASNIP]',
+                                path = '[PATH]',
+                                calc = '[CALC]',
+                                spell = '[SPELL]',
+                                nvim_lua = '[LUA]'
+                        })[entry.source.name]
+                        return vim_item
+                end
+  },
+}) 
 vim.cmd('highlight! link CmpItemAbbr Pmenu')
 vim.cmd('highlight! link CmpItemKind Pmenu')
 vim.cmd('highlight! link CmpItemMenu Pmenu')

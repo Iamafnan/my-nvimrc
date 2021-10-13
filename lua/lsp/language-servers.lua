@@ -1,5 +1,17 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+local signature = require('lsp_signature')
+
+local bmap = vim.api.nvim_buf_set_keymap
+local opts = { noremap = true , silent = true }
+
+local on_attach = function( client , bufnr )
+vim.api.nvim_buf_set_keymap(0 , 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+vim.api.nvim_buf_set_keymap(0 , 'n', '<C-1>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+vim.api.nvim_buf_set_keymap(0 , 'n', '<C-2>', '<cmd>lua vim.lsp.buf.decladeclaration()<CR>', opts)
+        signature.on_attach()
+end
+
 require'lspconfig/configs'.ls_emmet = {
   default_config = {
     cmd = { 'ls_emmet', '--stdio' };
@@ -14,8 +26,8 @@ require'lspconfig/configs'.ls_emmet = {
 local system_name
   system_name = "Linux"
 
-local sumneko_root_path = '/data/data/com.termux/files/usr/bin/lua-language-server'
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+local sumneko_root_path = '/data/data/com.termux/files/usr/lib/lua-language-server'
+local sumneko_binary = '/data/data/com.termux/files/usr/bin/lua-language-server'
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
@@ -25,17 +37,10 @@ local langservers = {
   'html',
   'cssls',
   'tsserver',
+  'pyright',
   'ls_emmet',
-  'bashls',
-  'sumneko_lua',
-  'vimls'
+  'sumneko_lua'
 }
-
-local signature = require('lsp_signature')
-
-local on_attach = function( client , bufnr )
-        signature.on_attach()
-end
 
 for _, server in ipairs(langservers) do
   if server == 'sumneko_lua' then
