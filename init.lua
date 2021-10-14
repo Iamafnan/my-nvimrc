@@ -10,16 +10,16 @@
 
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 -- "  Author: Mohammad Afnan (@Iamafnan)                                        "
--- "  Creation Date :                                                           "
+-- "  Creation Date : IDK                                                        "
 -- "                                                                            "
 -- "                                                                            "
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+require('ui')
 require('general')
 require('telescope-config')
-require('ui')
 require('lsp')
 require('project-nvim')
 require('whichkey')

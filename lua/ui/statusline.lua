@@ -13,7 +13,9 @@ local colors = {
   blue = '#51afef',
   red = '#ec5f67',
   white = '#000000',
-  dracula_violet = '#bd93f9'
+  dracula_violet = '#bd93f9',
+  dracula_orange = '#EF984A',
+  dracula_green = '#50FA7B'
 }
 
 local conditions = {
@@ -71,8 +73,8 @@ ins_left {
 ins_left {
   function()
     local mode_color = {
-      n = colors.red,
-      i = colors.green,
+      n = colors.dracula_violet,
+      i = colors.dracula_green,
       v = colors.blue,
       [''] = colors.blue,
       V = colors.blue,
@@ -93,7 +95,7 @@ ins_left {
       t = colors.red
     }
     vim.api.nvim_command(
-        'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=" ..
+        'hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. " guibg=colors.white" ..
             colors.bg)
     return ''
   end,
@@ -164,14 +166,14 @@ ins_right {
   'branch',
   icon = '',
   condition = conditions.check_git_workspace,
-  color = {fg = colors.dracula_violet, gui = 'bold'}
+  color = {fg = colors.dracula_orange, gui = 'bold'}
 }
 
 ins_right {
   'diff',
   symbols = {added = ' ', modified = '柳 ', removed = ' '},
   color_added = '#50FA7B',
-  color_modified = '#FFB86C',
+  color_modified = colors.dracula_orange,
   color_removed = '#FF5555',
   condition = conditions.hide_in_width
 }

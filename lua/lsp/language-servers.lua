@@ -6,9 +6,9 @@ local bmap = vim.api.nvim_buf_set_keymap
 local opts = { noremap = true , silent = true }
 
 local on_attach = function( client , bufnr )
-vim.api.nvim_buf_set_keymap(0 , 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-vim.api.nvim_buf_set_keymap(0 , 'n', '<C-1>', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-vim.api.nvim_buf_set_keymap(0 , 'n', '<C-2>', '<cmd>lua vim.lsp.buf.decladeclaration()<CR>', opts)
+vim.api.nvim_buf_set_keymap(bufnr , 'n', 'sh', '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', opts)
+vim.api.nvim_buf_set_keymap(bufnr , 'n', 'sp', ':Lspsaga preview_definition<CR>', opts)
+vim.api.nvim_buf_set_keymap(bufnr , 'n', 'sd', '<cmd>lua vim.lsp.buf.decladeclaration()<CR>', opts)
         signature.on_attach()
 end
 
