@@ -1,8 +1,12 @@
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local cmp_nvim_lsp = require('cmp_nvim_lsp')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local nvim_lsp = require('lspconfig')
+local nvim_lsp_config = require('lspconfig/configs')
 local signature = require('lsp_signature')
 
-local bmap = vim.api.nvim_buf_set_keymap
 local opts = { noremap = true , silent = true }
 
 local on_attach = function( client , bufnr )
@@ -12,63 +16,70 @@ vim.api.nvim_buf_set_keymap(bufnr , 'n', 'sd', '<cmd>lua vim.lsp.buf.decladeclar
         signature.on_attach()
 end
 
-require'lspconfig/configs'.ls_emmet = {
-  default_config = {
-    cmd = { 'ls_emmet', '--stdio' };
-    filetypes = { 'html', 'css', 'scss' };
-    root_dir = function(_)
-      return vim.loop.cwd()
-    end;
-    settings = {};
-  };
+-- TypeScript / Javascript
+nvim_lsp.tsserver.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
+}
+nvim_lsp.rome.setup{
+        on_attach = on_attach,
+        capabilities = capabilities,
 }
 
-local system_name
-  system_name = "Linux"
-
-local sumneko_root_path = '/data/data/com.termux/files/usr/lib/lua-language-server'
-local sumneko_binary = '/data/data/com.termux/files/usr/bin/lua-language-server'
-
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-local langservers = {
-  'html',
-  'cssls',
-  'tsserver',
-  'pyright',
-  'ls_emmet',
-  'sumneko_lua'
+-- HTML
+nvim_lsp.html.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
 }
 
-for _, server in ipairs(langservers) do
-  if server == 'sumneko_lua' then
-    require'lspconfig'[server].setup {
-      cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
-      settings = {
-        Lua = {
-          runtime = {
-            version = 'LuaJIT',
-            path = runtime_path,
-          },
-          diagnostics = {
-            globals = {'vim'},
-          },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
-            checkThirdParty = false
-          },
-          telemetry = {
-            enable = false,
-          },
-        },
-      },
-    }
-  else
-    require'lspconfig'[server].setup {
-      capabilities = capabilities,
-      on_attach = on_attach
-    }
-  end
-end
+-- CSS
+nvim_lsp.cssls.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
+}
+
+-- HTML / CSS
+  nvim_lsp_config.emmet_ls = {    
+    default_config = {    
+      cmd = {'emmet-ls', '--stdio'};
+      filetypes = {'html', 'css'};
+      root_dir = function(fname)    
+        return vim.loop.cwd()
+      end;    
+      settings = {};    
+    };    
+  }    
+nvim_lsp.emmet_ls.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
+}
+
+-- Vim
+nvim_lsp.vimls.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
+}
+
+-- Bash / Zsh
+nvim_lsp.bashls.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
+}
+
+-- Python 
+nvim_lsp.pyright.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
+}
+
+-- JSON
+nvim_lsp.jsonls.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
+}
+
+-- Linting
+nvim_lsp.stylelint_lsp.setup{
+        on_attach = on_attach,
+        capabilities = capabilities
+}

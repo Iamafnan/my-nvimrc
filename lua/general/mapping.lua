@@ -10,12 +10,21 @@ map('', 'k', 'gk', opts)
 map('', 'j' , 'gj', opts)
 map('n', '<CR>', '<esc>o',  opts )
 
+-- single line movement
+map('n', '<A-left>', '^', opts)
+map('n', '<A-right>', '$', opts)
+map('i', '<A-right>', '<ESC>$ i', opts)
+map('i', '<A-left>', '<ESC>^ i', opts)
+
 -- basic visual mode maps
 map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
 
 -- for packer.nvim
 map('n', '<space>ps', ':PackerSync<CR>', opts )
+
+-- Auto compeletion
+map('i', '<', '<><ESC>h i', opts)
 
 -- for split movement
 map('', '<C-h>', '<C-w>h', opts )

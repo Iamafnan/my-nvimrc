@@ -24,11 +24,12 @@ use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim', 'kyaz
 use { 'ahmedkhalf/project.nvim' }
 
 --  UI 
-use { 'hoob3rt/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+use 'tamton-aquib/staline.nvim'
 use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 use { 'kyazdani42/nvim-web-devicons' }
 use { 'rcarriga/nvim-notify' }
 use { 'sunjon/shade.nvim' }
+use { 'lukas-reineke/indent-blankline.nvim' }
 use { 'nvim-treesitter/nvim-treesitter' }
 use { 'pangloss/vim-javascript' }
 use { 'vim-syntastic/syntastic' }
@@ -54,6 +55,7 @@ use { 'kdheepak/lazygit.nvim' }
 
 --  LSP
 use { 'neovim/nvim-lspconfig' }
+use { 'williamboman/nvim-lsp-installer' }
 use { 'onsails/lspkind-nvim' }
 use { 'glepnir/lspsaga.nvim' }
 use { 'ray-x/lsp_signature.nvim' }

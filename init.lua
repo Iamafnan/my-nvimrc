@@ -16,6 +16,7 @@
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+require('impatient').enable_profile()
 
 require('ui')
 require('general')
