@@ -54,8 +54,7 @@ cmp.setup({
     { name = 'path' },
     { name = 'nvim_lua' },
     { name = 'look', keyword_length = 2 },
-    { name = 'calc' },
-    { name = 'spell' }
+    { name = 'calc' }
   },
   documentation = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
@@ -71,7 +70,6 @@ cmp.setup({
                                 luasnip = '[LUASNIP]',
                                 path = '[PATH]',
                                 calc = '[CALC]',
-                                spell = '[SPELL]',
                                 nvim_lua = '[LUA]'
                         })[entry.source.name]
                         return vim_item

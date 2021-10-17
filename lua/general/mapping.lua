@@ -16,12 +16,20 @@ map('n', '<A-right>', '$', opts)
 map('i', '<A-right>', '<ESC>$ i', opts)
 map('i', '<A-left>', '<ESC>^ i', opts)
 
+-- for quick movement
+map('n', '<A-down>', '7<down>', opts)
+map('n', '<A-up>', '7<up>', opts)
+
 -- basic visual mode maps
 map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
 
 -- for packer.nvim
 map('n', '<space>ps', ':PackerSync<CR>', opts )
+
+-- File Explorer
+map('n', 'nt', ':NERDTreeToggle<CR>', opts)
+map('n', 'nr', ':NERDTreeRefreshRoot<CR>', opts)
 
 -- Auto compeletion
 map('i', '<', '<><ESC>h i', opts)

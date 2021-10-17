@@ -10,13 +10,11 @@
 
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 -- "  Author: Mohammad Afnan (@Iamafnan)                                        "
--- "  Creation Date : IDK                                                        "
+-- "  Creation Date : IDK                                                       "
 -- "                                                                            "
 -- "                                                                            "
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-require('impatient').enable_profile()
 
 require('ui')
 require('general')
