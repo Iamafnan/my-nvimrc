@@ -45,12 +45,6 @@ use "saadparwaiz1/cmp_luasnip"
 use { 'hrsh7th/vim-vsnip' }
 use { 'hrsh7th/cmp-vsnip' }
 
---  Debug Adapter Protocol
-use 'mfussenegger/nvim-dap'
-use 'rcarriga/nvim-dap-ui'
-use "Pocco81/DAPInstall.nvim"
-use 'jbyuki/one-small-step-for-vimkind'
-
 --  Quick Tasking
 use { 'windwp/nvim-autopairs' }
 use { 'tpope/vim-commentary' }
@@ -78,8 +72,5 @@ use { 'hrsh7th/cmp-path' }
 use { 'hrsh7th/cmp-nvim-lua' }
 use { 'octaltree/cmp-look' }
 use { 'hrsh7th/cmp-calc' }
-
---  Java Development
-use 'mfussenegger/nvim-jdtls'
 
 end)
