@@ -29,7 +29,6 @@ use { 'kyazdani42/nvim-web-devicons' }
 use { 'ryanoasis/vim-devicons' }
 
 --  UI
-use { 'hoob3rt/lualine.nvim' }
 use { 'lukas-reineke/format.nvim' }
 use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 use { 'rcarriga/nvim-notify' }
@@ -38,6 +37,7 @@ use { 'nvim-treesitter/nvim-treesitter' }
 use { 'p00f/nvim-ts-rainbow'}
 use { 'pangloss/vim-javascript' }
 use { 'vim-syntastic/syntastic' }
+use { 'norcalli/nvim-colorizer.lua'}
 
 --  Snippets
 use { 'L3MON4D3/LuaSnip' }

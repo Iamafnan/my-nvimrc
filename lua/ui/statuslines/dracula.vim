@@ -1,0 +1,2 @@
+set statusline=
+set statusline
