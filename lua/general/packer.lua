@@ -12,7 +12,6 @@ vim.cmd([[packadd packer.nvim]])
 
 return require("packer").startup({
 	function()
-
 		--  Loaded First
 		use("wbthomason/packer.nvim")
 		use({ "lewis6991/impatient.nvim" })
@@ -40,7 +39,7 @@ return require("packer").startup({
 		--  Snippets
 		use({ "L3MON4D3/LuaSnip" })
 		use("saadparwaiz1/cmp_luasnip")
-      use({'mlaursen/vim-react-snippets', ft = "javascript"})
+		use({ "mlaursen/vim-react-snippets", ft = "javascript" })
 
 		--  Quick Tasking
 		use({ "windwp/nvim-autopairs" })
@@ -52,7 +51,7 @@ return require("packer").startup({
 
 		--  Git
 		use({ "airblade/vim-gitgutter" })
-		use{ "kdheepak/lazygit.nvim", cmd = {"LazyGit"} }
+		use({ "kdheepak/lazygit.nvim", cmd = { "LazyGit" } })
 
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig" })
