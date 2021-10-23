@@ -1,2 +1,0 @@
-set statusline=
-set statusline

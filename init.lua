@@ -16,6 +16,8 @@
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+require'impatient'.enable_profile()
+
 require('ui')
 require('general')
 require('telescope-config')

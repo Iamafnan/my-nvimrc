@@ -49,16 +49,12 @@ map('n', 'rcs', ':so %<CR>', opts)
 -- for telescope
 map('n', ',ff', ':Telescope find_files<CR>', opts)
 map('n', ',lg', ':Telescope live_grep<CR>', opts)
-map('n', ',gf', ':Telescope git_files<CR>', opts)  
+map('n', ',gf', ':Telescope git_files<CR>', opts)
 map('n', ',fb', ':Telescope file_browser<CR>', opts)
 map('n', ',pr', ':Telescope projects<CR>', opts)
- 
+
 -- for lazygit
 map('n', 'gh', ':LazyGit<CR>', opts)
-
--- for sideways
-map('n', 'sl', '<ESC>:SidewaysRight<CR>i', opts)
-map('n', 'sj', '<ESC>:SidewaysLeft<CR>i', opts)
 
 -- for lsp saga
 map('n', 'lsf', ':Lspsaga lsp_finder<CR>', opts)

@@ -11,10 +11,11 @@
 
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+return require('packer').startup{function()
 
 --  Loaded First
 use 'wbthomason/packer.nvim'
+use { 'lewis6991/impatient.nvim'}
 use {'dracula/vim', as = 'dracula'}
 use { 'folke/which-key.nvim' }
 use { 'preservim/nerdtree' }
@@ -22,7 +23,6 @@ use { 'preservim/nerdtree' }
 --  Telescope & Its Extentions
 use {'nvim-telescope/telescope.nvim', requires = {'nvim-lua/plenary.nvim', 'kyazdani42/nvim-web-devicons', 'nvim-lua/popup.nvim'}}
 use { 'ahmedkhalf/project.nvim' }
-use 'nvim-telescope/telescope-dap.nvim'
 
 --  Icon Packs
 use { 'kyazdani42/nvim-web-devicons' }
@@ -31,26 +31,18 @@ use { 'ryanoasis/vim-devicons' }
 --  UI
 use { 'lukas-reineke/format.nvim' }
 use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-use { 'rcarriga/nvim-notify' }
-use { 'simrat39/symbols-outline.nvim' }
 use { 'nvim-treesitter/nvim-treesitter' }
-use { 'p00f/nvim-ts-rainbow'}
 use { 'pangloss/vim-javascript' }
 use { 'vim-syntastic/syntastic' }
-use { 'norcalli/nvim-colorizer.lua'}
 
 --  Snippets
 use { 'L3MON4D3/LuaSnip' }
 use "saadparwaiz1/cmp_luasnip"
-use { 'hrsh7th/vim-vsnip' }
-use { 'hrsh7th/cmp-vsnip' }
 
 --  Quick Tasking
 use { 'windwp/nvim-autopairs' }
 use { 'tpope/vim-commentary' }
-use { 'windwp/nvim-ts-autotag'}
 use { 'mg979/vim-visual-multi' }
-use { 'AndrewRadev/sideways.vim' }
 use { 'tpope/vim-surround' }
 use { 'moll/vim-node' }
 
@@ -63,6 +55,7 @@ use { 'neovim/nvim-lspconfig' }
 use { 'onsails/lspkind-nvim' }
 use { 'glepnir/lspsaga.nvim' }
 use { 'ray-x/lsp_signature.nvim' }
+use { 'jose-elias-alvarez/nvim-lsp-ts-utils'}
 
 --  CMP
 use { 'hrsh7th/nvim-cmp' }
@@ -73,4 +66,7 @@ use { 'hrsh7th/cmp-nvim-lua' }
 use { 'octaltree/cmp-look' }
 use { 'hrsh7th/cmp-calc' }
 
-end)
+end,
+config = {
+        compile_path = { vim.fn.stdpath('config') .. '/lua/packer_compiled.lua' }}
+}
