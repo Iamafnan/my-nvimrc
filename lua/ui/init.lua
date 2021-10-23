@@ -1,5 +1,4 @@
 require('ui.treesitter')
 require('ui.tabline')
-require('ui.formatting').setup()
 require('ui.js')
 vim.cmd('source ~/.config/nvim/lua/ui/nerdtree.vim')
