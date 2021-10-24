@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white" />
 
 **Screenshot**
-<img src="https://www.github.com/Iamafnan/my-nvimrc/screenshot.jpg">
+<img src="https://github.com/Iamafnan/my-nvimrc/blob/main/screenshot.jpg">
 
 **Quickline**
 
