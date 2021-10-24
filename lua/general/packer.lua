@@ -20,7 +20,10 @@ return require("packer").startup({
 		use({ "preservim/nerdtree" })
 
 		--  Telescope & Its Extentions
-		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons", "nvim-lua/popup.nvim" }})
+		use({
+			"nvim-telescope/telescope.nvim",
+			requires = { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons", "nvim-lua/popup.nvim" },
+		})
 		use({ "ahmedkhalf/project.nvim" })
 
 		--  Icon Packs
@@ -29,6 +32,7 @@ return require("packer").startup({
 
 		--  UI
 		use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
+		use("nvim-lualine/lualine.nvim")
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "pangloss/vim-javascript", ft = "javascript" })
 
