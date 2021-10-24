@@ -6,7 +6,7 @@
 ## Screenshot
 <img src="https://github.com/Iamafnan/my-nvimrc/blob/main/screenshot.jpg">
 
-## Quickline
+## Quick Links
 
 - [General Settings](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/general)
 - [LSP](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/lsp)
