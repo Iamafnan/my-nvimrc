@@ -31,7 +31,6 @@
 - [lspsaga](https://github.com/glepnir/lspsaga.nvim): A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
 - [lspkind](https://github.com/onsails/lspkind-nvim): VSCode-like pictograms for neovim lsp completion items
 - [lsp signature](https://github.com/ray-x/lsp_signature.nvim): LSP Signature help
-- [ts utils](https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils): Utilities to improve the TypeScript development experience for Neovim's built-in LSP client
 
 ### Auto completion
 

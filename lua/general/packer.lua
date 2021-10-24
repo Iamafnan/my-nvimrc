@@ -58,7 +58,6 @@ return require("packer").startup({
 		use({ "onsails/lspkind-nvim" })
 		use({ "glepnir/lspsaga.nvim" })
 		use({ "ray-x/lsp_signature.nvim" })
-		use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp" })

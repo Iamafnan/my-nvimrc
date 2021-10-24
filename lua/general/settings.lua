@@ -51,5 +51,8 @@ set.showtabline = 2
 
 set.updatetime = 250
 
+set.scrolloff = 14
 
-set.scrolloff = 7
+vim.g.node_host_prog = '/data/data/com.termux/files/usr/bin/neovim-node-host'
+vim.g.loaded_perl_provider = false
+vim.g.loaded_ruby_provider = false
