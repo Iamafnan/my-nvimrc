@@ -38,8 +38,8 @@ return require("packer").startup({
 
 		--  Snippets
 		use({ "L3MON4D3/LuaSnip" })
-		use("saadparwaiz1/cmp_luasnip")
-		use({ "mlaursen/vim-react-snippets", ft = "javascript" })
+		use({ "saadparwaiz1/cmp_luasnip" })
+		use({ "rafamadriz/friendly-snippets" })
 
 		--  Quick Tasking
 		use({ "windwp/nvim-autopairs" })
@@ -50,8 +50,8 @@ return require("packer").startup({
 		use({ "moll/vim-node", ft = "javascript" })
 
 		--  Git
-		use({ "airblade/vim-gitgutter" })
-		use({ "kdheepak/lazygit.nvim", cmd = { "LazyGit" } })
+		use({ "lewis6991/gitsigns.nvim" })
+		use({ "kdheepak/lazygit.nvim" })
 
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig" })
