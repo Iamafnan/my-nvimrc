@@ -57,8 +57,3 @@ map('n', ',pr', ':Telescope projects<CR>', opts)
 map('n', 'gh', ':LazyGit<CR>', opts)
 
 -- for lsp saga
-map('n', 'lsf', ':Lspsaga lsp_finder<CR>', opts)
-map('n', 'lsc', ':Lspsaga code_action<CR>', opts)
-map('v', 'lsf', ':<C-U>Lspsaga range_code_action<CR>', opts)
-map('n', 'lsr', ':Lspsaga rename<CR>', opts)
-map('n', '<A-t>', ':Lspsaga open_floaterm<CR>', opts)

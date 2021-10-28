@@ -32,7 +32,7 @@ return require("packer").startup({
 
 		--  UI
 		use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
-		use("nvim-lualine/lualine.nvim")
+		use({ "beauwilliams/statusline.lua" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "pangloss/vim-javascript", ft = "javascript" })
 
@@ -65,8 +65,9 @@ return require("packer").startup({
 		use({ "hrsh7th/cmp-buffer" })
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lua" })
-		use({ "octaltree/cmp-look" })
-		use({ "hrsh7th/cmp-calc" })
+
+		-- Copilot
+		use({ "github/copilot.vim" })
 	end,
 	config = {
 		compile_path = { vim.fn.stdpath("config") .. "/lua/packer_compiled.lua" },

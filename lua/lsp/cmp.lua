@@ -20,8 +20,6 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "nvim_lua" },
-		{ name = "look", keyword_length = 1 },
-		{ name = "calc" },
 	},
 	documentation = { border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" } },
 	experimental = { ghost_text = true, native_menu = false },
@@ -31,13 +29,10 @@ cmp.setup({
 			menu = {
 				buffer = "[Buf]",
 				nvim_lsp = "[LS]",
-				nvim_lua = "[LUA]",
+				nvim_lua = "[Lua]",
 				path = "[Path]",
-				calc = "[Calc]",
-				look = "[Look]",
 				luasnip = "[Snip]",
 			},
 		}),
 	},
 })
-

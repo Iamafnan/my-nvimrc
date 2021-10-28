@@ -1,17 +1,21 @@
 local nvim_lsp = require("lspconfig")
 local nvim_lsp_config = require("lspconfig.configs")
 local cmp_lsp = require("cmp_nvim_lsp")
+local statusline = require("statusline")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown" }
 local signature = require("lsp_signature")
 local on_attach = function(client, bufnr)
-	local opts = { noremap = true, silent = true }
 	signature.on_attach()
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "sh", '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "sp", ":Lspsaga preview_definition<CR>", opts)
-	vim.api.nvim_buf_set_keymap(bufnr, "n", "sd", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+
+local opts = { noremap = true, silent = true }
+
+-- vim.api.nvim_set_keymap(bufnr, 'n', '<leader>ld', ':lua vim.lsp.buf.declaration()<CR>', opts)
+
+vim.api.nvim_set_keymap(bufnr, 'n', ',lh', ':Lspsaga hover_doc<CR>', opts)
+
 end
 
 -- JS / TS
