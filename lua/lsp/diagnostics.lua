@@ -1,18 +1,17 @@
 local ekaput = require("e-kaput")
 
 -- Diagnostic Floating Window Setup
-ekaput.setup({})
-
+ekaput.setup({ borders = false, transparency = 0 })
 
 -- Basic Diagnostics Setup
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = false ,
-  underline = true,
-  update_in_insert = true,
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	virtual_text = false,
+	underline = true,
+	update_in_insert = true,
 })
 
 -- Highlights for diagnostics
-vim.cmd [[
+vim.cmd([[
   highlight LspDiagnosticsLineNrError guibg=#51202A guifg=#FF0000 gui=bold
   highlight LspDiagnosticsLineNrWarning guibg=#51412A guifg=#FFA500 gui=bold
   highlight LspDiagnosticsLineNrInformation guibg=#1E535D guifg=#00FFFF gui=bold
@@ -22,7 +21,7 @@ vim.cmd [[
   sign define DiagnosticSignWarn text= texthl=LspDiagnosticsSignWarning linehl= numhl=LspDiagnosticsLineNrWarning
   sign define DiagnosticSignInfo text= texthl=LspDiagnosticsSignInformation linehl= numhl=LspDiagnosticsLineNrInformation
   sign define DiagnosticSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=LspDiagnosticsLineNrHint
-]]
+]])
 
 -- Highlights for ekaput
 vim.cmd([[
