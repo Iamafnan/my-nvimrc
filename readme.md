@@ -12,7 +12,6 @@
 - [LSP](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/lsp)
 - [UI Stuff](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/ui)
 - [Telescope](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/telescope)
-- [Debugging](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/debugging)
 - [Which Key](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/whichkey)
 
 ## Plugins
