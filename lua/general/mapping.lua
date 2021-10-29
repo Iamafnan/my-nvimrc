@@ -57,3 +57,10 @@ map('n', ',pr', ':Telescope projects<CR>', opts)
 map('n', 'gh', ':LazyGit<CR>', opts)
 
 -- for lsp saga
+
+
+-- For DAP Python
+map('n', ',dn', 'lua require("dap-python").test_method()<CR>', opts)
+map('v', ',ds', '<ESC>:lua require("dap-python").debug_selection()<CR>', opts)
+map('n', ',df', 'lua require("dap-python").test_class()<CR>', opts)
+map('n', ',dt', 'lua require("dap-python").test_runner = "pytest"<CR>', opts)

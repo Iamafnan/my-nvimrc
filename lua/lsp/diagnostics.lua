@@ -1,23 +1,17 @@
+local ekaput = require("e-kaput")
+
+-- Diagnostic Floating Window Setup
+ekaput.setup({})
+
+
+-- Basic Diagnostics Setup
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = true,
-  signs = true,
+  virtual_text = false ,
   underline = true,
   update_in_insert = true,
 })
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-end
-
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    virtual_text = {spacing = 5, severity_limit = 'Warning'},
-    update_in_insert = true
-})
-
+-- Highlights for diagnostics
 vim.cmd [[
   highlight LspDiagnosticsLineNrError guibg=#51202A guifg=#FF0000 gui=bold
   highlight LspDiagnosticsLineNrWarning guibg=#51412A guifg=#FFA500 gui=bold
@@ -29,3 +23,13 @@ vim.cmd [[
   sign define DiagnosticSignInfo text= texthl=LspDiagnosticsSignInformation linehl= numhl=LspDiagnosticsLineNrInformation
   sign define DiagnosticSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=LspDiagnosticsLineNrHint
 ]]
+
+-- Highlights for ekaput
+vim.cmd([[
+  highlight link EKaputError LspDiagnosticsSignError
+  highlight link EKaputWarning LspDiagnosticsSignWarning
+  highlight link EKaputInformation LspDiagnosticsSignInformation
+  highlight link EKaputHint LspDiagnosticsSignHint
+  highlight link EKaputBorder LspDiagnosticsSignInformation
+  highlight link EKaputBackground NormalFloat
+]])

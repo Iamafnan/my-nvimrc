@@ -57,6 +57,7 @@ return require("packer").startup({
 		use({ "neovim/nvim-lspconfig" })
 		use({ "onsails/lspkind-nvim" })
 		use({ "glepnir/lspsaga.nvim" })
+		use({ "kaputi/e-kaput.nvim" })
 		use({ "ray-x/lsp_signature.nvim" })
 
 		--  CMP
@@ -68,6 +69,13 @@ return require("packer").startup({
 
 		-- Copilot
 		use({ "github/copilot.vim" })
+
+		-- Debugging
+		use({ "mfussenegger/nvim-dap" })
+		use({ "theHamsta/nvim-dap-virtual-text" })
+		use({ "rcarriga/nvim-dap-ui" })
+		use({ "mfussenegger/nvim-dap-python" })
+		use({ "jbyuki/one-small-step-for-vimkind" })
 	end,
 	config = {
 		compile_path = { vim.fn.stdpath("config") .. "/lua/packer_compiled.lua" },
