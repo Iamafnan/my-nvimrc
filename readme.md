@@ -12,6 +12,7 @@
 - [LSP](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/lsp)
 - [UI Stuff](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/ui)
 - [Telescope](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/telescope)
+- [Debugging](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/debugging)
 - [Which Key](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/whichkey)
 
 ## Plugins
@@ -31,6 +32,7 @@
 - [lspsaga](https://github.com/glepnir/lspsaga.nvim): A light-weight lsp plugin based on neovim built-in lsp with highly a performant UI
 - [lspkind](https://github.com/onsails/lspkind-nvim): VSCode-like pictograms for neovim lsp completion items
 - [lsp signature](https://github.com/ray-x/lsp_signature.nvim): LSP Signature help
+- [E-Kaput](https://github.com/kaputi/e-kaput.nvim)
 
 ### Auto completion
 
@@ -39,8 +41,6 @@
 - [cmp-lua](https://github.com/hrsh7th/cmp-nvim-lua): nvim-cmp source for neovim Lua API
 - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer): nvim-cmp source for buffer words
 - [cmp-path](https://github.com/hrsh7th/cmp-path): nvim-cmp source for filesystem paths
-- [cmp-calc](https://github.com/hrsh7th/cmp-calc): nvim-cmp source for math calculation
-- [cmp-look](https://github.com/octaltree/cmp-look): nvim-cmp source for english words completion
 
 ### File tree
 
