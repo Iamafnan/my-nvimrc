@@ -15,8 +15,10 @@
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+-- To make neovim fast
 require("impatient")
 
+-- Files
 require("ui")
 require("general")
 require("telescope-config")

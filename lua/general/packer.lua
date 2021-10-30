@@ -58,6 +58,7 @@ return require("packer").startup({
 		use({ "onsails/lspkind-nvim" })
 		use({ "glepnir/lspsaga.nvim" })
 		use({ "kaputi/e-kaput.nvim" })
+		use({ "RRethy/vim-illuminate" })
 		use({ "ray-x/lsp_signature.nvim" })
 
 		--  CMP
@@ -66,9 +67,6 @@ return require("packer").startup({
 		use({ "hrsh7th/cmp-buffer" })
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lua" })
-
-		-- Copilot
-		use({ "github/copilot.vim" })
 	end,
 	config = {
 		compile_path = { vim.fn.stdpath("config") .. "/lua/packer_compiled.lua" },

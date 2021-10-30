@@ -2,6 +2,7 @@ local nvim_lsp = require("lspconfig")
 local nvim_lsp_config = require("lspconfig.configs")
 local cmp_lsp = require("cmp_nvim_lsp")
 local statusline = require("statusline")
+local illuminate = require("illuminate")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -9,6 +10,7 @@ capabilities.textDocument.completion.completionItem.documentationFormat = { "mar
 local signature = require("lsp_signature")
 local on_attach = function(client, bufnr)
 	signature.on_attach()
+	illuminate.on_attach()
 end
 
 -- JS / TS
