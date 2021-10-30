@@ -1,4 +1,4 @@
-require('lsp.cmp')
-require('lsp.diagnostics')
-require('lsp.language-servers')
-require('lsp.saga')
+require("lsp.cmp")
+require("lsp.diagnostics")
+require("lsp.language-servers")
+require("lsp.saga")

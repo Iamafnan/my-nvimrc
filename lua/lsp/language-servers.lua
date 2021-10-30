@@ -9,13 +9,6 @@ capabilities.textDocument.completion.completionItem.documentationFormat = { "mar
 local signature = require("lsp_signature")
 local on_attach = function(client, bufnr)
 	signature.on_attach()
-
-local opts = { noremap = true, silent = true }
-
--- vim.api.nvim_set_keymap(bufnr, 'n', '<leader>ld', ':lua vim.lsp.buf.declaration()<CR>', opts)
-
-vim.api.nvim_set_keymap(bufnr, 'n', ',lh', ':Lspsaga hover_doc<CR>', opts)
-
 end
 
 -- JS / TS
@@ -78,6 +71,6 @@ nvim_lsp.vimls.setup({
 
 -- Friendly Integration With Luasnip
 require("luasnip.loaders.from_vscode").lazy_load({
-    paths = { vim.env.HOME .. '/.local/share/nvim/site/pack/packer/start/friendly-snippets'},
-    include = { 'javascript', 'typescript', 'vim', 'lua', 'python', 'bash', 'html', 'css', 'json'}
+	paths = { vim.env.HOME .. "/.local/share/nvim/site/pack/packer/start/friendly-snippets" },
+	include = { "javascript", "typescript", "vim", "lua", "python", "bash", "html", "css", "json" },
 })

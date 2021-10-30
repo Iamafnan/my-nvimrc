@@ -7,7 +7,6 @@
 -- "              |___/                                                         "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 -- "  Author: Mohammad Afnan (@Iamafnan)                                        "
 -- "  Creation Date : IDK                                                       "
@@ -16,10 +15,10 @@
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-require'impatient'
+require("impatient")
 
-require('ui')
-require('general')
-require('telescope-config')
-require('lsp')
-require('whichkey')
+require("ui")
+require("general")
+require("telescope-config")
+require("lsp")
+require("whichkey")

@@ -38,4 +38,5 @@ require("gitsigns").setup({
 	status_formatter = nil,
 	max_file_length = 40000,
 	preview_config = { border = "single", style = "minimal", relative = "cursor", row = 0, col = 1 },
-	yadm = { enable = false } })
+	yadm = { enable = false },
+})

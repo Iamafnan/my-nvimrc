@@ -1,4 +1,8 @@
+" Autp Center cursor on entering insert mode
 autocmd InsertEnter * norm zz
+
+" Set wrap for telescope
 autocmd User TelescopePreviewerLoaded setlocal wrap
-autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-autocmd BufWritePre *.js,.html,.css,.python Neoformat
+
+" Auto Format on :w
+autocmd BufWritePre * Neoformat
