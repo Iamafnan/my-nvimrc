@@ -30,7 +30,7 @@ return require("packer").startup({
 		use({ "ryanoasis/vim-devicons" })
 
 		--  UI
-		use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
+		use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 		use({ "beauwilliams/statusline.lua" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 

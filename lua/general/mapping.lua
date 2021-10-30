@@ -25,9 +25,9 @@ map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
 -- for packer.nvim
-map("n", ",Pi", ":PackerInstall<CR>", opts)
-map("n", ",Pu", ":PackerUpdate<CR>", opts)
-map("n", ",Pc", ":PackerClean<CR>", opts)
+map("n", ",pi", ":PackerInstall<CR>", opts)
+map("n", ",pu", ":PackerUpdate<CR>", opts)
+map("n", ",pc", ":PackerClean<CR>", opts)
 
 -- File Explorer
 map("n", "nt", ":NERDTreeToggle<CR>", opts)
@@ -38,6 +38,11 @@ map("", "<C-h>", "<C-w>h", opts)
 map("", "<C-j>", "<C-w>j", opts)
 map("", "<C-k>", "<C-w>k", opts)
 map("", "<C-l>", "<C-w>l", opts)
+
+-- for buffer navigation
+map("n", ",q", ":BufferClose<CR>", opts)
+map("n", ",<right>", ":BufferNext<CR>", opts)
+map("n", ",<left>", ":BufferPrevious<CR>", opts)
 
 -- for commentary
 map("n", "cm", ":Commentary<CR>", opts)
