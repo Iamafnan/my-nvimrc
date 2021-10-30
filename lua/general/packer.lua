@@ -16,7 +16,6 @@ return require("packer").startup({
 		use("wbthomason/packer.nvim")
 		use({ "lewis6991/impatient.nvim" })
 		use({ "dracula/vim", as = "dracula" })
-		use({ "folke/which-key.nvim" })
 		use({ "preservim/nerdtree" })
 
 		--  Telescope & Its Extentions
@@ -34,7 +33,6 @@ return require("packer").startup({
 		use({ "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" })
 		use({ "beauwilliams/statusline.lua" })
 		use({ "nvim-treesitter/nvim-treesitter" })
-		use({ "pangloss/vim-javascript", ft = "javascript" })
 
 		--  Snippets
 		use({ "L3MON4D3/LuaSnip" })
@@ -47,7 +45,6 @@ return require("packer").startup({
 		use({ "mg979/vim-visual-multi" })
 		use({ "sbdchd/neoformat" })
 		use({ "tpope/vim-surround" })
-		use({ "moll/vim-node", ft = "javascript" })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim" })
@@ -56,7 +53,6 @@ return require("packer").startup({
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig" })
 		use({ "onsails/lspkind-nvim" })
-		use({ "glepnir/lspsaga.nvim" })
 		use({ "kaputi/e-kaput.nvim" })
 		use({ "RRethy/vim-illuminate" })
 		use({ "ray-x/lsp_signature.nvim" })
