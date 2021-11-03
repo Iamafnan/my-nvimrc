@@ -1,6 +1,7 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
-lspkind.init()
+
+-- Configuration
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -36,5 +37,12 @@ cmp.setup({
 	},
 })
 
+-- Nvim Autopairs Integration With Cmp
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+-- Friendly Integration With Luasnip
+require("luasnip.loaders.from_vscode").lazy_load({
+	paths = { vim.env.HOME .. "/.local/share/nvim/site/pack/packer/start/friendly-snippets" },
+	include = { "javascript", "typescript", "vim", "lua", "python", "bash", "html", "css", "json" },
+})

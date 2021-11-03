@@ -34,34 +34,34 @@ nvim_lsp.cssls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+-- nvim_lsp.tailwindcss.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- })
 nvim_lsp.html.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-nvim_lsp_config.emmet_ls = {
-	default_config = {
-		cmd = { "emmet-ls", "--stdio" },
-		filetypes = { "html", "css" },
-		root_dir = function(fname)
-			return vim.loop.cwd()
-		end,
-		settings = {},
-	},
-}
-nvim_lsp.emmet_ls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+-- nvim_lsp_config.emmet_ls = {
+-- 	default_config = {
+-- 		cmd = { "emmet-ls", "--stdio" },
+-- 		filetypes = { "html", "css" },
+-- 		root_dir = function(fname)
+-- 			return vim.loop.cwd()
+-- 		end,
+-- 		settings = {},
+-- 	},
+-- }
+-- nvim_lsp.emmet_ls.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- })
 
 -- Bash / Zsh
-nvim_lsp.bashls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+-- nvim_lsp.bashls.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- })
 
 -- Python
 nvim_lsp.pyright.setup({
@@ -73,10 +73,4 @@ nvim_lsp.pyright.setup({
 nvim_lsp.vimls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-})
-
--- Friendly Integration With Luasnip
-require("luasnip.loaders.from_vscode").lazy_load({
-	paths = { vim.env.HOME .. "/.local/share/nvim/site/pack/packer/start/friendly-snippets" },
-	include = { "javascript", "typescript", "vim", "lua", "python", "bash", "html", "css", "json" },
 })

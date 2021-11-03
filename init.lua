@@ -21,5 +21,6 @@ require("impatient")
 -- Files
 require("ui")
 require("general")
+require("colors")
 require("telescope-config")
 require("lsp")
