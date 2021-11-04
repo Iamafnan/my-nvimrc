@@ -31,6 +31,7 @@
 - [lspkind](https://github.com/onsails/lspkind-nvim): VSCode-like pictograms for neovim lsp completion items
 - [lsp signature](https://github.com/ray-x/lsp_signature.nvim): LSP Signature help
 - [E-Kaput](https://github.com/kaputi/e-kaput.nvim): Preview LSP Diagnostics in a floating window
+- [SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim): A Neovim Lua plugin providing access to the SchemaStore catalog.
 
 ### Auto completion
 
