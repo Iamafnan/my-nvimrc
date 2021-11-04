@@ -9,7 +9,16 @@ local signature = require("lsp_signature")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.update_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown" }
+capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
+capabilities.textDocument.completion.completionItem.preselectSupport = true
+capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+	properties = { "documentation", "detail", "additionalTextEdits" },
+}
 
 -- On_attach
 local on_attach = function(client, bufnr)
@@ -27,6 +36,18 @@ nvim_lsp.tsserver.setup({
 nvim_lsp.jsonls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	commands = {
+		Format = {
+			function()
+				vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
+			end,
+		},
+	},
+	settings = {
+		json = {
+			schemas = require("schemastore").json.schemas(),
+		},
+	},
 })
 
 -- HTML & CSS

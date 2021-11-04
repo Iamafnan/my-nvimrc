@@ -56,6 +56,7 @@ return require("packer").startup({
 		use({ "kaputi/e-kaput.nvim" })
 		use({ "RRethy/vim-illuminate" })
 		use({ "ray-x/lsp_signature.nvim" })
+		use({ "b0o/SchemaStore.nvim" })
 		use({ "jose-elias-alvarez/null-ls.nvim" })
 
 		--  CMP
