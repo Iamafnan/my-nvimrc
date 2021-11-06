@@ -55,28 +55,28 @@ nvim_lsp.cssls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
--- nvim_lsp.tailwindcss.setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- })
+nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 nvim_lsp.html.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
--- nvim_lsp_config.emmet_ls = {
--- 	default_config = {
--- 		cmd = { "emmet-ls", "--stdio" },
--- 		filetypes = { "html", "css" },
--- 		root_dir = function(fname)
--- 			return vim.loop.cwd()
--- 		end,
--- 		settings = {},
--- 	},
--- }
--- nvim_lsp.emmet_ls.setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- })
+nvim_lsp_config.emmet_ls = {
+	default_config = {
+		cmd = { "emmet-ls", "--stdio" },
+		filetypes = { "html", "css" },
+		root_dir = function(fname)
+			return vim.loop.cwd()
+		end,
+		settings = {},
+	},
+}
+nvim_lsp.emmet_ls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
 -- Bash / Zsh
 -- nvim_lsp.bashls.setup({

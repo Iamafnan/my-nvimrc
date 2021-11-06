@@ -32,6 +32,7 @@ map("n", ",pc", ":PackerClean<CR>", opts)
 -- File Explorer
 map("n", "nt", ":NERDTreeToggle<CR>", opts)
 map("n", "nr", ":NERDTreeRefreshRoot<CR>", opts)
+map("n", "nf", ":NERDTreeFind<CR>", opts)
 
 -- for split movement
 map("", "<C-h>", "<C-w>h", opts)
@@ -55,6 +56,7 @@ map("n", ",tf", ":Telescope find_files<CR>", opts)
 map("n", ",tr", ":Telescope live_grep<CR>", opts)
 map("n", ",tg", ":Telescope git_files<CR>", opts)
 map("n", ",tp", ":Telescope projects<CR>", opts)
+map("n", ",tn", ":Telescope neoclip<CR>", opts)
 
 -- for lazygit
 map("n", "gh", ":LazyGit<CR>", opts)

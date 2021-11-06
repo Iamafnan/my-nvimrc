@@ -13,7 +13,7 @@ vim.cmd([[packadd packer.nvim]])
 return require("packer").startup({
 	function()
 		--  Loaded First
-		use("wbthomason/packer.nvim")
+		use({ "wbthomason/packer.nvim" })
 		use({ "lewis6991/impatient.nvim" })
 		use({ "dracula/vim", as = "dracula" })
 		use({ "preservim/nerdtree" })
@@ -24,6 +24,8 @@ return require("packer").startup({
 			requires = { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons", "nvim-lua/popup.nvim" },
 		})
 		use({ "ahmedkhalf/project.nvim" })
+		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua", module = "sqlite" } })
 
 		--  Icon Packs
 		use({ "kyazdani42/nvim-web-devicons" })
@@ -33,6 +35,7 @@ return require("packer").startup({
 		use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 		use({ "beauwilliams/statusline.lua" })
 		use({ "nvim-treesitter/nvim-treesitter" })
+		use({ "karb94/neoscroll.nvim" })
 
 		--  Snippets
 		use({ "L3MON4D3/LuaSnip" })
