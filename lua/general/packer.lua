@@ -16,6 +16,8 @@ return require("packer").startup({
 		use({ "wbthomason/packer.nvim" })
 		use({ "lewis6991/impatient.nvim" })
 		use({ "dracula/vim", as = "dracula" })
+		use({ "tamton-aquib/staline.nvim" })
+		use({ "glepnir/dashboard-nvim" })
 		use({ "preservim/nerdtree" })
 
 		--  Telescope & Its Extentions
@@ -33,7 +35,6 @@ return require("packer").startup({
 
 		--  UI
 		use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-		use({ "beauwilliams/statusline.lua" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "karb94/neoscroll.nvim" })
 
@@ -60,7 +61,6 @@ return require("packer").startup({
 		use({ "RRethy/vim-illuminate" })
 		use({ "ray-x/lsp_signature.nvim" })
 		use({ "b0o/SchemaStore.nvim" })
-		use({ "jose-elias-alvarez/null-ls.nvim" })
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp" })
@@ -68,6 +68,8 @@ return require("packer").startup({
 		use({ "hrsh7th/cmp-buffer" })
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lua" })
+		use({ "lukas-reineke/cmp-rg" })
+		use({ "f3fora/cmp-spell" })
 	end,
 	config = {
 		compile_path = { vim.fn.stdpath("config") .. "/lua/packer_compiled.lua" },

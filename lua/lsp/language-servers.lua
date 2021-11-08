@@ -79,10 +79,11 @@ nvim_lsp.emmet_ls.setup({
 })
 
 -- Bash / Zsh
--- nvim_lsp.bashls.setup({
--- 	on_attach = on_attach,
--- 	capabilities = capabilities,
--- })
+nvim_lsp.bashls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "zsh", "bash" },
+})
 
 -- Python
 nvim_lsp.pyright.setup({

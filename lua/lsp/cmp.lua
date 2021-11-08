@@ -1,6 +1,9 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us" }
+
 -- Configuration
 cmp.setup({
 	snippet = {
@@ -21,6 +24,8 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "nvim_lua" },
+		{ name = "rg" },
+		{ name = "spell" },
 	},
 	experimental = { ghost_text = true, native_menu = false },
 	formatting = {
@@ -32,6 +37,8 @@ cmp.setup({
 				nvim_lua = "[Lua]",
 				path = "[Path]",
 				luasnip = "[Snip]",
+				rg = "[RG]",
+				spell = "[Spell]",
 			},
 		}),
 	},
