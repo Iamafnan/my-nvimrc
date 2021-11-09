@@ -3,7 +3,9 @@ local set = vim.opt
 vim.cmd("set nocompatible")
 vim.cmd("set t_Co=256")
 
-vim.cmd("colorscheme dracula")
+vim.g.vscode_style = "dark"
+-- vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme vscode ")
 
 vim.cmd("filetype on")
 vim.cmd("filetype plugin on")

@@ -16,7 +16,8 @@ return require("packer").startup({
 		use({ "wbthomason/packer.nvim" })
 		use({ "lewis6991/impatient.nvim" })
 		use({ "dracula/vim", as = "dracula" })
-		use({ "tamton-aquib/staline.nvim" })
+		use({ "Mofiqul/vscode.nvim" })
+		use({ "nvim-lualine/lualine.nvim" })
 		use({ "glepnir/dashboard-nvim" })
 		use({ "preservim/nerdtree" })
 
@@ -39,9 +40,9 @@ return require("packer").startup({
 		use({ "karb94/neoscroll.nvim" })
 
 		--  Snippets
-		use({ "L3MON4D3/LuaSnip" })
-		use({ "saadparwaiz1/cmp_luasnip" })
-		use({ "rafamadriz/friendly-snippets" })
+		use({ "SirVer/ultisnips" })
+		use({ "honza/vim-snippets" })
+		use({ "mlaursen/vim-react-snippets" })
 
 		--  Quick Tasking
 		use({ "windwp/nvim-autopairs" })
@@ -68,8 +69,7 @@ return require("packer").startup({
 		use({ "hrsh7th/cmp-buffer" })
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lua" })
-		use({ "lukas-reineke/cmp-rg" })
-		use({ "f3fora/cmp-spell" })
+		use({ "quangnguyen30192/cmp-nvim-ultisnips" })
 	end,
 	config = {
 		compile_path = { vim.fn.stdpath("config") .. "/lua/packer_compiled.lua" },

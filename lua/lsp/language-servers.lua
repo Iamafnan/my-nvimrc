@@ -82,7 +82,7 @@ nvim_lsp.emmet_ls.setup({
 nvim_lsp.bashls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	filetypes = { "zsh", "bash" },
+	filetypes = { "zsh", "bash", "sh" },
 })
 
 -- Python
