@@ -15,8 +15,7 @@ return require("packer").startup({
 		--  Loaded First
 		use({ "wbthomason/packer.nvim" })
 		use({ "lewis6991/impatient.nvim" })
-		use({ "dracula/vim", as = "dracula" })
-		use({ "Mofiqul/vscode.nvim" })
+		use({ "navarasu/onedark.nvim" })
 		use({ "nvim-lualine/lualine.nvim" })
 		use({ "glepnir/dashboard-nvim" })
 		use({ "preservim/nerdtree" })
@@ -24,7 +23,7 @@ return require("packer").startup({
 		--  Telescope & Its Extentions
 		use({
 			"nvim-telescope/telescope.nvim",
-			requires = { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons", "nvim-lua/popup.nvim" },
+			requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
 		})
 		use({ "ahmedkhalf/project.nvim" })
 		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
@@ -38,6 +37,7 @@ return require("packer").startup({
 		use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "karb94/neoscroll.nvim" })
+		use({ "SmiteshP/nvim-gps" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })

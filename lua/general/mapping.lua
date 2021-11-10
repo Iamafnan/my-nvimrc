@@ -9,6 +9,7 @@ map("", "i", "a", opts)
 map("", "k", "gk", opts)
 map("", "j", "gj", opts)
 map("n", "<CR>", "<esc>o", opts)
+map("n", "r", ":redo<CR>", opts)
 
 -- single line movement
 map("n", "<A-left>", "^", opts)
