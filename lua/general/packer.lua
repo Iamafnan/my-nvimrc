@@ -38,6 +38,7 @@ return packer.startup({
 		use({ "romgrk/barbar.nvim" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "karb94/neoscroll.nvim" })
+		use({ "dstein64/nvim-scrollview" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
@@ -79,7 +80,7 @@ return packer.startup({
 	config = {
 		display = {
 			open_fn = function()
-				return utils.float({ border = "single" })
+				return utils.float({ border = "double" })
 			end,
 		},
 		compile_path = { fn.stdpath("config") .. "/lua/packer_compiled.lua" },
