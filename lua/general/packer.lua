@@ -1,6 +1,18 @@
+local packer = require("packer")
+local utils = require("packer.util")
+local fn = vim.fn
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
+if fn.empty(fn.glob(install_path)) > 0 then
+	packer_bootstrap = fn.system({
+		"git clone --depth 1 https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
+end
+
 vim.cmd([[packadd packer.nvim]])
 
-return require("packer").startup({
+return packer.startup({
 	function()
 		--  Loaded First
 		use({ "wbthomason/packer.nvim" })
@@ -11,10 +23,9 @@ return require("packer").startup({
 		use({ "preservim/nerdtree" })
 
 		--  Telescope & Its Extentions
-		use({
-			"nvim-telescope/telescope.nvim",
-			requires = { "nvim-lua/plenary.nvim", "nvim-lua/popup.nvim" },
-		})
+		use({ "nvim-lua/plenary.nvim" })
+		use({ "nvim-lua/popup.nvim" })
+		use({ "nvim-telescope/telescope.nvim" })
 		use({ "ahmedkhalf/project.nvim" })
 		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua", module = "sqlite" } })
@@ -24,10 +35,9 @@ return require("packer").startup({
 		use({ "ryanoasis/vim-devicons" })
 
 		--  UI
-		use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+		use({ "romgrk/barbar.nvim" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "karb94/neoscroll.nvim" })
-		use({ "SmiteshP/nvim-gps" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
@@ -60,8 +70,19 @@ return require("packer").startup({
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lua" })
 		use({ "quangnguyen30192/cmp-nvim-ultisnips" })
+
+		--  Bootstraping Packer.nvim
+		if packer_bootstrap then
+			packer.sync()
+		end
 	end,
 	config = {
-		compile_path = { vim.fn.stdpath("config") .. "/lua/packer_compiled.lua" },
+		display = {
+			open_fn = function()
+				return utils.float({ border = "single" })
+			end,
+		},
+		compile_path = { fn.stdpath("config") .. "/lua/packer_compiled.lua" },
+		profile = { enable = true, threshold = 1 },
 	},
 })

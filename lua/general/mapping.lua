@@ -9,7 +9,6 @@ map("", "i", "a", opts)
 map("", "k", "gk", opts)
 map("", "j", "gj", opts)
 map("n", "<CR>", "<esc>o", opts)
-map("n", "r", ":redo<CR>", opts)
 
 -- single line movement
 map("n", "<A-left>", "^", opts)
@@ -46,16 +45,12 @@ map("n", ",q", ":BufferClose<CR>", opts)
 map("n", ",<right>", ":BufferNext<CR>", opts)
 map("n", ",<left>", ":BufferPrevious<CR>", opts)
 
--- for commentary
-map("n", "cm", ":Commentary<CR>", opts)
-
 -- for quick rc sourcing
 map("n", "rcs", ":so %<CR>", opts)
 
 -- for telescope
 map("n", ",tf", ":Telescope find_files<CR>", opts)
 map("n", ",tr", ":Telescope live_grep<CR>", opts)
-map("n", ",tg", ":Telescope git_files<CR>", opts)
 map("n", ",tp", ":Telescope projects<CR>", opts)
 map("n", ",tn", ":Telescope neoclip<CR>", opts)
 

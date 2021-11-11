@@ -4,6 +4,7 @@
 <img src="https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white" />
 
 ## Screenshot
+
 <img src="https://github.com/Iamafnan/my-nvimrc/blob/main/screenshot.jpg">
 
 ## Quick Links
@@ -40,6 +41,7 @@
 - [cmp-lua](https://github.com/hrsh7th/cmp-nvim-lua): nvim-cmp source for neovim Lua API
 - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer): nvim-cmp source for buffer words
 - [cmp-path](https://github.com/hrsh7th/cmp-path): nvim-cmp source for filesystem paths
+- [cmp-ultisnips](https://github.com/quangnguyen30192/cmp-nvim-ultisnips): Ultisnips support for nvim-cmp
 
 ### File tree
 
@@ -51,6 +53,49 @@
 - [Project.nvim](https://github.com/ahmedkhalf/project.nvim): The superior project management solution for neovim
 
 ### Colorscheme
-- [Dracula](https://github.com/dracula/vim): Dracula theme for vim and neovim
+
+- [Onedark](https://github.com/navarasu/onedark.nvim: A dark theme for neovim)
 
 ### and much more ...
+
+### Directory Tree
+
+```
+├── init.lua
+├── lua
+│   ├── general
+│   │   ├── autocommands.vim
+│   │   ├── disabled.lua
+│   │   ├── init.lua
+│   │   ├── mapping.lua
+│   │   ├── packer.lua
+│   │   ├── settings.lua
+│   │   └── term.vim
+│   ├── lsp
+│   │   ├── cmp.lua
+│   │   ├── diagnostics.lua
+│   │   ├── handlers.lua
+│   │   ├── illuminate-config.lua
+│   │   ├── init.lua
+│   │   └── language-servers.lua
+│   ├── telescope-config
+│   │   ├── config.lua
+│   │   ├── extentions
+│   │   │   ├── fzf.lua
+│   │   │   ├── init.lua
+│   │   │   ├── neoclip.lua
+│   │   │   └── project-nvim.lua
+│   │   └── init.lua
+│   └── ui
+│       ├── dashboard.lua
+│       ├── git-signs.lua
+│       ├── init.lua
+│       ├── neoscroll.lua
+│       ├── nerdtree.vim
+│       ├── statusline.lua
+│       ├── tabline.lua
+│       └── treesitter
+│           ├── autopair.lua
+│           ├── config.lua
+│           └── init.lua
+```

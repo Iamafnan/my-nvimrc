@@ -12,5 +12,5 @@ treesitter.setup({
 		},
 	},
 	autopairs = { enable = true },
-	ensure_installed = { "json", "html", "css", "javascript", "typescript", "lua", "vim", "python", "bash" },
+	ensure_installed = { "json", "html", "css", "javascript", "lua", "vim", "python", "bash" },
 })
