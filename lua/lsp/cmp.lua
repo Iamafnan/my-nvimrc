@@ -1,5 +1,6 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
+local set = vim.opt
 
 -- Configuration
 cmp.setup({
@@ -57,3 +58,6 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 -- UltiSnips Configuration
 vim.g.UltiSnipsSnippetDirectories = { "~/.local/share/nvim/Ultisnips" }
+
+-- completion menu settings
+set.pumheight = 5
