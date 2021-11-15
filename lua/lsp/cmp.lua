@@ -20,6 +20,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "ultisnips" },
 		{ name = "path" },
+		{ name = "emmet" },
 		{ name = "nvim_lua" },
 	},
 	experimental = { ghost_text = true, native_menu = false },
@@ -32,8 +33,21 @@ cmp.setup({
 				nvim_lua = "[Lua]",
 				path = "[Path]",
 				ultisnips = "[Ulti]",
+				emmet = "Emmet",
 			},
 		}),
+	},
+	sorting = {
+		comparators = {
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.score,
+			require("cmp-under-comparator").under,
+			cmp.config.compare.kind,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		},
 	},
 })
 

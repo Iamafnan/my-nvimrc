@@ -12,6 +12,16 @@ end
 
 vim.cmd([[packadd packer.nvim]])
 
+packer.init({
+	git = { clone_timeout = 350 },
+	display = {
+		title = "Packer",
+		done_sym = "",
+		error_syn = "×",
+		keybindings = { toggle_info = "o" },
+	},
+})
+
 return packer.startup({
 	function()
 		--  Loaded First
@@ -39,6 +49,7 @@ return packer.startup({
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "karb94/neoscroll.nvim" })
 		use({ "dstein64/nvim-scrollview" })
+		use({ "andweeb/presence.nvim" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
@@ -71,6 +82,7 @@ return packer.startup({
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lua" })
 		use({ "quangnguyen30192/cmp-nvim-ultisnips" })
+		use({ "lukas-reineke/cmp-under-comparator" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then

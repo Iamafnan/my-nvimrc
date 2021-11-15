@@ -6,3 +6,4 @@ vim.g.dashboard_custom_section = {
 	d = { description = { " Update Plugins         " }, command = "PackerUpdate" },
 	e = { description = { " Health Check           " }, command = "checkhealth" },
 }
+vim.g.dashboard_custom_footer = {}
