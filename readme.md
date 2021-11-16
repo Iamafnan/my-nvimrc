@@ -52,7 +52,7 @@
 
 ### Colorscheme
 
-- [Onedark](https://github.com/navarasu/onedark.nvim: A dark theme for neovim)
+- [Onedark](https://github.com/navarasu/onedark.nvim): A dark theme for neovim
 
 ### and much more ...
 
