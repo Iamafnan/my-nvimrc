@@ -1,5 +1,5 @@
 require("presence"):setup({
-	auto_update = true,
+	auto_update = false,
 	neovim_image_text = "The One True Text Editor",
 	main_image = "neovim",
 	client_id = "794834148543299586",
@@ -7,7 +7,7 @@ require("presence"):setup({
 	debounce_timeout = 10,
 	enable_line_number = false,
 	blacklist = {},
-	buttons = true,
+	buttons = false,
 	editing_text = "Editing %s",
 	file_explorer_text = "Browsing %s",
 	git_commit_text = "Committing changes",
