@@ -16,10 +16,6 @@ map("n", "<A-right>", "$", opts)
 map("i", "<A-right>", "<ESC>$ i", opts)
 map("i", "<A-left>", "<ESC>^ i", opts)
 
--- for quick movement
-map("n", "<A-down>", "7<down>", opts)
-map("n", "<A-up>", "7<up>", opts)
-
 -- basic visual mode maps
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
