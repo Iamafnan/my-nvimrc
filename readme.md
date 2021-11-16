@@ -3,10 +3,6 @@
 <img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white " />
 <img src="https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white" />
 
-## Screenshot
-
-<img src="https://github.com/Iamafnan/my-nvimrc/blob/main/screenshot.jpg">
-
 ## Quick Links
 
 - [General Settings](https://github.com/Iamafnan/my-nvimrc/tree/main/lua/general)
@@ -42,6 +38,7 @@
 - [cmp-buffer](https://github.com/hrsh7th/cmp-buffer): nvim-cmp source for buffer words
 - [cmp-path](https://github.com/hrsh7th/cmp-path): nvim-cmp source for filesystem paths
 - [cmp-ultisnips](https://github.com/quangnguyen30192/cmp-nvim-ultisnips): Ultisnips support for nvim-cmp
+- [cmp-under-comparator](https:/github.com/lukas-reineke/cmp-under-comparator): nvim-cmp comparator function for completion items that start with one or more underlines
 
 ### File tree
 
@@ -51,6 +48,7 @@
 
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim): A fuzzy finder written in lua
 - [Project.nvim](https://github.com/ahmedkhalf/project.nvim): The superior project management solution for neovim
+- [Telescope-fzf-native](https://github.com/nvim-telescope/telescope-fzf-native.nvim): FZF sorter for telescope written in c
 
 ### Colorscheme
 
@@ -63,39 +61,42 @@
 ```
 ├── init.lua
 ├── lua
-│   ├── general
-│   │   ├── autocommands.vim
-│   │   ├── disabled.lua
-│   │   ├── init.lua
-│   │   ├── mapping.lua
-│   │   ├── packer.lua
-│   │   ├── settings.lua
-│   │   └── term.vim
-│   ├── lsp
-│   │   ├── cmp.lua
-│   │   ├── diagnostics.lua
-│   │   ├── handlers.lua
-│   │   ├── illuminate-config.lua
-│   │   ├── init.lua
-│   │   └── language-servers.lua
-│   ├── telescope-config
-│   │   ├── config.lua
-│   │   ├── extentions
-│   │   │   ├── fzf.lua
-│   │   │   ├── init.lua
-│   │   │   ├── neoclip.lua
-│   │   │   └── project-nvim.lua
-│   │   └── init.lua
-│   └── ui
-│       ├── dashboard.lua
-│       ├── git-signs.lua
-│       ├── init.lua
-│       ├── neoscroll.lua
-│       ├── nerdtree.vim
-│       ├── statusline.lua
-│       ├── tabline.lua
-│       └── treesitter
-│           ├── autopair.lua
-│           ├── config.lua
-│           └── init.lua
+    ├── general
+    │   ├── autocommands.vim
+    │   ├── disabled.lua
+    │   ├── init.lua
+    │   ├── mapping.lua
+    │   ├── packer.lua
+    │   ├── settings.lua
+    │   └── term.vim
+    ├── lsp
+    │   ├── cmp.lua
+    │   ├── diagnostics.lua
+    │   ├── handlers.lua
+    │   ├── illuminate-config.lua
+    │   ├── init.lua
+    │   └── language-servers.lua
+    ├── telescope-config
+    │   ├── config.lua
+    │   ├── extentions
+    │   │   ├── fzf.lua
+    │   │   ├── init.lua
+    │   │   ├── neoclip.lua
+    │   │   └── project-nvim.lua
+    │   └── init.lua
+    └── ui
+        ├── dashboard.lua
+        ├── git-signs.lua
+        ├── init.lua
+        ├── neoscroll.lua
+        ├── nerdtree.vim
+        ├── rich-presence.lua
+        ├── scrollbar.lua
+        ├── statusline.lua
+        ├── tabline.lua
+        └── treesitter
+            ├── autopair.lua
+            ├── config.lua
+            └── init.lua
+
 ```
