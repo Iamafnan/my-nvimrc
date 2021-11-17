@@ -1,7 +1,6 @@
 -- Locals
 local treesitter = require("nvim-treesitter.configs")
 local tsinstall = require("nvim-treesitter.install")
-local cmd = vim.cmd
 
 -- Config
 treesitter.setup({
@@ -18,13 +17,10 @@ treesitter.setup({
 	},
 	autopairs = { enable = true },
 	ensure_installed = { "json", "html", "css", "javascript", "lua", "vim", "python", "bash", "comment" },
+	context_commentstring = { enable = true },
 })
 
 -- Installation Config
 tsinstall = {
 	prefer_git = true,
 }
-
--- Folds for treesitter
-cmd("set foldmethod=expr")
-cmd("set foldexpr=nvim_treesitter#foldexpr()")
