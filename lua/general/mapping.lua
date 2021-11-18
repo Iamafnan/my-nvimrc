@@ -1,4 +1,3 @@
-vim.g.mapleader = " "
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
@@ -19,6 +18,14 @@ map("i", "<A-left>", "<ESC>^ i", opts)
 -- basic visual mode maps
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
+
+-- terminal maps
+vim.cmd([[ function! OpenTerminal()
+  split term://zsh
+  resize 10
+endfunction ]])
+map("n", "<A-t>", ":call OpenTerminal()<CR>", opts)
+map("t", "<ESC>", "<C-\\><C-n>", opts)
 
 -- for packer.nvim
 map("n", ",pi", ":PackerInstall<CR>", opts)

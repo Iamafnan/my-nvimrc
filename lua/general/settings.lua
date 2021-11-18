@@ -3,7 +3,6 @@ local set = vim.opt
 vim.cmd("set nocompatible")
 vim.cmd("set t_Co=256")
 
--- vim.g.vscode_style = "dark"
 vim.cmd("colorscheme onedark ")
 
 vim.cmd("filetype on")
@@ -34,7 +33,6 @@ set.writebackup = false
 
 set.completeopt = { "noinsert", "noselect", "menuone" }
 
--- set.clipboard = 'unnamedplus'
 vim.cmd("set clipboard=unnamedplus")
 
 set.autoindent = true
@@ -47,12 +45,14 @@ set.smarttab = true
 set.expandtab = true
 
 set.laststatus = 2
-
 set.showtabline = 2
 
 set.updatetime = 250
 
 set.scrolloff = 14
+
+set.splitright = true
+set.splitbelow = true
 
 vim.g.node_host_prog = "/data/data/com.termux/files/usr/bin/neovim-node-host"
 vim.g.loaded_perl_provider = false

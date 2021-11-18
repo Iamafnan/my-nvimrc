@@ -13,3 +13,6 @@ autocmd BufWritePost packer.lua source % | PackerInstall
 " Auto disable tabline in dashboard
 autocmd FileType dashboard set showtabline=0
 autocmd WinLeave <buffer> set showtabline=2
+
+" Auto Insert in terminal buffer
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
