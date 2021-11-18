@@ -67,8 +67,7 @@
     │   ├── init.lua
     │   ├── mapping.lua
     │   ├── packer.lua
-    │   ├── settings.lua
-    │   └── term.vim
+    │   └── settings.lua 
     ├── lsp
     │   ├── cmp.lua
     │   ├── diagnostics.lua
