@@ -88,7 +88,7 @@
         ├── git-signs.lua
         ├── init.lua
         ├── neoscroll.lua
-        ├── nerdtree.vim
+        ├── nerdtree.lua
         ├── rich-presence.lua
         ├── scrollbar.lua
         ├── statusline.lua
