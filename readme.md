@@ -5,7 +5,7 @@
 
 ## Preview
 
-<img src="https://github.com/Iamafnan/my-nvimrc/blob/main/assets/screenshot1.jpc" />
+<img src="https://github.com/Iamafnan/my-nvimrc/blob/main/assets/screenshot1.jpg" />
 
 ## Quick Links
 
