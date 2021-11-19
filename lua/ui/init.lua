@@ -1,6 +1,7 @@
 require("ui.dashboard")
 require("ui.statusline")
-vim.cmd("source ~/.config/nvim/lua/ui/nerdtree.vim")
+require("ui.nerdtree")
+-- vim.cmd("source ~/.config/nvim/lua/ui/nerdtree.vim")
 require("ui.treesitter")
 require("ui.tabline")
 require("ui.git-signs")
