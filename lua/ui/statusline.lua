@@ -1,6 +1,6 @@
 require("lualine").setup({
 	options = {
-		theme = "onedark",
+		theme = "dracula",
 	},
 	sections = {
 		lualine_x = { "filetype" },

@@ -27,7 +27,7 @@ return packer.startup({
 		--  Loaded First
 		use({ "wbthomason/packer.nvim" })
 		use({ "lewis6991/impatient.nvim" })
-		use({ "navarasu/onedark.nvim" })
+		use({ "dracula/vim" })
 		use({ "nvim-lualine/lualine.nvim" })
 		use({ "glepnir/dashboard-nvim" })
 		use({ "preservim/nerdtree" })
@@ -45,6 +45,7 @@ return packer.startup({
 		use({ "ryanoasis/vim-devicons" })
 
 		--  UI
+		use({ "bryanmylee/vim-colorscheme-icons" })
 		use({ "romgrk/barbar.nvim" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "JoosepAlviste/nvim-ts-context-commentstring" })
@@ -70,7 +71,6 @@ return packer.startup({
 
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig" })
-		use({ "onsails/lspkind-nvim" })
 		use({ "kaputi/e-kaput.nvim" })
 		use({ "RRethy/vim-illuminate" })
 		use({ "ray-x/lsp_signature.nvim" })

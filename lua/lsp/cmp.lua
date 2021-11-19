@@ -1,6 +1,6 @@
 local cmp = require("cmp")
-local lspkind = require("lspkind")
 local set = vim.opt
+local kind_icons = require("lsp.kinds").icons
 
 -- Configuration
 cmp.setup({
@@ -26,17 +26,18 @@ cmp.setup({
 	},
 	experimental = { ghost_text = true, native_menu = false },
 	formatting = {
-		format = lspkind.cmp_format({
-			with_text = true,
-			menu = {
+		format = function(entry, vim_item)
+			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+			vim_item.menu = ({
 				buffer = "[Buf]",
 				nvim_lsp = "[LS]",
 				nvim_lua = "[Lua]",
 				path = "[Path]",
 				ultisnips = "[Ulti]",
 				emmet = "Emmet",
-			},
-		}),
+			})[entry.source.name]
+			return vim_item
+		end,
 	},
 	sorting = {
 		comparators = {
@@ -60,4 +61,4 @@ cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 vim.g.UltiSnipsSnippetDirectories = { "~/.local/share/nvim/Ultisnips" }
 
 -- completion menu settings
-set.pumheight = 5
+set.pumheight = 8
