@@ -5,7 +5,7 @@
 
 ## Preview
 
-<img src="https://github.com/Iamafnan/my-nvimrc/blob/main/assets/screenshot1.jpg" />
+<img src="https://github.com/Iamafnan/my-nvimrc/blob/main/assets/screenshot1.jpc" />
 
 ## Quick Links
 
@@ -76,6 +76,7 @@
     │   ├── diagnostics.lua
     │   ├── handlers.lua
     │   ├── illuminate-config.lua
+    │   ├── kinds.lua
     │   ├── init.lua
     │   └── language-servers.lua
     ├── telescope-config
@@ -89,6 +90,7 @@
     └── ui
         ├── dashboard.lua
         ├── git-signs.lua
+        ├── colors.lua
         ├── init.lua
         ├── neoscroll.lua
         ├── nerdtree.lua
