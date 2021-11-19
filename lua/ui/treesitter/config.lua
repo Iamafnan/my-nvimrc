@@ -17,7 +17,6 @@ treesitter.setup({
 	},
 	autopairs = { enable = true },
 	ensure_installed = { "json", "html", "css", "javascript", "lua", "vim", "python", "bash", "comment" },
-	context_commentstring = { enable = true },
 })
 
 -- Installation Config

@@ -45,10 +45,8 @@ return packer.startup({
 		use({ "ryanoasis/vim-devicons" })
 
 		--  UI
-		use({ "bryanmylee/vim-colorscheme-icons" })
 		use({ "romgrk/barbar.nvim" })
 		use({ "nvim-treesitter/nvim-treesitter" })
-		use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 		use({ "karb94/neoscroll.nvim" })
 		use({ "dstein64/nvim-scrollview" })
 		use({ "andweeb/presence.nvim" })
