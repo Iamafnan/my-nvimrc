@@ -5,7 +5,7 @@
 
 ## Preview
 
-<img src="https://github.com/Iamafnan/my-nvimrc/tree/main/assets/screenshot.jpg" />
+<img src="https://github.com/Iamafnan/my-nvimrc/blob/main/assets/screenshot1.jpg" />
 
 ## Quick Links
 
@@ -28,7 +28,6 @@
 ### Language Server Protocol
 
 - [lspconfig](https://github.com/neovim/nvim-lspconfig): Configuration quickstart for nvim's built in LSP
-- [lspkind](https://github.com/onsails/lspkind-nvim): VSCode-like pictograms for neovim lsp completion items
 - [lsp signature](https://github.com/ray-x/lsp_signature.nvim): LSP Signature help
 - [E-Kaput](https://github.com/kaputi/e-kaput.nvim): Preview LSP Diagnostics in a floating window
 - [SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim): A Neovim Lua plugin providing access to the SchemaStore catalog.
