@@ -55,7 +55,7 @@
 
 ### Colorscheme
 
-- [Onedark](https://github.com/navarasu/onedark.nvim): A dark theme for neovim
+- [Dracula](https://github.com/dracula/dracula-theme): A dark theme for neovim
 
 ### and much more ...
 
