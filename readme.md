@@ -70,6 +70,7 @@
     │   ├── init.lua
     │   ├── mapping.lua
     │   ├── packer.lua
+    │   ├── utils.lua
     │   └── settings.lua 
     ├── lsp
     │   ├── cmp.lua
@@ -95,6 +96,7 @@
         ├── neoscroll.lua
         ├── nerdtree.lua
         ├── rich-presence.lua
+        ├── indentline.lua
         ├── scrollbar.lua
         ├── statusline.lua
         ├── tabline.lua
