@@ -23,6 +23,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "emmet" },
 		{ name = "nvim_lua" },
+		{ name = "rg" },
 	},
 	experimental = { ghost_text = true, native_menu = false },
 	formatting = {
@@ -35,6 +36,7 @@ cmp.setup({
 				path = "[Path]",
 				ultisnips = "[Ulti]",
 				emmet = "Emmet",
+				rg = "[RG]",
 			})[entry.source.name]
 			return vim_item
 		end,
