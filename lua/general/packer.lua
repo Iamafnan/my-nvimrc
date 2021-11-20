@@ -50,6 +50,7 @@ return packer.startup({
 		use({ "karb94/neoscroll.nvim" })
 		use({ "dstein64/nvim-scrollview" })
 		use({ "andweeb/presence.nvim" })
+		use({ "lukas-reineke/indent-blankline.nvim" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
