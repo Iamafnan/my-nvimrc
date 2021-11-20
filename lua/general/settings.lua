@@ -38,7 +38,7 @@ vim.cmd("set clipboard=unnamedplus")
 set.autoindent = true
 set.smartindent = true
 set.shiftround = true
-set.shiftwidth = 3
+set.shiftwidth = 0
 set.tabstop = 3
 
 set.smarttab = true

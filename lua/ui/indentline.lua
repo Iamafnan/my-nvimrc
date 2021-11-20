@@ -2,7 +2,7 @@ vim.opt.list = true
 vim.opt.listchars:append("space:⋅")
 require("indent_blankline").setup({
 	buftype_exclude = { "terminal" },
-	filetype_exclude = { "dashboard", "NvimTree", "packer" },
+	filetype_exclude = { "dashboard", "nerdtree", "packer" },
 	show_current_context = true,
 	context_patterns = {
 		"class",
