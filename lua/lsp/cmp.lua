@@ -1,6 +1,16 @@
 local cmp = require("cmp")
+local comparator = require("cmp-under-comparator")
 local set = vim.opt
 local kind_icons = require("lsp.kinds").kind
+local kind_menu = {
+	buffer = "[Buf]",
+	nvim_lsp = "[LS]",
+	nvim_lua = "[Api]",
+	path = "[Path]",
+	ultisnips = "[Ulti]",
+	emmet = "Emmet",
+	rg = "[RG]",
+}
 
 -- Configuration
 cmp.setup({
@@ -32,15 +42,7 @@ cmp.setup({
 		format = function(entry, vim_item)
 			vim_item.abbr = vim_item.abbr:sub(1, 30)
 			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-			vim_item.menu = ({
-				buffer = "[Buf]",
-				nvim_lsp = "[LS]",
-				nvim_lua = "[Api]",
-				path = "[Path]",
-				ultisnips = "[Ulti]",
-				emmet = "Emmet",
-				rg = "[RG]",
-			})[entry.source.name]
+			vim_item.menu = kind_menu[entry.source.name]
 			return vim_item
 		end,
 	},
@@ -49,7 +51,7 @@ cmp.setup({
 			cmp.config.compare.offset,
 			cmp.config.compare.exact,
 			cmp.config.compare.score,
-			require("cmp-under-comparator").under,
+			comparator.under,
 			cmp.config.compare.kind,
 			cmp.config.compare.sort_text,
 			cmp.config.compare.length,
@@ -59,8 +61,8 @@ cmp.setup({
 })
 
 -- Nvim Autopairs Integration With Cmp
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+local autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", autopairs.on_confirm_done())
 
 -- UltiSnips Configuration
 vim.g.UltiSnipsSnippetDirectories = { "~/.local/share/nvim/Ultisnips" }
