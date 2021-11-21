@@ -56,5 +56,11 @@ map("n", ",tr", ":Telescope live_grep<CR>")
 map("n", ",tp", ":Telescope projects<CR>")
 map("n", ",tn", ":Telescope neoclip<CR>")
 
--- for lazygit
+--  Git
 map("n", "gh", ":LazyGit<CR>")
+map("n", ",ghn", ":Gitsigns next_hunk<CR>")
+map("n", ",ghp", ":Gitsigns prev_hunk<CR>")
+map("n", ",ghs", ":Gitsigns stage_hunk<CR>")
+map("n", ",ghu", ":Gitsigns undo_stage_hunk<CR>")
+map("n", ",gbs", ":Gitsigns stage_buffer<CR>")
+map("n", ",gph", ":Gitsigns preview_hunk<CR>")
