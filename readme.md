@@ -92,7 +92,6 @@
         ├── git-signs.lua
         ├── colors.lua
         ├── init.lua
-        ├── neoscroll.lua
         ├── nerdtree.lua
         ├── statusline.lua
         ├── tabline.lua

@@ -39,7 +39,7 @@ return packer.startup({
 		use({ "nvim-telescope/telescope.nvim" })
 		use({ "ahmedkhalf/project.nvim" })
 		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua", module = "sqlite" } })
+		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua" } })
 
 		--  Icon Packs
 		use({ "kyazdani42/nvim-web-devicons" })
@@ -48,7 +48,6 @@ return packer.startup({
 		--  UI
 		use({ "romgrk/barbar.nvim" })
 		use({ "nvim-treesitter/nvim-treesitter" })
-		use({ "karb94/neoscroll.nvim" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
