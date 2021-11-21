@@ -34,7 +34,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "emmet" },
 		{ name = "nvim_lua" },
-		{ name = "rg" },
+		{ name = "rg", opts = { debug = true } },
 	},
 	experimental = { ghost_text = true, native_menu = false },
 	formatting = {
