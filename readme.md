@@ -30,7 +30,6 @@
 - [lspconfig](https://github.com/neovim/nvim-lspconfig): Configuration quickstart for nvim's built in LSP
 - [lsp signature](https://github.com/ray-x/lsp_signature.nvim): LSP Signature help
 - [E-Kaput](https://github.com/kaputi/e-kaput.nvim): Preview LSP Diagnostics in a floating window
-- [SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim): A Neovim Lua plugin providing access to the SchemaStore catalog.
 - [vim-illuminate](https://github.com/RRethy/vim-illuminate): Vim plugin for automatically highlighting other uses of the word under the cursor
 
 ### Auto completion
@@ -95,9 +94,6 @@
         ├── init.lua
         ├── neoscroll.lua
         ├── nerdtree.lua
-        ├── rich-presence.lua
-        ├── indentline.lua
-        ├── scrollbar.lua
         ├── statusline.lua
         ├── tabline.lua
         └── treesitter
