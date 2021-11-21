@@ -4,6 +4,7 @@ local kind_icons = require("lsp.kinds").icons
 
 -- Configuration
 cmp.setup({
+	completion = { keyword_length = 1 },
 	snippet = {
 		expand = function(args)
 			vim.fn["UltiSnips#Anon"](args.body)
@@ -29,11 +30,12 @@ cmp.setup({
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
+			vim_item.abbr = vim_item.abbr:sub(1, 30)
 			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
 			vim_item.menu = ({
 				buffer = "[Buf]",
 				nvim_lsp = "[LS]",
-				nvim_lua = "[Lua]",
+				nvim_lua = "[Api]",
 				path = "[Path]",
 				ultisnips = "[Ulti]",
 				emmet = "Emmet",

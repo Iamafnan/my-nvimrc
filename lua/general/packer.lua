@@ -27,6 +27,7 @@ return packer.startup({
 		--  Loaded First
 		use({ "wbthomason/packer.nvim" })
 		use({ "lewis6991/impatient.nvim" })
+		use({ "nathom/filetype.nvim" })
 		use({ "dracula/vim" })
 		use({ "nvim-lualine/lualine.nvim" })
 		use({ "glepnir/dashboard-nvim" })
@@ -73,7 +74,6 @@ return packer.startup({
 		use({ "kaputi/e-kaput.nvim" })
 		use({ "RRethy/vim-illuminate" })
 		use({ "ray-x/lsp_signature.nvim" })
-		use({ "b0o/SchemaStore.nvim" })
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp" })

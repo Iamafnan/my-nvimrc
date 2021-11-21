@@ -1,5 +1,5 @@
 local M = {}
-M.icons = {
+M.kind = {
 	Text = "",
 	Method = "",
 	Function = "",
