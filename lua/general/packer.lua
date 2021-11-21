@@ -49,14 +49,10 @@ return packer.startup({
 		use({ "romgrk/barbar.nvim" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "karb94/neoscroll.nvim" })
-		use({ "dstein64/nvim-scrollview" })
-		use({ "andweeb/presence.nvim" })
-		use({ "lukas-reineke/indent-blankline.nvim" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
 		use({ "honza/vim-snippets" })
-		use({ "mlaursen/vim-react-snippets" })
 
 		--  Quick Tasking
 		use({ "windwp/nvim-autopairs" })
