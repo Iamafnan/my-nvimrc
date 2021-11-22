@@ -67,7 +67,6 @@ return packer.startup({
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig" })
 		use({ "kaputi/e-kaput.nvim" })
-		use({ "RRethy/vim-illuminate" })
 		use({ "ray-x/lsp_signature.nvim" })
 
 		--  CMP

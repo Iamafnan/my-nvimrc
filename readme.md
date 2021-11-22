@@ -30,7 +30,6 @@
 - [lspconfig](https://github.com/neovim/nvim-lspconfig): Configuration quickstart for nvim's built in LSP
 - [lsp signature](https://github.com/ray-x/lsp_signature.nvim): LSP Signature help
 - [E-Kaput](https://github.com/kaputi/e-kaput.nvim): Preview LSP Diagnostics in a floating window
-- [vim-illuminate](https://github.com/RRethy/vim-illuminate): Vim plugin for automatically highlighting other uses of the word under the cursor
 
 ### Auto completion
 
@@ -75,7 +74,6 @@
     │   ├── cmp.lua
     │   ├── diagnostics.lua
     │   ├── handlers.lua
-    │   ├── illuminate-config.lua
     │   ├── kinds.lua
     │   ├── init.lua
     │   └── language-servers.lua

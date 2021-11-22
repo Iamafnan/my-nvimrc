@@ -2,7 +2,6 @@
 local nvim_lsp = require("lspconfig")
 local nvim_lsp_config = require("lspconfig.configs")
 local cmp_lsp = require("cmp_nvim_lsp")
-local illuminate = require("illuminate")
 local signature = require("lsp_signature")
 
 -- Capabilities
@@ -23,7 +22,6 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 -- On_attach
 local on_attach = function(client, bufnr)
 	signature.on_attach()
-	illuminate.on_attach()
 end
 
 -- JS / TS
