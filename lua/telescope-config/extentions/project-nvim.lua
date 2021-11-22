@@ -4,7 +4,7 @@ project.setup({
 	manual_mode = false,
 	detection_method = { "lsp", "pattern" },
 	update_cwd = true,
-	pattern = { ".git", "package.json" },
+	pattern = { "package.json" },
 	show_hidden = true,
 	silent_chdir = true,
 	datapath = vim.fn.stdpath("data"),
