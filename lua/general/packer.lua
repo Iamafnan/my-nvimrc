@@ -54,6 +54,7 @@ return packer.startup({
 		use({ "honza/vim-snippets" })
 
 		--  Quick Tasking
+		use({ "tpope/vim-repeat" })
 		use({ "windwp/nvim-autopairs" })
 		use({ "tpope/vim-commentary" })
 		use({ "mg979/vim-visual-multi" })
