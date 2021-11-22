@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local cmd = vim.cmd
 local comparator = require("cmp-under-comparator")
 local set = vim.opt
 local kind_icons = require("lsp.kinds").kind
@@ -11,6 +12,9 @@ local kind_menu = {
 	emmet = "Emmet",
 	rg = "[RG]",
 }
+
+-- Add cmp-emmet plugin
+cmd("packadd cmp-emmet")
 
 -- Configuration
 cmp.setup({
