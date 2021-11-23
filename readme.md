@@ -41,6 +41,7 @@
         ├── colors.lua
         ├── init.lua
         ├── nerdtree.lua
+        ├── sessions.lua
         ├── statusline.lua
         ├── tabline.lua
         └── treesitter
