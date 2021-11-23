@@ -46,6 +46,7 @@ return packer.startup({
 
 		--  UI
 		use({ "romgrk/barbar.nvim" })
+		use({ "Shatur/neovim-session-manager" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 
 		--  Snippets

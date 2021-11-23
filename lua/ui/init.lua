@@ -1,5 +1,6 @@
 require("ui.dashboard")
 require("ui.statusline")
+require("ui.sessions")
 require("ui.nerdtree")
 vim.cmd("source ~/.config/nvim/lua/ui/colors.vim")
 require("ui.treesitter")

@@ -1,6 +1,9 @@
+local load = require("telescope").load_extension
+
 require("telescope-config.config")
 require("telescope-config.extentions")
 
 -- Extentions
-require("telescope").load_extension("projects")
-require("telescope").load_extension("neoclip")
+load("projects")
+load("neoclip")
+load("sessions")
