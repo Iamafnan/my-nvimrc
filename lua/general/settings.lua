@@ -1,5 +1,7 @@
 local set = vim.opt
 
+vim.cmd("filetype off")
+
 vim.cmd("set nocompatible")
 vim.cmd("set t_Co=256")
 

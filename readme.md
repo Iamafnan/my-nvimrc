@@ -31,7 +31,6 @@
     ├── telescope-config
     │   ├── config.lua
     │   ├── extentions
-    │   │   ├── fzf.lua
     │   │   ├── init.lua
     │   │   ├── neoclip.lua
     │   │   └── project-nvim.lua

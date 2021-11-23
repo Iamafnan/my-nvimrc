@@ -38,7 +38,6 @@ return packer.startup({
 		use({ "nvim-lua/popup.nvim" })
 		use({ "nvim-telescope/telescope.nvim" })
 		use({ "ahmedkhalf/project.nvim" })
-		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua" } })
 
 		--  Icon Packs

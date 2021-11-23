@@ -19,7 +19,7 @@
 require("impatient")
 
 -- Files
-require("ui")
 require("general")
+require("ui")
 require("telescope-config")
 require("lsp")
