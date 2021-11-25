@@ -70,6 +70,7 @@ cmp.event:on("confirm_done", autopairs.on_confirm_done())
 
 -- UltiSnips Configuration
 vim.g.UltiSnipsSnippetDirectories = { "~/.local/share/nvim/Ultisnips" }
+vim.g.UltiSnipsRemoveSelectModeMappings = 0
 
 -- completion menu settings
 set.pumheight = 8
