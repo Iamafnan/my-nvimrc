@@ -48,6 +48,7 @@ return packer.startup({
 		use({ "romgrk/barbar.nvim" })
 		use({ "Shatur/neovim-session-manager" })
 		use({ "nvim-treesitter/nvim-treesitter" })
+		use({ "nvim-treesitter/nvim-treesitter-textobjects" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
@@ -60,6 +61,7 @@ return packer.startup({
 		use({ "mg979/vim-visual-multi" })
 		use({ "sbdchd/neoformat" })
 		use({ "tpope/vim-surround" })
+		use({ "mattn/emmet-vim" })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim" })

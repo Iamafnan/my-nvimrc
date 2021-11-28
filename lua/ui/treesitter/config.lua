@@ -17,9 +17,13 @@ treesitter.setup({
 	},
 	autopairs = { enable = true },
 	ensure_installed = { "json", "html", "css", "javascript", "lua", "vim", "python", "bash", "comment" },
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = false,
+		},
+	},
 })
 
 -- Installation Config
-tsinstall = {
-	prefer_git = true,
-}
+tsinstall = { prefer_git = true }
