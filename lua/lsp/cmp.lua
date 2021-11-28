@@ -3,18 +3,15 @@ local cmd = vim.cmd
 local comparator = require("cmp-under-comparator")
 local set = vim.opt
 local kind_icons = require("lsp.kinds").kind
-local kind_menu = {
-	buffer = "[Buf]",
-	nvim_lsp = "[LS]",
-	nvim_lua = "[Api]",
-	path = "[Path]",
-	ultisnips = "[Ulti]",
-	emmet = "Emmet",
-	rg = "[RG]",
-}
-
--- Add cmp-emmet plugin
-cmd("packadd cmp-emmet")
+-- local kind_menu = {
+-- 	buffer = "[Buf]",
+-- 	nvim_lsp = "[LS]",
+-- 	nvim_lua = "[Api]",
+-- 	rg = "[RG]",
+-- 	path = "[Path]",
+-- 	ultisnips = "[Ulti]",
+-- 	emmet = "Emmet",
+-- }
 
 -- Configuration
 cmp.setup({
@@ -25,10 +22,6 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		["<C-d>"] = cmp.mapping.scroll_docs(-4),
-		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<C-Space>"] = cmp.mapping.complete(),
-		["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
 	sources = {
@@ -41,12 +34,12 @@ cmp.setup({
 		{ name = "rg", option = { debug = true } },
 	},
 	experimental = { ghost_text = true, native_menu = false },
+	documentation = { border = solid },
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
+		fields = { "kind", "abbr" },
 		format = function(entry, vim_item)
 			vim_item.abbr = vim_item.abbr:sub(1, 30)
-			vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-			vim_item.menu = kind_menu[entry.source.name]
+			vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 			return vim_item
 		end,
 	},
@@ -74,3 +67,5 @@ vim.g.UltiSnipsRemoveSelectModeMappings = 0
 
 -- completion menu settings
 set.pumheight = 8
+
+-- vim_item.menu = kind_menu[entry.source.name]
