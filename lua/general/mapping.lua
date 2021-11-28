@@ -3,16 +3,15 @@ local map = require("general.utils").set_keymap
 -- basic maps
 map("n", "w", ":write<CR>")
 map("n", "q", ":quit<CR>")
-map("", "i", "a")
 map("", "k", "gk")
 map("", "j", "gj")
 map("n", "<CR>", "<esc>o")
 
 -- single line movement
-map("n", "<A-left>", "^")
+map("n", "<A-left>", "0")
 map("n", "<A-right>", "$")
 map("i", "<A-right>", "<ESC>$ i")
-map("i", "<A-left>", "<ESC>^ i")
+map("i", "<A-left>", "<ESC>0 i")
 
 -- basic visual mode maps
 map("v", "<", "<gv")
