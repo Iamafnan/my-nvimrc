@@ -49,6 +49,7 @@ return packer.startup({
 		use({ "Shatur/neovim-session-manager" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+		use({ "rcarriga/nvim-notify" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })

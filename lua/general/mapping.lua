@@ -47,7 +47,7 @@ map("n", ",<right>", ":BufferNext<CR>")
 map("n", ",<left>", ":BufferPrevious<CR>")
 
 -- for quick rc sourcing
-map("n", "rcs", ":so %<CR>")
+map("n", "rcs", ":so %<CR> | :lua require('ui.notifications').sourced('Hello')<CR>")
 
 -- for telescope
 map("n", ",tf", ":Telescope find_files<CR>")

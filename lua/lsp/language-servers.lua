@@ -3,6 +3,7 @@ local nvim_lsp = require("lspconfig")
 local nvim_lsp_config = require("lspconfig.configs")
 local cmp_lsp = require("cmp_nvim_lsp")
 local signature = require("lsp_signature")
+local notify = require("ui.notifications").lspstarted
 
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -22,6 +23,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 -- On_attach
 local on_attach = function(client, bufnr)
 	signature.on_attach()
+	notify(client.name)
 end
 
 -- JS / TS
