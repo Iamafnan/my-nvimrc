@@ -53,7 +53,7 @@ return packer.startup({
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
-		use({ "honza/vim-snippets" })
+		use({ "honza/vim-snippets", rtp = "." })
 
 		--  Quick Tasking
 		use({ "tpope/vim-repeat" })
