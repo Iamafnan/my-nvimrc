@@ -22,6 +22,7 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " Auto change popup menu color
 autocmd ColorScheme dracula call DraculaPmenu()
+autocmd ColorScheme dracula call WhichKeyHigh()
 
 " Auto reload snippets
 autocmd BufWritePost *.snippets :CmpUltisnipsReloadSnippets

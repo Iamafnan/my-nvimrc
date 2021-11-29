@@ -56,7 +56,6 @@ map("n", ",tp", ":Telescope projects<CR>")
 map("n", ",tn", ":Telescope neoclip<CR>")
 
 --  Git
-map("n", "gh", ":LazyGit<CR>")
 map("n", ",ghn", ":Gitsigns next_hunk<CR>")
 map("n", ",ghp", ":Gitsigns prev_hunk<CR>")
 map("n", ",ghs", ":Gitsigns stage_hunk<CR>")

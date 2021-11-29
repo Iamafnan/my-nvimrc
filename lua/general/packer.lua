@@ -31,6 +31,7 @@ return packer.startup({
 		use({ "dracula/vim" })
 		use({ "nvim-lualine/lualine.nvim" })
 		use({ "glepnir/dashboard-nvim" })
+		use({ "folke/which-key.nvim" })
 		use({ "preservim/nerdtree" })
 
 		--  Telescope & Its Extentions
@@ -50,6 +51,7 @@ return packer.startup({
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "nvim-treesitter/nvim-treesitter-textobjects" })
 		use({ "rcarriga/nvim-notify" })
+		use({ "akinsho/toggleterm.nvim" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
@@ -66,7 +68,6 @@ return packer.startup({
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim" })
-		use({ "kdheepak/lazygit.nvim" })
 
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig" })
