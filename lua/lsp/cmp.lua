@@ -3,15 +3,6 @@ local cmd = vim.cmd
 local comparator = require("cmp-under-comparator")
 local set = vim.opt
 local kind_icons = require("lsp.kinds").kind
--- local kind_menu = {
--- 	buffer = "[Buf]",
--- 	nvim_lsp = "[LS]",
--- 	nvim_lua = "[Api]",
--- 	rg = "[RG]",
--- 	path = "[Path]",
--- 	ultisnips = "[Ulti]",
--- 	emmet = "Emmet",
--- }
 
 -- Configuration
 cmp.setup({
@@ -67,5 +58,3 @@ vim.g.UltiSnipsRemoveSelectModeMappings = 0
 
 -- completion menu settings
 set.pumheight = 8
-
--- vim_item.menu = kind_menu[entry.source.name]
