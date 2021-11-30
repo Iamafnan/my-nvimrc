@@ -35,7 +35,7 @@ map("", "<C-l>", "<C-w>l")
 local mappings = {
 	q = { ":q<cr>", "Quit" },
 	w = { ":w<cr>", "Save" },
-	l = {
+	L = {
 		name = "Terminal Things",
 		f = { toggle_lf, "Lf" },
 		g = { toggle_lazygit, "LazyGit" },
@@ -80,6 +80,10 @@ local mappings = {
 		u = { ":PackerUpdate<CR>", "Packer Update" },
 		c = { ":PackerClean<CR>", "Packer Clean" },
 		i = { ":PackerInstall<CR>", "Packer Install" },
+	},
+	l = {
+		name = "LSP",
+		r = { ":lua require('renamer').rename()<cr>", "Rename" },
 	},
 }
 local opts = { prefix = ",", icons = { group = "➜" } }

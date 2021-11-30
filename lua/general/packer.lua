@@ -73,6 +73,7 @@ return packer.startup({
 		use({ "neovim/nvim-lspconfig" })
 		use({ "kaputi/e-kaput.nvim" })
 		use({ "ray-x/lsp_signature.nvim" })
+		use({ "filipdutescu/renamer.nvim" })
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp" })
