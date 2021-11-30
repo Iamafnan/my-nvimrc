@@ -60,7 +60,7 @@ return packer.startup({
 		--  Quick Tasking
 		use({ "tpope/vim-repeat" })
 		use({ "windwp/nvim-autopairs" })
-		use({ "tpope/vim-commentary" })
+		use({ "terrortylor/nvim-comment" })
 		use({ "mg979/vim-visual-multi" })
 		use({ "sbdchd/neoformat" })
 		use({ "tpope/vim-surround" })
