@@ -80,7 +80,6 @@ return packer.startup({
 		use({ "hrsh7th/cmp-nvim-lsp" })
 		use({ "hrsh7th/cmp-buffer" })
 		use({ "hrsh7th/cmp-path" })
-		use({ "lukas-reineke/cmp-rg" })
 		use({ "hrsh7th/cmp-nvim-lua" })
 		use({ "quangnguyen30192/cmp-nvim-ultisnips" })
 		use({ "lukas-reineke/cmp-under-comparator" })
