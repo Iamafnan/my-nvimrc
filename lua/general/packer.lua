@@ -50,6 +50,7 @@ return packer.startup({
 		use({ "Shatur/neovim-session-manager" })
 		use({ "nvim-treesitter/nvim-treesitter" })
 		use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+		use({ "windwp/nvim-ts-autotag" })
 		use({ "rcarriga/nvim-notify" })
 		use({ "akinsho/toggleterm.nvim" })
 
