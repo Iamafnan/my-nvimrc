@@ -43,6 +43,10 @@ nvim_lsp.jsonls.setup({
 			end,
 		},
 	},
+	init_options = {
+		provideFormatter = true,
+	},
+	single_file_support = true,
 	settings = {
 		json = {
 			schemas = {
@@ -76,6 +80,18 @@ nvim_lsp.bashls.setup({
 nvim_lsp.pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		python = {
+			disableOrganizeImports = false,
+			analysis = {
+				typeCheckingMode = "basic",
+				reportUnusedImport = true,
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+				diagnosticMode = "workspace",
+			},
+		},
+	},
 })
 
 -- Vim
