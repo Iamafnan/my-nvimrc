@@ -22,3 +22,6 @@ autocmd ColorScheme dracula call DraculaPmenu()
 
 " Cmp Ultisnips Setup
 autocmd BufWritePost *.snippets :CmpUltisnipsReloadSnippets
+
+" Diagnostics
+autocmd CursorHold,CursorHoldI * :lua vim.diagnostic.open_float(0, {scope = "line"})

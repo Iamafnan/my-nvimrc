@@ -58,14 +58,14 @@ nvim_lsp.jsonls.setup({
 				{
 					description = "ESLINT Config File",
 					fileMatch = { ".eslintrc", ".eslintrc.json" },
-					url = "http://json.schemastore.org/eslintrc",
+					url = "https://json.schemastore.org/eslintrc",
 				},
 				{
 					description = "Prettier Config File",
 					fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
-					url = "http://json.schemastore.org/prettierrc",
+					url = "https://json.schemastore.org/prettierrc",
 				},
-			},
+            }
 		},
 	},
 })

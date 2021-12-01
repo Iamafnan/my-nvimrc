@@ -72,7 +72,6 @@ return packer.startup({
 
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig" })
-		use({ "kaputi/e-kaput.nvim" })
 		use({ "ray-x/lsp_signature.nvim" })
 		use({ "filipdutescu/renamer.nvim" })
 
