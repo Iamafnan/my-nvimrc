@@ -18,3 +18,7 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 autocmd ColorScheme dracula call WhichKeyHigh()
+autocmd ColorScheme dracula call DraculaPmenu()
+
+" Cmp Ultisnips Setup
+autocmd BufWritePost *.snippets :CmpUltisnipsReloadSnippets

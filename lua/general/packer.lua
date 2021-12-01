@@ -48,10 +48,14 @@ return packer.startup({
 		--  UI
 		use({ "romgrk/barbar.nvim" })
 		use({ "Shatur/neovim-session-manager" })
-		use({ "nvim-treesitter/nvim-treesitter" })
-		use({ "nvim-treesitter/nvim-treesitter-textobjects" })
 		use({ "rcarriga/nvim-notify" })
 		use({ "akinsho/toggleterm.nvim" })
+
+      -- Tree-Sitter
+		use({ "nvim-treesitter/nvim-treesitter" })
+		use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+		use({ "windwp/nvim-ts-autotag" })
+		use({ "windwp/nvim-autopairs" })
 
 		--  Snippets
 		use({ "SirVer/ultisnips" })
@@ -61,15 +65,25 @@ return packer.startup({
 		use({ "tpope/vim-repeat" })
 		use({ "terrortylor/nvim-comment" })
 		use({ "mg979/vim-visual-multi" })
+		use({ "tpope/vim-surround" })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim" })
 
-		-- Auto Completion
-		use({ "neoclide/coc.nvim", branch = "release" })
-		use({ "windwp/nvim-autopairs" })
-		use({ "windwp/nvim-ts-autotag" })
-		use({ "tpope/vim-surround" })
+		--  Language Server Protocol
+		use({ "neovim/nvim-lspconfig" })
+		use({ "kaputi/e-kaput.nvim" })
+		use({ "ray-x/lsp_signature.nvim" })
+		use({ "filipdutescu/renamer.nvim" })
+
+		--  CMP
+		use({ "hrsh7th/nvim-cmp" })
+		use({ "hrsh7th/cmp-nvim-lsp" })
+		use({ "hrsh7th/cmp-buffer" })
+		use({ "hrsh7th/cmp-path" })
+		use({ "hrsh7th/cmp-nvim-lua" })
+		use({ "quangnguyen30192/cmp-nvim-ultisnips" })
+		use({ "lukas-reineke/cmp-under-comparator" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then

@@ -13,6 +13,8 @@ end
 map("", "k", "gk")
 map("", "j", "gj")
 map("n", "<CR>", "<esc>o")
+map("n", "q", ":q<CR>")
+map("n", "w", ":w<CR>")
 
 -- single line movement
 map("n", "<A-left>", "0")
@@ -33,8 +35,6 @@ map("", "<C-k>", "<C-w>k")
 map("", "<C-l>", "<C-w>l")
 
 local mappings = {
-	q = { ":q<cr>", "Quit" },
-	w = { ":w<cr>", "Save" },
 	L = {
 		name = "Terminal Things",
 		f = { toggle_lf, "Lf" },
