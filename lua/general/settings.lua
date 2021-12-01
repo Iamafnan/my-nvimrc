@@ -58,6 +58,8 @@ set.scrolloff = 14
 set.splitright = true
 set.splitbelow = true
 
+vim.cmd("set shortmess+=c")
+
 vim.g.node_host_prog = "/data/data/com.termux/files/usr/bin/neovim-node-host"
 vim.g.loaded_perl_provider = false
 vim.g.python_host_prog = "/data/data/com.termux/files/usr/bin/python2"

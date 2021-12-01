@@ -4,9 +4,6 @@ autocmd InsertEnter * norm zz
 " Set wrap for telescope
 autocmd User TelescopePreviewerLoaded setlocal wrap
 
-" Auto Format on :w
-autocmd BufWritePre * Neoformat
-
 " Auto install plugin 
 autocmd BufWritePost packer.lua source % | PackerInstall
 
@@ -20,9 +17,4 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
-" Auto change popup menu color
-autocmd ColorScheme dracula call DraculaPmenu()
 autocmd ColorScheme dracula call WhichKeyHigh()
-
-" Auto reload snippets
-autocmd BufWritePost *.snippets :CmpUltisnipsReloadSnippets
