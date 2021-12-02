@@ -66,6 +66,7 @@ return packer.startup({
 		use({ "terrortylor/nvim-comment" })
 		use({ "mg979/vim-visual-multi" })
 		use({ "tpope/vim-surround" })
+      use({"mattn/emmet-vim"})
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim" })
