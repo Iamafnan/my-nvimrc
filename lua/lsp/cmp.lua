@@ -6,7 +6,7 @@ local kind_icons = require("lsp.kinds").kind
 
 -- Configuration
 cmp.setup({
-	completion = { keyword_length = 1 },
+	completion = { keyword_length = 1, autocomplete = false },
 	snippet = {
 		expand = function(args)
 			vim.fn["UltiSnips#Anon"](args.body)
@@ -14,6 +14,7 @@ cmp.setup({
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
+      ["<C-n>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Manual}),
 	},
 	sources = {
 		{ name = "nvim_lsp" },
