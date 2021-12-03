@@ -15,6 +15,4 @@ M.sourced = function()
 	notify("Sucessfully sourced " .. vim.fn.expand("%:~:.") , "INFO", { title = "System Notifications" })
 end
 
--- M.
-
 return M

@@ -1,52 +1,20 @@
 # My NeoVim Config
 
-<img src="https://img.shields.io/badge/Lua-2C2D72?style=for-the-badge&logo=lua&logoColor=white " /> <img src="https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white" />
 
+## Requirements 
+- Neovim 0.6 
 
----
-<img src="https://github.com/Iamafnan/my-nvimrc/blob/main/assets/screenshot1.jpg" />
+## After Installation
 
-* ColorScheme: [Dracula](https:/github.com/dracula/vim)
----
+### Dependencies (required)
+- Install `pip` and do `pip install --user pynvim`
+- Install `pip3` and do `pip3 install --user pynvim`
+- Install `node` and do `npm i -g neovim` or `yarn global add neovim`
+- Install `FiraMono Nerd Fonts` from [here](https://www.nerdfonts.com/font-downloads)
 
-### Directory Tree
-```
-├── init.lua
-├── lua
-    ├── general
-    │   ├── autocommands.vim
-    │   ├── disabled.lua
-    │   ├── init.lua
-    │   ├── mapping.lua
-    │   ├── packer.lua
-    │   ├── utils.lua
-    │   └── settings.lua 
-    ├── lsp
-    │   ├── cmp.lua
-    │   ├── diagnostics.lua
-    │   ├── handlers.lua
-    │   ├── kinds.lua
-    │   ├── init.lua
-    │   └── language-servers.lua
-    ├── telescope-config
-    │   ├── config.lua
-    │   ├── extentions
-    │   │   ├── init.lua
-    │   │   ├── neoclip.lua
-    │   │   └── project-nvim.lua
-    │   └── init.lua
-    └── ui
-        ├── dashboard.lua
-        ├── git-signs.lua
-        ├── colors.lua
-        ├── init.lua
-        ├── nerdtree.lua
-        ├── sessions.lua
-        ├── statusline.lua
-        ├── tabline.lua
-        └── treesitter
-            ├── autopair.lua
-            ├── config.lua
-            └── init.lua
-
-```
+### Language Servers (optional)
+- [`tsserver`](https://github.com/typescript-language-server/typescript-language-server) for TypeScipt and JavaScipt 
+- [`pyright`](https://github.com/microsoft/pyright) for Python
+- [`vimls`](https://github.com/iamcco/vim-language-server) for VimL(Vim Scipt)
+- [`bashls`](https://github.com/mads-hartmann/bash-language-server) for Bash, Zsh
+- [`vscode-language-extracted`](https://github.com/hrsh7th/vscode-langservers-extracted) for HTML, CSS, JSON
