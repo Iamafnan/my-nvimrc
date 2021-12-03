@@ -58,8 +58,8 @@ return packer.startup({
 		use({ "windwp/nvim-autopairs" })
 
 		--  Snippets
-		use({ "SirVer/ultisnips" })
-		use({ "honza/vim-snippets", rtp = "." })
+      use({ "L3MON4D3/LuaSnip" })
+      use({ "rafamadriz/friendly-snippets" })
 
 		--  Quick Tasking
 		use({ "tpope/vim-repeat" })
@@ -78,12 +78,12 @@ return packer.startup({
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp" })
-		use({ "hrsh7th/cmp-nvim-lsp" })
 		use({ "hrsh7th/cmp-buffer" })
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lua" })
-		use({ "quangnguyen30192/cmp-nvim-ultisnips" })
 		use({ "lukas-reineke/cmp-under-comparator" })
+      use({ "saadparwaiz1/cmp_luasnip" })
+		use({ "hrsh7th/cmp-nvim-lsp" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then

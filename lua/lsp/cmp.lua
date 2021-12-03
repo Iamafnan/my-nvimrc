@@ -3,14 +3,16 @@ local cmd = vim.cmd
 local comparator = require("cmp-under-comparator")
 local set = vim.opt
 local kind_icons = require("lsp.kinds").kind
+local luasnip = require('luasnip')
+local loaders = require("luasnip.loaders.from_vscode")
 
 -- Configuration
 cmp.setup({
 	completion = { keyword_length = 1, autocomplete = false },
 	snippet = {
-		expand = function(args)
-			vim.fn["UltiSnips#Anon"](args.body)
-		end,
+      expand = function(args)
+         luasnip.lsp_expand(args.body)
+      end,
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
@@ -19,7 +21,7 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
-		{ name = "ultisnips" },
+      { name = "luasnip" },
 		{ name = "path" },
 		{ name = "emmet" },
 		{ name = "nvim_lua" },
@@ -52,9 +54,10 @@ cmp.setup({
 local autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", autopairs.on_confirm_done())
 
--- UltiSnips Configuration
-vim.g.UltiSnipsSnippetDirectories = { "~/.local/share/nvim/Ultisnips" }
-vim.g.UltiSnipsRemoveSelectModeMappings = 0
-
+-- Luasnip Config
+loaders.lazy_load({
+	paths = { vim.env.HOME .. "/.local/share/nvim/site/pack/packer/start/friendly-snippets" },
+	include = { "javascript", "vim", "lua", "python", "bash", "html", "css", "json" },
+})
 -- completion menu settings
 set.pumheight = 8
