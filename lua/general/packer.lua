@@ -34,13 +34,6 @@ return packer.startup({
 		use({ "folke/which-key.nvim" })
 		use({ "preservim/nerdtree" })
 
-		--  Telescope & Its Extentions
-		use({ "nvim-lua/plenary.nvim" })
-		use({ "nvim-lua/popup.nvim" })
-		use({ "nvim-telescope/telescope.nvim" })
-		use({ "ahmedkhalf/project.nvim" })
-		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua" } })
-
 		--  Icon Packs
 		use({ "kyazdani42/nvim-web-devicons" })
 		use({ "ryanoasis/vim-devicons" })
@@ -50,6 +43,13 @@ return packer.startup({
 		use({ "Shatur/neovim-session-manager" })
 		use({ "rcarriga/nvim-notify" })
 		use({ "akinsho/toggleterm.nvim" })
+
+		--  Telescope & Its Extentions
+		use({ "nvim-lua/plenary.nvim" })
+		use({ "nvim-lua/popup.nvim" })
+		use({ "nvim-telescope/telescope.nvim" })
+		use({ "ahmedkhalf/project.nvim" })
+		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua" } })
 
       -- Tree-Sitter
 		use({ "nvim-treesitter/nvim-treesitter" })
@@ -66,7 +66,7 @@ return packer.startup({
 		use({ "terrortylor/nvim-comment" })
 		use({ "mg979/vim-visual-multi" })
 		use({ "tpope/vim-surround" })
-      use({"mattn/emmet-vim"})
+      use({ "mattn/emmet-vim", ft = { "css", "html" } })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim" })
