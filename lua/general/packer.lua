@@ -50,6 +50,7 @@ return packer.startup({
 		use({ "nvim-telescope/telescope.nvim" })
 		use({ "ahmedkhalf/project.nvim" })
 		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua" } })
+      use({ "nvim-telescope/telescope-github.nvim" })
 
       -- Tree-Sitter
 		use({ "nvim-treesitter/nvim-treesitter" })
