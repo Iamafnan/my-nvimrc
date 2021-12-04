@@ -3,25 +3,22 @@ local cmd = vim.cmd
 local comparator = require("cmp-under-comparator")
 local set = vim.opt
 local kind_icons = require("lsp.kinds").kind
-local luasnip = require('luasnip')
-local loaders = require("luasnip.loaders.from_vscode")
 
 -- Configuration
 cmp.setup({
-	completion = { keyword_length = 1, autocomplete = false },
+	completion = { keyword_length = 1},
 	snippet = {
       expand = function(args)
-         luasnip.lsp_expand(args.body)
+         vim.fn["vsnip#anonymous"](args.body)
       end,
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
-      ["<C-n>"] = cmp.mapping.complete({ reason = cmp.ContextReason.Manual}),
 	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
-      { name = "luasnip" },
+      { name = "vsnip" },
 		{ name = "path" },
 		{ name = "emmet" },
 		{ name = "nvim_lua" },
@@ -54,10 +51,5 @@ cmp.setup({
 local autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", autopairs.on_confirm_done())
 
--- Luasnip Config
-loaders.lazy_load({
-	paths = { vim.env.HOME .. "/.local/share/nvim/site/pack/packer/start/friendly-snippets" },
-	include = { "javascript", "vim", "lua", "python", "bash", "html", "css", "json" },
-})
 -- completion menu settings
 set.pumheight = 8

@@ -50,7 +50,6 @@ return packer.startup({
 		use({ "nvim-telescope/telescope.nvim" })
 		use({ "ahmedkhalf/project.nvim" })
 		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua" } })
-      use({ "nvim-telescope/telescope-github.nvim" })
 
       -- Tree-Sitter
 		use({ "nvim-treesitter/nvim-treesitter" })
@@ -59,8 +58,8 @@ return packer.startup({
 		use({ "windwp/nvim-autopairs" })
 
 		--  Snippets
-      use({ "L3MON4D3/LuaSnip" })
       use({ "rafamadriz/friendly-snippets" })
+      use({ "hrsh7th/vim-vsnip" })
 
 		--  Quick Tasking
 		use({ "tpope/vim-repeat" })
@@ -83,8 +82,8 @@ return packer.startup({
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lua" })
 		use({ "lukas-reineke/cmp-under-comparator" })
-      use({ "saadparwaiz1/cmp_luasnip" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
+      use({ "hrsh7th/cmp-vsnip" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
