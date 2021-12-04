@@ -22,6 +22,3 @@ autocmd ColorScheme dracula call DraculaPmenu()
 
 " Diagnostics
 autocmd CursorHold,CursorHoldI * :lua vim.diagnostic.open_float(0, {scope = "line"})
-
-" Save Sessions on save
-autocmd BufWritePost * :SessionSave
