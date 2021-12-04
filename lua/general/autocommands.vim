@@ -25,3 +25,6 @@ autocmd BufWritePost *.snippets :CmpUltisnipsReloadSnippets
 
 " Diagnostics
 autocmd CursorHold,CursorHoldI * :lua vim.diagnostic.open_float(0, {scope = "line"})
+
+" Save Sessions on save
+autocmd BufWritePost * :SessionSave
