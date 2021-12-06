@@ -2,6 +2,7 @@
 
 
 ## Requirements 
+
 - Neovim 0.6 
 
 ## After Installation
@@ -18,3 +19,10 @@
 - [`vimls`](https://github.com/iamcco/vim-language-server) for VimL(Vim Scipt)
 - [`bashls`](https://github.com/mads-hartmann/bash-language-server) for Bash, Zsh
 - [`vscode-language-extracted`](https://github.com/hrsh7th/vscode-langservers-extracted) for HTML, CSS, JSON
+
+## Todo
+
+- Setup [`sumneko-lua-language-server`](https://github.com/sumneko/lua-language-server) in my termux
+- Setup some markdown preview plugin
+- Setup Tmux Navigator
+- Improve README
