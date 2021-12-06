@@ -12,6 +12,7 @@
 - Install `pip3` and do `pip3 install --user pynvim`
 - Install `node` and do `npm i -g neovim` or `yarn global add neovim`
 - Install `FiraMono Nerd Fonts` from [here](https://www.nerdfonts.com/font-downloads)
+- Install `Glow` from [here](https://github.com/charmbracelet/glow)
 
 ### Language Servers (optional)
 - [`tsserver`](https://github.com/typescript-language-server/typescript-language-server) for TypeScipt and JavaScipt 
@@ -23,6 +24,5 @@
 ## Todo
 
 - Setup [`sumneko-lua-language-server`](https://github.com/sumneko/lua-language-server) in my termux
-- Setup some markdown preview plugin
 - Setup Tmux Navigator
 - Improve README

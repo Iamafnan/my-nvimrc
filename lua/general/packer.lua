@@ -85,6 +85,8 @@ return packer.startup({
 		use({ "hrsh7th/cmp-nvim-lsp" })
       use({ "hrsh7th/cmp-vsnip" })
 
+      use({ "ellisonleao/glow.nvim"})
+
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
 			packer.sync()
