@@ -14,7 +14,7 @@ map("", "k", "gk")
 map("", "j", "gj")
 map("n", "<CR>", "<esc>o")
 map("n", "q", ":q<CR>")
-map("n", "w", ":w<CR> | :SessionSave<CR>")
+map("n", "w", ":w<CR>")
 
 -- single line movement
 map("n", "<A-left>", "0")
