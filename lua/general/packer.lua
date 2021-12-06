@@ -63,7 +63,7 @@ return packer.startup({
 
 		--  Quick Tasking
 		use({ "tpope/vim-repeat" })
-		use({ "terrortylor/nvim-comment" })
+      use({ "numToStr/Comment.nvim" })
 		use({ "mg979/vim-visual-multi" })
 		use({ "tpope/vim-surround" })
       use({ "mattn/emmet-vim", ft = { "css", "html" } })
