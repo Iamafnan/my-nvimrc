@@ -1,4 +1,4 @@
-local map = require("general.utils").set_keymap
+local map = require("afnan.utils").set_keymap
 local wk = require("which-key")
 local Terminal = require("toggleterm.terminal").Terminal
 local toggle_lazygit = function()
@@ -61,7 +61,7 @@ local mappings = {
 	},
 	r = {
 		name = "Source",
-		c = { ":so %<CR> | :lua require('ui.notifications').sourced('Hello')<CR>", "Source Buffer" },
+		c = { ":so %<CR> | :lua require('afnan.notifications').sourced('Hello')<CR>", "Source Buffer" },
 	},
 	b = {
 		name = "Buffer",

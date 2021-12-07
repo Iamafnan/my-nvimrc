@@ -14,12 +14,8 @@
 -- "                                                                            "
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+--
 
--- To make neovim fast
-require("impatient")
+require('impatient')
 
--- Files
-require("general")
-require("ui")
-require("telescope-config")
-require("lsp")
+require('afnan')

@@ -1,7 +1,7 @@
 local cmp = require("cmp")
 local cmd = vim.cmd
 local set = vim.opt
-local kind_icons = require("lsp.kinds").kind
+local kind_icons = require("afnan.lsp.kinds").kind
 
 -- Configuration
 cmp.setup({

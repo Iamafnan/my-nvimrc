@@ -1,5 +1,0 @@
-require("general.packer")
-require("general.settings")
-require("general.mapping")
-vim.cmd("source ~/.config/nvim/lua/general/autocommands.vim")
-require("general.disabled")

@@ -3,7 +3,7 @@ local nvim_lsp = require("lspconfig")
 local nvim_lsp_config = require("lspconfig.configs")
 local cmp_lsp = require("cmp_nvim_lsp")
 local signature = require("lsp_signature")
-local notify = require("ui.notifications").lspstarted
+local notify = require("afnan.notifications").lspstarted
 
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()

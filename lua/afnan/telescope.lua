@@ -1,7 +1,13 @@
 local actions = require("telescope.actions")
 local sorters = require("telescope.sorters")
 local previewers = require("telescope.previewers")
-require("telescope").setup({
+local telescope = require("telescope")
+local load = telescope.load_extension
+local neoclip = require("neoclip")
+local project = require("project_nvim")
+
+-- Telescope Setup
+telescope.setup({
 	defaults = {
 		layout_config = {
 			width = 0.75,
@@ -42,3 +48,45 @@ require("telescope").setup({
 		},
 	},
 })
+
+-- Neoclip Setup
+neoclip.setup({
+	history = 100,
+	enable_persistant_history = true,
+	db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
+	filter = nil,
+	preview = true,
+	default_register = '"',
+	content_spec_column = false,
+	on_paste = {
+		set_reg = false,
+	},
+	keys = {
+		i = {
+			select = "<cr>",
+			paste = "p",
+			paste_behind = "b",
+			custom = {},
+		},
+	},
+})
+
+-- Projecr.nvim Setup
+project.setup({
+	manual_mode = false,
+	detection_method = { "lsp", "pattern" },
+	update_cwd = true,
+	pattern = { "package.json" },
+	show_hidden = true,
+	silent_chdir = true,
+	datapath = vim.fn.stdpath("data"),
+	exclude_dirs = { "./node_modules/*" },
+})
+
+
+
+-- Extentions
+load("projects")
+load("neoclip")
+load("sessions")
+load("notify")
