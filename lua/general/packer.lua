@@ -58,8 +58,10 @@ return packer.startup({
 		use({ "windwp/nvim-autopairs" })
 
 		--  Snippets
-      use({ "rafamadriz/friendly-snippets" })
       use({ "hrsh7th/vim-vsnip" })
+      use({ "xabikos/vscode-react" })
+      use({ "lucaslamar/nodejs-snippets" })
+      use({ "kitagry/vs-snippets" })
 
 		--  Quick Tasking
 		use({ "tpope/vim-repeat" })
