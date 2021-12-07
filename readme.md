@@ -24,5 +24,4 @@
 ## Todo
 
 - Setup [`sumneko-lua-language-server`](https://github.com/sumneko/lua-language-server) in my termux
-- Setup Tmux Navigator
 - Improve README
