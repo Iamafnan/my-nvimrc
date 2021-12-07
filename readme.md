@@ -1,5 +1,9 @@
 # My NeoVim Config
 
+## Screenshots
+
+![Screenshot1](https://user-images.githubusercontent.com/80388154/145005893-7d786cb5-886d-44ef-8ebc-983596e03fc6.jpg)
+![Screenshot2](https://user-images.githubusercontent.com/80388154/145005854-ca5e58c2-4a5e-4841-9342-ef7655cfcd5e.jpg)
 
 ## Requirements 
 
