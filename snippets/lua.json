@@ -84,5 +84,9 @@
   "while": {
     "prefix": "while",
     "body": ["while ${1:true} do", "\t$0", "end"]
-  }
+  },
+  "use": {
+     "prefix": "u",
+     "body": [ "use({ $0 })" ]
+   }
 }
