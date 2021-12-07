@@ -1,6 +1,8 @@
+local theme = vim.g.colors_name
+
 require("lualine").setup({
 	options = {
-		theme = "dracula",
+		theme = theme,
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
 	},
