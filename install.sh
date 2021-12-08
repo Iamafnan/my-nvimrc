@@ -7,11 +7,6 @@ installPacker() {
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 }
 
-clonerepo() {
-	echo "Cloning Repository"
-   git clone https://github.com/Iamafnan/my-nvimrc ~/.config/nvim
-}
-
 initConfig(){
    echo "Installing Packages"
    cd ~/.config/nvim
@@ -27,10 +22,4 @@ else
 	rm -rf ~/.local/share/nvim/site/pack/packer
 	installPacker
 fi
-
-if [ -e "$HOME/.config/nvim" ]; then
-   rm -rf ~/.config/nvim
-   clonerepo
-fi
-
 initConfig
