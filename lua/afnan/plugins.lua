@@ -59,7 +59,6 @@ return packer.startup({
 
 		--  Snippets
       use({ "hrsh7th/vim-vsnip" })
-      use({ "xabikos/vscode-react" })
       use({ "lucaslamar/nodejs-snippets" })
       use({ "kitagry/vs-snippets" })
 
