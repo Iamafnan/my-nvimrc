@@ -25,8 +25,8 @@ packer.init({
 return packer.startup({
 	function()
 		--  Loaded First
-		use({ "wbthomason/packer.nvim" })
 		use({ "lewis6991/impatient.nvim", config = { require("impatient") }, })
+		use({ "wbthomason/packer.nvim" })
 		use({ "nathom/filetype.nvim" })
 		use({ "dracula/vim" })
 		use({ "nvim-lualine/lualine.nvim" })
