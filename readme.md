@@ -9,6 +9,14 @@
 
 - Neovim 0.6 
 
+## Installation
+
+```bash
+git clone https://github.com/Iamafnan/my-nvimrc ~/.config/nvim
+cd nvim
+./install.sh
+```
+
 ## After Installation
 
 ### Dependencies (required)
