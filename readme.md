@@ -17,6 +17,7 @@
 - Install `node` and do `npm i -g neovim` or `yarn global add neovim`
 - Install `FiraMono Nerd Fonts` from [here](https://www.nerdfonts.com/font-downloads)
 - Install `Glow` from [here](https://github.com/charmbracelet/glow)
+- Install `libsqlite` from [here](https://www.sqlite.org/download.html)
 
 ### Language Servers (optional)
 - [`tsserver`](https://github.com/typescript-language-server/typescript-language-server) for TypeScipt and JavaScipt 
