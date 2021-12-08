@@ -1,6 +1,8 @@
 require('afnan.plugins')
 require('afnan.settings')
 require('afnan.mapping')
+require("afnan.treesitter")
+require("afnan.autopairs")
 require('afnan.disabled')
 vim.cmd('source ~/.config/nvim/lua/afnan/autocommands.vim')
 vim.cmd('source ~/.config/nvim/lua/afnan/colors.vim')
