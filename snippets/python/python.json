@@ -134,16 +134,6 @@
     "body": ["class ${1:classname}(${2:object}):", "\t${3:pass}"],
     "description": "Code snippet for a class definition"
   },
-  "lambda": {
-    "prefix": "lambda",
-    "body": ["lambda ${1:parameter_list}: ${2:expression}"],
-    "description": "Code snippet for a lambda statement"
-  },
-  "if(main)": {
-    "prefix": "__main__",
-    "body": ["if __name__ == \"__main__\":", "    ${1:pass}"],
-    "description": "Code snippet for a `if __name__ == \"__main__\": ...` block"
-  },
   "async/def": {
     "prefix": "async/def",
     "body": ["async def ${1:funcname}(${2:parameter_list}):", "\t${3:pass}"],
@@ -168,30 +158,5 @@
     "prefix": "async/with",
     "body": ["async with ${1:expr} as ${2:var}:", "\t${3:block}"],
     "description": "Code snippet for an async with statement"
-  },
-  "ipdb": {
-    "prefix": "ipdb",
-    "body": "import ipdb; ipdb.set_trace()",
-    "description": "Code snippet for ipdb debug"
-  },
-  "pdb": {
-    "prefix": "pdb",
-    "body": "import pdb; pdb.set_trace()",
-    "description": "Code snippet for pdb debug"
-  },
-  "pudb": {
-    "prefix": "pudb",
-    "body": "import pudb; pudb.set_trace()",
-    "description": "Code snippet for pudb debug"
-  },
-  "add/new/cell": {
-    "prefix": "add/new/cell",
-    "body": "# %%",
-    "description": "Code snippet to add a new cell"
-  },
-  "mark/markdown": {
-    "prefix": "mark/markdown",
-    "body": "# %% [markdown]",
-    "description": "Code snippet to add a new markdown cell"
   }
 }
