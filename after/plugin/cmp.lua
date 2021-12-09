@@ -3,6 +3,10 @@ local cmd = vim.cmd
 local set = vim.opt
 local kind_icons = require("afnan.lsp.kinds").kind
 
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
+
 -- Configuration
 cmp.setup({
 	completion = { keyword_length = 1},
@@ -12,8 +16,13 @@ cmp.setup({
       end,
 	},
 	mapping = {
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
-	},
+		["<cr>"] = cmp.mapping.confirm({ select = true }),
+      ["<tab>"] = cmp.mapping(function(fallback)
+         feedkey("<plug>(vsnip-expand-or-jump)", "") 
+      end, { "i", "s" })},
+      ["<A-Tab>"] = cmp.mapping(function()
+          feedkey("<Plug>(vsnip-jump-prev)", "")
+      end, { "i", "s" }),
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
