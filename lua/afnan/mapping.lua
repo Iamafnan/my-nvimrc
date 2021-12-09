@@ -65,9 +65,13 @@ local mappings = {
 	},
 	b = {
 		name = "Buffer",
-		q = { ":BufferClose<CR>", "Close buffer" },
-		l = { ":BufferNext<CR>", "Next Buffer" },
-		r = { ":BufferPrevious<CR>", "Previous Buffer" },
+		q = { ":bdelete! <CR>", "Close buffer" },
+      ["1"] = { ":BufferLineGoToBuffer 1<CR>", "Go to buffer 1"},
+      ["2"] = { ":BufferLineGoToBuffer 2<CR>", "Go to buffer 2"},
+      ["3"] = { ":BufferLineGoToBuffer 3<CR>", "Go to buffer 3"},
+      ["4"] = { ":BufferLineGoToBuffer 4<CR>", "Go to buffer 4"},
+      ["5"] = { ":BufferLineGoToBuffer 5<CR>", "Go to buffer 5"},
+      ["6"] = { ":BufferLineGoToBuffer 6<CR>", "Go to buffer 6"},
 	},
 	n = {
 		name = "Nerdtree",

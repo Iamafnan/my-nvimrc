@@ -30,6 +30,7 @@ return packer.startup({
 		use({ "nathom/filetype.nvim" })
 		use({ "dracula/vim" })
 		use({ "nvim-lualine/lualine.nvim" })
+      use({ "akinsho/bufferline.nvim" })
 		use({ "glepnir/dashboard-nvim" })
 		use({ "folke/which-key.nvim" })
 		use({ "preservim/nerdtree" })
@@ -39,7 +40,6 @@ return packer.startup({
 		use({ "ryanoasis/vim-devicons" })
 
 		--  UI
-		use({ "romgrk/barbar.nvim" })
 		use({ "Shatur/neovim-session-manager" })
 		use({ "rcarriga/nvim-notify" })
 		use({ "akinsho/toggleterm.nvim" })
