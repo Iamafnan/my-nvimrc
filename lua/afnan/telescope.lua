@@ -3,7 +3,6 @@ local sorters = require("telescope.sorters")
 local previewers = require("telescope.previewers")
 local telescope = require("telescope")
 local load = telescope.load_extension
-local neoclip = require("neoclip")
 local project = require("project_nvim")
 
 -- Telescope Setup
@@ -45,28 +44,6 @@ telescope.setup({
 			n = {
 				["q"] = actions.close,
 			},
-		},
-	},
-})
-
--- Neoclip Setup
-neoclip.setup({
-	history = 100,
-	enable_persistant_history = true,
-	db_path = vim.fn.stdpath("data") .. "/databases/neoclip.sqlite3",
-	filter = nil,
-	preview = true,
-	default_register = '"',
-	content_spec_column = false,
-	on_paste = {
-		set_reg = false,
-	},
-	keys = {
-		i = {
-			select = "<cr>",
-			paste = "p",
-			paste_behind = "b",
-			custom = {},
 		},
 	},
 })
