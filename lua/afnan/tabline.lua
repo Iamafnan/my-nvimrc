@@ -32,7 +32,7 @@ require("bufferline").setup({
          diagnostics_indicator = diagnostics_indicator,
          offsets = {
             {
-               filetype = "nerdtree",
+               filetype = "NvimTree",
                text = "File Explorer",
                text_align = "center",
             },

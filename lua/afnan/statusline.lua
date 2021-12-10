@@ -9,5 +9,5 @@ require("lualine").setup({
 	sections = {
 		lualine_x = { "filetype" },
 	},
-	extentions = { "nerdtree" },
+	extentions = { "NvimTree" },
 })

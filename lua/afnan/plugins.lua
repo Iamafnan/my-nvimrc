@@ -25,68 +25,65 @@ packer.init({
 return packer.startup({
 	function()
 		--  Loaded First
-		use({ "lewis6991/impatient.nvim", config = { require("impatient") }, })
+      use({ "lewis6991/impatient.nvim" })
 		use({ "wbthomason/packer.nvim" })
 		use({ "nathom/filetype.nvim" })
-		use({ "dracula/vim" })
-		use({ "nvim-lualine/lualine.nvim" })
-      use({ "akinsho/bufferline.nvim" })
-		use({ "glepnir/dashboard-nvim" })
+		use({ "dracula/vim", as = "Dracula" })
+		use({ "nvim-lualine/lualine.nvim", config = "require('afnan.statusline')" })
+      use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
+      use({'glepnir/dashboard-nvim', config = "require('afnan.dashboard')"})
 		use({ "folke/which-key.nvim" })
-		use({ "preservim/nerdtree" })
 
 		--  Icon Packs
 		use({ "kyazdani42/nvim-web-devicons" })
-		use({ "ryanoasis/vim-devicons" })
 
 		--  UI
-		use({ "Shatur/neovim-session-manager" })
-		use({ "rcarriga/nvim-notify" })
-		use({ "akinsho/toggleterm.nvim" })
+		use({ "Shatur/neovim-session-manager", requires = { "nvim-telescope/telescope.nvim" }, config = "require('afnan.sessions')"})
+		use({ "rcarriga/nvim-notify", config = "require('afnan.notifications')", requires = { "nvim-telescope/telescope.nvim" }})
+		use({ "akinsho/toggleterm.nvim", config = "require('afnan.toggleterm')" })
 
 		--  Telescope & Its Extentions
-		use({ "nvim-lua/plenary.nvim" })
-		use({ "nvim-lua/popup.nvim" })
-		use({ "nvim-telescope/telescope.nvim" })
-		use({ "ahmedkhalf/project.nvim" })
-		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua" } })
+		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" }, config = "require('afnan.telescope')" })
+		use({ "ahmedkhalf/project.nvim", requires = { "nvim-telescope/telescope.nvim" }, config = "require('afnan.project-nvim')" })
+		use({ "AckslD/nvim-neoclip.lua", requires = { "tami5/sqlite.lua" }, config = "require('afnan.neoclip')" })
 
       -- Tree-Sitter
-		use({ "nvim-treesitter/nvim-treesitter" })
-		use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-		use({ "windwp/nvim-ts-autotag" })
-		use({ "windwp/nvim-autopairs" })
+		use({ "nvim-treesitter/nvim-treesitter", config = "require('afnan.treesitter')" })
+		use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
+		use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
+		use({ "windwp/nvim-autopairs", config = "require('afnan.autopairs')", after = "nvim-cmp" })
+
 
 		--  Snippets
-      use({ "hrsh7th/vim-vsnip" })
-      use({ "lucaslamar/nodejs-snippets" })
-      use({ "kitagry/vs-snippets" })
+      use({ "hrsh7th/vim-vsnip", event = "InsertEnter" })
+      use({ "lucaslamar/nodejs-snippets", after = "vim-vsnip", ft = "javascript"})
+      use({ "kitagry/vs-snippets", after = "vim-vsnip" })
 
 		--  Quick Tasking
-		use({ "tpope/vim-repeat" })
-      use({ "numToStr/Comment.nvim" })
-		use({ "mg979/vim-visual-multi" })
-		use({ "tpope/vim-surround" })
+		use({ "tpope/vim-repeat", keys = "." })
+      use({ "numToStr/Comment.nvim", keys = { "gcc", "gc", "gb", "gbc" }, config = "require('afnan.comments')" })
+		use({ "mg979/vim-visual-multi", keys = "<C-n>" })
+		use({ "tpope/vim-surround", event = "InsertEnter" })
       use({ "mattn/emmet-vim", ft = { "css", "html" } })
 
 		--  Git
-		use({ "lewis6991/gitsigns.nvim" })
+		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')" })
 
 		--  Language Server Protocol
-		use({ "neovim/nvim-lspconfig" })
-		use({ "ray-x/lsp_signature.nvim" })
-		use({ "filipdutescu/renamer.nvim" })
+		use({ "neovim/nvim-lspconfig", config = {"require('afnan.lsp')"}, event = "BufWinEnter"})
+		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", after = "nvim-lspconfig"})
+		use({ "filipdutescu/renamer.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.renamer')"})
 
 		--  CMP
-		use({ "hrsh7th/nvim-cmp" })
-		use({ "hrsh7th/cmp-buffer" })
-		use({ "hrsh7th/cmp-path" })
-		use({ "hrsh7th/cmp-nvim-lua" })
+		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })
+		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
+		use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
+		use({ "hrsh7th/cmp-nvim-lua", ft = "lua" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
-      use({ "hrsh7th/cmp-vsnip" })
+      use({ "hrsh7th/cmp-vsnip", after = "vim-vsnip" })
 
       -- Markdown Preview
-      use({ "ellisonleao/glow.nvim" })
+      use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
@@ -99,7 +96,6 @@ return packer.startup({
 				return utils.float({ border = "double" })
 			end,
 		},
-		compile_path = { fn.stdpath("config") .. "/lua/packer_compiled.lua" },
 		profile = { enable = true, threshold = 1 },
 	},
 })

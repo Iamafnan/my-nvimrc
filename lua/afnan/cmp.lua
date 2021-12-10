@@ -65,9 +65,5 @@ cmp.setup({
 	},
 })
 
--- Nvim Autopairs Integration With Cmp
-local autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on("confirm_done", autopairs.on_confirm_done())
-
 -- completion menu settings
 set.pumheight = 8
