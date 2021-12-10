@@ -22,8 +22,6 @@ set.fileencodings = "utf-8"
 set.number = true
 set.ruler = true
 
-set.cursorline = true
-
 set.fillchars = {
 	eob = " ",
 }
