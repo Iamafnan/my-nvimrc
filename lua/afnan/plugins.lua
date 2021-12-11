@@ -73,7 +73,6 @@ return packer.startup({
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig", config = {"require('afnan.lsp')"}, event = "BufWinEnter"})
 		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", after = "nvim-lspconfig"})
-		use({ "filipdutescu/renamer.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.renamer')"})
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })

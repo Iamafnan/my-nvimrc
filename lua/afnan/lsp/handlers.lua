@@ -8,3 +8,8 @@ vim.diagnostic.config({
     },
     update_in_insert = true,
 })
+
+-- Hover
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with( vim.lsp.handlers.hover, {
+   border = "single"
+})

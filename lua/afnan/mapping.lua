@@ -87,7 +87,10 @@ local mappings = {
 	},
 	l = {
 		name = "LSP",
-		r = { ":lua require('renamer').rename()<cr>", "Rename" },
+		r = { ":lua vim.lsp.buf.rename()<cr>", "Rename" },
+      k = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
+      D = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
+      i = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
 	},
 }
 local opts = { prefix = ",", icons = { group = "➜" } }
