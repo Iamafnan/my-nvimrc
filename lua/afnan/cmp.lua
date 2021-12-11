@@ -13,6 +13,7 @@ cmp.setup({
 	snippet = {
       expand = function(args)
          vim.fn["vsnip#anonymous"](args.body)
+         vim.fn["emmet-expand-abbr"](args.body)
       end,
 	},
 	mapping = {
