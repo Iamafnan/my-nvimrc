@@ -93,7 +93,7 @@ local mappings = {
       k = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
       D = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
       i = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-      c = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" }
+      c = { ":CodeActionMenu<CR>", "Code Action" }
 	},
 }
 local opts = { prefix = ",", icons = { group = "➜" } }
