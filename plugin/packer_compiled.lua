@@ -207,12 +207,33 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "nvim-autopairs", "cmp-buffer", "cmp-path" },
+    after = { "cmp-path", "nvim-autopairs", "cmp-buffer" },
     loaded = true,
     only_config = true
   },
+  ["nvim-code-action-menu"] = {
+    commands = { "CodeActionMenu" },
+    config = { "require('afnan.lsp.codeaction')" },
+    load_after = {
+      ["nvim-lspconfig"] = true
+    },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/opt/nvim-code-action-menu",
+    url = "https://github.com/weilbith/nvim-code-action-menu"
+  },
+  ["nvim-lightbulb"] = {
+    load_after = {
+      ["nvim-lspconfig"] = true
+    },
+    loaded = false,
+    needs_bufread = false,
+    path = "/data/data/com.termux/files/home/.local/share/nvim/site/pack/packer/opt/nvim-lightbulb",
+    url = "https://github.com/kosayoda/nvim-lightbulb"
+  },
   ["nvim-lspconfig"] = {
-    after = { "lsp_signature.nvim" },
+    after = { "nvim-code-action-menu", "nvim-lightbulb", "lsp_signature.nvim" },
     config = { "require('afnan.lsp')" },
     loaded = false,
     needs_bufread = false,
@@ -233,7 +254,7 @@ _G.packer_plugins = {
     url = "https://github.com/rcarriga/nvim-notify"
   },
   ["nvim-treesitter"] = {
-    after = { "nvim-treesitter-textobjects", "nvim-ts-autotag" },
+    after = { "nvim-ts-autotag", "nvim-treesitter-textobjects" },
     loaded = true,
     only_config = true
   },
@@ -343,38 +364,50 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-notify
-time([[Config for nvim-notify]], true)
-require('afnan.notifications')
-time([[Config for nvim-notify]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('afnan.gitsigns')
+time([[Config for gitsigns.nvim]], false)
 -- Config for: neovim-session-manager
 time([[Config for neovim-session-manager]], true)
 require('afnan.sessions')
 time([[Config for neovim-session-manager]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('afnan.telescope')
-time([[Config for telescope.nvim]], false)
--- Config for: dashboard-nvim
-time([[Config for dashboard-nvim]], true)
-require('afnan.dashboard')
-time([[Config for dashboard-nvim]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-require('afnan.tabline')
-time([[Config for bufferline.nvim]], false)
--- Config for: todo-comments.nvim
-time([[Config for todo-comments.nvim]], true)
-require('afnan.todo-comments')
-time([[Config for todo-comments.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('afnan.statusline')
+time([[Config for lualine.nvim]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+require('afnan.project-nvim')
+time([[Config for project.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('afnan.cmp')
 time([[Config for nvim-cmp]], false)
+-- Config for: todo-comments.nvim
+time([[Config for todo-comments.nvim]], true)
+require('afnan.todo-comments')
+time([[Config for todo-comments.nvim]], false)
+-- Config for: bufferline.nvim
+time([[Config for bufferline.nvim]], true)
+require('afnan.tabline')
+time([[Config for bufferline.nvim]], false)
+-- Config for: dashboard-nvim
+time([[Config for dashboard-nvim]], true)
+require('afnan.dashboard')
+time([[Config for dashboard-nvim]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('afnan.telescope')
+time([[Config for telescope.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require('afnan.treesitter')
 time([[Config for nvim-treesitter]], false)
+-- Config for: nvim-notify
+time([[Config for nvim-notify]], true)
+require('afnan.notifications')
+time([[Config for nvim-notify]], false)
 -- Config for: toggleterm.nvim
 time([[Config for toggleterm.nvim]], true)
 require('afnan.toggleterm')
@@ -383,44 +416,33 @@ time([[Config for toggleterm.nvim]], false)
 time([[Config for nvim-neoclip.lua]], true)
 require('afnan.neoclip')
 time([[Config for nvim-neoclip.lua]], false)
--- Config for: project.nvim
-time([[Config for project.nvim]], true)
-require('afnan.project-nvim')
-time([[Config for project.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('afnan.statusline')
-time([[Config for lualine.nvim]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('afnan.gitsigns')
-time([[Config for gitsigns.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd nvim-treesitter-textobjects ]]
 vim.cmd [[ packadd nvim-ts-autotag ]]
+vim.cmd [[ packadd nvim-treesitter-textobjects ]]
 vim.cmd [[ packadd cmp-buffer ]]
+vim.cmd [[ packadd cmp-path ]]
 vim.cmd [[ packadd nvim-autopairs ]]
 
 -- Config for: nvim-autopairs
 require('afnan.autopairs')
 
-vim.cmd [[ packadd cmp-path ]]
 time([[Sequenced loading]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Glow lua require("packer.load")({'glow.nvim'}, { cmd = "Glow", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file CodeActionMenu lua require("packer.load")({'nvim-code-action-menu'}, { cmd = "CodeActionMenu", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> gc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> gcc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gcc", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> . <cmd>lua require("packer.load")({'vim-repeat'}, { keys = ".", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> gbc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gbc", prefix = "" }, _G.packer_plugins)<cr>]]
-vim.cmd [[noremap <silent> <C-n> <cmd>lua require("packer.load")({'vim-visual-multi'}, { keys = "<lt>C-n>", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> gb <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> <C-n> <cmd>lua require("packer.load")({'vim-visual-multi'}, { keys = "<lt>C-n>", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> . <cmd>lua require("packer.load")({'vim-repeat'}, { keys = ".", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> gcc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gcc", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> gc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
@@ -428,13 +450,13 @@ vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
 vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nodejs-snippets'}, { ft = "javascript" }, _G.packer_plugins)]]
 vim.cmd [[au FileType css ++once lua require("packer.load")({'emmet-vim'}, { ft = "css" }, _G.packer_plugins)]]
 vim.cmd [[au FileType lua ++once lua require("packer.load")({'cmp-nvim-lua'}, { ft = "lua" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascript ++once lua require("packer.load")({'nodejs-snippets'}, { ft = "javascript" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'vim-vsnip', 'vim-surround'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'vim-surround', 'vim-vsnip'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'nvim-lspconfig'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")

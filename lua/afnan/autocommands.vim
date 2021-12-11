@@ -13,5 +13,4 @@ au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 autocmd ColorScheme dracula call WhichKeyHigh()
 autocmd ColorScheme dracula call DraculaPmenu()
 
-" Diagnostics
-autocmd CursorHold,CursorHoldI * :lua vim.diagnostic.open_float(0, {scope = "line"})
+autocmd CursorHold,CursorHoldI * :lua require('nvim-lightbulb').update_lightbulb({ float = { enabled = true } })

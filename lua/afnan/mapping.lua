@@ -58,6 +58,7 @@ local mappings = {
 		r = { ":Telescope live_grep<CR>", "Grep" },
 		p = { ":Telescope projects<CR>", "Projects" },
 		n = { ":Telescope neoclip<CR>", "Neoclip" },
+      h = { ":Telescope help_tags<CR>", "Help tags" }
 	},
 	r = {
 		name = "Source",
@@ -84,6 +85,7 @@ local mappings = {
 		u = { ":PackerUpdate<CR>", "Packer Update" },
 		c = { ":PackerClean<CR>", "Packer Clean" },
 		i = { ":PackerInstall<CR>", "Packer Install" },
+      p = { ":PackerCompile<CR>", "Packer Compile" }
 	},
 	l = {
 		name = "LSP",
@@ -91,6 +93,7 @@ local mappings = {
       k = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
       D = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
       i = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
+      c = { ":lua vim.lsp.buf.code_action()<CR>", "Code Action" }
 	},
 }
 local opts = { prefix = ",", icons = { group = "➜" } }
