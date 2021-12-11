@@ -41,6 +41,7 @@ return packer.startup({
 		use({ "Shatur/neovim-session-manager", requires = { "nvim-telescope/telescope.nvim" }, config = "require('afnan.sessions')"})
 		use({ "rcarriga/nvim-notify", config = "require('afnan.notifications')", requires = { "nvim-telescope/telescope.nvim" }})
 		use({ "akinsho/toggleterm.nvim", config = "require('afnan.toggleterm')" })
+      use({ "folke/todo-comments.nvim", config = "require('afnan.todo-comments')", requires = { "nvim-lua/plenary.nvim" } })
 
 		--  Telescope & Its Extentions
 		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" }, config = "require('afnan.telescope')" })
