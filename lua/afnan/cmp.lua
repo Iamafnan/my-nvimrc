@@ -38,6 +38,7 @@ cmp.setup({
 		format = function(entry, vim_item)
 			vim_item.abbr = vim_item.abbr:sub(1, 30)
 			vim_item.kind = kind_icons[vim_item.kind]
+         vim_item.dup = ({ buffer = 1, path = 1, nvim_lsp = 0 })
 			return vim_item
 		end,
 	},
