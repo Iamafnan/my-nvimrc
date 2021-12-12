@@ -83,6 +83,7 @@ return packer.startup({
 		use({ "hrsh7th/cmp-nvim-lua", ft = "lua" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
       use({ "hrsh7th/cmp-vsnip", after = "vim-vsnip" })
+      use({ "f3fora/cmp-spell", after = "nvim-cmp" })
 
       -- Markdown Preview
       use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })

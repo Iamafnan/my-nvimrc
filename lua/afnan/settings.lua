@@ -56,6 +56,9 @@ set.scrolloff = 14
 set.splitright = true
 set.splitbelow = true
 
+set.spell = true
+set.spelllang = "en_us"
+
 vim.cmd("set shortmess+=c")
 
 vim.g.node_host_prog = "/data/data/com.termux/files/usr/bin/neovim-node-host"

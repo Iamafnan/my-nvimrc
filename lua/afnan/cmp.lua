@@ -13,7 +13,6 @@ cmp.setup({
 	snippet = {
       expand = function(args)
          vim.fn["vsnip#anonymous"](args.body)
-         vim.fn["emmet-expand-abbr"](args.body)
       end,
 	},
 	mapping = {
@@ -31,6 +30,7 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "emmet" },
 		{ name = "nvim_lua" },
+      { name = "spell", keyword_length = 5 },
 	},
 	experimental = { ghost_text = true, native_menu = false },
 	documentation = { border = solid },
