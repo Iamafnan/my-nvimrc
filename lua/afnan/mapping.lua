@@ -89,11 +89,11 @@ local mappings = {
 	},
 	l = {
 		name = "LSP",
-		r = { ":lua vim.lsp.buf.rename()<cr>", "Rename" },
-      k = { ":lua vim.lsp.buf.hover()<CR>", "Hover" },
+		r = { ":Lspsaga rename<cr>", "Rename" },
+      k = { ":Lspsaga hover_doc<CR>", "Hover" },
       D = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
       i = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-      c = { ":CodeActionMenu<CR>", "Code Action" }
+      c = { ":Lspsaga code_action<CR>", "Code Action" }
 	},
 }
 local opts = { prefix = ",", icons = { group = "➜" } }

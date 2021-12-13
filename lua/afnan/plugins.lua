@@ -75,7 +75,7 @@ return packer.startup({
 		use({ "neovim/nvim-lspconfig", config = {"require('afnan.lsp')"}, event = "BufWinEnter"})
 		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", after = "nvim-lspconfig"})
       use({ "kosayoda/nvim-lightbulb", after = "nvim-lspconfig" })
-      use({ "weilbith/nvim-code-action-menu", config = "require('afnan.lsp.codeaction')", cmd = "CodeActionMenu", after = "nvim-lspconfig" })
+      use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })
