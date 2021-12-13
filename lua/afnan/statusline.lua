@@ -98,7 +98,7 @@ ins_left {
     return ''
   end,
   color = 'LualineMode',
-  padding = { right = 1 },
+  padding = { right = 0 },
 }
 
 ins_left {
@@ -108,8 +108,6 @@ ins_left {
 }
 
 ins_left { 'location' }
-
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
 ins_left {
   'diagnostics',
@@ -128,9 +126,8 @@ ins_left {
   end,
 }
 
-ins_left {
+ins_right {
   function()
-    local msg = 'No Active Lsp'
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
     local clients = vim.lsp.get_active_clients()
     if next(clients) == nil then
@@ -142,9 +139,8 @@ ins_left {
         return client.name
       end
     end
-    return msg
   end,
-  icon = ' :',
+  icon = ' ',
   color = { fg = '#ffffff', gui = 'bold' },
 }
 
