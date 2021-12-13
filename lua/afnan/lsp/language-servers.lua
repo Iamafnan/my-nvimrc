@@ -21,8 +21,20 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 
 -- On_attach
 local on_attach = function(client, bufnr)
+
+   -- Signature Help
 	require("lsp_signature").on_attach()
+
+   -- Notification Msg
 	notify(client.name)
+
+   -- Format on save
+   if client.resolved_capabilities.document_formatting then
+      vim.api.nvim_command[[ augroup formatting ]]
+      vim.api.nvim_command[[ autocmd! * <buffer> ]]
+      vim.api.nvim_command[[ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync() ]]
+      vim.api.nvim_command[[ augroup END ]]
+   end
 end
 
 -- JS / TS
