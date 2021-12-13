@@ -33,6 +33,7 @@ return packer.startup({
       use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
       use({'glepnir/dashboard-nvim', config = "require('afnan.dashboard')"})
 		use({ "folke/which-key.nvim" })
+      use({ "kyazdani42/nvim-tree.lua", config = "require('afnan.nvimtree')" })
 
 		--  Icon Packs
 		use({ "kyazdani42/nvim-web-devicons" })
