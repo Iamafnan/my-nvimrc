@@ -64,7 +64,7 @@ return packer.startup({
 		use({ "tpope/vim-repeat", keys = "." })
       use({ "numToStr/Comment.nvim", keys = { "gcc", "gc", "gb", "gbc" }, config = "require('afnan.comments')" })
 		use({ "mg979/vim-visual-multi", keys = "<C-n>" })
-		use({ "tpope/vim-surround", event = "InsertEnter" })
+		use({ "tpope/vim-surround", event = "InsertEnter", lock = true })
       use({ "mattn/emmet-vim", ft = { "css", "html" } })
 
 		--  Git
