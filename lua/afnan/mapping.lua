@@ -75,10 +75,9 @@ local mappings = {
       ["6"] = { ":BufferLineGoToBuffer 6<CR>", "Go to buffer 6"},
 	},
 	n = {
-		name = "Nerdtree",
-		t = { ":NERDTreeToggle<CR>", "Nerdtree" },
-		f = { ":NERDTreeFind<CR>", "Nerdtree Find" },
-		r = { ":NERDTreeRefreshRoot<CR>", "Nerdtree Refresh" },
+		name = "NvimTree",
+		t = { ":NvimTreeToggle<CR>", "NvimTree Toggle" },
+		f = { ":NvimTreeFind<CR>", "NvimTree Find" },
 	},
 	p = {
 		name = "Packer",
