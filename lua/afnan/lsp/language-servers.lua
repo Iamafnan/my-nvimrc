@@ -86,23 +86,7 @@ nvim_lsp.jsonls.setup({
 	single_file_support = true,
 	settings = {
 		json = {
-			schemas = {
-				{
-					description = "Package JSON",
-					fileMatch = { "package.json" },
-					url = "https://json.schemastore.org/package.json",
-				},
-				{
-					description = "ESLINT Config File",
-					fileMatch = { ".eslintrc", ".eslintrc.json" },
-					url = "https://json.schemastore.org/eslintrc",
-				},
-				{
-					description = "Prettier Config File",
-					fileMatch = { ".prettierrc", ".prettierrc.json", "prettier.config.json" },
-					url = "https://json.schemastore.org/prettierrc",
-				},
-            }
+			 schemas = require("schemastore").json.schemas()
 		},
 	},
 })

@@ -78,6 +78,7 @@ return packer.startup({
       use({ "kosayoda/nvim-lightbulb", after = "nvim-lspconfig" })
       use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
       use({ "weilbith/nvim-code-action-menu", after = "nvim-lspconfig" })
+      use({ "b0o/SchemaStore.nvim" })
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })
