@@ -76,6 +76,7 @@ return packer.startup({
 		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", after = "nvim-lspconfig"})
       use({ "kosayoda/nvim-lightbulb", after = "nvim-lspconfig" })
       use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
+      use({ "weilbith/nvim-code-action-menu", after = "nvim-lspconfig" })
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })
@@ -88,6 +89,7 @@ return packer.startup({
 
       -- Markdown Preview
       use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })
+      use({ "vuki656/package-info.nvim", requires = "MunifTanjim/nui.nvim", ft = "json", config = "require('afnan.packageinfo')" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then

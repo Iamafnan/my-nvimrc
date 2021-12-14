@@ -3,6 +3,7 @@ local nvim_lsp = require("lspconfig")
 local nvim_lsp_config = require("lspconfig.configs")
 local cmp_lsp = require("cmp_nvim_lsp")
 local notify = require("afnan.notifications").lspstarted
+local wk = require("which-key")
 
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -28,12 +29,37 @@ local on_attach = function(client, bufnr)
    -- Notification Msg
 	notify(client.name)
 
+   local cmd = vim.api.nvim_command
+
    -- Format on save
    if client.resolved_capabilities.document_formatting then
-      vim.api.nvim_command[[ augroup formatting ]]
-      vim.api.nvim_command[[ autocmd! * <buffer> ]]
-      vim.api.nvim_command[[ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync() ]]
-      vim.api.nvim_command[[ augroup END ]]
+      cmd[[ augroup formatting ]]
+      cmd[[ autocmd! * <buffer> ]]
+      cmd[[ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync() ]]
+      cmd[[ augroup END ]]
+   end
+
+   -- document highlights
+   if client.resolved_capabilities.document_highlight then
+      cmd[[ augroup document_highlight ]]
+      cmd[[ autocmd! * <buffer> ]]
+      cmd[[ autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight() ]]
+      cmd[[ autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() ]]
+      cmd[[ augroup END ]]
+   end
+
+   -- Some keymaps for jsonls
+   if client.name == "jsonls"  then
+      local mappings = { p = { name = "Package Info",
+          s = { ":lua require('package-info').show()<CR>", "Show Package Version" },
+          h = { ":lua require('package-info').hide()<CR>", "Hide Package Version" },
+          u = { ":lua require('package-info').update()<CR>", "Update Package" },
+          d = { ":lua require('package-info').delete()<CR>", "Delete Package" },
+          i = { ":lua require('package-info').install()<CR>", "Install New Package" },
+          r = { ":lua require('package-info').reinstall()<CR>", "Reinstall Package" },
+          c = { ":lua require('package-info').change_version()<CR>", "Change Package Version" }}}
+      local opts = { prefix = "<space>", icons = { group = "➜" } }
+      wk.register(mappings, opts)
    end
 end
 
