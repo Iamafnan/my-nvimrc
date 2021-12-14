@@ -22,45 +22,48 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 
 -- On_attach
 local on_attach = function(client, bufnr)
-
-   -- Signature Help
+	-- Signature Help
 	require("lsp_signature").on_attach()
 
-   -- Notification Msg
+	-- Notification Msg
 	notify(client.name)
 
-   local cmd = vim.api.nvim_command
+	local cmd = vim.api.nvim_command
 
-   -- Format on save
-   if client.resolved_capabilities.document_formatting then
-      cmd[[ augroup formatting ]]
-      cmd[[ autocmd! * <buffer> ]]
-      cmd[[ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync() ]]
-      cmd[[ augroup END ]]
-   end
+	-- Format on save
+	if client.resolved_capabilities.document_formatting then
+		cmd([[ augroup formatting ]])
+		cmd([[ autocmd! * <buffer> ]])
+		cmd([[ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync() ]])
+		cmd([[ augroup END ]])
+	end
 
-   -- document highlights
-   if client.resolved_capabilities.document_highlight then
-      cmd[[ augroup document_highlight ]]
-      cmd[[ autocmd! * <buffer> ]]
-      cmd[[ autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight() ]]
-      cmd[[ autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() ]]
-      cmd[[ augroup END ]]
-   end
+	-- document highlights
+	if client.resolved_capabilities.document_highlight then
+		cmd([[ augroup document_highlight ]])
+		cmd([[ autocmd! * <buffer> ]])
+		cmd([[ autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight() ]])
+		cmd([[ autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() ]])
+		cmd([[ augroup END ]])
+	end
 
-   -- Some keymaps for jsonls
-   if client.name == "jsonls"  then
-      local mappings = { p = { name = "Package Info",
-          s = { ":lua require('package-info').show()<CR>", "Show Package Version" },
-          h = { ":lua require('package-info').hide()<CR>", "Hide Package Version" },
-          u = { ":lua require('package-info').update()<CR>", "Update Package" },
-          d = { ":lua require('package-info').delete()<CR>", "Delete Package" },
-          i = { ":lua require('package-info').install()<CR>", "Install New Package" },
-          r = { ":lua require('package-info').reinstall()<CR>", "Reinstall Package" },
-          c = { ":lua require('package-info').change_version()<CR>", "Change Package Version" }}}
-      local opts = { prefix = "<space>", icons = { group = "➜" } }
-      wk.register(mappings, opts)
-   end
+	-- Some keymaps for jsonls
+	if client.name == "jsonls" then
+		local mappings = {
+			p = {
+				name = "Package Info",
+				s = { ":lua require('package-info').show()<CR>", "Show Package Version" },
+				h = { ":lua require('package-info').hide()<CR>", "Hide Package Version" },
+				u = { ":lua require('package-info').update()<CR>", "Update Package" },
+				d = { ":lua require('package-info').delete()<CR>", "Delete Package" },
+				i = { ":lua require('package-info').install()<CR>", "Install New Package" },
+				r = { ":lua require('package-info').reinstall()<CR>", "Reinstall Package" },
+				c = { ":lua require('package-info').change_version()<CR>", "Change Package Version" },
+			},
+		}
+		local opts = { prefix = "<space>", icons = { group = "➜" } }
+		wk.register(mappings, opts)
+	end
 end
 
 -- JS / TS
@@ -80,14 +83,10 @@ nvim_lsp.jsonls.setup({
 			end,
 		},
 	},
-	init_options = {
-		provideFormatter = true,
-	},
+	init_options = { provideFormatter = true },
 	single_file_support = true,
 	settings = {
-		json = {
-			 schemas = require("schemastore").json.schemas()
-		},
+		json = { schemas = require("schemastore").json.schemas() },
 	},
 })
 
