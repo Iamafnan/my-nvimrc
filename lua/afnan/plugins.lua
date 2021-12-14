@@ -43,6 +43,7 @@ return packer.startup({
 		use({ "rcarriga/nvim-notify", config = "require('afnan.notifications')", requires = { "nvim-telescope/telescope.nvim" }})
 		use({ "akinsho/toggleterm.nvim", config = "require('afnan.toggleterm')" })
       use({ "folke/todo-comments.nvim", config = "require('afnan.todo-comments')", requires = { "nvim-lua/plenary.nvim" } })
+      use({ "norcalli/nvim-colorizer.lua", event = "BufRead" , config = "require('afnan.colorizer')" })
 
 		--  Telescope & Its Extentions
 		use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" }, config = "require('afnan.telescope')" })
@@ -89,6 +90,7 @@ return packer.startup({
 
       -- Markdown Preview
       use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })
+
       use({ "vuki656/package-info.nvim", requires = "MunifTanjim/nui.nvim", ft = "json", config = "require('afnan.packageinfo')" })
 
 		--  Bootstraping Packer.nvim
