@@ -134,3 +134,16 @@ nvim_lsp.vimls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
+
+-- Yaml
+nvim_lsp.yamlls.setup({
+   on_attach = on_attach,
+   capabilities = capabilities,
+   settings = {
+      yaml = {
+         schemas = {
+            ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
+         }
+      }
+   }
+})
