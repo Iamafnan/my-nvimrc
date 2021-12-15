@@ -9,6 +9,19 @@ vim.diagnostic.config({
     update_in_insert = true,
 })
 
+vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
+
+vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
+
+vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
+
+-- Autoshow diagnostics
+vim.api.nvim_exec([[
+  augroup ShowDiagnosticFloat
+    autocmd!
+    autocmd CursorHold * lua vim.diagnostic.open_float(0, {focusable = false, scope = 'line', source = 'always'})
+  augroup end
+]], false )
 -- Hover
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with( vim.lsp.handlers.hover, {
    border = "single"
