@@ -94,6 +94,8 @@ return packer.startup({
 
       use({ "vuki656/package-info.nvim", requires = "MunifTanjim/nui.nvim", ft = "json", config = "require('afnan.packageinfo')" })
 
+      use({ "rafcamlet/nvim-luapad" })
+
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
 			packer.sync()
