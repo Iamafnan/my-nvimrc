@@ -6,5 +6,3 @@ vim.api.nvim_buf_set_keymap(
 ]],
 	{ noremap = true, silent = true }
 )
-
-vim.b.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/snippets/javascript/")

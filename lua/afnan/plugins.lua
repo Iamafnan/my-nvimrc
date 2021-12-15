@@ -62,6 +62,7 @@ return packer.startup({
       use({ "lucaslamar/nodejs-snippets", after = "vim-vsnip", ft = "javascript"})
       use({ "kitagry/vs-snippets", after = "vim-vsnip" })
       use({ "xabikos/vscode-react", after = "vim-vsnip", ft = { "javascript", "javascriptreact" } })
+      use({ "dsznajder/vscode-es7-javascript-react-snippets", after = "vim-vsnip", ft = { "javascript", "javascriptreact" } })
 
 		--  Quick Tasking
 		use({ "tpope/vim-repeat", keys = "." })
