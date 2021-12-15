@@ -128,6 +128,21 @@ nvim_lsp.pyright.setup({
 		},
 	},
 })
+nvim_lsp.pylsp.setup{{
+   on_attach = on_attach,
+   capabilities = capabilities,
+settings = {
+      pylsp = {
+        plugins = {
+          pylint = { enabled = true },
+          yapf = { enabled = true },
+          pycodestyle = { enabled = false },
+          autopep8 = { enabled = false },
+          pydocstyle = { enabled = false },
+        },
+      },
+   },
+}}
 
 -- Vim
 nvim_lsp.vimls.setup({
