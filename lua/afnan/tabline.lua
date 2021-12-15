@@ -1,7 +1,7 @@
 local fn = vim.fn
 
 local function diagnostics_indicator(_, _, diagnostics)
-    local symbols = { error = ' ', warning = ' ', info = ' ' }
+    local symbols = { error = ' ', warning = ' ', info = ' ' }
     local result = {}
     for name, count in pairs(diagnostics) do
       if symbols[name] and count > 0 then
