@@ -156,9 +156,7 @@ nvim_lsp.yamlls.setup({
    capabilities = capabilities,
    settings = {
       yaml = {
-         schemas = {
-            ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*"
-         }
+         schemas = require("schemastore").json.schemas()
       }
    }
 })
