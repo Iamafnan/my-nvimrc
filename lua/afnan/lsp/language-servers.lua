@@ -30,14 +30,6 @@ local on_attach = function(client, bufnr)
 
 	local cmd = vim.api.nvim_command
 
-	-- Format on save
-	if client.resolved_capabilities.document_formatting then
-		cmd([[ augroup formatting ]])
-		cmd([[ autocmd! * <buffer> ]])
-		cmd([[ autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync() ]])
-		cmd([[ augroup END ]])
-	end
-
 	-- document highlights
 	if client.resolved_capabilities.document_highlight then
 		cmd([[ augroup document_highlight ]])
@@ -46,6 +38,10 @@ local on_attach = function(client, bufnr)
 		cmd([[ autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() ]])
 		cmd([[ augroup END ]])
 	end
+
+   -- Disable formatting
+   client.resolved_capabilities.document_formatting = false
+   client.resolved_capabilities.document_range_formatting = false
 
 	-- Some keymaps for jsonls
 	if client.name == "jsonls" then
