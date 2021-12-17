@@ -79,7 +79,7 @@ return packer.startup({
 		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", after = "nvim-lspconfig"})
       use({ "kosayoda/nvim-lightbulb", after = "nvim-lspconfig" })
       use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
-      use({ "weilbith/nvim-code-action-menu", after = "nvim-lspconfig" })
+      use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
       use({ "b0o/SchemaStore.nvim" })
 
 		--  CMP

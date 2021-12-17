@@ -4,6 +4,7 @@ local nvim_lsp_config = require("lspconfig.configs")
 local cmp_lsp = require("cmp_nvim_lsp")
 local notify = require("afnan.notifications").lspstarted
 local wk = require("which-key")
+local ts_utils = require("nvim-lsp-ts-utils")
 
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -60,12 +61,35 @@ local on_attach = function(client, bufnr)
 		local opts = { prefix = "<space>", icons = { group = "➜" } }
 		wk.register(mappings, opts)
 	end
+
+   if client.name == "tsserver" then
+      ts_utils.setup({
+         enable_import_on_completion = true,
+         import_all_select_source = true,
+         auto_inlay_hints = false,
+
+         -- Eslint
+         eslint_enable_code_actions = true,
+         eslint_enable_disable_comments = true,
+         eslint_bin = "eslint_d",
+         eslint_enable_diagnostics = true,
+         eslint_opts = {},
+
+         -- Formatting
+         enable_formatting = true,
+         formatter = "prettierd",
+         formatter_opts = {},
+      })
+
+      ts_utils.setup_client(client)
+   end
 end
 
 -- JS / TS
 nvim_lsp.tsserver.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+   init_options = ts_utils.init_options,
 })
 
 -- JSON
@@ -156,3 +180,8 @@ nvim_lsp.yamlls.setup({
       }
    }
 })
+-- Linting
+nvim_lsp.eslint.setup{{
+   on_attach = on_attach,
+   capabilities = capabilities,
+}}
