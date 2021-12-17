@@ -27,7 +27,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
       { name = "vsnip" },
-		{ name = "path", trigger_characters = { '/' } },
+		{ name = "path"},
 		{ name = "emmet" },
 		{ name = "nvim_lua" },
       { name = "spell", keyword_length = 5 },
