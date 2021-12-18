@@ -126,6 +126,10 @@ ins_left {
   end,
 }
 
+ins_left {
+   "nvim_treesitter#statusline",
+   color = { fg = colors.yellow } }
+
 ins_right {
   function()
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
