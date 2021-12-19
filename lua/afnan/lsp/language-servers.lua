@@ -176,7 +176,10 @@ nvim_lsp.yamlls.setup({
    capabilities = capabilities,
    settings = {
       yaml = {
-         schemas = require("schemastore").json.schemas()
+         schemas = require("schemastore").json.schemas(),
+         hover = true,
+         completion = true,
+         validate = true,
       }
    }
 })
