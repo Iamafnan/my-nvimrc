@@ -142,7 +142,7 @@ nvim_lsp.pyright.setup({
 				typeCheckingMode = "basic",
 				reportUnusedImport = true,
 				autoSearchPaths = true,
-				useLibraryCodeForTypes = true,
+				useLibraryCodeForTypes = false,
 				diagnosticMode = "workspace",
 			},
 		},
