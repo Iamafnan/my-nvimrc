@@ -29,7 +29,7 @@ return packer.startup({
 		use({ "wbthomason/packer.nvim" })
 		use({ "nathom/filetype.nvim" })
 		use({ "dracula/vim", as = "Dracula" })
-		use({ "nvim-lualine/lualine.nvim", config = "require('afnan.statusline')" })
+      use({ "NTBBloodbath/galaxyline.nvim", branch = "main", config = "require('afnan.statusline')" })
       use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
       use({'glepnir/dashboard-nvim', config = "require('afnan.dashboard')"})
 		use({ "folke/which-key.nvim" })
@@ -61,7 +61,6 @@ return packer.startup({
       use({ "hrsh7th/vim-vsnip", event = "InsertEnter" })
       use({ "lucaslamar/nodejs-snippets", after = "vim-vsnip", ft = "javascript"})
       use({ "kitagry/vs-snippets", after = "vim-vsnip" })
-      use({ "xabikos/vscode-react", after = "vim-vsnip", ft = { "javascript", "javascriptreact" } })
       use({ "dsznajder/vscode-es7-javascript-react-snippets", after = "vim-vsnip", ft = { "javascript", "javascriptreact" } })
 
 		--  Quick Tasking
@@ -69,7 +68,7 @@ return packer.startup({
       use({ "numToStr/Comment.nvim", keys = { "gcc", "gc", "gb", "gbc" }, config = "require('afnan.comments')" })
 		use({ "mg979/vim-visual-multi", keys = "<C-n>" })
 		use({ "tpope/vim-surround", event = "InsertEnter", lock = true })
-      use({ "mattn/emmet-vim", ft = { "css", "html" } })
+      use({ "mattn/emmet-vim", ft = { "css", "html", "javascript" , "javascriptreact" } })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')" })
@@ -79,7 +78,6 @@ return packer.startup({
 		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", after = "nvim-lspconfig"})
       use({ "kosayoda/nvim-lightbulb", after = "nvim-lspconfig" })
       use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
-      use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
       use({ "b0o/SchemaStore.nvim" })
 
 		--  CMP
@@ -98,6 +96,7 @@ return packer.startup({
 
       use({ "rafcamlet/nvim-luapad", cmd = "Luapad" })
 
+      use({ "szw/vim-maximizer", cmd = "MaximizerToggle" })
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
 			packer.sync()

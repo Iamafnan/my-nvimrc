@@ -1,176 +1,40 @@
-local lualine = require 'lualine'
-local colors = {
-  bg       = '#202328',
-  fg       = '#bbc2cf',
-  yellow   = '#ECBE7B',
-  cyan     = '#008080',
-  darkblue = '#081633',
-  green    = '#98be65',
-  orange   = '#FF8800',
-  violet   = '#a9a1e1',
-  magenta  = '#c678dd',
-  blue     = '#51afef',
-  red      = '#ec5f67',
-}
+local galaxyline = require("galaxyline")
 
-local conditions = {
-  buffer_not_empty = function()
-    return vim.fn.empty(vim.fn.expand '%:t') ~= 1
-  end,
-  hide_in_width = function()
-    return vim.fn.winwidth(0) > 80
-  end,
-  check_git_workspace = function()
-    local filepath = vim.fn.expand '%:p:h'
-    local gitdir = vim.fn.finddir('.git', filepath .. ';')
-    return gitdir and #gitdir > 0 and #gitdir < #filepath
-  end,
-}
+local diagnostic = require("galaxyline.providers.diagnostic")
+local vcs = require("galaxyline.providers.vcs")
+local fileinfo = require("galaxyline.providers.fileinfo")
+local colors = require("galaxyline.highlighting")
+local buffer = require("galaxyline.providers.buffer")
+local search = require("galaxyline.providers.search")
+local whitespace = require("galaxyline.providers.whitespace")
+local lspclient = require("galaxyline.providers.lsp")
 
-local config = {
-  options = {
-    component_separators = '',
-    section_separators = '',
-    theme = {
-      normal = { c = { fg = colors.fg, bg = colors.bg } },
-      inactive = { c = { fg = colors.fg, bg = colors.bg } },
-    },
-  },
-  sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_y = {},
-    lualine_z = {},
-    lualine_c = {},
-    lualine_x = {},
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_v = {},
-    lualine_y = {},
-    lualine_z = {},
-    lualine_c = {},
-    lualine_x = {},
-  },
-}
+local BufferIcon  = buffer.get_buffer_type_icon
+local BufferNumber = buffer.get_buffer_number
+local FileTypeName = buffer.get_buffer_filetype
 
-local function ins_left(component)
-  table.insert(config.sections.lualine_c, component)
-end
+local GitBranch = vcs.get_git_branch
+local DiffAdd = vcs.diff_add
+local DiffModified = vcs.diff_modified
+local DiffRemove = vcs.diff_remove
 
-local function ins_right(component)
-  table.insert(config.sections.lualine_x, component)
-end
+local SearchResults = search.get_results
 
-ins_left {
-  function()
-    return '▊'
-  end,
-  color = { fg = colors.blue },
-  padding = { left = 0, right = 1 },
-}
+local LineColumn = fileinfo.line_column
+local FileSize = fileinfo.get_file_size
+local FileIcon = fileinfo.get_file_icon
+local FileName = fileinfo.get_current_file_name
+local LinePercent = fileinfo.current_line_percent
 
-ins_left {
-  function()
-    local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      [''] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [''] = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!'] = colors.red,
-      t = colors.red,
-    }
-    vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
-    return ''
-  end,
-  color = 'LualineMode',
-  padding = { right = 0 },
-}
+local Whitespace = whitespace.get_item
 
-ins_left {
-  'filename',
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = 'bold' },
-}
+local DiagnosticError = diagnostic.get_diagnostic_error
+local DiagnosticWarn = diagnostic.get_diagnostic_warn
+local DiagnosticHint = diagnostic.get_diagnostic_hint
+local DiagnosticInfo = diagnostic.get_diagnostic_info
 
-ins_left { 'location' }
+local GetLspClient = lspclient.get_lsp_client
 
-ins_left {
-  'diagnostics',
-  sources = { 'nvim_diagnostic' },
-  symbols = { error = ' ', warn = ' ', info = ' ' },
-  diagnostics_color = {
-    color_error = { fg = colors.red },
-    color_warn = { fg = colors.yellow },
-    color_info = { fg = colors.cyan },
-  },
-}
+local gls = galaxyline.section
 
-ins_left {
-  function()
-    return '%='
-  end,
-}
-
-ins_left {
-   "nvim_treesitter#statusline",
-   color = { fg = colors.yellow } }
-
-ins_right {
-  function()
-    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-    local clients = vim.lsp.get_active_clients()
-    if next(clients) == nil then
-      return msg
-    end
-    for _, client in ipairs(clients) do
-      local filetypes = client.config.filetypes
-      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return client.name
-      end
-    end
-  end,
-  icon = ' ',
-  color = { fg = '#ffffff', gui = 'bold' },
-}
-
-ins_right {
-  'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
-}
-
-ins_right {
-  'diff',
-  symbols = { added = ' ', modified = '柳 ', removed = ' ' },
-  diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
-  },
-  cond = conditions.hide_in_width,
-}
-
-ins_right {
-  function()
-    return '▊'
-  end,
-  color = { fg = colors.blue },
-  padding = { left = 1 },
-}
-
-lualine.setup(config)
+galaxyline.short_line_list = { "NvimTree" }

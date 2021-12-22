@@ -2,6 +2,7 @@ require("nvim-tree").setup({
    diagnostics = { enable = false },
    git = { enable = false },
    view = { hide_root_folder = true },
+   update_cwd = true,
    filters = { custom = { '.git', 'node_modules', 'dist' }},
    auto_close = true,
 })
