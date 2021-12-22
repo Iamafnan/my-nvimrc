@@ -92,7 +92,8 @@ local mappings = {
       k = { ":Lspsaga hover_doc<CR>", "Hover" },
       D = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
       i = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-      c = { ":Lspsaga code_action<CR>", "Code Action" }
+      c = { ":Lspsaga code_action<CR>", "Code Action" },
+      R = { ":lua vim.lsp.buf.references()<CR>", "Reference" }
 	},
 }
 local opts = { prefix = ",", icons = { group = "➜" } }

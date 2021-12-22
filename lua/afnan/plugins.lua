@@ -79,6 +79,7 @@ return packer.startup({
       use({ "kosayoda/nvim-lightbulb", after = "nvim-lspconfig" })
       use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
       use({ "b0o/SchemaStore.nvim" })
+      use { 'wiliamks/nice-reference.nvim', requires = { 'rmagatti/goto-preview', config = function() require('goto-preview').setup {} end }}
 
 		--  CMP
 		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })

@@ -26,3 +26,6 @@ vim.api.nvim_exec([[
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with( vim.lsp.handlers.hover, {
    border = "single"
 })
+
+-- References
+vim.lsp.handlers["textDocument/references"] = require 'nice-reference'.reference_handler
