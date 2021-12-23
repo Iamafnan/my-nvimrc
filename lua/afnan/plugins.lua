@@ -68,7 +68,6 @@ return packer.startup({
       use({ "numToStr/Comment.nvim", keys = { "gcc", "gc", "gb", "gbc" }, config = "require('afnan.comments')" })
 		use({ "mg979/vim-visual-multi", keys = "<C-n>" })
 		use({ "tpope/vim-surround", event = "InsertEnter", lock = true })
-      use({ "mattn/emmet-vim", ft = { "css", "html", "javascript" , "javascriptreact" } })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')" })
