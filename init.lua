@@ -11,10 +11,8 @@
 -- "  Author: Mohammad Afnan (@Iamafnan)                                        "
 -- "  Creation Date : 19th September 2021                                       "
 -- "                                                                            "
--- "                                                                            "
--- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 --
-require("impatient")
+pcall(require("impatient"))
 
-require('afnan')
+pcall(require("afnan"))
