@@ -38,7 +38,7 @@ return packer.startup({
 			branch = "main",
 			config = "require('afnan.statusline')",
 		})
-		use({ "akinsho/bufferline.nvim", config = "pcall(require('afnan.tabline'))" })
+		use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
 		use({ "glepnir/dashboard-nvim", config = "require('afnan.dashboard')" })
 		use({ "folke/which-key.nvim" })
 		use({ "kyazdani42/nvim-tree.lua", config = "require('afnan.nvimtree')" })
