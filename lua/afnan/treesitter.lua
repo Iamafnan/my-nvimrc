@@ -6,6 +6,7 @@ local tsinstall = require("nvim-treesitter.install")
 treesitter.setup({
 	highlight = { enable = true },
 	indent = { enable = true },
+	rainbow = { enable = true, extended_mode = false },
 	incremental_selection = {
 		enable = true,
 		keymaps = {

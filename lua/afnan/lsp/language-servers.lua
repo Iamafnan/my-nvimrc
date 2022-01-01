@@ -97,8 +97,8 @@ nvim_lsp.html.setup({
 })
 nvim_lsp_config.ls_emmet = {
    default_config = {
-      cmd = { 'ls_emmet --stdio' },
-      filetypes = { 'html', 'css', 'scss', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'haml', 'xml', 'xsl', 'pug', 'slim', 'sass', 'stylus', 'less', 'sss'},
+      cmd = { 'ls_emmet', '--stdio' },
+      filetypes = { 'html', 'css', 'javascript', 'javascriptreact', 'xml' },
       root_dir = function(fname)
       return vim.loop.cwd()
       end,
@@ -159,3 +159,14 @@ nvim_lsp.eslint.setup{{
    on_attach = on_attach,
    capabilities = capabilities,
 }}
+nvim_lsp.stylelint_lsp.setup{
+   on_attach = on_attach,
+   capabilities = capabilities,
+   settings = {
+      stylelintplus = {
+         autoFixOnSave = true,
+         cssInJs = true,
+         validateOnSave = true,
+      }
+   }
+}

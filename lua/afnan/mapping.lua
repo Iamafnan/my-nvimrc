@@ -58,7 +58,7 @@ local mappings = {
 		r = { ":Telescope live_grep<CR>", "Grep" },
 		p = { ":Telescope projects<CR>", "Projects" },
 		n = { ":Telescope neoclip<CR>", "Neoclip" },
-      h = { ":Telescope help_tags<CR>", "Help tags" }
+		h = { ":Telescope help_tags<CR>", "Help tags" },
 	},
 	r = {
 		name = "Source",
@@ -67,12 +67,12 @@ local mappings = {
 	b = {
 		name = "Buffer",
 		q = { ":bdelete! <CR>", "Close buffer" },
-      ["1"] = { ":BufferLineGoToBuffer 1<CR>", "Go to buffer 1"},
-      ["2"] = { ":BufferLineGoToBuffer 2<CR>", "Go to buffer 2"},
-      ["3"] = { ":BufferLineGoToBuffer 3<CR>", "Go to buffer 3"},
-      ["4"] = { ":BufferLineGoToBuffer 4<CR>", "Go to buffer 4"},
-      ["5"] = { ":BufferLineGoToBuffer 5<CR>", "Go to buffer 5"},
-      ["6"] = { ":BufferLineGoToBuffer 6<CR>", "Go to buffer 6"},
+		["1"] = { ":BufferLineGoToBuffer 1<CR>", "Go to buffer 1" },
+		["2"] = { ":BufferLineGoToBuffer 2<CR>", "Go to buffer 2" },
+		["3"] = { ":BufferLineGoToBuffer 3<CR>", "Go to buffer 3" },
+		["4"] = { ":BufferLineGoToBuffer 4<CR>", "Go to buffer 4" },
+		["5"] = { ":BufferLineGoToBuffer 5<CR>", "Go to buffer 5" },
+		["6"] = { ":BufferLineGoToBuffer 6<CR>", "Go to buffer 6" },
 	},
 	n = {
 		name = "NvimTree",
@@ -81,19 +81,22 @@ local mappings = {
 	},
 	p = {
 		name = "Packer",
-		u = { ":PackerUpdate<CR>", "Packer Update" },
-		c = { ":PackerClean<CR>", "Packer Clean" },
-		i = { ":PackerInstall<CR>", "Packer Install" },
-      p = { ":PackerCompile<CR>", "Packer Compile" }
+		u = { ":PackerUpdate<CR>", "Update" },
+		c = { ":PackerClean<CR>", "Clean" },
+		i = { ":PackerInstall<CR>", "Install" },
+		p = { ":PackerCompile<CR>", "Compile" },
+		s = { ":PackerSync<CR>", "Sync" },
 	},
 	l = {
 		name = "LSP",
 		r = { ":Lspsaga rename<cr>", "Rename" },
-      k = { ":Lspsaga hover_doc<CR>", "Hover" },
-      D = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
-      i = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-      c = { ":Lspsaga code_action<CR>", "Code Action" },
-      R = { ":lua vim.lsp.buf.references()<CR>", "Reference" }
+		k = { ":Lspsaga hover_doc<CR>", "Hover" },
+		d = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
+		I = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
+		c = { ":Lspsaga code_action<CR>", "Code Action" },
+		R = { ":lua vim.lsp.buf.references()<CR>", "Reference" },
+		f = { ":Neoformat<CR>", "Format" },
+		i = { ":LspInfo<CR>", "Attached LSP" },
 	},
 }
 local opts = { prefix = ",", icons = { group = "➜" } }

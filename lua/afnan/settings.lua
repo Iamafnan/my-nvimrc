@@ -7,7 +7,7 @@ vim.cmd("set t_Co=256")
 
 vim.g.did_load_filetypes = 1
 
-vim.cmd("colorscheme dracula ")
+vim.cmd("colorscheme tokyonight ")
 
 vim.cmd("filetype on")
 vim.cmd("filetype plugin on")
