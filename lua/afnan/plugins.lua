@@ -91,7 +91,7 @@ return packer.startup({
 		use({ "nvim-treesitter/nvim-treesitter", config = "require('afnan.treesitter')" })
 		use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
 		use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
-      use({ "p00f/nvim-ts-rainbow" })
+		use({ "p00f/nvim-ts-rainbow" })
 		use({
 			"windwp/nvim-autopairs",
 			config = "require('afnan.autopairs')",
@@ -151,7 +151,7 @@ return packer.startup({
 
 		use({
 			"~/dev/package-info.nvim",
-			requires = "MunifTanjim/nui.nvim",
+			requires = { "MunifTanjim/nui.nvim", ft = "json" },
 			ft = "json",
 			config = "require('afnan.packageinfo')",
 		})
