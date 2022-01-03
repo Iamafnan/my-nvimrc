@@ -10,14 +10,13 @@ neoclip.setup({
 	content_spec_column = false,
 	on_paste = { set_reg = false },
 	keys = {
-      telescope = {
-         i = {
-            select = "<cr>",
-            paste = "p",
-            paste_behind = "b",
-            custom = {},
-         },
-      }
+		telescope = {
+			i = {
+				select = "<cr>",
+				paste = "p",
+				paste_behind = "b",
+				custom = {},
+			},
+		},
 	},
 })
-

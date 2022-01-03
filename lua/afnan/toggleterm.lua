@@ -6,5 +6,5 @@ require("toggleterm").setup({
 	start_in_insert = true,
 	persist_size = true,
 	direction = "horizontal",
-   hide_numbers = true
+	hide_numbers = true,
 })

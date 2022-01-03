@@ -5,7 +5,7 @@ require("session_manager").setup({
 	path_replacer = "__",
 	colon_replacer = "++",
 	autoload_mode = config.AutoloadMode.Disabled,
-   save_current = true, 
-   autosave_ignore_not_normal = true,
-   autosave_last_session = true,
+	save_current = true,
+	autosave_ignore_not_normal = true,
+	autosave_last_session = true,
 })

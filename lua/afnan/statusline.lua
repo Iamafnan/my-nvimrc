@@ -9,7 +9,7 @@ local search = require("galaxyline.providers.search")
 local whitespace = require("galaxyline.providers.whitespace")
 local lspclient = require("galaxyline.providers.lsp")
 
-local BufferIcon  = buffer.get_buffer_type_icon
+local BufferIcon = buffer.get_buffer_type_icon
 local BufferNumber = buffer.get_buffer_number
 local FileTypeName = buffer.get_buffer_filetype
 

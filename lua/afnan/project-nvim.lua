@@ -10,5 +10,3 @@ project.setup({
 	datapath = vim.fn.stdpath("data"),
 	exclude_dirs = { "./node_modules/*" },
 })
-
-

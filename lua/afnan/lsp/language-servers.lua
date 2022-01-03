@@ -39,9 +39,9 @@ local on_attach = function(client, bufnr)
 		cmd([[ augroup END ]])
 	end
 
-   -- Disable formatting
-   client.resolved_capabilities.document_formatting = false
-   client.resolved_capabilities.document_range_formatting = false
+	-- Disable formatting
+	client.resolved_capabilities.document_formatting = false
+	client.resolved_capabilities.document_range_formatting = false
 
 	-- Some keymaps for jsonls
 	if client.name == "jsonls" then
@@ -96,18 +96,18 @@ nvim_lsp.html.setup({
 	capabilities = capabilities,
 })
 nvim_lsp_config.ls_emmet = {
-   default_config = {
-      cmd = { 'ls_emmet', '--stdio' },
-      filetypes = { 'html', 'css', 'javascript', 'javascriptreact', 'xml' },
-      root_dir = function(fname)
-      return vim.loop.cwd()
-      end,
-      settings = {},
-   },
+	default_config = {
+		cmd = { "ls_emmet", "--stdio" },
+		filetypes = { "html", "css", "javascript", "javascriptreact", "xml" },
+		root_dir = function(fname)
+			return vim.loop.cwd()
+		end,
+		settings = {},
+	},
 }
 nvim_lsp.ls_emmet.setup({
-   on_attach = on_attach,
-   capabilities = capabilities,
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 -- Bash / Zsh
@@ -143,30 +143,30 @@ nvim_lsp.vimls.setup({
 
 -- Yaml
 nvim_lsp.yamlls.setup({
-   on_attach = on_attach,
-   capabilities = capabilities,
-   settings = {
-      yaml = {
-         schemas = require("schemastore").json.schemas(),
-         hover = true,
-         completion = true,
-         validate = true,
-      }
-   }
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		yaml = {
+			schemas = require("schemastore").json.schemas(),
+			hover = true,
+			completion = true,
+			validate = true,
+		},
+	},
 })
 -- Linting
-nvim_lsp.eslint.setup{{
-   on_attach = on_attach,
-   capabilities = capabilities,
-}}
-nvim_lsp.stylelint_lsp.setup{
-   on_attach = on_attach,
-   capabilities = capabilities,
-   settings = {
-      stylelintplus = {
-         autoFixOnSave = true,
-         cssInJs = true,
-         validateOnSave = true,
-      }
-   }
-}
+nvim_lsp.eslint.setup({ {
+	on_attach = on_attach,
+	capabilities = capabilities,
+} })
+nvim_lsp.stylelint_lsp.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		stylelintplus = {
+			autoFixOnSave = true,
+			cssInJs = true,
+			validateOnSave = true,
+		},
+	},
+})
