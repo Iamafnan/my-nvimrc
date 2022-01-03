@@ -92,6 +92,7 @@ return packer.startup({
 		use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
 		use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 		use({ "p00f/nvim-ts-rainbow" })
+		use({ "JoosepAlviste/nvim-ts-context-commentstring", after = { "nvim-treesitter", "Comment.nvim" } })
 		use({
 			"windwp/nvim-autopairs",
 			config = "require('afnan.autopairs')",
