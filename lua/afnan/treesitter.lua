@@ -6,7 +6,7 @@ treesitter.setup({
 	highlight = { enable = true },
 	indent = { enable = true },
 	rainbow = { enable = true, extended_mode = false },
-	context_commentstring = { enable = true, enable_autocmd = true },
+	context_commentstring = { enable = true, enable_autocmd = false },
 	incremental_selection = {
 		enable = true,
 		keymaps = {
