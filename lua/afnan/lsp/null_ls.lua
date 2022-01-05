@@ -6,11 +6,14 @@ local diagnostics = null_ls.builtins.diagnostics
 local codeactions = null_ls.builtins.code_actions
 
 null_ls.setup({
+	debug = false,
 	sources = {
 		formatting.prettier.with({
 			filetypes = { "html", "css", "javascript", "javascriptreact", "markdown", "json", "yaml" },
 		}),
-		formatting.black,
+		formatting.black.with({
+			extra_args = { "--fast" },
+		}),
 		formatting.eslint_d,
 		formatting.stylua,
 		formatting.shfmt.with({
