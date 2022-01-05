@@ -39,10 +39,6 @@ local on_attach = function(client, bufnr)
 		cmd([[ augroup END ]])
 	end
 
-	-- Disable formatting
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
-
 	-- Some keymaps for jsonls
 	if client.name == "jsonls" then
 		local mappings = {

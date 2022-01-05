@@ -127,6 +127,7 @@ return packer.startup({
 		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", after = "nvim-lspconfig" })
 		use({ "kosayoda/nvim-lightbulb", after = "nvim-lspconfig" })
 		use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
+		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')" })
 		use({ "b0o/SchemaStore.nvim" })
 		use({
 			"wiliamks/nice-reference.nvim",
@@ -151,7 +152,7 @@ return packer.startup({
 		use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })
 
 		use({
-			"~/dev/package-info.nvim",
+			"vuki656/package-info.nvim",
 			requires = { "MunifTanjim/nui.nvim", ft = "json" },
 			ft = "json",
 			config = "require('afnan.packageinfo')",
@@ -160,8 +161,6 @@ return packer.startup({
 		use({ "rafcamlet/nvim-luapad", cmd = "Luapad" })
 
 		use({ "szw/vim-maximizer", cmd = "MaximizerToggle" })
-
-		use({ "sbdchd/neoformat" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then

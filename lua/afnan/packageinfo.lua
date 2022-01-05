@@ -1,1 +1,1 @@
-require("package-info").setup({ package_manager = "yarn_v1" })
+require("package-info").setup({ package_manager = "yarn" })

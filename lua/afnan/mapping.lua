@@ -95,7 +95,8 @@ local mappings = {
 		I = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
 		c = { ":Lspsaga code_action<CR>", "Code Action" },
 		R = { ":lua vim.lsp.buf.references()<CR>", "Reference" },
-		f = { ":Neoformat<CR>", "Format" },
+		f = { ":lua vim.lsp.buf.formatting()<CR>", "Format" },
+		n = { ":NullLsInfo", "Attached Sources" },
 		i = { ":LspInfo<CR>", "Attached LSP" },
 	},
 }
