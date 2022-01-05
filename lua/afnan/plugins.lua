@@ -85,7 +85,6 @@ return packer.startup({
 			requires = { "tami5/sqlite.lua" },
 			config = "require('afnan.neoclip')",
 		})
-		use({ "nvim-telescope/telescope-ui-select.nvim" })
 
 		-- Tree-Sitter
 		use({ "nvim-treesitter/nvim-treesitter", config = "require('afnan.treesitter')" })

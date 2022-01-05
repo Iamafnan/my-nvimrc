@@ -35,11 +35,6 @@ telescope.setup({
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
 	},
-	extensions = {
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown({}),
-		},
-	},
 })
 
 -- Extentions
@@ -47,4 +42,3 @@ load("projects")
 load("neoclip")
 load("sessions")
 load("notify")
-load("ui-select")
