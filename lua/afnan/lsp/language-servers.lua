@@ -21,7 +21,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 }
 
 -- On_attach
-local on_attach = function(client, bufnr)
+local on_attach = function(client)
 	-- Signature Help
 	require("lsp_signature").on_attach()
 
@@ -29,6 +29,10 @@ local on_attach = function(client, bufnr)
 	notify(client.name)
 
 	local cmd = vim.api.nvim_command
+
+   -- Disable formatting
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
 
 	-- document highlights
 	if client.resolved_capabilities.document_highlight then
@@ -68,14 +72,7 @@ nvim_lsp.tsserver.setup({
 nvim_lsp.jsonls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	commands = {
-		Format = {
-			function()
-				vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
-			end,
-		},
-	},
-	init_options = { provideFormatter = true },
+	init_options = { provideFormatter = false },
 	single_file_support = true,
 	settings = {
 		json = { schemas = require("schemastore").json.schemas() },
@@ -95,7 +92,7 @@ nvim_lsp_config.ls_emmet = {
 	default_config = {
 		cmd = { "ls_emmet", "--stdio" },
 		filetypes = { "html", "css", "javascript", "javascriptreact", "xml" },
-		root_dir = function(fname)
+		root_dir = function()
 			return vim.loop.cwd()
 		end,
 		settings = {},

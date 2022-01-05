@@ -132,9 +132,7 @@ return packer.startup({
 			"wiliamks/nice-reference.nvim",
 			requires = {
 				"rmagatti/goto-preview",
-				config = function()
-					require("goto-preview").setup({})
-				end,
+				config = "require('goto-preview').setup({})",
 			},
 		})
 
