@@ -1,5 +1,3 @@
-local fn = vim.fn
-
 local function diagnostics_indicator(_, _, diagnostics)
 	local symbols = { error = " ", warning = " ", info = " " }
 	local result = {}

@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local cmd = vim.cmd
 local set = vim.opt
 local kind_icons = require("afnan.lsp.kinds").kind
 
@@ -17,11 +16,11 @@ cmp.setup({
 	},
 	mapping = {
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
-		["<tab>"] = cmp.mapping(function(fallback)
+		["<tab>"] = cmp.mapping(function()
 			feedkey("<plug>(vsnip-expand-or-jump)", "")
 		end, { "i", "s" }),
 	},
-	["<Tab>"] = cmp.mapping(function(fallback)
+	["<Tab>"] = cmp.mapping(function()
 		if vim.fn["vsnip#available"](1) == 1 then
 			feedkey("<Plug>(vsnip-expand-or-jump)", "")
 		end
@@ -49,6 +48,11 @@ cmp.setup({
 			vim_item.abbr = vim_item.abbr:sub(1, 30)
 			vim_item.kind = kind_icons[vim_item.kind]
 			vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
+			vim_item.menu = ({
+				buffer = "[Buffer]",
+				nvim_lsp = "[LSP]",
+				nvim_lua = "[Lua]",
+			})[entry.source.name]
 			return vim_item
 		end,
 	},

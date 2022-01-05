@@ -1,6 +1,5 @@
 local treesitter = require("nvim-treesitter.configs")
 local tsinstall = require("nvim-treesitter.install")
-
 -- Config
 treesitter.setup({
 	highlight = { enable = true },
@@ -23,4 +22,4 @@ treesitter.setup({
 })
 
 -- Installation Config
-tsinstall = { prefer_git = true }
+tsinstall.prefer_git = true
