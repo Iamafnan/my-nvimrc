@@ -90,7 +90,6 @@ local mappings = {
 	l = {
 		name = "LSP",
 		r = { ":Lspsaga rename<cr>", "Rename" },
-		k = { ":Lspsaga hover_doc<CR>", "Hover" },
 		d = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
 		I = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
 		c = { ":Lspsaga code_action<CR>", "Code Action" },
@@ -98,7 +97,10 @@ local mappings = {
 		f = { ":lua vim.lsp.buf.formatting()<CR>", "Format" },
 		n = { ":NullLsInfo<CR>", "Attached Sources" },
 		i = { ":LspInfo<CR>", "Attached LSP" },
+      k = { ":lua vim.diagnostic.goto_next()", "Next Diagnostic" },
+      j = { ":lua vim.diagnostic.goto_prev()", "Previous Diagnostic" },
 	},
+	K = { ":Lspsaga hover_doc<CR>", "Hover" },
 }
 local opts = { prefix = ",", icons = { group = "➜" } }
 wk.register(mappings, opts)
