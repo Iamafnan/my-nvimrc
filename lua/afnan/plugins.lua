@@ -33,10 +33,7 @@ return packer.startup({
 			as = "Dracula",
 		})
 		use({ "folke/tokyonight.nvim" })
-		use({
-			"NTBBloodbath/galaxyline.nvim",
-			config = "require('afnan.statusline')",
-		})
+		use({"tamton-aquib/staline.nvim", config = "require('afnan.statusline')"})
 		use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
 		use({ "glepnir/dashboard-nvim", config = "require('afnan.dashboard')" })
 		use({ "folke/which-key.nvim" })
@@ -127,7 +124,7 @@ return packer.startup({
 		use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
 		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')" })
 		use({ "b0o/SchemaStore.nvim" })
-      use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
+		use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
 		use({
 			"wiliamks/nice-reference.nvim",
 			requires = {

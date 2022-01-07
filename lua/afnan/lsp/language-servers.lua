@@ -30,9 +30,9 @@ local on_attach = function(client)
 
 	local cmd = vim.api.nvim_command
 
-   -- Disable formatting
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+	-- Disable formatting
+	client.resolved_capabilities.document_formatting = false
+	client.resolved_capabilities.document_range_formatting = false
 
 	-- document highlights
 	if client.resolved_capabilities.document_highlight then
@@ -155,14 +155,3 @@ nvim_lsp.eslint.setup({ {
 	on_attach = on_attach,
 	capabilities = capabilities,
 } })
-nvim_lsp.stylelint_lsp.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		stylelintplus = {
-			autoFixOnSave = true,
-			cssInJs = true,
-			validateOnSave = true,
-		},
-	},
-})
