@@ -127,6 +127,7 @@ return packer.startup({
 		use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
 		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')" })
 		use({ "b0o/SchemaStore.nvim" })
+      use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
 		use({
 			"wiliamks/nice-reference.nvim",
 			requires = {
@@ -149,7 +150,6 @@ return packer.startup({
 
 		use({
 			"vuki656/package-info.nvim",
-         branch = "feat/yarn-1-support",
 			requires = { "MunifTanjim/nui.nvim", ft = "json" },
 			ft = "json",
 			config = "require('afnan.packageinfo')",
