@@ -88,16 +88,19 @@ nvim_lsp.html.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
-nvim_lsp_config.ls_emmet = {
-	default_config = {
-		cmd = { "ls_emmet", "--stdio" },
-		filetypes = { "html", "css", "javascript", "javascriptreact", "xml" },
-		root_dir = function()
-			return vim.loop.cwd()
-		end,
-		settings = {},
-	},
-}
+
+if not nvim_lsp_config.ls_emmet then
+	nvim_lsp_config.ls_emmet = {
+		default_config = {
+			cmd = { "ls_emmet", "--stdio" },
+			filetypes = { "html", "css", "javascript", "javascriptreact", "xml" },
+			root_dir = function()
+				return vim.loop.cwd()
+			end,
+			settings = {},
+		},
+	}
+end
 nvim_lsp.ls_emmet.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
