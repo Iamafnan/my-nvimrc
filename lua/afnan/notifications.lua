@@ -8,7 +8,11 @@ notify.setup({
 local M = {}
 
 M.lspstarted = function(client)
+   if client == "jsonls" then
+      vim.notify("")
+   else
 		notify("Language server: " .. client .. " is ready!", "INFO", { title = "Language Server" })
+      end
 	end
 
 M.sourced = function()

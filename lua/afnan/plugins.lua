@@ -35,7 +35,6 @@ return packer.startup({
 		use({ "folke/tokyonight.nvim" })
 		use({
 			"NTBBloodbath/galaxyline.nvim",
-			branch = "main",
 			config = "require('afnan.statusline')",
 		})
 		use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
@@ -150,6 +149,7 @@ return packer.startup({
 
 		use({
 			"vuki656/package-info.nvim",
+         branch = "feat/yarn-1-support",
 			requires = { "MunifTanjim/nui.nvim", ft = "json" },
 			ft = "json",
 			config = "require('afnan.packageinfo')",
