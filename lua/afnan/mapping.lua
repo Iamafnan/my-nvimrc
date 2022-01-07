@@ -10,6 +10,11 @@ local toggle_lf = function()
 	return lf:toggle()
 end
 
+local toggle_ncdu = function()
+   local ncdu = Terminal:new({ cmd = "ncdu", direction = "float" })
+   return ncdu:toggle()
+end
+
 map("", "k", "gk")
 map("", "j", "gj")
 map("n", "<CR>", "<esc>o")
@@ -39,6 +44,7 @@ local mappings = {
 		name = "Terminal Things",
 		f = { toggle_lf, "Lf" },
 		g = { toggle_lazygit, "LazyGit" },
+      n = { toggle_ncdu , "Ncdu"}
 	},
 	g = {
 		name = "Gitsigns",
@@ -89,18 +95,18 @@ local mappings = {
 	},
 	l = {
 		name = "LSP",
-		r = { ":Lspsaga rename<cr>", "Rename" },
+		r = { ":Lspsaga rename<CR>", "Rename" },
 		d = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
 		I = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
 		c = { ":Lspsaga code_action<CR>", "Code Action" },
 		R = { ":lua vim.lsp.buf.references()<CR>", "Reference" },
+		K = { ":Lspsaga hover_doc<CR>", "Hover" },
 		f = { ":lua vim.lsp.buf.formatting()<CR>", "Format" },
 		n = { ":NullLsInfo<CR>", "Attached Sources" },
 		i = { ":LspInfo<CR>", "Attached LSP" },
-      k = { ":lua vim.diagnostic.goto_next()", "Next Diagnostic" },
-      j = { ":lua vim.diagnostic.goto_prev()", "Previous Diagnostic" },
+		k = { ":lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+		j = { ":lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic" },
 	},
-	K = { ":Lspsaga hover_doc<CR>", "Hover" },
 }
 local opts = { prefix = ",", icons = { group = "➜" } }
 wk.register(mappings, opts)
