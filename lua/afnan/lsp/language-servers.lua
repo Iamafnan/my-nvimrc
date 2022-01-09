@@ -151,7 +151,37 @@ nvim_lsp.yamlls.setup({
 	},
 })
 -- Linting
-nvim_lsp.eslint.setup({ {
+nvim_lsp.eslint.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-} })
+})
+
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
+nvim_lsp.sumneko_lua.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			hint = { enable = true },
+			completion = { showWord = "Enable" },
+			runtime = {
+				version = "LuaJIT",
+				path = runtime_path,
+			},
+			diagnostics = {
+				globals = { "vim", "use" },
+				disable = "lowercase-global",
+			},
+			telemetry = { enable = false },
+			workspace = {
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
+				},
+			},
+		},
+	},
+})
