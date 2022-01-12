@@ -62,6 +62,7 @@ local codes = {
 
 vim.diagnostic.config({
 	virtual_text = false,
+	update_in_insert = true,
 	float = {
 		focusable = false,
 		border = "single",
@@ -97,7 +98,6 @@ vim.diagnostic.config({
 			return i .. "/" .. total .. " " .. icon .. "  ", highlight
 		end,
 	},
-	update_in_insert = true,
 })
 
 vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })

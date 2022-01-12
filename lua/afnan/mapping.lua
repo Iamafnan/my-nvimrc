@@ -104,6 +104,7 @@ local mappings = {
 		f = { ":lua vim.lsp.buf.formatting()<CR>", "Format" },
 		n = { ":NullLsInfo<CR>", "Attached Sources" },
 		i = { ":LspInfo<CR>", "Attached LSP" },
+      s = { ":CmpStatus<CR>", "Completion Sources" },
 		k = { ":lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
 		j = { ":lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic" },
 	},
