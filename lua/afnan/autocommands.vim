@@ -11,4 +11,4 @@ autocmd BufWritePost packer.lua source % | PackerInstall
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
 " Automatically show a bulb when code action is available
-autocmd CursorHold,CursorHoldI * :lua require('nvim-lightbulb').update_lightbulb({ float = { enabled = true } })
+autocmd CursorHold,CursorHoldI * :lua require('nvim-lightbulb').update_lightbulb({ virtual_text = { enabled = true }, sign = { enabled = false } })
