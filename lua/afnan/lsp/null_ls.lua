@@ -20,7 +20,6 @@ null_ls.setup({
 		}),
 
 		diagnostics.eslint_d,
-		diagnostics.luacheck,
 		diagnostics.mdl,
 		diagnostics.vint,
 
