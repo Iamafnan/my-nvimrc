@@ -16,28 +16,24 @@ cmp.setup({
 	},
 	mapping = {
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
-		["<tab>"] = cmp.mapping(function()
-			feedkey("<plug>(vsnip-expand-or-jump)", "")
+		["<Tab>"] = cmp.mapping(function()
+			if vim.fn["vsnip#available"](1) == 1 then
+				feedkey("<Plug>(vsnip-expand-or-jump)", "")
+			end
+		end, { "i", "s" }),
+
+		["<A-Tab>"] = cmp.mapping(function()
+			if vim.fn["vsnip#jumpable"](-1) == 1 then
+				feedkey("<Plug>(vsnip-jump-prev)", "")
+			end
 		end, { "i", "s" }),
 	},
-	["<Tab>"] = cmp.mapping(function()
-		if vim.fn["vsnip#available"](1) == 1 then
-			feedkey("<Plug>(vsnip-expand-or-jump)", "")
-		end
-	end, { "i", "s" }),
-
-	["<A-Tab>"] = cmp.mapping(function()
-		if vim.fn["vsnip#jumpable"](-1) == 1 then
-			feedkey("<Plug>(vsnip-jump-prev)", "")
-		end
-	end, { "i", "s" }),
 	sources = {
 		{ name = "vsnip" },
 		{ name = "nvim_lsp" },
 		{ name = "spell", keyword_length = 5 },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "emmet" },
 		{ name = "nvim_lua" },
 	},
 	experimental = { ghost_text = true, native_menu = false },
