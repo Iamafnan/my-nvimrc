@@ -33,7 +33,7 @@ return packer.startup({
 			as = "Dracula",
 		})
 		use({ "folke/tokyonight.nvim" })
-		use({"tamton-aquib/staline.nvim", config = "require('afnan.statusline')"})
+		use({ "tamton-aquib/staline.nvim", config = "require('afnan.statusline')" })
 		use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
 		use({ "glepnir/dashboard-nvim", config = "require('afnan.dashboard')" })
 		use({ "folke/which-key.nvim" })
@@ -75,11 +75,6 @@ return packer.startup({
 			"ahmedkhalf/project.nvim",
 			requires = { "nvim-telescope/telescope.nvim" },
 			config = "require('afnan.project-nvim')",
-		})
-		use({
-			"AckslD/nvim-neoclip.lua",
-			requires = { "tami5/sqlite.lua" },
-			config = "require('afnan.neoclip')",
 		})
 
 		-- Tree-Sitter

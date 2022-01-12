@@ -37,6 +37,4 @@ telescope.setup({
 
 -- Extentions
 load("projects")
-load("neoclip")
-load("sessions")
 load("notify")
