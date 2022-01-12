@@ -156,31 +156,12 @@ nvim_lsp.eslint.setup({
 	capabilities = capabilities,
 })
 
-local runtime_path = vim.split(package.path, ";")
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
 nvim_lsp.sumneko_lua.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
+	require("lua-dev").setup(),
 	settings = {
 		Lua = {
-			hint = { enable = true },
-			completion = { showWord = "Enable" },
-			runtime = {
-				version = "LuaJIT",
-				path = runtime_path,
-			},
 			diagnostics = {
-				globals = { "vim", "use" },
-				disable = "lowercase-global",
-			},
-			telemetry = { enable = false },
-			workspace = {
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.stdpath("config") .. "/lua"] = true,
-				},
+				globals = { "vim", "use", "dump", "packer_bootstrap", "single" },
 			},
 		},
 	},

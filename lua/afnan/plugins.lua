@@ -125,6 +125,7 @@ return packer.startup({
 		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')" })
 		use({ "b0o/SchemaStore.nvim" })
 		use({ "jose-elias-alvarez/nvim-lsp-ts-utils" })
+		use({ "folke/lua-dev.nvim" })
 		use({
 			"wiliamks/nice-reference.nvim",
 			requires = {
