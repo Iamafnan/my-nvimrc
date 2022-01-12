@@ -34,7 +34,6 @@ cmp.setup({
 		{ name = "spell", keyword_length = 5 },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "nvim_lua" },
 	},
 	experimental = { ghost_text = true, native_menu = false },
 	documentation = { border = single },
@@ -47,7 +46,6 @@ cmp.setup({
 			vim_item.menu = ({
 				buffer = "[Buffer]",
 				nvim_lsp = "[LSP]",
-				nvim_lua = "[Lua]",
 			})[entry.source.name]
 			return vim_item
 		end,

@@ -133,7 +133,6 @@ return packer.startup({
 		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })
 		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 		use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
-		use({ "hrsh7th/cmp-nvim-lua", ft = "lua" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
 		use({ "hrsh7th/cmp-vsnip", after = "vim-vsnip" })
 		use({ "f3fora/cmp-spell", after = "nvim-cmp" })
