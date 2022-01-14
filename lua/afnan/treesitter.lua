@@ -17,7 +17,7 @@ treesitter.setup({
 	},
 	autopairs = { enable = true },
 	autotag = { enable = true, filetypes = { "html", "javascript", "javascriptreact" } },
-	ensure_installed = { "json", "html", "css", "javascript", "lua", "vim", "python", "bash", "comment", "markdown" },
+	ensure_installed = { "json", "html", "css", "javascript", "lua", "vim", "python", "bash", "comment" },
 	textobjects = { select = { enable = true, lookahead = false } },
 })
 
