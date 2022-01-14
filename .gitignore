@@ -1,6 +1,3 @@
-.git
-.gitignore
-pack
-
+todo.md
 plugin
-spell
+.gitignore
