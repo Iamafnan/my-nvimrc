@@ -19,6 +19,23 @@ capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 
 capabilities.textDocument.completion.completionItem.resolveSupport = {
 	properties = { "documentation", "detail", "additionalTextEdits" },
 }
+capabilities.textDocument.codeAction = {
+	dynamicRegistration = false,
+	codeActionLiteralSupport = {
+		codeActionKind = {
+			valueSet = {
+				"",
+				"quickfix",
+				"refactor",
+				"refactor.extract",
+				"refactor.inline",
+				"refactor.rewrite",
+				"source",
+				"source.organizeImports",
+			},
+		},
+	},
+}
 
 -- On_attach
 local on_attach = function(client)
@@ -161,7 +178,7 @@ nvim_lsp.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim", "use", "dump", "packer_bootstrap", "single" },
+				globals = { "vim", "use", "packer_bootstrap", "single" },
 			},
 		},
 	},
