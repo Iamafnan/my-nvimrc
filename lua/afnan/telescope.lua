@@ -26,7 +26,7 @@ telescope.setup({
 		borderchars = {
 			preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 			prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-			results = { "─", " ", " ", " ", "╰", "╯", " ", " " },
+			results = { "─", " ", " ", " ", " ", " ", " ", " " },
 		},
 		color_devicons = true,
 		use_less = true,
