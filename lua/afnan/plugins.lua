@@ -84,6 +84,14 @@ return packer.startup({
 			config = "require('afnan.autopairs')",
 			after = "nvim-cmp",
 		})
+		use({
+			"tamton-aquib/dynamic-cursor.nvim",
+			config = function()
+				require("dynamic-cursor").setup({
+					guicursor = "n-v-c:block-DynamicCursor,i:ver100-DynamicCursor",
+				})
+			end,
+		})
 
 		--  Snippets
 		use({ "hrsh7th/vim-vsnip", event = "InsertEnter" })
