@@ -2,7 +2,7 @@ local treesitter = require("nvim-treesitter.configs")
 local tsinstall = require("nvim-treesitter.install")
 -- Config
 treesitter.setup({
-	highlight = { enable = true },
+	highlight = { enable = true, additional_vim_regex_highlighting = false },
 	indent = { enable = true },
 	rainbow = { enable = true, extended_mode = false },
 	context_commentstring = { enable = true, enable_autocmd = false },
