@@ -60,6 +60,7 @@ return packer.startup({
 			event = "BufRead",
 			config = "require('afnan.colorizer')",
 		})
+		use({ "karb94/neoscroll.nvim", config = "require('afnan.neoscroll')" })
 
 		--  Telescope & Its Extentions
 		use({
