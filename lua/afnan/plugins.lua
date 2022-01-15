@@ -28,10 +28,6 @@ return packer.startup({
 		use({ "lewis6991/impatient.nvim" })
 		use({ "wbthomason/packer.nvim" })
 		use({ "nathom/filetype.nvim" })
-		use({
-			"dracula/vim",
-			as = "Dracula",
-		})
 		use({ "folke/tokyonight.nvim" })
 		use({ "tamton-aquib/staline.nvim", config = "require('afnan.statusline')" })
 		use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
