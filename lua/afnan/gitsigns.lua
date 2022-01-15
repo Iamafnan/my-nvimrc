@@ -1,4 +1,1 @@
-require("gitsigns").setup({
-	numhl = true,
-	signcolumn = false,
-})
+require("gitsigns").setup()
