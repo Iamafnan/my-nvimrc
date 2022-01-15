@@ -1,8 +1,8 @@
 local npairs = require("nvim-autopairs")
 local autopairs = require("nvim-autopairs.completion.cmp")
 local cmp = require("cmp")
-local Rule   = require'nvim-autopairs.rule'
-local cond = require'nvim-autopairs.conds'
+local Rule = require("nvim-autopairs.rule")
+local cond = require("nvim-autopairs.conds")
 
 npairs.setup({
 	break_line_filetype = nil,
