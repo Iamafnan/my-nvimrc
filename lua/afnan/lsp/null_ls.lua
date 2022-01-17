@@ -24,6 +24,5 @@ null_ls.setup({
 		diagnostics.vint,
 
 		codeactions.eslint_d,
-		codeactions.gitsigns,
 	},
 })
