@@ -162,6 +162,9 @@ return packer.startup({
 
 		use({ "szw/vim-maximizer", cmd = "MaximizerToggle" })
 
+		use({ "tyru/open-browser.vim" })
+		use({ "tyru/open-browser-github.vim" })
+
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
 			packer.sync()
