@@ -28,8 +28,14 @@ return packer.startup({
 		use({ "lewis6991/impatient.nvim" })
 		use({ "wbthomason/packer.nvim" })
 		use({ "nathom/filetype.nvim" })
-		use({ "folke/tokyonight.nvim" })
-		use({ "tamton-aquib/staline.nvim", config = "require('afnan.statusline')" })
+		use({
+			"folke/tokyonight.nvim",
+			config = function()
+				vim.g.tokyonight_italic_functions = true
+				vim.o.pumblend = 20
+			end,
+		})
+		use({ "NTBBloodbath/galaxyline.nvim", config = "require('afnan.statusline')" })
 		use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
 		use({ "glepnir/dashboard-nvim", config = "require('afnan.dashboard')" })
 		use({ "folke/which-key.nvim" })
