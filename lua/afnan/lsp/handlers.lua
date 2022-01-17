@@ -70,7 +70,6 @@ vim.diagnostic.config({
 		source = "if_many",
 		format = function(diagnostic)
 			local code = diagnostic.user_data.lsp.code
-			print("diagnostic:")
 			for _, table in pairs(codes) do
 				if vim.tbl_contains(table, code) then
 					return table.message
