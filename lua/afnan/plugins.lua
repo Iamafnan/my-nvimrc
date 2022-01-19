@@ -31,7 +31,14 @@ return packer.startup({
 		use({
 			"folke/tokyonight.nvim",
 			config = function()
-				vim.g.tokyonight_italic_functions = true
+				vim.g = {
+					tokyonight_style = "storm",
+					tokyonight_hide_inactive_statusline = true,
+					tokyonight_italic_keywords = true,
+					tokyonight_italic_functions = true,
+					tokyonight_italic_variables = true,
+					tokyonight_sidebars = { "terminal", "NvimTree" },
+				}
 				vim.o.pumblend = 20
 			end,
 		})
