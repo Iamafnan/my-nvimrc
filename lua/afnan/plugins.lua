@@ -42,7 +42,9 @@ return packer.startup({
 		use({ "kyazdani42/nvim-tree.lua", config = "require('afnan.nvimtree')" })
 
 		--  Icon Packs
-		use({ "kyazdani42/nvim-web-devicons" })
+		use({ "kyazdani42/nvim-web-devicons", config = function()
+		   require("afnan.icons")
+		end })
 
 		--  UI
 		use({
