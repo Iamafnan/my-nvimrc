@@ -181,5 +181,9 @@ nvim_lsp.sumneko_lua.setup({
 				globals = { "vim", "use", "packer_bootstrap", "single" },
 			},
 		},
+		completion = {
+			callSnippet = "Replace",
+			showWord = "Disable",
+		},
 	},
 })
