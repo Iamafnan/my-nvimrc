@@ -13,6 +13,6 @@
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 --
-require("impatient")
+pcall(require, "impatient")
 
-require("afnan")
+pcall(require, "afnan")
