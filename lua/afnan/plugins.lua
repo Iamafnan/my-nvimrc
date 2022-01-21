@@ -42,7 +42,12 @@ return packer.startup({
 		})
 		use({ "NTBBloodbath/galaxyline.nvim", config = "require('afnan.statusline')" })
 		use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
-		use({ "glepnir/dashboard-nvim", config = "require('afnan.dashboard')" })
+		use({
+			"glepnir/dashboard-nvim",
+			config = function()
+				require("afnan.dashboard")
+			end,
+		})
 		use({ "folke/which-key.nvim" })
 		use({ "kyazdani42/nvim-tree.lua", config = "require('afnan.nvimtree')" })
 
