@@ -1,0 +1,1 @@
+require("afnan.statusline.core")
