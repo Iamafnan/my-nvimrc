@@ -134,6 +134,12 @@ return packer.startup({
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')" })
+		use({
+			"rlch/github-notifications.nvim",
+         config = function ()
+            require('afnan.github-notification')
+         end
+		})
 
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig", config = { "require('afnan.lsp')" }, event = "BufWinEnter" })
