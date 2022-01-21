@@ -93,7 +93,11 @@ return packer.startup({
 		})
 
 		-- Tree-Sitter
-		use({ "nvim-treesitter/nvim-treesitter", config = "require('afnan.treesitter')" })
+		use({
+			"nvim-treesitter/nvim-treesitter",
+			run = ":TSUpdate",
+			config = "require('afnan.treesitter')",
+		})
 		use({ "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" })
 		use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 		use({ "p00f/nvim-ts-rainbow" })
