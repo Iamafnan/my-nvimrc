@@ -164,14 +164,14 @@ gls.left[8] = {
 gls.left[9] = {
 	DiffModified = {
 		provider = "DiffModified",
-		icon = "柳 ",
+		icon = "  柳 ",
 		highlight = { colors.yellow, colors.gitBg },
 	},
 }
 gls.left[10] = {
 	DiffRemove = {
 		provider = "DiffRemove",
-		icon = " ",
+		icon = "  ",
 		highlight = { colors.red, colors.gitBg },
 	},
 }
