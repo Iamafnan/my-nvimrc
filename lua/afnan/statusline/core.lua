@@ -40,7 +40,7 @@ local function CommonCondition()
 end
 
 local function GitCondition()
-  return condition.check_git_workspace
+	return condition.check_git_workspace
 end
 
 local AndroidIcon = ""
@@ -92,10 +92,7 @@ gls.left[3] = {
 		end,
 		highlight = { colors.green, colors.bg },
 		condition = function()
-			return {
-				CommonCondition(),
-				GitCondition(),
-			}
+			return CommonCondition()
 		end,
 	},
 }
@@ -106,10 +103,7 @@ gls.left[4] = {
 		end,
 		highlight = { colors.bg, colors.green },
 		condition = function()
-			return {
-				CommonCondition(),
-				GitCondition(),
-			}
+			return CommonCondition()
 		end,
 	},
 }
@@ -120,10 +114,7 @@ gls.left[5] = {
 		end,
 		highlight = { colors.green, colors.gitBg },
 		condition = function()
-			return {
-				CommonCondition(),
-				GitCondition(),
-			}
+			return CommonCondition()
 		end,
 	},
 }
@@ -135,10 +126,7 @@ gls.left[6] = {
 		end,
 		highlight = { colors.orange, colors.gitBg },
 		condition = function()
-			return {
-				CommonCondition(),
-				GitCondition(),
-			}
+			return CommonCondition()
 		end,
 	},
 }
@@ -147,10 +135,7 @@ gls.left[7] = {
 		provider = "GitBranch",
 		highlight = { colors.fg, colors.gitBg },
 		condition = function()
-			return {
-				CommonCondition(),
-				GitCondition(),
-			}
+			return CommonCondition()
 		end,
 	},
 }
@@ -182,10 +167,7 @@ gls.left[11] = {
 		end,
 		highlight = { colors.gitBg, colors.bg },
 		condition = function()
-			return {
-				CommonCondition(),
-				GitCondition(),
-			}
+			return CommonCondition()
 		end,
 	},
 }
