@@ -39,10 +39,6 @@ local function CommonCondition()
 	return true
 end
 
-local function GitCondition()
-	return condition.check_git_workspace
-end
-
 local AndroidIcon = ""
 local leftbracket = ""
 local rightbracket = ""
@@ -91,9 +87,7 @@ gls.left[3] = {
 			return leftbracket
 		end,
 		highlight = { colors.green, colors.bg },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = condition.check_git_workspace,
 	},
 }
 gls.left[4] = {
@@ -102,9 +96,7 @@ gls.left[4] = {
 			return ""
 		end,
 		highlight = { colors.bg, colors.green },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = condition.check_git_workspace,
 	},
 }
 gls.left[5] = {
@@ -113,9 +105,7 @@ gls.left[5] = {
 			return rightbracket .. " "
 		end,
 		highlight = { colors.green, colors.gitBg },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = condition.check_git_workspace,
 	},
 }
 
@@ -125,18 +115,14 @@ gls.left[6] = {
 			return require("github-notifications").statusline_notification_count() .. " "
 		end,
 		highlight = { colors.orange, colors.gitBg },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = condition.check_git_workspace,
 	},
 }
 gls.left[7] = {
 	GitBranch = {
 		provider = "GitBranch",
 		highlight = { colors.fg, colors.gitBg },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = condition.check_git_workspace,
 	},
 }
 gls.left[8] = {
@@ -166,9 +152,7 @@ gls.left[11] = {
 			return rightbracket .. " "
 		end,
 		highlight = { colors.gitBg, colors.bg },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = condition.check_git_workspace,
 	},
 }
 
@@ -317,3 +301,5 @@ gls.right[5] = {
 		end,
 	},
 }
+
+-- Short Line Section
