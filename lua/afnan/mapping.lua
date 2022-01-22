@@ -63,7 +63,7 @@ local mappings = {
 		f = { ":Telescope find_files<CR>", "Find Files" },
 		r = { ":Telescope live_grep<CR>", "Grep" },
 		p = { ":Telescope projects<CR>", "Projects" },
-		n = { ":Telescope neoclip<CR>", "Neoclip" },
+		n = { ":Telescope ghn<CR>", "Github Notifications" },
 		h = { ":Telescope help_tags<CR>", "Help tags" },
 	},
 	r = {
