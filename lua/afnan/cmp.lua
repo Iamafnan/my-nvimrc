@@ -17,6 +17,7 @@ cmp.setup({
 	mapping = {
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
 		["<C-e>"] = cmp.mapping.close(),
+      -- ["<C-a>"] = cmp.mapping.toggle_doc(),
 		["<Tab>"] = cmp.mapping(function()
 			if vim.fn["vsnip#available"](1) == 1 then
 				feedkey("<Plug>(vsnip-expand-or-jump)", "")
@@ -32,11 +33,10 @@ cmp.setup({
 	sources = {
 		{ name = "vsnip" },
 		{ name = "nvim_lsp" },
-		{ name = "spell", keyword_length = 5 },
 		{ name = "buffer" },
 		{ name = "path" },
 	},
-	experimental = { ghost_text = true, native_menu = false },
+	experimental = { ghost_text = true, native_menu = false, optional_doc = true },
 	documentation = { border = single },
 	formatting = {
 		fields = { "kind", "abbr" },

@@ -110,14 +110,6 @@ return packer.startup({
 			config = "require('afnan.autopairs')",
 			after = "nvim-cmp",
 		})
-		use({
-			"tamton-aquib/dynamic-cursor.nvim",
-			config = function()
-				require("dynamic-cursor").setup({
-					guicursor = "n-v-c:block-DynamicCursor,i:ver100-DynamicCursor",
-				})
-			end,
-		})
 
 		--  Snippets
 		use({ "hrsh7th/vim-vsnip", event = "InsertEnter" })
@@ -143,9 +135,10 @@ return packer.startup({
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')" })
 		use({
 			"rlch/github-notifications.nvim",
-         config = function ()
-            require('afnan.github-notification')
-         end
+			config = function()
+				require("afnan.github-notification")
+			end,
+			event = "BufWinEnter",
 		})
 
 		--  Language Server Protocol
@@ -166,12 +159,11 @@ return packer.startup({
 		})
 
 		--  CMP
-		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })
+		use({ "Iamafnan/nvim-cmp", config = "require('afnan.cmp')" })
 		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
 		use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
 		use({ "hrsh7th/cmp-vsnip", after = "vim-vsnip" })
-		use({ "f3fora/cmp-spell", after = "nvim-cmp" })
 
 		-- Markdown Preview
 		use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })
