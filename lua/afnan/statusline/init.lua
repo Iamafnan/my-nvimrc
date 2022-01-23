@@ -21,27 +21,27 @@ gl.short_line_list = { "NvimTree" }
 ---@param m string
 ---@return string
 local function mode_color(m)
-local mode_colors = {
-				n = colors.blue,
-				i = colors.green,
-				v = colors.purple,
-				[""] = colors.purple,
-				V = colors.purple,
-				c = colors.magenta,
-				no = colors.blue,
-				s = colors.orange,
-				S = colors.orange,
-				ic = colors.yellow,
-				R = colors.red,
-				Rv = colors.red,
-				cv = colors.blue,
-				ce = colors.blue,
-				r = colors.replacecolor,
-				rm = colors.replacecolor,
-				["r?"] = colors.cyan,
-				["!"] = colors.blue,
-				t = colors.blue,
-			}
+	local mode_colors = {
+		n = colors.blue,
+		i = colors.green,
+		v = colors.purple,
+		[""] = colors.purple,
+		V = colors.purple,
+		c = colors.magenta,
+		no = colors.blue,
+		s = colors.orange,
+		S = colors.orange,
+		ic = colors.yellow,
+		R = colors.red,
+		Rv = colors.red,
+		cv = colors.blue,
+		ce = colors.blue,
+		r = colors.replacecolor,
+		rm = colors.replacecolor,
+		["r?"] = colors.cyan,
+		["!"] = colors.blue,
+		t = colors.blue,
+	}
 	return mode_colors[m]
 end
 
@@ -89,7 +89,7 @@ local function DirSize(cwd)
 			on_exit = function(job)
 				local result = job:result()
 				size = string.match(result[1], "(.*)\t")
-            size = size .. "B"
+				size = size .. "B"
 			end,
 		})
 		:start()
@@ -129,7 +129,11 @@ a = a + 1
 gls.left[a] = {
 	GitSectionBracket1 = {
 		provider = function()
-			return " " .. leftbracket
+			if vim.bo.filetype == "dashboard" then
+				return ""
+			else
+				return " " .. leftbracket
+			end
 		end,
 		highlight = { colors.green, colors.bg },
 		condition = condition.check_git_workspace,
@@ -139,7 +143,11 @@ a = a + 1
 gls.left[a] = {
 	GitIcon = {
 		provider = function()
-			return ""
+			if vim.bo.filetype == "dashboard" then
+				return ""
+			else
+				return ""
+			end
 		end,
 		highlight = { colors.bg, colors.green },
 		condition = condition.check_git_workspace,
@@ -149,7 +157,11 @@ a = a + 1
 gls.left[a] = {
 	GitSectionBracket2 = {
 		provider = function()
-			return rightbracket .. " "
+			if vim.bo.filetype == "dashboard" then
+				return ""
+			else
+				return rightbracket .. " "
+			end
 		end,
 		highlight = { colors.green, colors.gitBg },
 		condition = condition.check_git_workspace,
@@ -160,7 +172,11 @@ a = a + 1
 gls.left[a] = {
 	GithubNotifications = {
 		provider = function()
-			return notifications.statusline_notification_count() .. ""
+			if vim.bo.filetype == "dashboard" then
+				return ""
+			else
+				return notifications.statusline_notification_count() .. ""
+			end
 		end,
 		highlight = { colors.orange, colors.gitBg },
 		condition = condition.check_git_workspace,
@@ -169,7 +185,13 @@ gls.left[a] = {
 a = a + 1
 gls.left[a] = {
 	GitBranch = {
-		provider = "GitBranch",
+		provider = function()
+			if vim.bo.filetype == "dashboard" then
+				return ""
+			else
+				return require("galaxyline.providers.vcs").get_git_branch()
+			end
+		end,
 		highlight = { colors.fg, colors.gitBg },
 		condition = condition.check_git_workspace,
 	},
@@ -178,7 +200,11 @@ a = a + 1
 gls.left[a] = {
 	GitSectionExtraSpace = {
 		provider = function()
-			return " "
+			if vim.bo.filetype == "dashboard" then
+				return ""
+			else
+				return " "
+			end
 		end,
 		highlight = { colors.green, colors.gitBg },
 		condition = condition.check_git_workspace,
@@ -215,7 +241,11 @@ a = a + 1
 gls.left[a] = {
 	GitSectionBracket3 = {
 		provider = function()
-			return rightbracket .. " "
+			if vim.bo.filetype == "dashboard" then
+				return ""
+			else
+				return rightbracket .. " "
+			end
 		end,
 		highlight = { colors.gitBg, colors.bg },
 		condition = condition.check_git_workspace,
