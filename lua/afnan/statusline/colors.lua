@@ -28,6 +28,7 @@ local colors = {
 	teal = "#1abc9c",
 	red = "#f7768e",
 	red1 = "#db4b4b",
+   replacecolor = "#E06C75",
 
    gitBg = "#304B2E",
    lspBg = "#364463",

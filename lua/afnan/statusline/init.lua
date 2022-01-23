@@ -17,27 +17,32 @@ gl.short_line_list = { "NvimTree" }
 -- Useful functions and locals
 --]]
 
+---Returns colors for various modes
+---@param m string
+---@return string
 local function mode_color(m)
-	local mode_colors = {
-		normal = colors.blue,
-		insert = colors.green,
-		visual = colors.purple,
-		replace = colors.red,
-		snippet_replace = colors.cyan,
-	}
-
-	local color = {
-		n = mode_colors.normal,
-		i = mode_colors.insert,
-		c = mode_colors.replace,
-		R = mode_colors.replace,
-		t = mode_colors.insert,
-		[""] = mode_colors.visual,
-		V = mode_colors.visual,
-		v = mode_colors.visual,
-		["fallback"] = mode_colors.snippet_replace,
-	}
-	return color[m] or colors.bg_light
+local mode_colors = {
+				n = colors.blue,
+				i = colors.green,
+				v = colors.purple,
+				[""] = colors.purple,
+				V = colors.purple,
+				c = colors.magenta,
+				no = colors.blue,
+				s = colors.orange,
+				S = colors.orange,
+				ic = colors.yellow,
+				R = colors.red,
+				Rv = colors.red,
+				cv = colors.blue,
+				ce = colors.blue,
+				r = colors.replacecolor,
+				rm = colors.replacecolor,
+				["r?"] = colors.cyan,
+				["!"] = colors.blue,
+				t = colors.blue,
+			}
+	return mode_colors[m]
 end
 
 ---Disable component in dashboard, nvimtree and in empty buffer
