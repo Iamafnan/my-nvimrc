@@ -1,5 +1,9 @@
 require("github-notifications").setup({
 	icon = "",
 	cache = true,
-	hide_statusline_on_all_read = false,
+mappings = {
+    mark_read = '<CR>',
+    hide = 'd',
+    open_in_browser = 'o',
+  },
 })
