@@ -62,7 +62,7 @@ local codes = {
 
 vim.diagnostic.config({
 	virtual_text = false,
-	update_in_insert = true,
+	update_in_insert = false,
 	float = {
 		focusable = false,
 		border = "single",

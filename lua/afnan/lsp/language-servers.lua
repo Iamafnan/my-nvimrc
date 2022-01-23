@@ -179,6 +179,7 @@ nvim_lsp.sumneko_lua.setup({
 		Lua = {
 			diagnostics = {
 				globals = { "vim", "use", "packer_bootstrap", "single" },
+				disable = { "trailing-space" },
 			},
 		},
 		completion = {
