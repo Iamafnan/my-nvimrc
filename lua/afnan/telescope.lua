@@ -42,4 +42,3 @@ telescope.setup({
 -- Extentions
 load("projects")
 load("notify")
-load("ghn")
