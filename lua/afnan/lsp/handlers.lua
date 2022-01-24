@@ -70,7 +70,7 @@ vim.diagnostic.config({
 		source = "if_many",
 		format = function(diagnostic)
 			if diagnostic.source == "mdl" or "eslint_d" or "vint" then
-            return diagnostic.message
+				return diagnostic.message
 			else
 				local code = diagnostic.user_data.lsp.code
 				for _, table in pairs(codes) do

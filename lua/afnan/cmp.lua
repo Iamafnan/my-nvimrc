@@ -17,7 +17,7 @@ cmp.setup({
 	mapping = {
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
 		["<C-e>"] = cmp.mapping.close(),
-      -- ["<C-a>"] = cmp.mapping.toggle_doc(),
+		-- ["<C-a>"] = cmp.mapping.toggle_doc(),
 		["<Tab>"] = cmp.mapping(function()
 			if vim.fn["vsnip#available"](1) == 1 then
 				feedkey("<Plug>(vsnip-expand-or-jump)", "")

@@ -28,10 +28,10 @@ local colors = {
 	teal = "#1abc9c",
 	red = "#f7768e",
 	red1 = "#db4b4b",
-   replacecolor = "#E06C75",
+	replacecolor = "#E06C75",
 
-   gitBg = "#304B2E",
-   lspBg = "#364463",
-   fileinfoBg = "#5C2C2E"
+	gitBg = "#304B2E",
+	lspBg = "#364463",
+	fileinfoBg = "#5C2C2E",
 }
 return colors

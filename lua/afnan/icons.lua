@@ -1,5 +1,4 @@
 local devicons = require("nvim-web-devicons")
-local colors = require("afnan.statusline.colors")
 devicons.setup({
 	override = {
 		html = {
