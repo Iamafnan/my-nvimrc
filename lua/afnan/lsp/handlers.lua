@@ -69,13 +69,17 @@ vim.diagnostic.config({
 		scope = "cursor",
 		source = "if_many",
 		format = function(diagnostic)
-			local code = diagnostic.user_data.lsp.code
-			for _, table in pairs(codes) do
-				if vim.tbl_contains(table, code) then
-					return table.message
+			if diagnostic.source == "mdl" or "eslint_d" or "vint" then
+            return diagnostic.message
+			else
+				local code = diagnostic.user_data.lsp.code
+				for _, table in pairs(codes) do
+					if vim.tbl_contains(table, code) then
+						return table.message
+					end
 				end
+				return diagnostic.message
 			end
-			return diagnostic.message
 		end,
 		header = { "Cursor Diagnostics:", "DiagnosticHeader" },
 		pos = 1,
