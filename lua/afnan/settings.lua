@@ -56,7 +56,9 @@ set.scrolloff = 14
 set.splitright = true
 set.splitbelow = true
 
-vim.cmd("set shortmess+=c")
+vim.cmd("set formatoptions-=cro")
+set.shortmess:append("c")
+vim.cmd("set whichwrap+=<,>,[,],h,l")
 
 vim.g.node_host_prog = "/data/data/com.termux/files/usr/bin/neovim-node-host"
 vim.g.loaded_perl_provider = false

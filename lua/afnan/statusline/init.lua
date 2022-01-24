@@ -2,6 +2,7 @@ local gl = require("galaxyline")
 local condition = require("galaxyline.condition")
 local colors = require("afnan.statusline.colors")
 local gls = gl.section
+local size
 local ok, Job = pcall(require, "plenary.job")
 if not ok then
 	return ""
@@ -68,7 +69,7 @@ end
 
 ---Disable shortline for all buffer else NvimTree
 ---@return boolean
-local function ShortLineCondition()
+local function NvimTreeLineCondition()
 	if vim.bo.filetype == "NvimTree" then
 		return true
 	else
@@ -77,10 +78,9 @@ local function ShortLineCondition()
 end
 
 ---Returns directory size
----@param cwd string
 ---@return string
-local size
-local function DirSize(cwd)
+local function DirSize()
+	local cwd = vim.fn.getcwd()
 	Job
 		:new({
 			"du",
@@ -94,6 +94,32 @@ local function DirSize(cwd)
 		})
 		:start()
 	return size
+end
+
+local function GetLspClient()
+	return require("galaxyline.providers.lsp").get_lsp_client("", { "null-ls" })
+end
+
+local function GetGitBranch()
+	if vim.bo.filetype == "dashboard" then
+		return ""
+	else
+		return require("galaxyline.providers.vcs").get_git_branch()
+	end
+end
+
+local function GetGitNotifications()
+	if vim.bo.filetype == "dashboard" then
+		return ""
+	else
+		return notifications.statusline_notification_count() .. ""
+	end
+end
+
+local function GetCursorPostion()
+	local line = vim.fn.line(".")
+	local column = vim.fn.col(".")
+	return string.format("%3d:%2d", line, column)
 end
 
 local AndroidIcon = ""
@@ -117,9 +143,7 @@ gls.left[a] = {
 			vim.api.nvim_command("hi GalaxyModeColorReverse guifg=" .. color)
 			return " "
 		end,
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = CommonCondition,
 	},
 }
 
@@ -171,13 +195,7 @@ gls.left[a] = {
 a = a + 1
 gls.left[a] = {
 	GithubNotifications = {
-		provider = function()
-			if vim.bo.filetype == "dashboard" then
-				return ""
-			else
-				return notifications.statusline_notification_count() .. ""
-			end
-		end,
+		provider = GetGitNotifications,
 		highlight = { colors.orange, colors.gitBg },
 		condition = condition.check_git_workspace,
 	},
@@ -185,13 +203,7 @@ gls.left[a] = {
 a = a + 1
 gls.left[a] = {
 	GitBranch = {
-		provider = function()
-			if vim.bo.filetype == "dashboard" then
-				return ""
-			else
-				return require("galaxyline.providers.vcs").get_git_branch()
-			end
-		end,
+		provider = GetGitBranch,
 		highlight = { colors.fg, colors.gitBg },
 		condition = condition.check_git_workspace,
 	},
@@ -260,9 +272,7 @@ gls.left[a] = {
 			return leftbracket
 		end,
 		highlight = { colors.blue, colors.bg },
-		condition = function()
-			return LspCondition()
-		end,
+		condition = LspCondition,
 	},
 }
 a = a + 1
@@ -272,9 +282,7 @@ gls.left[a] = {
 			return ""
 		end,
 		highlight = { colors.bg, colors.blue },
-		condition = function()
-			return LspCondition()
-		end,
+		condition = LspCondition,
 	},
 }
 a = a + 1
@@ -284,21 +292,15 @@ gls.left[a] = {
 			return rightbracket .. " "
 		end,
 		highlight = { colors.blue, colors.lspBg },
-		condition = function()
-			return LspCondition()
-		end,
+		condition = LspCondition,
 	},
 }
 a = a + 1
 gls.left[a] = {
 	LspName = {
-		provider = function()
-			return require("galaxyline.providers.lsp").get_lsp_client("", { "null-ls" })
-		end,
+		provider = GetLspClient,
 		highlight = { colors.fg, colors.lspBg },
-		condition = function()
-			return LspCondition()
-		end,
+		condition = LspCondition,
 	},
 }
 a = a + 1
@@ -307,9 +309,7 @@ gls.left[a] = {
 		provider = "DiagnosticError",
 		icon = "   ",
 		highlight = { colors.red, colors.lspBg },
-		condition = function()
-			return LspCondition()
-		end,
+		condition = LspCondition,
 	},
 }
 a = a + 1
@@ -318,9 +318,7 @@ gls.left[a] = {
 		provider = "DiagnosticWarn",
 		icon = "   ",
 		highlight = { colors.yellow, colors.lspBg },
-		condition = function()
-			return LspCondition()
-		end,
+		condition = LspCondition,
 	},
 }
 a = a + 1
@@ -329,9 +327,7 @@ gls.left[a] = {
 		provider = "DiagnosticHint",
 		icon = "   ",
 		highlight = { colors.cyan, colors.lspBg },
-		condition = function()
-			return LspCondition()
-		end,
+		condition = LspCondition,
 	},
 }
 
@@ -341,9 +337,7 @@ gls.left[a] = {
 		provider = "DiagnosticInfo",
 		icon = "   ",
 		highlight = { colors.blue, colors.lspBg },
-		condition = function()
-			return LspCondition()
-		end,
+		condition = LspCondition,
 	},
 }
 a = a + 1
@@ -353,9 +347,7 @@ gls.left[a] = {
 			return rightbracket
 		end,
 		highlight = { colors.lspBg, colors.bg },
-		condition = function()
-			return LspCondition()
-		end,
+		condition = LspCondition,
 	},
 }
 
@@ -368,9 +360,7 @@ gls.right[b] = {
 			return leftbracket
 		end,
 		highlight = { colors.orange, colors.bg },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = CommonCondition,
 	},
 }
 b = b + 1
@@ -378,9 +368,7 @@ gls.right[b] = {
 	FileIcon = {
 		provider = "FileIcon",
 		highlight = { colors.bg, colors.orange },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = CommonCondition,
 	},
 }
 b = b + 1
@@ -390,23 +378,15 @@ gls.right[b] = {
 			return rightbracket .. " "
 		end,
 		highlight = { colors.orange, colors.fileinfoBg },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = CommonCondition,
 	},
 }
 b = b + 1
 gls.right[b] = {
 	CursorPosition = {
-		provider = function()
-			local line = vim.fn.line(".")
-			local column = vim.fn.col(".")
-			return string.format("%3d:%2d", line, column)
-		end,
+		provider = GetCursorPostion,
 		highlight = { colors.fg, colors.fileinfoBg },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = CommonCondition,
 	},
 }
 b = b + 1
@@ -416,9 +396,7 @@ gls.right[b] = {
 			return rightbracket
 		end,
 		highlight = { colors.fileinfoBg, colors.bg },
-		condition = function()
-			return CommonCondition()
-		end,
+		condition = CommonCondition,
 	},
 }
 
@@ -430,9 +408,7 @@ gls.short_line_left[c] = {
 			return leftbracket
 		end,
 		highlight = { colors.blue, colors.bg },
-		condition = function()
-			return ShortLineCondition()
-		end,
+		condition = NvimTreeLineCondition,
 	},
 }
 
@@ -443,9 +419,7 @@ gls.short_line_left[c] = {
 			return " "
 		end,
 		highlight = { colors.bg, colors.blue },
-		condition = function()
-			return ShortLineCondition()
-		end,
+		condition = NvimTreeLineCondition,
 	},
 }
 
@@ -456,9 +430,7 @@ gls.short_line_left[c] = {
 			return rightbracket
 		end,
 		highlight = { colors.blue, colors.lspBg },
-		condition = function()
-			return ShortLineCondition()
-		end,
+		condition = NvimTreeLineCondition,
 	},
 }
 
@@ -469,9 +441,7 @@ gls.short_line_left[c] = {
 			return "  " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 		end,
 		highlight = { colors.fg, colors.lspBg },
-		condition = function()
-			return ShortLineCondition()
-		end,
+		condition = NvimTreeLineCondition,
 	},
 }
 
@@ -482,9 +452,7 @@ gls.short_line_left[c] = {
 			return rightbracket
 		end,
 		highlight = { colors.lspBg, colors.bg },
-		condition = function()
-			return ShortLineCondition()
-		end,
+		condition = NvimTreeLineCondition,
 	},
 }
 
@@ -496,22 +464,16 @@ gls.short_line_right[d] = {
 			return leftbracket
 		end,
 		highlight = { colors.blue, colors.bg },
-		condition = function()
-			return ShortLineCondition()
-		end,
+		condition = NvimTreeLineCondition,
 	},
 }
 
 d = d + 1
 gls.short_line_right[d] = {
 	DirectorySize = {
-		provider = function()
-			return DirSize(vim.fn.getcwd())
-		end,
+		provider = DirSize,
 		highlight = { colors.bg, colors.blue },
-		condition = function()
-			return ShortLineCondition()
-		end,
+		condition = NvimTreeLineCondition,
 	},
 }
 
@@ -522,8 +484,6 @@ gls.short_line_right[d] = {
 			return rightbracket
 		end,
 		highlight = { colors.blue, colors.bg },
-		condition = function()
-			return ShortLineCondition()
-		end,
+		condition = NvimTreeLineCondition,
 	},
 }
