@@ -15,7 +15,7 @@ end
 gl.short_line_list = { "NvimTree" }
 
 --[[
--- Useful functions and locals
+-- Useful functions
 --]]
 
 ---Returns colors for various modes
@@ -96,10 +96,14 @@ local function DirSize()
 	return size
 end
 
+---Returns current lsp client
+---@return string
 local function GetLspClient()
 	return require("galaxyline.providers.lsp").get_lsp_client("", { "null-ls" })
 end
 
+---Returns current git branch
+---@return string
 local function GetGitBranch()
 	if vim.bo.filetype == "dashboard" then
 		return ""
@@ -108,6 +112,8 @@ local function GetGitBranch()
 	end
 end
 
+---Returns GitHub Notifications with the help of github-notifications.nvim
+---@return string
 local function GetGitNotifications()
 	if vim.bo.filetype == "dashboard" then
 		return ""
@@ -116,49 +122,58 @@ local function GetGitNotifications()
 	end
 end
 
+---Returns current cursor position
+---@return string
 local function GetCursorPostion()
 	local line = vim.fn.line(".")
 	local column = vim.fn.col(".")
 	return string.format("%3d:%2d", line, column)
 end
 
-local AndroidIcon = ""
-local leftbracket = ""
-local rightbracket = ""
+---Returns color hex code for current mode
+---@return string
+local function GetModeColor()
+	local m = vim.fn.mode() or vim.fn.visualmode()
+	local color = mode_color(m)
+	vim.api.nvim_command("hi GalaxyModeColor guibg=" .. color)
+	vim.api.nvim_command("hi GalaxyModeColorReverse guifg=" .. color)
+	return " "
+end
+
+local function GetLeftBracket()
+	if vim.bo.filetype == "dashboard" then
+		return ""
+	else
+		return " " .. ""
+	end
+end
+
+local function GetRightBracket()
+	if vim.bo.filetype == "dashboard" then
+		return ""
+	else
+		return "" .. " "
+	end
+end
 
 -- Left Section
 
 local a = 1
-
 gls.left[a] = {
 	ModeColor = {
-		icon = "  " .. AndroidIcon,
-		separator = rightbracket,
+		icon = "  ",
+		separator = "",
 		separator_highlight = "GalaxyModeColorReverse",
 		highlight = { colors.bg, mode_color() },
-		provider = function()
-			local m = vim.fn.mode() or vim.fn.visualmode()
-			local color = mode_color(m)
-			vim.api.nvim_command("hi GalaxyModeColor guibg=" .. color)
-			vim.api.nvim_command("hi GalaxyModeColorReverse guifg=" .. color)
-			return " "
-		end,
+		provider = GetModeColor,
 		condition = CommonCondition,
 	},
 }
 
--- Git Stuff
-
 a = a + 1
 gls.left[a] = {
 	GitSectionBracket1 = {
-		provider = function()
-			if vim.bo.filetype == "dashboard" then
-				return ""
-			else
-				return " " .. leftbracket
-			end
-		end,
+		provider = GetLeftBracket,
 		highlight = { colors.green, colors.bg },
 		condition = condition.check_git_workspace,
 	},
@@ -180,13 +195,7 @@ gls.left[a] = {
 a = a + 1
 gls.left[a] = {
 	GitSectionBracket2 = {
-		provider = function()
-			if vim.bo.filetype == "dashboard" then
-				return ""
-			else
-				return rightbracket .. " "
-			end
-		end,
+		provider = GetRightBracket,
 		highlight = { colors.green, colors.gitBg },
 		condition = condition.check_git_workspace,
 	},
@@ -252,25 +261,16 @@ gls.left[a] = {
 a = a + 1
 gls.left[a] = {
 	GitSectionBracket3 = {
-		provider = function()
-			if vim.bo.filetype == "dashboard" then
-				return ""
-			else
-				return rightbracket .. " "
-			end
-		end,
+		provider = GetRightBracket,
 		highlight = { colors.gitBg, colors.bg },
 		condition = condition.check_git_workspace,
 	},
 }
 
--- Lsp Sec
 a = a + 1
 gls.left[a] = {
 	LspSectionBracket1 = {
-		provider = function()
-			return leftbracket
-		end,
+		provider = GetLeftBracket,
 		highlight = { colors.blue, colors.bg },
 		condition = LspCondition,
 	},
@@ -288,9 +288,7 @@ gls.left[a] = {
 a = a + 1
 gls.left[a] = {
 	LspSectionBracket2 = {
-		provider = function()
-			return rightbracket .. " "
-		end,
+		provider = GetRightBracket,
 		highlight = { colors.blue, colors.lspBg },
 		condition = LspCondition,
 	},
@@ -343,9 +341,7 @@ gls.left[a] = {
 a = a + 1
 gls.left[a] = {
 	LspSectionBracket3 = {
-		provider = function()
-			return rightbracket
-		end,
+		provider = GetRightBracket,
 		highlight = { colors.lspBg, colors.bg },
 		condition = LspCondition,
 	},
@@ -356,9 +352,7 @@ gls.left[a] = {
 local b = 1
 gls.right[b] = {
 	FileInfoSectionBracket1 = {
-		provider = function()
-			return leftbracket
-		end,
+		provider = GetLeftBracket,
 		highlight = { colors.orange, colors.bg },
 		condition = CommonCondition,
 	},
@@ -374,9 +368,7 @@ gls.right[b] = {
 b = b + 1
 gls.right[b] = {
 	FileInfoSectionBracket2 = {
-		provider = function()
-			return rightbracket .. " "
-		end,
+		provider = GetRightBracket,
 		highlight = { colors.orange, colors.fileinfoBg },
 		condition = CommonCondition,
 	},
@@ -392,9 +384,7 @@ gls.right[b] = {
 b = b + 1
 gls.right[b] = {
 	FileInfoSectionBracket3 = {
-		provider = function()
-			return rightbracket
-		end,
+		provider = GetRightBracket,
 		highlight = { colors.fileinfoBg, colors.bg },
 		condition = CommonCondition,
 	},
@@ -404,9 +394,7 @@ gls.right[b] = {
 local c = 1
 gls.short_line_left[c] = {
 	ShortLineBracket1 = {
-		provider = function()
-			return leftbracket
-		end,
+		provider = GetLeftBracket,
 		highlight = { colors.blue, colors.bg },
 		condition = NvimTreeLineCondition,
 	},
@@ -426,9 +414,7 @@ gls.short_line_left[c] = {
 c = c + 1
 gls.short_line_left[c] = {
 	ShortLineBracket2 = {
-		provider = function()
-			return rightbracket
-		end,
+		provider = GetRightBracket,
 		highlight = { colors.blue, colors.lspBg },
 		condition = NvimTreeLineCondition,
 	},
@@ -448,9 +434,7 @@ gls.short_line_left[c] = {
 c = c + 1
 gls.short_line_left[c] = {
 	ShortLineBracket3 = {
-		provider = function()
-			return rightbracket
-		end,
+		provider = GetRightBracket,
 		highlight = { colors.lspBg, colors.bg },
 		condition = NvimTreeLineCondition,
 	},
@@ -460,9 +444,7 @@ gls.short_line_left[c] = {
 local d = 1
 gls.short_line_right[d] = {
 	ShortLineBracket4 = {
-		provider = function()
-			return leftbracket
-		end,
+		provider = GetLeftBracket,
 		highlight = { colors.blue, colors.bg },
 		condition = NvimTreeLineCondition,
 	},
@@ -480,9 +462,7 @@ gls.short_line_right[d] = {
 d = d + 1
 gls.short_line_right[d] = {
 	ShortLineBracket5 = {
-		provider = function()
-			return rightbracket
-		end,
+		provider = GetRightBracket,
 		highlight = { colors.blue, colors.bg },
 		condition = NvimTreeLineCondition,
 	},
