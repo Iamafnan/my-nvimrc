@@ -112,7 +112,7 @@ return packer.startup({
 		})
 
 		--  Snippets
-		use({ "hrsh7th/vim-vsnip", event = "InsertEnter" })
+		use({ "hrsh7th/vim-vsnip" })
 		use({ "lucaslamar/nodejs-snippets", after = "vim-vsnip", ft = "javascript" })
 		use({ "kitagry/vs-snippets", after = "vim-vsnip" })
 		use({
@@ -159,11 +159,11 @@ return packer.startup({
 		})
 
 		--  CMP
-		use({ "Iamafnan/nvim-cmp", config = "require('afnan.cmp')" })
-		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" })
-		use({ "hrsh7th/cmp-path", after = "nvim-cmp" })
+		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })
+		use({ "hrsh7th/cmp-buffer" })
+		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
-		use({ "hrsh7th/cmp-vsnip", after = "vim-vsnip" })
+		use({ "hrsh7th/cmp-vsnip" })
 
 		-- Markdown Preview
 		use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })

@@ -17,7 +17,6 @@ cmp.setup({
 	mapping = {
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
 		["<C-e>"] = cmp.mapping.close(),
-		-- ["<C-a>"] = cmp.mapping.toggle_doc(),
 		["<Tab>"] = cmp.mapping(function()
 			if vim.fn["vsnip#available"](1) == 1 then
 				feedkey("<Plug>(vsnip-expand-or-jump)", "")
@@ -36,17 +35,18 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 	},
-	experimental = { ghost_text = true, native_menu = false, optional_doc = true },
+	experimental = { ghost_text = true, native_menu = false },
 	documentation = { border = single },
 	formatting = {
-		fields = { "kind", "abbr" },
+		fields = { "kind", "abbr", "menu" },
 		format = function(entry, vim_item)
 			vim_item.abbr = vim_item.abbr:sub(1, 30)
 			vim_item.kind = kind_icons[vim_item.kind]
 			vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
 			vim_item.menu = ({
-				buffer = "[Buffer]",
+				vsnip = "[Snip]",
 				nvim_lsp = "[LSP]",
+				buffer = "[Buffer]",
 			})[entry.source.name]
 			return vim_item
 		end,
