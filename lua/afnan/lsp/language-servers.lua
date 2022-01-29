@@ -83,6 +83,13 @@ end
 nvim_lsp.tsserver.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	root_dir = function()
+		return vim.loop.cwd()
+	end,
+})
+nvim_lsp.quick_lint_js.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 })
 
 -- JSON
@@ -121,6 +128,7 @@ end
 nvim_lsp.ls_emmet.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	filetypes = { "html", "css" },
 })
 
 -- Bash / Zsh
@@ -168,18 +176,21 @@ nvim_lsp.yamlls.setup({
 	},
 })
 -- Linting
-nvim_lsp.eslint.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
+-- nvim_lsp.eslint.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- })
 
 nvim_lsp.sumneko_lua.setup({
 	require("lua-dev").setup(),
 	settings = {
 		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
 			diagnostics = {
 				globals = { "vim", "use", "packer_bootstrap", "single" },
-				disable = { "trailing-space" },
+				disable = { "trailing-space", "deprecated" },
 			},
 		},
 		completion = {

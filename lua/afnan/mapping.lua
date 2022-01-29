@@ -1,10 +1,6 @@
-local map = require("afnan.utils").set_keymap
+local set_keymap = require("afnan.utils").set_keymap
 local wk = require("which-key")
 local Terminal = require("toggleterm.terminal").Terminal
-local toggle_lazygit = function()
-	local lazygit = Terminal:new({ cmd = "lazygit", direction = "float" })
-	return lazygit:toggle()
-end
 local toggle_lf = function()
 	local lf = Terminal:new({ cmd = "lf", direction = "float" })
 	return lf:toggle()
@@ -15,35 +11,47 @@ local toggle_ncdu = function()
 	return ncdu:toggle()
 end
 
-map("", "k", "gk")
-map("", "j", "gj")
-map("n", "<CR>", "<esc>o")
-map("n", "q", ":q<CR>")
-map("n", "w", ":w<CR>")
+set_keymap("", "k", "gk")
+set_keymap("", "j", "gj")
+set_keymap("n", "<CR>", "<esc>o")
+set_keymap("n", "q", ":q<CR>")
+set_keymap("n", "w", ":w<CR>")
 
 -- single line movement
-map("n", "<A-left>", "0")
-map("n", "<A-right>", "$")
-map("i", "<A-right>", "<ESC>$ i")
-map("i", "<A-left>", "<ESC>0 i")
+set_keymap("n", "<A-left>", "0")
+set_keymap("n", "<A-right>", "$")
+set_keymap("i", "<A-right>", "<ESC>$ i")
+set_keymap("i", "<A-left>", "<ESC>0 i")
 
 -- basic visual mode maps
-map("v", "<", "<gv")
-map("v", ">", ">gv")
+set_keymap("v", "<", "<gv")
+set_keymap("v", ">", ">gv")
 
-map("t", "<ESC>", "<C-\\><C-n>")
+set_keymap("t", "<ESC>", "<C-\\><C-n>")
 
 -- for split movement
-map("", "<C-h>", "<C-w>h")
-map("", "<C-j>", "<C-w>j")
-map("", "<C-k>", "<C-w>k")
-map("", "<C-l>", "<C-w>l")
+set_keymap("", "<C-h>", "<C-w>h")
+set_keymap("", "<C-j>", "<C-w>j")
+set_keymap("", "<C-k>", "<C-w>k")
+set_keymap("", "<C-l>", "<C-w>l")
+
+set_keymap("n", "Y", "y$")
+
+-- Some lsp keymaps
+set_keymap("n", "K", ":Lspsaga hover_doc<CR>")
+set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
+set_keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>")
+set_keymap("n", "gk", ":lua vim.diagnostic.goto_next()<CR>")
+set_keymap("n", "gj", ":lua vim.diagnostic.goto_prev()<CR>")
+set_keymap("n", "gR", ":lua vim.lsp.buf.references()<CR>")
+set_keymap("n", "gr", ":Lspsaga rename<CR>")
+set_keymap("n", "ga", ":Lspsaga code_action<CR>")
+set_keymap("n", "gF", ":lua vim.lsp.buf.formatting()<CR>")
 
 local mappings = {
-	L = {
+	l = {
 		name = "Terminal Things",
 		f = { toggle_lf, "Lf" },
-		g = { toggle_lazygit, "LazyGit" },
 		n = { toggle_ncdu, "Ncdu" },
 	},
 	g = {
@@ -65,6 +73,7 @@ local mappings = {
 		p = { ":Telescope projects<CR>", "Projects" },
 		n = { ":lua require('github-notifications.menu').notifications()<CR>", "Github Notifications" },
 		h = { ":Telescope help_tags<CR>", "Help tags" },
+		d = { ":Telescope diagnostics<cr>", "WorkSpace Diagnostics" },
 	},
 	r = {
 		name = "Source",
@@ -92,21 +101,6 @@ local mappings = {
 		i = { ":PackerInstall<CR>", "Install" },
 		p = { ":PackerCompile<CR>", "Compile" },
 		s = { ":PackerSync<CR>", "Sync" },
-	},
-	l = {
-		name = "LSP",
-		r = { ":Lspsaga rename<CR>", "Rename" },
-		d = { ":lua vim.lsp.buf.definition()<CR>", "Defination" },
-		I = { ":lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-		c = { ":Lspsaga code_action<CR>", "Code Action" },
-		R = { ":lua vim.lsp.buf.references()<CR>", "Reference" },
-		K = { ":Lspsaga hover_doc<CR>", "Hover" },
-		f = { ":lua vim.lsp.buf.formatting()<CR>", "Format" },
-		n = { ":NullLsInfo<CR>", "Attached Sources" },
-		i = { ":LspInfo<CR>", "Attached LSP" },
-		s = { ":CmpStatus<CR>", "Completion Sources" },
-		k = { ":lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
-		j = { ":lua vim.diagnostic.goto_prev()<CR>", "Previous Diagnostic" },
 	},
 }
 local opts = { prefix = ",", icons = { group = "➜" } }

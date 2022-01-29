@@ -27,7 +27,6 @@ return packer.startup({
 		--  Loaded First
 		use({ "lewis6991/impatient.nvim" })
 		use({ "wbthomason/packer.nvim" })
-		use({ "nathom/filetype.nvim" })
 		use({
 			"folke/tokyonight.nvim",
 			config = function()
@@ -111,16 +110,6 @@ return packer.startup({
 			after = "nvim-cmp",
 		})
 
-		--  Snippets
-		use({ "hrsh7th/vim-vsnip" })
-		use({ "lucaslamar/nodejs-snippets", after = "vim-vsnip", ft = "javascript" })
-		use({ "kitagry/vs-snippets", after = "vim-vsnip" })
-		use({
-			"dsznajder/vscode-es7-javascript-react-snippets",
-			after = "vim-vsnip",
-			ft = { "javascript", "javascriptreact" },
-		})
-
 		--  Quick Tasking
 		use({ "tpope/vim-repeat", keys = "." })
 		use({
@@ -158,12 +147,20 @@ return packer.startup({
 			},
 		})
 
+		-- Snippets
+		use({ "L3MON4D3/LuaSnip" })
+		use({ "rafamadriz/friendly-snippets", after = "LuaSnip" })
+		use({ "saadparwaiz1/cmp_luasnip" })
+
 		--  CMP
-		use({ "hrsh7th/nvim-cmp", config = "require('afnan.cmp')" })
+		use({
+			"hrsh7th/nvim-cmp",
+			config = "require('afnan.cmp')",
+		})
+		use({ "hrsh7th/cmp-nvim-lua" })
 		use({ "hrsh7th/cmp-buffer" })
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
-		use({ "hrsh7th/cmp-vsnip" })
 
 		-- Markdown Preview
 		use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })
@@ -181,6 +178,13 @@ return packer.startup({
 
 		use({ "tyru/open-browser.vim" })
 		use({ "tyru/open-browser-github.vim" })
+
+		use({
+			"kristijanhusak/vim-carbon-now-sh",
+			config = function()
+				vim.g.carbon_now_sh_base_url = "http://localhost:4000"
+			end,
+		})
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then

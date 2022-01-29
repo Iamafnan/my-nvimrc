@@ -19,7 +19,7 @@ telescope.setup({
 			vertical = { mirror = true },
 		},
 		file_sorter = sorters.get_fuzzy_file,
-		file_ignore_patterns = { "__pycache__", "node_modules", ".git" },
+		file_ignore_patterns = { "__pycache__", "node_modules", ".git", ".cache", "storage", ".ssh" },
 		generic_sorter = sorters.get_generic_fuzzy_sorter,
 		winblend = 10,
 		border = {},

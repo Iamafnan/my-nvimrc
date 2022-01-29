@@ -1,11 +1,7 @@
 local set = vim.opt
 
-vim.cmd("filetype off")
-
 vim.cmd("set nocompatible")
 vim.cmd("set t_Co=256")
-
-vim.g.did_load_filetypes = 1
 
 vim.cmd("colorscheme tokyonight ")
 
