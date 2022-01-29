@@ -4,6 +4,7 @@ local luasnips = require("luasnip")
 require("luasnip.loaders.from_vscode").load({
 	path = { "~/.config/custom-snippets/" },
 })
+   print("Its Working")
 
 luasnips.config.setup({
 	history = true,

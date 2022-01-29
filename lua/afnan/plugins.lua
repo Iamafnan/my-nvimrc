@@ -148,7 +148,7 @@ return packer.startup({
 		})
 
 		-- Snippets
-		use({ "L3MON4D3/LuaSnip" })
+		use({ "L3MON4D3/LuaSnip", config = [[require("afnan.luasnips")]] })
 		use({ "rafamadriz/friendly-snippets", after = "LuaSnip" })
 		use({ "saadparwaiz1/cmp_luasnip" })
 
