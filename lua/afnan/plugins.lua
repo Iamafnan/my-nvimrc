@@ -119,6 +119,7 @@ return packer.startup({
 		})
 		use({ "mg979/vim-visual-multi", keys = "<C-n>" })
 		use({ "tpope/vim-surround", event = "InsertEnter", lock = true })
+		use({ "abecodes/tabout.nvim" })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')" })
