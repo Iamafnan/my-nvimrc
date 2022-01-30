@@ -1,4 +1,6 @@
-local set_keymap = require("afnan.utils").set_keymap
+local function set_keymap(mode, lhs, rhs)
+	vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
+end
 local wk = require("which-key")
 local Terminal = require("toggleterm.terminal").Terminal
 local toggle_lf = function()

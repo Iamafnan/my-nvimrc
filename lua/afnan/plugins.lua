@@ -68,9 +68,16 @@ return packer.startup({
 		use({
 			"norcalli/nvim-colorizer.lua",
 			event = "BufRead",
-			config = "require('afnan.colorizer')",
+			config = function()
+				require("colorizer").setup()
+			end,
 		})
-		use({ "karb94/neoscroll.nvim", config = "require('afnan.neoscroll')" })
+		use({
+			"karb94/neoscroll.nvim",
+			config = function()
+				require("neoscroll").setup()
+			end,
+		})
 
 		--  Telescope & Its Extentions
 		use({
@@ -155,9 +162,9 @@ return packer.startup({
 		use({ "hrsh7th/cmp-buffer" })
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
-      use({ "hrsh7th/cmp-cmdline" }) 
+		use({ "hrsh7th/cmp-cmdline" })
 
-      --  Others 
+		--  Others
 		use({
 			"vuki656/package-info.nvim",
 			requires = { "MunifTanjim/nui.nvim", ft = "json" },
