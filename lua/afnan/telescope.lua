@@ -45,5 +45,4 @@ telescope.setup({
 })
 
 -- Extentions
-load("projects")
 load("notify")
