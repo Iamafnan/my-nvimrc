@@ -176,9 +176,6 @@ return packer.startup({
 
 		use({ "szw/vim-maximizer", cmd = "MaximizerToggle" })
 
-		use({ "tyru/open-browser.vim" })
-		use({ "tyru/open-browser-github.vim" })
-
 		use({
 			"kristijanhusak/vim-carbon-now-sh",
 			config = function()
