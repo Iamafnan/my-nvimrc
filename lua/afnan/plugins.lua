@@ -156,7 +156,7 @@ return packer.startup({
 		-- Snippets
 		use({ "L3MON4D3/LuaSnip", config = [[require("afnan.luasnips")]] })
 		use({ "rafamadriz/friendly-snippets" })
-      use({ "xmasdsamx/abusaidm.html-snippets-0.0.18" }) 
+		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18" })
 		use({ "saadparwaiz1/cmp_luasnip" })
 
 		--  CMP
