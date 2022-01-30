@@ -66,11 +66,6 @@ return packer.startup({
 		})
 		use({ "akinsho/toggleterm.nvim", config = "require('afnan.toggleterm')" })
 		use({
-			"folke/todo-comments.nvim",
-			config = "require('afnan.todo-comments')",
-			requires = { "nvim-lua/plenary.nvim" },
-		})
-		use({
 			"norcalli/nvim-colorizer.lua",
 			event = "BufRead",
 			config = "require('afnan.colorizer')",
@@ -109,7 +104,7 @@ return packer.startup({
 		})
 		use({ "mg979/vim-visual-multi", keys = "<C-n>" })
 		use({ "tpope/vim-surround", event = "InsertEnter", lock = true })
-		use({ "abecodes/tabout.nvim" })
+		use({ "abecodes/tabout.nvim", event = "InsertEnter" })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')" })
@@ -162,9 +157,7 @@ return packer.startup({
 		use({ "hrsh7th/cmp-nvim-lsp" })
       use({ "hrsh7th/cmp-cmdline" }) 
 
-		-- Markdown Preview
-		use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })
-
+      --  Others 
 		use({
 			"vuki656/package-info.nvim",
 			requires = { "MunifTanjim/nui.nvim", ft = "json" },
@@ -173,15 +166,6 @@ return packer.startup({
 		})
 
 		use({ "rafcamlet/nvim-luapad", cmd = "Luapad" })
-
-		use({ "szw/vim-maximizer", cmd = "MaximizerToggle" })
-
-		use({
-			"kristijanhusak/vim-carbon-now-sh",
-			config = function()
-				vim.g.carbon_now_sh_base_url = "http://localhost:4000"
-			end,
-		})
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
