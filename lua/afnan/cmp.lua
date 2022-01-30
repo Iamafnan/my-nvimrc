@@ -94,5 +94,20 @@ cmp.setup({
 	},
 })
 
+-- Command line completion
+
+cmp.setup.cmdline(":", {
+	sources = {
+		{ name = "cmdline" },
+	},
+})
+
+cmp.setup.cmdline(":", {
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{ name = "cmdline" },
+	}),
+})
 -- completion menu settings
 set.pumheight = 8

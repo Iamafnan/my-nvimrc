@@ -60,11 +60,6 @@ return packer.startup({
 
 		--  UI
 		use({
-			"Shatur/neovim-session-manager",
-			requires = { "nvim-telescope/telescope.nvim" },
-			config = "require('afnan.sessions')",
-		})
-		use({
 			"rcarriga/nvim-notify",
 			config = "require('afnan.notifications')",
 			requires = { "nvim-telescope/telescope.nvim" },
@@ -87,11 +82,6 @@ return packer.startup({
 			"nvim-telescope/telescope.nvim",
 			requires = { "nvim-lua/plenary.nvim" },
 			config = "require('afnan.telescope')",
-		})
-		use({
-			"ahmedkhalf/project.nvim",
-			requires = { "nvim-telescope/telescope.nvim" },
-			config = "require('afnan.project-nvim')",
 		})
 
 		-- Tree-Sitter
@@ -128,6 +118,7 @@ return packer.startup({
 			config = function()
 				require("octo").setup()
 			end,
+			cmd = "Octo",
 		})
 		use({
 			"rlch/github-notifications.nvim",
@@ -169,6 +160,7 @@ return packer.startup({
 		use({ "hrsh7th/cmp-buffer" })
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
+      use({ "hrsh7th/cmp-cmdline" }) 
 
 		-- Markdown Preview
 		use({ "ellisonleao/glow.nvim", cmd = "Glow", config = "require('afnan.glow')" })
