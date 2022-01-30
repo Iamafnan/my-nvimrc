@@ -123,6 +123,12 @@ return packer.startup({
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')" })
 		use({
+			"pwntester/octo.nvim",
+			config = function()
+				require("octo").setup()
+			end,
+		})
+		use({
 			"rlch/github-notifications.nvim",
 			config = function()
 				require("afnan.github-notification")
@@ -149,7 +155,8 @@ return packer.startup({
 
 		-- Snippets
 		use({ "L3MON4D3/LuaSnip", config = [[require("afnan.luasnips")]] })
-		use({ "rafamadriz/friendly-snippets", after = "LuaSnip" })
+		use({ "rafamadriz/friendly-snippets" })
+      use({ "xmasdsamx/abusaidm.html-snippets-0.0.18" }) 
 		use({ "saadparwaiz1/cmp_luasnip" })
 
 		--  CMP
