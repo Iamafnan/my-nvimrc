@@ -87,10 +87,6 @@ nvim_lsp.tsserver.setup({
 		return vim.loop.cwd()
 	end,
 })
-nvim_lsp.quick_lint_js.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
 
 -- JSON
 nvim_lsp.jsonls.setup({
