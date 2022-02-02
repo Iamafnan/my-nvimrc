@@ -24,6 +24,8 @@ set.fillchars = {
 
 set.showmode = false
 
+set.signcolumn = "auto:1-2"
+
 set.hidden = true
 set.cmdheight = 2
 set.backup = false

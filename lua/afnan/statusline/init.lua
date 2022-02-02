@@ -18,9 +18,6 @@ gl.short_line_list = { "NvimTree" }
 -- Useful functions
 --]]
 
----Returns colors for various modes
----@param m string
----@return string
 local function mode_color(m)
 	local mode_colors = {
 		n = colors.blue,
@@ -46,8 +43,6 @@ local function mode_color(m)
 	return mode_colors[m]
 end
 
----Disable component in dashboard, nvimtree and in empty buffer
----@return boolean
 local function CommonCondition()
 	local tbl = { ["dashboard"] = true, [""] = true, ["NvimTree"] = true }
 	if tbl[vim.bo.filetype] then
@@ -56,8 +51,6 @@ local function CommonCondition()
 	return true
 end
 
----Checks wheather lsp client is active or not
----@return boolean
 local function LspCondition()
 	local LspProvider = require("galaxyline.providers.lsp").get_lsp_client("", { "null-ls" })
 	if LspProvider == "" then
@@ -67,8 +60,6 @@ local function LspCondition()
 	end
 end
 
----Disable shortline for all buffer else NvimTree
----@return boolean
 local function NvimTreeLineCondition()
 	if vim.bo.filetype == "NvimTree" then
 		return true
@@ -77,8 +68,6 @@ local function NvimTreeLineCondition()
 	end
 end
 
----Returns directory size
----@return string
 local function DirSize()
 	local cwd = vim.fn.getcwd()
 	Job
@@ -96,14 +85,10 @@ local function DirSize()
 	return size
 end
 
----Returns current lsp client
----@return string
 local function GetLspClient()
 	return require("galaxyline.providers.lsp").get_lsp_client("", { "null-ls" })
 end
 
----Returns current git branch
----@return string
 local function GetGitBranch()
 	if vim.bo.filetype == "dashboard" then
 		return ""
@@ -112,8 +97,6 @@ local function GetGitBranch()
 	end
 end
 
----Returns GitHub Notifications with the help of github-notifications.nvim
----@return string
 local function GetGitNotifications()
 	if vim.bo.filetype == "dashboard" then
 		return ""
@@ -122,16 +105,12 @@ local function GetGitNotifications()
 	end
 end
 
----Returns current cursor position
----@return string
 local function GetCursorPostion()
 	local line = vim.fn.line(".")
 	local column = vim.fn.col(".")
 	return string.format("%3d:%2d", line, column)
 end
 
----Returns color hex code for current mode
----@return string
 local function GetModeColor()
 	local m = vim.fn.mode() or vim.fn.visualmode()
 	local color = mode_color(m)
@@ -139,6 +118,44 @@ local function GetModeColor()
 	vim.api.nvim_command("hi GalaxyModeColorReverse guifg=" .. color)
 	return " "
 end
+
+-- local unstaged_files = 0
+-- local total_files = 0
+-- local function GetGitComponent()
+-- 	Job
+-- 		:new({
+-- 			"git",
+-- 			"diff",
+-- 			"--name-only",
+-- 			on_exit = function(job)
+-- 				for _ in pairs(job:result()) do
+-- 					unstaged_files = unstaged_files + 1
+-- 				end
+-- 			end,
+-- 		})
+-- 		:start()
+--
+-- 	local cwd = vim.fn.getcwd()
+-- 	Job
+-- 		:new({
+-- 			"tree",
+-- 			"--noreport",
+-- 			"-X",
+-- 			cwd,
+-- 			" | ",
+-- 			"grep",
+-- 			"file",
+-- 			on_exit = function(job)
+-- 				-- print(vim.inspect(job:result()))
+-- 				for _ in pairs(job:result()) do
+-- 					total_files = total_files + 1
+-- 				end
+--            print(total_files) 
+-- 			end,
+-- 		})
+-- 		:start()
+-- end
+--GetGitComponent()
 
 local function GetLeftBracket()
 	if vim.bo.filetype == "dashboard" then

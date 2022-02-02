@@ -2,16 +2,16 @@ local function set_keymap(mode, lhs, rhs)
 	vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
 end
 local wk = require("which-key")
-local Terminal = require("toggleterm.terminal").Terminal
+--[[ local Terminal = require("toggleterm.terminal").Terminal
 local toggle_lf = function()
 	local lf = Terminal:new({ cmd = "lf", direction = "float" })
 	return lf:toggle()
-end
+end ]]
 
-local toggle_ncdu = function()
+--[[ local toggle_ncdu = function()
 	local ncdu = Terminal:new({ cmd = "ncdu", direction = "float" })
 	return ncdu:toggle()
-end
+end ]]
 
 set_keymap("", "k", "gk")
 set_keymap("", "j", "gj")
@@ -51,11 +51,11 @@ set_keymap("n", "ga", ":Lspsaga code_action<CR>")
 set_keymap("n", "gF", ":lua vim.lsp.buf.formatting()<CR>")
 
 local mappings = {
-	l = {
+	--[[ l = {
 		name = "Terminal Things",
 		f = { toggle_lf, "Lf" },
 		n = { toggle_ncdu, "Ncdu" },
-	},
+	}, ]]
 	g = {
 		name = "Gitsigns",
 		h = {

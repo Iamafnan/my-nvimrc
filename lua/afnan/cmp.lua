@@ -19,7 +19,7 @@ local luasnip = prequire("luasnip")
 local cmp = prequire("cmp")
 local set = vim.opt
 local kind_icons = prequire("afnan.lsp.kinds").kind
-require("luasnip.loaders.from_vscode").load()
+prequire("'luasnip.loaders.from_vscode'.load()")
 
 -- Configuration
 cmp.setup({
@@ -55,7 +55,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 	},
-	experimental = { ghost_text = true, native_menu = false },
+	experimental = { ghost_text = true, native_menu = false, horizontal_search = true },
 	documentation = { border = single },
 	formatting = {
 		fields = { "kind", "abbr" },
@@ -96,11 +96,11 @@ cmp.setup({
 
 -- Command line completion
 
-cmp.setup.cmdline(":", {
-	sources = {
-		{ name = "cmdline" },
-	},
-})
+cmp.setup.cmdline('/', {
+    sources = {
+      { name = 'buffer' }
+    }
+  })
 
 cmp.setup.cmdline(":", {
 	sources = cmp.config.sources({

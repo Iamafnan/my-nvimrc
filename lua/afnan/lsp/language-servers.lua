@@ -1,9 +1,17 @@
 -- locals
-local nvim_lsp = require("lspconfig")
-local nvim_lsp_config = require("lspconfig.configs")
-local cmp_lsp = require("cmp_nvim_lsp")
+local function prequire(...)
+	local status, lib = pcall(require, ...)
+	if status then
+		return lib
+	end
+	return nil
+end
+
+local nvim_lsp = prequire("lspconfig")
+local nvim_lsp_config = prequire("lspconfig.configs")
+local cmp_lsp = prequire("cmp_nvim_lsp")
 local notify = require("afnan.notifications").lspstarted
-local wk = require("which-key")
+local wk = prequire("which-key")
 
 -- Capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -20,7 +28,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 	properties = { "documentation", "detail", "additionalTextEdits" },
 }
 capabilities.textDocument.codeAction = {
-	dynamicRegistration = false,
+	dynamicRegistration = true,
 	codeActionLiteralSupport = {
 		codeActionKind = {
 			valueSet = {
@@ -83,6 +91,17 @@ end
 nvim_lsp.tsserver.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {
+		completions = {
+			completeFunctionCalls = true,
+		},
+	},
+	init_options = {
+		preferences = {
+			includeCompletionsWithSnippetText = true,
+			includeCompletionsForImportStatements = true,
+		},
+	},
 	root_dir = function()
 		return vim.loop.cwd()
 	end,
@@ -95,7 +114,8 @@ nvim_lsp.jsonls.setup({
 	init_options = { provideFormatter = false },
 	single_file_support = true,
 	settings = {
-		json = { schemas = require("schemastore").json.schemas() },
+		-- json = { schemas = require("schemastore").json.schemas() },
+      json = { schemas = prequire[["schemastore".json.schemas()]] },
 	},
 })
 
@@ -113,7 +133,7 @@ if not nvim_lsp_config.ls_emmet then
 	nvim_lsp_config.ls_emmet = {
 		default_config = {
 			cmd = { "ls_emmet", "--stdio" },
-			filetypes = { "html", "css", "javascript", "javascriptreact", "xml" },
+			filetypes = { "html", "css" },
 			root_dir = function()
 				return vim.loop.cwd()
 			end,
@@ -124,7 +144,6 @@ end
 nvim_lsp.ls_emmet.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	filetypes = { "html", "css" },
 })
 
 -- Bash / Zsh
@@ -164,7 +183,7 @@ nvim_lsp.yamlls.setup({
 	capabilities = capabilities,
 	settings = {
 		yaml = {
-			schemas = require("schemastore").json.schemas(),
+			schemas = prequire[["schemastore".json.schemas()]],
 			hover = true,
 			completion = true,
 			validate = true,
@@ -178,7 +197,7 @@ nvim_lsp.yamlls.setup({
 -- })
 
 nvim_lsp.sumneko_lua.setup({
-	require("lua-dev").setup(),
+	prequire[["lua-dev".setup()]],
 	settings = {
 		Lua = {
 			runtime = {

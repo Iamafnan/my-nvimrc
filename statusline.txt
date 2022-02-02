@@ -1,0 +1,6 @@
+> list all files :
+
+tree --noreport -X | grep file | wc -l
+
+> list unstage files :
+git diff --name-only | wc -l
