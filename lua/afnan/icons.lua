@@ -36,35 +36,10 @@ devicons.setup({
 			color = "#3776AB",
 			name = "Python",
 		},
-		json = {
-			icon = "",
-			color = "#999999",
-			name = "JSON",
-		},
-		toml = {
-			icon = "",
-			color = "#999999",
-			name = "TOML",
-		},
-		yaml = {
-			icon = "",
-			color = "#999999",
-			name = "YAML",
-		},
 		lock = {
 			icon = "",
 			color = "#DE6B74",
 			name = "lock",
-		},
-		bash = {
-			icon = "",
-			color = "#4EAA25",
-			name = "BASH",
-		},
-		zsh = {
-			icon = "",
-			color = "#4EAA25",
-			name = "Zsh",
 		},
 	},
 })
