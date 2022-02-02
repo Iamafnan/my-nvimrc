@@ -115,7 +115,7 @@ nvim_lsp.jsonls.setup({
 	single_file_support = true,
 	settings = {
 		-- json = { schemas = require("schemastore").json.schemas() },
-      json = { schemas = prequire[["schemastore".json.schemas()]] },
+		json = { schemas = prequire([["schemastore".json.schemas()]]) },
 	},
 })
 
@@ -183,7 +183,7 @@ nvim_lsp.yamlls.setup({
 	capabilities = capabilities,
 	settings = {
 		yaml = {
-			schemas = prequire[["schemastore".json.schemas()]],
+			schemas = prequire([["schemastore".json.schemas()]]),
 			hover = true,
 			completion = true,
 			validate = true,
@@ -197,7 +197,7 @@ nvim_lsp.yamlls.setup({
 -- })
 
 nvim_lsp.sumneko_lua.setup({
-	prequire[["lua-dev".setup()]],
+	prequire([["lua-dev".setup()]]),
 	settings = {
 		Lua = {
 			runtime = {

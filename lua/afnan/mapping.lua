@@ -64,7 +64,7 @@ local mappings = {
 			p = { ":Gitsigns prev_hunk<CR>", "Previous Hunk" },
 			s = { ":Gitsigns stage_hunk<CR>", "Stage Hunk" },
 			u = { ":Gitsigns undo_stage_hunk<CR>", "Unstage Hunk" },
-         r = { ":Gitsigns reset_hunk<CR>", "Reset Hunk" } 
+			r = { ":Gitsigns reset_hunk<CR>", "Reset Hunk" },
 		},
 		b = { name = "Buffer", s = { ":Gitsigns stage_buffer<CR>", "Stage Buffer" } },
 		p = { name = "Preview", h = { ":Gitsigns preview_hunk<CR>", "Preview Hunk" } },
