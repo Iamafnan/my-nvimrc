@@ -39,6 +39,8 @@ set_keymap("", "<C-l>", "<C-w>l")
 
 set_keymap("n", "Y", "y$")
 
+set_keymap("n", "ng", ":lua require('neogen').generate()<CR>")
+
 -- Some lsp keymaps
 set_keymap("n", "K", ":Lspsaga hover_doc<CR>")
 set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>")

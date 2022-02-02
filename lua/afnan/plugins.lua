@@ -103,6 +103,13 @@ return packer.startup({
 			config = "require('afnan.autopairs')",
 			after = "nvim-cmp",
 		})
+		use({
+			"danymat/neogen",
+         config = function()
+            require("afnan.neogen")
+         end,
+			after = "nvim-cmp",
+		})
 
 		--  Quick Tasking
 		use({ "tpope/vim-repeat", keys = "." })
