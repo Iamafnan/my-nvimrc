@@ -160,7 +160,7 @@ return packer.startup({
 		})
 
 		-- Snippets
-		use({ "L3MON4D3/LuaSnip", event = "InsertEnter", config = [[require("afnan.luasnips")]] })
+		use({ "L3MON4D3/LuaSnip", config = [[require("afnan.luasnips")]] })
 		use({ "rafamadriz/friendly-snippets" })
 		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", after = "LuaSnip" })
 		use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" })
@@ -173,7 +173,7 @@ return packer.startup({
 		use({ "hrsh7th/cmp-nvim-lua", ft = "lua" })
 		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-path", after = "nvim-cmp", event = "InsertEnter" })
-		use({ "hrsh7th/cmp-nvim-lsp", event = "BufWinEnter" })
+		use({ "hrsh7th/cmp-nvim-lsp" })
 		use({ "hrsh7th/cmp-cmdline", event = "CmdlineEnter" })
 
 		--  Others
