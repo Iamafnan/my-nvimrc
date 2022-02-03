@@ -29,6 +29,7 @@
 </details>
 
 <h3>File Structure</h3>
+
 ```
  .
 ├──  init.lua
@@ -70,4 +71,5 @@
 ├──  plugin
 │  └──  packer_compiled.lua
 └──  readme.md
+
 ```
