@@ -1,4 +1,3 @@
-local sorters = require("telescope.sorters")
 local previewers = require("telescope.previewers")
 local telescope = require("telescope")
 local load = telescope.load_extension
@@ -18,9 +17,7 @@ telescope.setup({
 			horizontal = { mirror = false },
 			vertical = { mirror = true },
 		},
-		file_sorter = sorters.get_fuzzy_file,
 		file_ignore_patterns = { "__pycache__", "node_modules", ".git", ".cache", "storage", ".ssh" },
-		generic_sorter = sorters.get_generic_fuzzy_sorter,
 		winblend = 10,
 		border = {},
 		borderchars = {
@@ -42,7 +39,15 @@ telescope.setup({
 			hidden = true,
 		},
 	},
+	extensions = {
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "ignore_case",
+		},
+	},
 })
 
--- Extentions
 load("notify")
+load("fzf")

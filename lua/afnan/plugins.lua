@@ -87,6 +87,7 @@ return packer.startup({
 			requires = { "nvim-lua/plenary.nvim" },
 			config = "require('afnan.telescope')",
 		})
+		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 		-- Tree-Sitter
 		use({
@@ -105,9 +106,9 @@ return packer.startup({
 		})
 		use({
 			"danymat/neogen",
-         config = function()
-            require("afnan.neogen")
-         end,
+			config = function()
+				require("afnan.neogen")
+			end,
 			after = "nvim-cmp",
 		})
 
