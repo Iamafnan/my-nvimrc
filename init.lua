@@ -13,6 +13,6 @@
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 --
-pcall(require, "impatient")
+require'impatient'.enable_profile()
 
 pcall(require, "afnan")
