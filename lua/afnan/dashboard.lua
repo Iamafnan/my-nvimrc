@@ -23,4 +23,7 @@ vim.g.dashboard_custom_section = {
 	c = { description = { " History    " }, command = "DashboardFindHistory" },
 	d = { description = { " Colorscheme" }, command = "Telescope colorscheme" },
 }
-vim.g.dashboard_custom_footer = {}
+
+
+local plugins_count = vim.fn.len(vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1))
+vim.g.dashboard_custom_footer = { " Loaded " .. plugins_count .. " Plugins" }
