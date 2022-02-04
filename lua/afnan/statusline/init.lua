@@ -85,8 +85,24 @@ local function DirSize()
 	return size
 end
 
+local function GetNulllsClient()
+	local ft = vim.bo.filetype
+	local sources = require("null-ls.sources").get_available(ft)
+	local source = ""
+	for _, provider in pairs(sources) do
+		if string.len(source) < 1 then
+			source = source .. provider.name
+		else
+			source = source .. "," .. provider.name
+		end
+	end
+	return source
+end
+
 local function GetLspClient()
-	return require("galaxyline.providers.lsp").get_lsp_client("", { "null-ls" })
+	local lsp_clients = require("galaxyline.providers.lsp").get_lsp_client("", { "null-ls" })
+	local null_ls_clients = GetNulllsClient()
+	return lsp_clients .. "," .. null_ls_clients
 end
 
 local function GetGitBranch()
