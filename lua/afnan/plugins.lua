@@ -184,6 +184,7 @@ return packer.startup({
 		})
 
 		use({ "rafcamlet/nvim-luapad", ft = "lua" })
+		use({ "github/copilot.vim" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
