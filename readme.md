@@ -7,14 +7,6 @@
 </h1>
 
 
-<h1 align="center">
-
-[![Made With Lua](https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white)](https://www.lua.org/)
-
-[![Neovim Version](https://img.shields.io/badge/Neovim-0.6.1-darkblue.svg?style=flat-square&logo=Neovim&logoColor=white)](https://github.com/neovim/neovim)
-
-</h1>
-
 <details>
    <summary><b>ScreenShots</b></summary>
 
