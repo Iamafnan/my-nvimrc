@@ -106,9 +106,7 @@ return packer.startup({
 		})
 		use({
 			"danymat/neogen",
-			config = function()
-				require("afnan.neogen")
-			end,
+			config = [[require("afnan.neogen")]],
 			after = "nvim-cmp",
 		})
 
@@ -158,6 +156,7 @@ return packer.startup({
 				config = "require('goto-preview').setup({})",
 			},
 		})
+		use({ "j-hui/fidget.nvim", config = "require('afnan.lsp.fidget')" })
 
 		-- Snippets
 		use({ "L3MON4D3/LuaSnip", config = [[require("afnan.luasnips")]] })
