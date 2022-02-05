@@ -2,7 +2,7 @@
 
 <h1 align="center">
 
-[![Neovim ScreenShot](https://user-images.githubusercontent.com/80388154/152179385-a5e91e17-63af-44ec-8007-7ba5382a63e3.jpg)](https://github.com/Iamafnan/my-nvimrc)
+[![Neovim ScreenShot](https://user-images.githubusercontent.com/80388154/152628259-54afbfc9-0c08-42f7-a20b-efad244eeb1c.jpg)](https://github.com/Iamafnan/my-nvimrc)
 
 </h1>
 
