@@ -51,15 +51,6 @@ local function CommonCondition()
 	return true
 end
 
-local function LspCondition()
-	local LspProvider = require("galaxyline.providers.lsp").get_lsp_client("", { "null-ls" })
-	if LspProvider == "" then
-		return false
-	else
-		return true
-	end
-end
-
 local function NvimTreeLineCondition()
 	if vim.bo.filetype == "NvimTree" then
 		return true
@@ -102,7 +93,20 @@ end
 local function GetLspClient()
 	local lsp_clients = require("galaxyline.providers.lsp").get_lsp_client("", { "null-ls" })
 	local null_ls_clients = GetNulllsClient()
-	return lsp_clients .. "," .. null_ls_clients
+	if string.len(lsp_clients) > 0 then
+		return lsp_clients .. "," .. null_ls_clients
+	else
+		return null_ls_clients
+	end
+end
+
+local function LspCondition()
+	local lsp_clients = GetLspClient()
+	if string.len(lsp_clients) > 1 then
+		return true
+	else
+		return false
+	end
 end
 
 local function GetGitBranch()
