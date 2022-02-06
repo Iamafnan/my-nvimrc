@@ -53,7 +53,7 @@ return packer.startup({
 			end,
 		})
 		use({ "folke/which-key.nvim" })
-		use({ "kyazdani42/nvim-tree.lua", config = "require('afnan.nvimtree')" })
+		use({ "kyazdani42/nvim-tree.lua", config = "require('afnan.nvimtree')", cmd = "NvimTreeToggle" })
 
 		--  Icon Packs
 		use({
@@ -124,14 +124,6 @@ return packer.startup({
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')", event = "BufReadPost" })
 		use({
-			"pwntester/octo.nvim",
-			config = function()
-				require("octo").setup()
-			end,
-			event = "BufWinEnter",
-			cmd = "Octo",
-		})
-		use({
 			"rlch/github-notifications.nvim",
 			config = function()
 				require("afnan.github-notification")
@@ -154,13 +146,12 @@ return packer.startup({
 				config = "require('goto-preview').setup({})",
 			},
 		})
-		use({ "j-hui/fidget.nvim", event = "BufWinEnter", config = "require('afnan.lsp.fidget')" })
 
 		-- Snippets
 		use({ "L3MON4D3/LuaSnip", event = "BufWinEnter", config = [[require("afnan.luasnips")]] })
 		use({ "rafamadriz/friendly-snippets", event = "InsertEnter" })
-		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", after = "LuaSnip", event = "InsertEnter" })
-		use({ "saadparwaiz1/cmp_luasnip", event = "InsertEnter" })
+		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", event = "InsertEnter", ft = "html" })
+		use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" })
 
 		--  CMP
 		use({
