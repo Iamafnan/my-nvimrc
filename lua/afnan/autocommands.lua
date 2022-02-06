@@ -16,12 +16,6 @@ local autocmds = {
 		"plugins.lua",
 		"source % | PackerCompile",
 	} },
-
-	autocenter = { {
-		"InsertEnter",
-		"*",
-		"norm zz",
-	} },
 	autoInsert = { {
 		"BufEnter",
 		"*",

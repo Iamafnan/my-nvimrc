@@ -123,7 +123,6 @@ return packer.startup({
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')", event = "BufReadPost" })
-		use({ "TimUntersberger/neogit", event = "BufWinEnter", cmd = "Neogit" })
 		use({
 			"pwntester/octo.nvim",
 			config = function()
