@@ -3,12 +3,16 @@ std = {
             "vim",
             "require",
             "time",
-            "use",
             "packer_bootstrap",
             "table",
             "pairs",
             "pcall",
             "string",
-            "single"
+            "single",
+            "print",
+            "ipairs"
          }
    }
+exclude_files = {
+   "lua/afnan/packer_compiled.lua"
+}

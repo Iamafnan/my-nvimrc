@@ -3,7 +3,7 @@ if not ok then
 	return
 end
 
-require("neogen").setup({
+neogen.setup({
 	enabled = true,
 	languages = {
 		lua = {
