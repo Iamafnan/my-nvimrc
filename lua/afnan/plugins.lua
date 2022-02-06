@@ -1,21 +1,24 @@
-local packer = require("packer")
-local utils = require("packer.util")
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
+	print("Installing packer.nvim")
+	fn.delete(vim.fn.stdpath("config") .. "/lua/packer_compiled.lua")
 	packer_bootstrap = fn.system({
 		"git",
 		"clone",
 		"https://github.com/wbthomason/packer.nvim",
 		install_path,
 	})
+	vim.cmd([[packadd packer.nvim]])
 end
 
-vim.cmd([[packadd packer.nvim]])
+local packer = require("packer")
+local utils = require("packer.util")
 
 packer.init({
 	git = { clone_timeout = 350 },
+	compile_path = "~/.config/nvim/lua/afnan/packer_compiled.lua",
 	display = {
 		title = "Packer",
 		done_sym = "",
@@ -25,10 +28,11 @@ packer.init({
 })
 
 return packer.startup({
-	function()
-		--  Loaded First
+	function(use)
 		use({ "lewis6991/impatient.nvim" })
+		use({ "nathom/filetype.nvim" })
 		use({ "wbthomason/packer.nvim" })
+		use({ "tweekmonster/startuptime.vim", cmd = "StartupTime" })
 		use({
 			"folke/tokyonight.nvim",
 			config = function()
@@ -38,7 +42,6 @@ return packer.startup({
 					tokyonight_italic_functions = true,
 					tokyonight_italic_variables = true,
 				}
-				vim.o.pumblend = 20
 			end,
 		})
 		use({ "NTBBloodbath/galaxyline.nvim", config = "require('afnan.statusline')" })
@@ -61,11 +64,6 @@ return packer.startup({
 		})
 
 		--  UI
-		use({
-			"rcarriga/nvim-notify",
-			config = "require('afnan.notifications')",
-			requires = { "nvim-telescope/telescope.nvim" },
-		})
 		use({ "akinsho/toggleterm.nvim", config = "require('afnan.toggleterm')", keys = "<A-t>" })
 		use({
 			"norcalli/nvim-colorizer.lua",
@@ -118,13 +116,18 @@ return packer.startup({
 			config = "require('afnan.comments')",
 		})
 		use({ "mg979/vim-visual-multi", keys = "<C-n>" })
-		use({ "tpope/vim-surround", event = "InsertEnter", lock = true })
+		use({
+			"blackCauldron7/surround.nvim",
+			opt = true,
+			config = function()
+				require("surround").setup({ mappings_style = "surround" })
+			end,
+		})
 		use({ "abecodes/tabout.nvim", event = "InsertEnter" })
 
 		--  Git
-		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')", event = "BufWinEnter" })
-		use({ "TimUntersberger/neogit", event = "BufWinEnter" })
-		use({ "sindrets/diffview.nvim", event = "BufWinEnter" })
+		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')", event = "BufReadPost" })
+		use({ "TimUntersberger/neogit", event = "BufWinEnter", cmd = "Neogit" })
 		use({
 			"pwntester/octo.nvim",
 			config = function()
@@ -143,10 +146,10 @@ return packer.startup({
 
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig", config = { "require('afnan.lsp')" }, event = "BufWinEnter" })
-		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", after = "nvim-lspconfig" })
-		use({ "kosayoda/nvim-lightbulb", after = "nvim-lspconfig" })
-		use({ "tami5/lspsaga.nvim", after = "nvim-lspconfig", config = "require('afnan.lsp.saga')" })
-		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')" })
+		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", event = "BufWinEnter" })
+		use({ "kosayoda/nvim-lightbulb", event = "BufWinEnter" })
+		use({ "tami5/lspsaga.nvim", event = "BufWinEnter", config = "require('afnan.lsp.saga')" })
+		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
 		use({ "b0o/SchemaStore.nvim", ft = { "json", "yaml", "yml" } })
 		use({ "folke/lua-dev.nvim", ft = "lua" })
 		use({
@@ -156,24 +159,24 @@ return packer.startup({
 				config = "require('goto-preview').setup({})",
 			},
 		})
-		use({ "j-hui/fidget.nvim", config = "require('afnan.lsp.fidget')" })
+		use({ "j-hui/fidget.nvim", event = "BufWinEnter", config = "require('afnan.lsp.fidget')" })
 
 		-- Snippets
-		use({ "L3MON4D3/LuaSnip", config = [[require("afnan.luasnips")]] })
-		use({ "rafamadriz/friendly-snippets" })
-		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", after = "LuaSnip" })
-		use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" })
+		use({ "L3MON4D3/LuaSnip", event = "BufWinEnter", config = [[require("afnan.luasnips")]] })
+		use({ "rafamadriz/friendly-snippets", event = "InsertEnter" })
+		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", after = "LuaSnip", event = "InsertEnter" })
+		use({ "saadparwaiz1/cmp_luasnip", event = "InsertEnter" })
 
 		--  CMP
 		use({
 			"hrsh7th/nvim-cmp",
+			event = "BufWinEnter",
 			config = "require('afnan.cmp')",
 		})
-		use({ "hrsh7th/cmp-nvim-lua", ft = "lua" })
-		use({ "hrsh7th/cmp-buffer", after = "nvim-cmp", event = "InsertEnter" })
-		use({ "hrsh7th/cmp-path", after = "nvim-cmp", event = "InsertEnter" })
+		use({ "hrsh7th/cmp-nvim-lua", ft = "lua", event = "InsertEnter" })
+		use({ "hrsh7th/cmp-buffer", event = "InsertEnter" })
+		use({ "hrsh7th/cmp-path", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
-		use({ "hrsh7th/cmp-cmdline", event = "CmdlineEnter" })
 
 		--  Others
 		use({
@@ -184,9 +187,10 @@ return packer.startup({
 		})
 
 		use({ "rafcamlet/nvim-luapad", ft = "lua" })
-		use({ "github/copilot.vim" })
+		use({ "github/copilot.vim", event = "InsertEnter" })
 		use({
 			"ethanholz/nvim-lastplace",
+			event = "BufRead",
 			config = function()
 				require("nvim-lastplace").setup({
 					lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -208,5 +212,13 @@ return packer.startup({
 			end,
 		},
 		profile = { enable = true, threshold = 1 },
+		log = { level = "debug" },
+		max_jobs = 10,
+		git = {
+			clone_timeout = 300,
+			subcommands = {
+				fetch = "fetch --no-tags --no-recurse-submodules --update-shallow --progress",
+			},
+		},
 	},
 })

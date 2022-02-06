@@ -56,7 +56,7 @@ set.splitbelow = true
 
 vim.cmd("set formatoptions-=cro")
 set.shortmess:append("c")
-vim.cmd("set whichwrap+=<,>,[,],h,l")
+set.hlsearch = false
 
 vim.g.node_host_prog = "/data/data/com.termux/files/usr/bin/neovim-node-host"
 vim.g.loaded_perl_provider = false

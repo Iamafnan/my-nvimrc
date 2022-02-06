@@ -1,4 +1,3 @@
--- locals
 local function prequire(...)
 	local status, lib = pcall(require, ...)
 	if status then
@@ -10,7 +9,6 @@ end
 local nvim_lsp = prequire("lspconfig")
 local nvim_lsp_config = prequire("lspconfig.configs")
 local cmp_lsp = prequire("cmp_nvim_lsp")
-local notify = require("afnan.notifications").lspstarted
 local wk = prequire("which-key")
 
 -- Capabilities
@@ -49,9 +47,6 @@ capabilities.textDocument.codeAction = {
 local on_attach = function(client)
 	-- Signature Help
 	require("lsp_signature").on_attach()
-
-	-- Notification Msg
-	notify(client.name)
 
 	local cmd = vim.api.nvim_command
 
@@ -114,7 +109,6 @@ nvim_lsp.jsonls.setup({
 	init_options = { provideFormatter = false },
 	single_file_support = true,
 	settings = {
-		-- json = { schemas = require("schemastore").json.schemas() },
 		json = { schemas = prequire([["schemastore".json.schemas()]]) },
 	},
 })
@@ -171,12 +165,6 @@ nvim_lsp.pyright.setup({
 	},
 })
 
--- Vim
-nvim_lsp.vimls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
 -- Yaml
 nvim_lsp.yamlls.setup({
 	on_attach = on_attach,
@@ -204,7 +192,7 @@ nvim_lsp.sumneko_lua.setup({
 				version = "LuaJIT",
 			},
 			diagnostics = {
-				globals = { "vim", "use", "packer_bootstrap", "single" },
+				globals = { "vim", "packer_bootstrap", "single" },
 				disable = { "trailing-space", "deprecated" },
 			},
 		},

@@ -13,6 +13,7 @@
 -- "                                                                            "
 -- """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 --
-require'impatient'.enable_profile()
+require("impatient")
+require("afnan.packer_compiled")
 
 pcall(require, "afnan")

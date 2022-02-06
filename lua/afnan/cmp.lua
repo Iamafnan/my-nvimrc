@@ -103,20 +103,6 @@ cmp.setup({
 	},
 })
 
--- Command line completion
-
-cmp.setup.cmdline("/", {
-	sources = {
-		{ name = "buffer" },
-	},
-})
-
-cmp.setup.cmdline(":", {
-	sources = cmp.config.sources({
-		{ name = "path" },
-	}, {
-		{ name = "cmdline" },
-	}),
-})
 -- completion menu settings
 set.pumheight = 8
+vim.o.pumblend = 20

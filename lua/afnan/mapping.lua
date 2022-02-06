@@ -44,7 +44,7 @@ set_keymap("n", "ng", ":lua require('neogen').generate()<CR>")
 -- Some lsp keymaps
 set_keymap("n", "K", ":Lspsaga hover_doc<CR>")
 set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
-set_keymap("n", "gi", ":lua vim.lsp.buf.implementation()<CR>")
+set_keymap("n", "gI", ":lua vim.lsp.buf.implementation()<CR>")
 set_keymap("n", "gk", ":lua vim.diagnostic.goto_next()<CR>")
 set_keymap("n", "gj", ":lua vim.diagnostic.goto_prev()<CR>")
 set_keymap("n", "gR", ":lua vim.lsp.buf.references()<CR>")
@@ -82,7 +82,7 @@ local mappings = {
 	},
 	r = {
 		name = "Source",
-		c = { ":so %<CR> | :lua require('afnan.notifications').sourced('Hello')<CR>", "Source Buffer" },
+		c = { ":so %<CR>", "Source Buffer" },
 	},
 	b = {
 		name = "Buffer",

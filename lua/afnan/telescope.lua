@@ -49,5 +49,4 @@ telescope.setup({
 	},
 })
 
-load("notify")
 load("fzf")

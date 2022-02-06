@@ -1,4 +1,7 @@
-local notify = require("notify")
+local ok, notify = pcall(require, "notify")
+if not ok then
+   return
+end
 
 -- Nofify Setup
 notify.setup({
@@ -6,6 +9,8 @@ notify.setup({
 	timeout = 3000,
 	render = "minimal",
 })
+
+require("telescope").load_extension("notify")
 
 local M = {}
 
