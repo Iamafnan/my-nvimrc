@@ -2,16 +2,6 @@ local function set_keymap(mode, lhs, rhs)
 	vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
 end
 local wk = require("which-key")
---[[ local Terminal = require("toggleterm.terminal").Terminal
-local toggle_lf = function()
-	local lf = Terminal:new({ cmd = "lf", direction = "float" })
-	return lf:toggle()
-end ]]
-
---[[ local toggle_ncdu = function()
-	local ncdu = Terminal:new({ cmd = "ncdu", direction = "float" })
-	return ncdu:toggle()
-end ]]
 
 set_keymap("", "k", "gk")
 set_keymap("", "j", "gj")
@@ -53,11 +43,6 @@ set_keymap("n", "ga", ":Lspsaga code_action<CR>")
 set_keymap("n", "gF", ":lua vim.lsp.buf.formatting()<CR>")
 
 local mappings = {
-	--[[ l = {
-		name = "Terminal Things",
-		f = { toggle_lf, "Lf" },
-		n = { toggle_ncdu, "Ncdu" },
-	}, ]]
 	g = {
 		name = "Gitsigns",
 		h = {
@@ -75,7 +60,6 @@ local mappings = {
 		name = "Telescope",
 		f = { ":Telescope find_files<CR>", "Find Files" },
 		r = { ":Telescope live_grep<CR>", "Grep" },
-		p = { ":Telescope projects<CR>", "Projects" },
 		n = { ":lua require('github-notifications.menu').notifications()<CR>", "Github Notifications" },
 		h = { ":Telescope help_tags<CR>", "Help tags" },
 		d = { ":Telescope diagnostics<cr>", "WorkSpace Diagnostics" },
