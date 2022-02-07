@@ -21,6 +21,11 @@ local autocmds = {
 		"*",
 		"if &buftype == 'terminal' | :startinsert | endif",
 	} },
+   test = {{
+      "FileEnter",
+      "*",
+      "echo 'Hello World'"
+      }}
 }
 
 nvim_create_augroups(autocmds)

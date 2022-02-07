@@ -67,7 +67,7 @@ return packer.startup({
 		use({ "akinsho/toggleterm.nvim", config = "require('afnan.toggleterm')", keys = "<A-t>" })
 		use({
 			"norcalli/nvim-colorizer.lua",
-			event = "BufRead",
+			cmd = "ColorizerToggle",
 			config = function()
 				require("colorizer").setup()
 			end,
@@ -77,6 +77,7 @@ return packer.startup({
 			config = function()
 				require("neoscroll").setup()
 			end,
+			keys = { "<C-u>", "<C-d>" },
 		})
 
 		--  Telescope & Its Extentions
@@ -84,8 +85,9 @@ return packer.startup({
 			"nvim-telescope/telescope.nvim",
 			requires = { "nvim-lua/plenary.nvim" },
 			config = "require('afnan.telescope')",
+			after = "telescope-fzf-native.nvim",
 		})
-		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", cmd = "Telescope" })
 
 		-- Tree-Sitter
 		use({
@@ -95,7 +97,7 @@ return packer.startup({
 		})
 		use({ "windwp/nvim-ts-autotag", ft = { "html", "javascript", "javascriptreact" }, after = "nvim-treesitter" })
 		use({ "p00f/nvim-ts-rainbow" })
-		use({ "JoosepAlviste/nvim-ts-context-commentstring", after = "Comment.nvim" })
+		use({ "JoosepAlviste/nvim-ts-context-commentstring", after =  "Comment.nvim" })
 		use({
 			"windwp/nvim-autopairs",
 			config = "require('afnan.autopairs')",
@@ -150,7 +152,7 @@ return packer.startup({
 		use({ "L3MON4D3/LuaSnip", event = "BufWinEnter", config = [[require("afnan.luasnips")]] })
 		use({ "rafamadriz/friendly-snippets", event = "InsertEnter" })
 		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", event = "InsertEnter", ft = "html" })
-		use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" })
+		use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
 
 		--  CMP
 		use({

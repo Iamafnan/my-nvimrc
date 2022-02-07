@@ -1,5 +1,5 @@
-require("afnan.disabled")
 require("afnan.plugins")
+require("afnan.disabled")
 require("afnan.dashboard")
 require("afnan.settings")
 require("afnan.mapping")
