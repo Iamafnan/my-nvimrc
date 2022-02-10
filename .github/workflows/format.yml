@@ -7,6 +7,7 @@ on:
 
 jobs:
   stylua:
+    name: Format
     runs-on: ubuntu-latest
     steps:
       - name: Run stylua
@@ -23,6 +24,7 @@ jobs:
             git add *.lua  lua/
             git commit -m "chore: format code"
           fi
+
       - name: Push files 
         uses: ad-m/github-push-action@master
         with:
