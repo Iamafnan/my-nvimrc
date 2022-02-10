@@ -37,6 +37,23 @@ telescope.setup({
 	pickers = {
 		find_files = {
 			hidden = true,
+			file_ignore_patterns = {
+				"%.png",
+				"%.jpg",
+				"%.webp",
+				"node_modules",
+				".git",
+			},
+		},
+		grep_string = {
+			file_ignore_patterns = {
+				"%.png",
+				"%.jpg",
+				"%.webp",
+				"node_modules",
+				"dotbot",
+				".git",
+			},
 		},
 	},
 	extensions = {

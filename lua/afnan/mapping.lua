@@ -29,7 +29,10 @@ set_keymap("", "<C-l>", "<C-w>l")
 
 set_keymap("n", "Y", "y$")
 
-set_keymap("n", "ng", ":lua require('neogen').generate()<CR>")
+set_keymap("n", "ng", ":Neogen<CR>")
+
+--Some custom completion
+set_keymap("i", "<C-c>", "<C-x><C-v>")
 
 -- Some lsp keymaps
 set_keymap("n", "K", ":Lspsaga hover_doc<CR>")

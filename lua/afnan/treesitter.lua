@@ -3,7 +3,7 @@ local tsinstall = require("nvim-treesitter.install")
 -- Config
 treesitter.setup({
 	highlight = { enable = true, additional_vim_regex_highlighting = false },
-	indent = { enable = true },
+	indent = { enable = true, disable = "yaml" },
 	rainbow = { enable = true, extended_mode = false },
 	context_commentstring = { enable = true, enable_autocmd = false },
 	incremental_selection = {
@@ -18,32 +18,6 @@ treesitter.setup({
 	autopairs = { enable = true },
 	autotag = { enable = true, filetypes = { "html", "javascript", "javascriptreact", "markdown" } },
 	ensure_installed = { "json", "html", "css", "javascript", "lua", "vim", "python", "bash", "comment" },
-	textobjects = {
-		select = {
-			enable = true,
-			lookahead = true,
-		},
-		move = {
-			enable = true,
-			set_jumps = true,
-			goto_next_start = {
-				["]m"] = "@function.outer",
-				["]]"] = "@class.outer",
-			},
-			goto_next_end = {
-				["]M"] = "@function.outer",
-				["]["] = "@class.outer",
-			},
-			goto_previous_start = {
-				["[m"] = "@function.outer",
-				["[["] = "@class.outer",
-			},
-			goto_previous_end = {
-				["[M"] = "@function.outer",
-				["[]"] = "@class.outer",
-			},
-		},
-	},
 })
 
 -- Installation Config

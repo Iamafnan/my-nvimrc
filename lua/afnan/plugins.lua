@@ -72,6 +72,7 @@ return packer.startup({
 				require("colorizer").setup()
 			end,
 		})
+		use({ "rcarriga/nvim-notify", opt = true, config = "require('afnan.notify')" })
 		use({
 			"karb94/neoscroll.nvim",
 			config = function()
@@ -97,13 +98,13 @@ return packer.startup({
 		})
 		use({ "windwp/nvim-ts-autotag", ft = { "html", "javascript", "javascriptreact" }, after = "nvim-treesitter" })
 		use({ "p00f/nvim-ts-rainbow" })
-		use({ "JoosepAlviste/nvim-ts-context-commentstring", after =  "Comment.nvim" })
+		use({ "JoosepAlviste/nvim-ts-context-commentstring", after = "Comment.nvim" })
 		use({
 			"windwp/nvim-autopairs",
 			config = "require('afnan.autopairs')",
 			after = "nvim-cmp",
 		})
-		use({ "danymat/neogen", after = "nvim-cmp" })
+		use({ "danymat/neogen", opt = true })
 
 		--  Quick Tasking
 		use({ "tpope/vim-repeat", keys = "." })
@@ -148,7 +149,7 @@ return packer.startup({
 			},
 		})
 
-		-- Snippets
+		--  Snippets
 		use({ "L3MON4D3/LuaSnip", event = "BufWinEnter", config = [[require("afnan.luasnips")]] })
 		use({ "rafamadriz/friendly-snippets", event = "InsertEnter" })
 		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", event = "InsertEnter", ft = "html" })
@@ -174,7 +175,40 @@ return packer.startup({
 		})
 
 		use({ "rafcamlet/nvim-luapad", ft = "lua" })
-		use({ "github/copilot.vim", event = "InsertEnter" })
+		use({
+			"lukas-reineke/indent-blankline.nvim",
+			config = function()
+				require("indent_blankline").setup({
+					show_current_context = true,
+					space_char_blankline = " ",
+					context_patterns = {
+						"class",
+						"return",
+						"function",
+						"method",
+						"^if",
+						"^while",
+						"jsx_element",
+						"^for",
+						"^object",
+						"^table",
+						"block",
+						"arguments",
+						"if_statement",
+						"else_clause",
+						"jsx_element",
+						"jsx_self_closing_element",
+						"try_statement",
+						"catch_clause",
+						"import_statement",
+						"operation_type",
+					},
+					filetype_exclude = { "dashboard", "NvimTree", "packer" },
+					buftype_exclude = { "terminal" },
+				})
+			end,
+		})
+		use({ "github/copilot.vim", cmd = "Copilot" })
 		use({
 			"ethanholz/nvim-lastplace",
 			event = "BufRead",
@@ -210,6 +244,7 @@ return packer.startup({
 			clone_timeout = 300,
 			subcommands = {
 				fetch = "fetch --no-tags --no-recurse-submodules --update-shallow --progress",
+				install = "clone --depth %i --progress",
 			},
 		},
 	},
