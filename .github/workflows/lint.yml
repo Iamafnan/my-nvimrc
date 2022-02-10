@@ -9,9 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install lua and luarocks
-      - uses: leafo/gh-actions-lua@v8
-      - uses: leafo/gh-actions-luarocks@v4
+      - name: Install lua
+        uses: leafo/gh-actions-lua@v8
+
+      - name: Install luarocks
+        uses: leafo/gh-actions-luarocks@v4
 
       - name: Install luacheck
         run: luarocks install luacheck
