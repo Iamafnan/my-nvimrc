@@ -1,9 +1,7 @@
 name: format
 
-on:
-  push:
-    paths:
-      - "**.lua"
+on: push
+  
 
 jobs:
   stylua:

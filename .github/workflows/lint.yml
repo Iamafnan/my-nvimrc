@@ -1,9 +1,6 @@
 name: Lint
 
-on:
-  push:
-    paths:
-      - "**.lua"
+on: push
 
 jobs: 
   luacheck:
