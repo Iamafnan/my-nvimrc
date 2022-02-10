@@ -1,0 +1,30 @@
+name: format
+
+on:
+  push:
+    paths:
+      - "**.lua"
+
+jobs:
+  stylua:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run stylua
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            args:  .
+
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          if [[ ! -z $(git status -s) ]]; then
+            git add *.lua  lua/
+            git commit -m "chore: format code"
+          fi
+      - name: Push files 
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
