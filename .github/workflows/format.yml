@@ -9,8 +9,8 @@ jobs:
   stylua:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - name: Run stylua
+      - uses: actions/checkout@v2
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
             args:  .
