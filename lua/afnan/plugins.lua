@@ -186,6 +186,11 @@ return packer.startup({
 				})
 			end,
 		})
+		use({
+			"folke/zen-mode.nvim",
+			config = 'require("afnan.zen")',
+			cmd = "ZenMode",
+		})
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
