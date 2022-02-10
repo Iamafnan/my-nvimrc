@@ -2,3 +2,4 @@ lua/afnan/packer_compiled.lua
 parser.lua
 lua/afnan/snippets/css.lua
 lua/afnan/snippets/python.lua
+lua/afnan/loader.lua

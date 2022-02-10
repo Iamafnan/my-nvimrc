@@ -29,12 +29,4 @@ ls.snippets = {
 		s("img", "![$1]($2)$0"),
 		s("link", "[$1]($2)$0"),
 	},
-	html = {
-		s(
-			"!",
-			'<DOCTYPE html>\n<html lang="en">\n<head>\n\t<meta charset="UTF-8"/>\n\t<title>$1</title>\n</head>\n<body>\n\t$0\n</body>\n</html>'
-		),
-	},
-	css = {
-	},
 }
