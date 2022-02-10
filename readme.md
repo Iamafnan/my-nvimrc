@@ -9,7 +9,7 @@
 ├──  init.lua
 ├──  lua
 │  └──  afnan
-│     ├──  autocommands.vim
+│     ├──  autocommands.lua
 │     ├──  autopairs.lua
 │     ├──  cmp.lua
 │     ├──  comments.lua
@@ -29,8 +29,7 @@
 │     │  └──  signature.lua
 │     ├──  luasnips.lua
 │     ├──  mapping.lua
-│     ├──  neogen.lua
-│     ├──  notifications.lua
+│     ├──  notify.lua
 │     ├──  nvimtree.lua
 │     ├──  packageinfo.lua
 │     ├──  plugins.lua
@@ -41,9 +40,8 @@
 │     ├──  tabline.lua
 │     ├──  telescope.lua
 │     ├──  toggleterm.lua
-│     └──  treesitter.lua
-├──  plugin
-│  └──  packer_compiled.lua
+│     ├──  treesitter.lua
+│     └──  zen.lua
 └──  readme.md
 
 ```
