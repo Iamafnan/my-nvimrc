@@ -10,8 +10,9 @@ jobs:
     name: Format
     runs-on: ubuntu-latest
     steps:
-      - name: Run stylua
       - uses: actions/checkout@v2
+
+      - name: Run stylua
         with:
             token: ${{ secrets.GITHUB_TOKEN }}
             args:  .
@@ -26,7 +27,7 @@ jobs:
           fi
 
       - name: Push files 
-        uses: ad-m/github-push-action@master
+      - uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
