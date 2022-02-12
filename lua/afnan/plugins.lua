@@ -46,12 +46,6 @@ return packer.startup({
 		})
 		use({ "NTBBloodbath/galaxyline.nvim", config = "require('afnan.statusline')" })
 		use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
-		use({
-			"glepnir/dashboard-nvim",
-			config = function()
-				require("afnan.dashboard")
-			end,
-		})
 		use({ "folke/which-key.nvim" })
 		use({ "kyazdani42/nvim-tree.lua", config = "require('afnan.nvimtree')", cmd = "NvimTreeToggle" })
 
@@ -73,13 +67,6 @@ return packer.startup({
 			end,
 		})
 		use({ "rcarriga/nvim-notify", opt = true, config = "require('afnan.notify')" })
-		use({
-			"karb94/neoscroll.nvim",
-			config = function()
-				require("neoscroll").setup()
-			end,
-			keys = { "<C-u>", "<C-d>" },
-		})
 
 		--  Telescope & Its Extentions
 		use({
@@ -104,7 +91,6 @@ return packer.startup({
 			config = "require('afnan.autopairs')",
 			after = "nvim-cmp",
 		})
-		use({ "danymat/neogen", opt = true })
 
 		--  Quick Tasking
 		use({ "tpope/vim-repeat", keys = "." })
@@ -114,14 +100,6 @@ return packer.startup({
 			config = "require('afnan.comments')",
 		})
 		use({ "mg979/vim-visual-multi", keys = "<C-n>" })
-		use({
-			"blackCauldron7/surround.nvim",
-			opt = true,
-			config = function()
-				require("surround").setup({ mappings_style = "surround" })
-			end,
-		})
-		use({ "abecodes/tabout.nvim", event = "InsertEnter" })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')", event = "BufReadPost" })
@@ -141,13 +119,6 @@ return packer.startup({
 		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
 		use({ "b0o/SchemaStore.nvim", ft = { "json", "yaml", "yml" } })
 		use({ "folke/lua-dev.nvim", ft = "lua" })
-		use({
-			"wiliamks/nice-reference.nvim",
-			requires = {
-				"rmagatti/goto-preview",
-				config = "require('goto-preview').setup({})",
-			},
-		})
 
 		--  Snippets
 		use({ "L3MON4D3/LuaSnip", event = "BufWinEnter", config = [[require("afnan.luasnips")]] })
@@ -174,41 +145,7 @@ return packer.startup({
 			config = "require('afnan.packageinfo')",
 		})
 
-		use({ "rafcamlet/nvim-luapad", ft = "lua" })
-		use({
-			"lukas-reineke/indent-blankline.nvim",
-			config = function()
-				require("indent_blankline").setup({
-					show_current_context = true,
-					space_char_blankline = " ",
-					context_patterns = {
-						"class",
-						"return",
-						"function",
-						"method",
-						"^if",
-						"^while",
-						"jsx_element",
-						"^for",
-						"^object",
-						"^table",
-						"block",
-						"arguments",
-						"if_statement",
-						"else_clause",
-						"jsx_element",
-						"jsx_self_closing_element",
-						"try_statement",
-						"catch_clause",
-						"import_statement",
-						"operation_type",
-					},
-					filetype_exclude = { "dashboard", "NvimTree", "packer" },
-					buftype_exclude = { "terminal" },
-				})
-			end,
-		})
-		use({ "github/copilot.vim", cmd = "Copilot" })
+		use({ "github/copilot.vim", event = "InsertEnter" })
 		use({
 			"ethanholz/nvim-lastplace",
 			event = "BufRead",

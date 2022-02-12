@@ -8,9 +8,6 @@ null_ls.setup({
 		formatting.prettier.with({
 			filetypes = { "html", "css", "javascript", "javascriptreact", "markdown", "json", "yaml" },
 		}),
-		formatting.black.with({
-			extra_args = { "--fast" },
-		}),
 		formatting.stylua,
 		formatting.shfmt.with({
 			filetypes = { "bash", "zsh", "sh" },

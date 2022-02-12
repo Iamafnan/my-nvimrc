@@ -9,6 +9,9 @@ ls.config.setup({
 	end,
 })
 
+require("afnan.snippets")
+
+
 ls.snippets = {
 	lua = {
 		s("l", "local $1 \n$0"),

@@ -147,24 +147,6 @@ nvim_lsp.bashls.setup({
 	filetypes = { "zsh", "bash", "sh" },
 })
 
--- Python
-nvim_lsp.pyright.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		python = {
-			disableOrganizeImports = false,
-			analysis = {
-				typeCheckingMode = "basic",
-				reportUnusedImport = true,
-				autoSearchPaths = true,
-				useLibraryCodeForTypes = false,
-				diagnosticMode = "workspace",
-			},
-		},
-	},
-})
-
 -- Yaml
 nvim_lsp.yamlls.setup({
 	on_attach = on_attach,

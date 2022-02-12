@@ -15,12 +15,7 @@ local function is_in_comment()
 	end
 end
 
--- local t = function(str)
--- 	return vim.api.nvim_replace_termcodes(str, true, true, true)
--- end
-
 local luasnip = prequire("luasnip")
--- local neogen = prequire("neogen")
 local cmp = prequire("cmp")
 local set = vim.opt
 local kind_icons = prequire("afnan.lsp.kinds").kind
@@ -41,8 +36,6 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
-				-- elseif neogen.jumpable() then
-				-- 	vim.fn.feedkeys(t("<cmd>lua require('neogen').jump_next()<CR>"), "")
 			else
 				fallback()
 			end
@@ -50,8 +43,6 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if luasnip.jumpable(-1) then
 				luasnip.jump(-1)
-				-- elseif neogen.jumpable(-1) then
-				-- 	vim.fn.feedkeys(t("<cmd>lua require('neogen').jump_prev()<CR>"), "")
 			else
 				fallback()
 			end
