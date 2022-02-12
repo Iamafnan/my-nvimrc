@@ -14,5 +14,6 @@ std = {
          }
    }
 exclude_files = {
-   "lua/afnan/packer_compiled.lua"
+   "lua/afnan/packer_compiled.lua",
+   "lua/afnan/snippets/*"
 }
