@@ -66,7 +66,7 @@ local on_attach = function(client)
 	-- Some keymaps for jsonls
 	if client.name == "jsonls" then
 		local mappings = {
-			p = {
+			P = {
 				name = "Package Info",
 				s = { ":lua require('package-info').show()<CR>", "Show Package Version" },
 				h = { ":lua require('package-info').hide()<CR>", "Hide Package Version" },
@@ -77,7 +77,7 @@ local on_attach = function(client)
 				c = { ":lua require('package-info').change_version()<CR>", "Change Package Version" },
 			},
 		}
-		local opts = { prefix = "<space>", icons = { group = "➜" } }
+		local opts = { prefix = ",", icons = { group = "➜" } }
 		wk.register(mappings, opts)
 	end
 end

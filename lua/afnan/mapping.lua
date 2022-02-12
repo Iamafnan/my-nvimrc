@@ -8,6 +8,8 @@ set_keymap("", "j", "gj")
 set_keymap("n", "<CR>", "<esc>o")
 set_keymap("n", "q", ":q<CR>")
 set_keymap("n", "w", ":w<CR>")
+set_keymap("n", "<space>", ":")
+set_keymap("v", "<space>", ":")
 
 -- single line movement
 set_keymap("n", "<A-left>", "0")
