@@ -35,6 +35,7 @@ set_keymap("n", "ng", ":Neogen<CR>")
 
 --Some custom completion
 set_keymap("i", "<C-c>", "<C-x><C-v>")
+set_keymap("i", "<C-f>", "<C-x><C-f>")
 
 -- Some lsp keymaps
 set_keymap("n", "K", ":Lspsaga hover_doc<CR>")
