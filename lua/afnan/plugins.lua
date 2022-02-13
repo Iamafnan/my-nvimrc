@@ -123,7 +123,12 @@ return packer.startup({
 		--  Snippets
 		use({ "L3MON4D3/LuaSnip", event = "BufWinEnter", config = [[require("afnan.luasnips")]] })
 		use({ "rafamadriz/friendly-snippets", event = "InsertEnter" })
-		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", event = "InsertEnter", ft = "html" })
+		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", event = "InsertEnter", ft = "html", lock = true })
+		use({
+			"dsznajder/vscode-react-javascript-snippets",
+			event = "InsertEnter",
+			ft = { "javascript", "javascriptreact" },
+		})
 		use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
 
 		--  CMP

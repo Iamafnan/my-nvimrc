@@ -1,4 +1,5 @@
 local ls = require("luasnip")
+local loader = require("luasnip.loaders.from_vscode").load
 local s = ls.parser.parse_snippet
 
 ls.config.setup({
@@ -8,6 +9,18 @@ ls.config.setup({
 		return vim.split(vim.bo.filetype, ".", true)
 	end,
 })
+
+function LuaSnipLoad()
+	loader({
+		path = "~/.local/share/nvim/site/pack/packer/opt/friendly-snippets/snippets/",
+	})
+
+	loader({
+		path = "~/.local/share/nvim/site/pack/packer/opt/abusaidm.html-snippets-0.0.18/snippets/",
+	})
+end
+
+vim.cmd("command! LuaSnipLoad :lua LuaSnipLoad()")
 
 ls.snippets = {
 	lua = {
