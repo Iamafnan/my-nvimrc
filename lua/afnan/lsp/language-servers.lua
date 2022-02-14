@@ -179,12 +179,10 @@ nvim_lsp.yamlls.setup({
 -- })
 
 nvim_lsp.sumneko_lua.setup({
-	prequire([["lua-dev".setup()]]),
+	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = {
 		Lua = {
-			runtime = {
-				version = "LuaJIT",
-			},
 			diagnostics = {
 				globals = { "vim", "packer_bootstrap", "single" },
 				disable = { "trailing-space", "deprecated" },
@@ -194,4 +192,8 @@ nvim_lsp.sumneko_lua.setup({
 			showWord = "Disable",
 		},
 	},
+})
+nvim_lsp.pyright.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 })

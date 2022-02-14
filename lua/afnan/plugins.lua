@@ -3,7 +3,7 @@ local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 if fn.empty(fn.glob(install_path)) > 0 then
 	print("Installing packer.nvim")
-	fn.delete(vim.fn.stdpath("config") .. "/lua/packer_compiled.lua")
+	fn.delete(fn.stdpath("config") .. "/lua/packer_compiled.lua")
 	packer_bootstrap = fn.system({
 		"git",
 		"clone",
@@ -58,7 +58,6 @@ return packer.startup({
 		})
 
 		--  UI
-		use({ "akinsho/toggleterm.nvim", config = "require('afnan.toggleterm')", keys = "<A-t>" })
 		use({
 			"norcalli/nvim-colorizer.lua",
 			cmd = "ColorizerToggle",
@@ -118,17 +117,11 @@ return packer.startup({
 		use({ "tami5/lspsaga.nvim", event = "BufWinEnter", config = "require('afnan.lsp.saga')" })
 		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
 		use({ "b0o/SchemaStore.nvim", ft = { "json", "yaml", "yml" } })
-		use({ "folke/lua-dev.nvim", ft = "lua" })
 
 		--  Snippets
 		use({ "L3MON4D3/LuaSnip", event = "BufWinEnter", config = [[require("afnan.luasnips")]] })
 		use({ "rafamadriz/friendly-snippets", event = "InsertEnter" })
 		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", event = "InsertEnter", ft = "html", lock = true })
-		use({
-			"dsznajder/vscode-react-javascript-snippets",
-			event = "InsertEnter",
-			ft = { "javascript", "javascriptreact" },
-		})
 		use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
 
 		--  CMP
@@ -150,7 +143,7 @@ return packer.startup({
 			config = "require('afnan.packageinfo')",
 		})
 
-		use({ "github/copilot.vim", event = "InsertEnter" })
+		use({ "github/copilot.vim", event = "BufWinEnter" })
 		use({
 			"ethanholz/nvim-lastplace",
 			event = "BufRead",
