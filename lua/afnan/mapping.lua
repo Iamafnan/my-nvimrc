@@ -62,7 +62,7 @@ local mappings = {
 		b = { name = "Buffer", s = { ":Gitsigns stage_buffer<CR>", "Stage Buffer" } },
 		p = { name = "Preview", h = { ":Gitsigns preview_hunk<CR>", "Preview Hunk" } },
 	},
-   z = { ":ZenMode<cr>", "ZenMode" },
+	z = { ":ZenMode<cr>", "ZenMode" },
 	t = {
 		name = "Telescope",
 		f = { ":Telescope find_files<CR>", "Find Files" },
