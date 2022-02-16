@@ -45,3 +45,11 @@
 └──  readme.md
 
 ```
+
+<h3>Great Neovim Configs</h3>
+
+* [tj devries](https://github.com/tjdevries/config_manager/tree/master/xdg_config/nvim)
+* [max397574](https://github.com/max397574/NeovimConfig)
+* [tamtom-aquib](https://github.com/tamton-aquib/nvim)
+* [abzcoding](https://github.com/abzcoding/nvim)
+* [TarunDaCoder](https://github.com/TarunDaCoder/DaNvim)
