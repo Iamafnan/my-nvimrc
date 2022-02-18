@@ -12,5 +12,16 @@ null_ls.setup({
 		formatting.shfmt.with({
 			filetypes = { "bash", "zsh", "sh" },
 		}),
+		-- null_ls.builtins.diagnostics.luacheck,
 	},
+	on_attach = function(client)
+		if client.resolved_capabilities.document_formatting then
+			vim.cmd([[
+            augroup LspFormatting
+                autocmd! * <buffer>
+                autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_sync()
+            augroup END
+            ]])
+		end
+	end,
 })

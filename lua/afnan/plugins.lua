@@ -75,6 +75,7 @@ return packer.startup({
 			after = "telescope-fzf-native.nvim",
 		})
 		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", cmd = "Telescope" })
+		use({ "dhruvmanila/telescope-bookmarks.nvim" })
 
 		-- Tree-Sitter
 		use({
@@ -116,12 +117,11 @@ return packer.startup({
 		use({ "kosayoda/nvim-lightbulb", event = "BufWinEnter" })
 		use({ "tami5/lspsaga.nvim", event = "BufWinEnter", config = "require('afnan.lsp.saga')" })
 		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
-		use({ "b0o/SchemaStore.nvim", ft = { "json", "yaml", "yml" } })
+		use({ "b0o/SchemaStore.nvim" })
 
 		--  Snippets
 		use({ "L3MON4D3/LuaSnip", event = "BufWinEnter", config = [[require("afnan.luasnips")]] })
 		use({ "rafamadriz/friendly-snippets", event = "InsertEnter" })
-		use({ "xmasdsamx/abusaidm.html-snippets-0.0.18", event = "InsertEnter", ft = "html", lock = true })
 		use({ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" })
 
 		--  CMP
@@ -143,7 +143,13 @@ return packer.startup({
 			config = "require('afnan.packageinfo')",
 		})
 
-		use({ "github/copilot.vim", event = "BufWinEnter" })
+		use({
+			"github/copilot.vim",
+			event = "BufWinEnter",
+			config = function()
+				vim.g.copilot_no_tab_map = true
+			end,
+		})
 		use({
 			"ethanholz/nvim-lastplace",
 			event = "BufRead",

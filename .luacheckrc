@@ -2,18 +2,22 @@ std = {
       globals = {
             "vim",
             "require",
-            "time",
             "packer_bootstrap",
+            "time",
             "table",
             "pairs",
             "pcall",
             "string",
             "single",
             "print",
-            "ipairs"
+            "ipairs",
+            "io",
+            "math",
+            "_G"
          }
    }
 exclude_files = {
    "lua/afnan/packer_compiled.lua",
-   "lua/afnan/luasnips.lua"
+   "lua/afnan/luasnips.lua",
+   "lua/afnan/cmp.lua"
 }

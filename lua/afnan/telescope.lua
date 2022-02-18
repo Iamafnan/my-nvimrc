@@ -1,29 +1,32 @@
-local previewers = require("telescope.previewers")
 local telescope = require("telescope")
+local previewers = require("telescope.previewers")
 local load = telescope.load_extension
 
 -- Telescope Setup
 telescope.setup({
 	defaults = {
-		vimgrep_arguments = { "rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case" },
-		prompt_prefix = "   ",
+		prompt_prefix = "  ",
+		show_line = false,
 		selection_caret = " ",
-		entry_prefix = "  ",
+		entry_prefix = "     ",
 		initial_mode = "insert",
+		prompt_title = false,
+		results_title = false,
+		preview_title = false,
 		selection_strategy = "reset",
-		sorting_strategy = "ascending",
+		sorting_strategy = "descending",
 		layout_strategy = "vertical",
 		layout_config = {
 			horizontal = { mirror = false },
 			vertical = { mirror = true },
 		},
-		file_ignore_patterns = { "__pycache__", "node_modules", ".git", ".cache", "storage", ".ssh" },
-		winblend = 10,
+		file_ignore_patterns = { "__pycache__", "node_modules", ".git/*", ".cache", "storage", ".ssh" },
+		winblend = 20,
 		border = {},
 		borderchars = {
-			preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-			prompt = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-			results = { "─", " ", " ", " ", " ", " ", " ", " " },
+			preview = { " ", " ", " ", " ", " ", " ", " ", " " },
+			prompt = { " ", " ", " ", " ", " ", " ", " ", " " },
+			results = { " ", " ", " ", " ", " ", " ", " ", " " },
 		},
 		color_devicons = true,
 		use_less = true,
@@ -37,23 +40,10 @@ telescope.setup({
 	pickers = {
 		find_files = {
 			hidden = true,
-			file_ignore_patterns = {
-				"%.png",
-				"%.jpg",
-				"%.webp",
-				"node_modules",
-				".git",
-			},
-		},
-		grep_string = {
-			file_ignore_patterns = {
-				"%.png",
-				"%.jpg",
-				"%.webp",
-				"node_modules",
-				"dotbot",
-				".git",
-			},
+			prompt_title = false,
+			results_title = false,
+			preview_title = false,
+			find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
 		},
 	},
 	extensions = {
@@ -63,7 +53,15 @@ telescope.setup({
 			override_file_sorter = true,
 			case_mode = "ignore_case",
 		},
+		bookmarks = {
+			selected_browser = "chrome",
+			url_open_command = "termux-open-url",
+			full_path = true,
+		},
 	},
 })
 
 load("fzf")
+load("dotfiles")
+load("work")
+load("bookmarks")

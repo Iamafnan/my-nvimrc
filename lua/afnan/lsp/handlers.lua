@@ -60,6 +60,10 @@ local codes = {
 	},
 }
 
+local NullLsDSources = {
+	luacheck = "luacheck",
+}
+
 vim.diagnostic.config({
 	virtual_text = false,
 	update_in_insert = false,
@@ -69,7 +73,7 @@ vim.diagnostic.config({
 		scope = "cursor",
 		source = "if_many",
 		format = function(diagnostic)
-			if diagnostic.source == "mdl" or "eslint_d" or "vint" then
+			if diagnostic.source == NullLsDSources[diagnostic.source] then
 				return diagnostic.message
 			else
 				local code = diagnostic.user_data.lsp.code
@@ -119,6 +123,7 @@ vim.api.nvim_exec(
 ]],
 	false
 )
+
 -- Hover
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "single",
@@ -157,3 +162,25 @@ local function goto_definition(split_cmd)
 end
 
 vim.lsp.handlers["textDocument/definition"] = goto_definition("split")
+
+function _G.reload_lsp()
+	vim.lsp.stop_client(vim.lsp.get_active_clients())
+	vim.cmd([[edit]])
+end
+
+function _G.open_lsp_log()
+	local path = vim.lsp.get_log_path()
+	vim.cmd("edit " .. path)
+end
+
+vim.cmd("command! -nargs=0 LspLog call v:lua.open_lsp_log()")
+vim.cmd("command! -nargs=0 LspRestart call v:lua.reload_lsp()")
+
+-- local function PeekDefinition()
+--   if vim.tbl_contains(vim.api.nvim_list_wins(), floating_win) then
+--     vim.api.nvim_set_current_win(M.floating_win)
+--   else
+--     local params = vim.lsp.util.make_position_params()
+--     return vim.lsp.buf_request(0, "textDocument/definition", params, M.preview_location_callback)
+--   end
+-- end

@@ -109,7 +109,7 @@ nvim_lsp.jsonls.setup({
 	init_options = { provideFormatter = false },
 	single_file_support = true,
 	settings = {
-		json = { schemas = prequire([["schemastore".json.schemas()]]) },
+		json = { schemas = require("schemastore").json.schemas() },
 	},
 })
 
@@ -123,11 +123,16 @@ nvim_lsp.html.setup({
 	capabilities = capabilities,
 })
 
+nvim_lsp.tailwindcss.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 if not nvim_lsp_config.ls_emmet then
 	nvim_lsp_config.ls_emmet = {
 		default_config = {
 			cmd = { "ls_emmet", "--stdio" },
-			filetypes = { "html", "css" },
+			filetypes = { "html" },
 			root_dir = function()
 				return vim.loop.cwd()
 			end,
@@ -153,7 +158,7 @@ nvim_lsp.yamlls.setup({
 	capabilities = capabilities,
 	settings = {
 		yaml = {
-			schemas = prequire([["schemastore".json.schemas()]]),
+			schemas = require("schemastore").json.schemas(),
 			hover = true,
 			completion = true,
 			validate = true,
@@ -184,7 +189,7 @@ nvim_lsp.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim", "packer_bootstrap", "single" },
+				globals = { "vim", "single" },
 				disable = { "trailing-space", "deprecated" },
 			},
 		},

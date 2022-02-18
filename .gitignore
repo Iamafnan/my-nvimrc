@@ -1,1 +1,3 @@
 lua/afnan/packer_compiled.lua
+lua/telescope/
+lua/afnan/telescope.lua

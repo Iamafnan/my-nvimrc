@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 local function prequire(...)
 	local status, lib = pcall(require, ...)
 	if status then
@@ -6,12 +7,23 @@ local function prequire(...)
 	return nil
 end
 
+local context = require("cmp.config.context")
+
 local function is_in_comment()
-	local context = require("cmp.config.context")
 	if vim.api.nvim_get_mode().mode == "c" then
 		return true
 	else
 		return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+	end
+end
+
+local function is_in_html_tag()
+	if vim.api.nvim_get_mode().mode == "c" then
+		return true
+	elseif vim.bo.filetype == "html" then
+		return not context.in_treesitter_capture("text") and not context.in_syntax_group("TSText")
+	else
+		return true
 	end
 end
 
@@ -23,8 +35,7 @@ prequire("'luasnip.loaders.from_vscode'.load()")
 
 -- Configuration
 cmp.setup({
-	enabled = is_in_comment,
-	completion = { keyword_length = 1 },
+	enabled = is_in_comment and is_in_html_tag,
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -74,10 +85,6 @@ cmp.setup({
 			vim_item.abbr = vim_item.abbr:sub(1, 30)
 			vim_item.kind = kind_icons[vim_item.kind]
 			vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
-			vim_item.menu = ({
-				nvim_lsp = "[LSP]",
-				buffer = "[Buffer]",
-			})[entry.source.name]
 			return vim_item
 		end,
 	},
