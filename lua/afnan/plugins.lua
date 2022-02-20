@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
@@ -128,7 +129,7 @@ return packer.startup({
 		use({
 			"hrsh7th/nvim-cmp",
 			event = "BufWinEnter",
-			config = "require('afnan.cmp')",
+			config = "require('afnan.lsp.cmp')",
 		})
 		use({ "hrsh7th/cmp-nvim-lua", ft = "lua", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-buffer", event = "InsertEnter" })
@@ -143,13 +144,7 @@ return packer.startup({
 			config = "require('afnan.packageinfo')",
 		})
 
-		use({
-			"github/copilot.vim",
-			event = "BufWinEnter",
-			config = function()
-				vim.g.copilot_no_tab_map = true
-			end,
-		})
+		use({ "github/copilot.vim" })
 		use({
 			"ethanholz/nvim-lastplace",
 			event = "BufRead",

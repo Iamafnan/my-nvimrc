@@ -17,25 +17,16 @@ local function is_in_comment()
 	end
 end
 
-local function is_in_html_tag()
-	if vim.api.nvim_get_mode().mode == "c" then
-		return true
-	elseif vim.bo.filetype == "html" then
-		return not context.in_treesitter_capture("text") and not context.in_syntax_group("TSText")
-	else
-		return true
-	end
-end
-
 local luasnip = prequire("luasnip")
 local cmp = prequire("cmp")
 local set = vim.opt
 local kind_icons = prequire("afnan.lsp.kinds").kind
+local sources = require("afnan.lsp.cmp_sources")
 prequire("'luasnip.loaders.from_vscode'.load()")
 
 -- Configuration
 cmp.setup({
-	enabled = is_in_comment and is_in_html_tag,
+	enabled = is_in_comment,
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -58,21 +49,8 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-		--	["<C-l>"] = cmp.mapping(function(fallback)
-		--		local copilot_keys = vim.fn["copilot#Accept"]()
-		--		vim.api.nvim_feedkeys(copilot_keys, "i", true)
-		--	end, {
-		--		"i",
-		--		"s",
-		--	}),
 	},
-	sources = {
-		{ name = "luasnip" },
-		{ name = "nvim_lua" },
-		{ name = "nvim_lsp" },
-		{ name = "buffer" },
-		{ name = "path" },
-	},
+	sources = sources,
 	experimental = { ghost_text = true, native_menu = false, horizontal_search = true },
 	documentation = { border = single },
 	formatting = {
