@@ -58,17 +58,13 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-		["<C-l>"] = cmp.mapping(function(fallback)
-			local copilot_keys = vim.fn["copilot#Accept"]()
-			if copilot_keys ~= "" then
-				vim.api.nvim_feedkeys(copilot_keys, "i", true)
-			else
-				fallback()
-			end
-		end, {
-			"i",
-			"s",
-		}),
+		--	["<C-l>"] = cmp.mapping(function(fallback)
+		--		local copilot_keys = vim.fn["copilot#Accept"]()
+		--		vim.api.nvim_feedkeys(copilot_keys, "i", true)
+		--	end, {
+		--		"i",
+		--		"s",
+		--	}),
 	},
 	sources = {
 		{ name = "luasnip" },
@@ -115,3 +111,5 @@ cmp.setup({
 -- completion menu settings
 set.pumheight = 8
 vim.o.pumblend = 20
+
+vim.api.nvim_set_keymap("i", "<C-l>", "<cmd>function copilot#Accept<cr>", { noremap = true })

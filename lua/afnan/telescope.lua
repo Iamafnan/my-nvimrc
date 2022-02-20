@@ -8,7 +8,7 @@ telescope.setup({
 		prompt_prefix = "  ",
 		show_line = false,
 		selection_caret = " ",
-		entry_prefix = "     ",
+		entry_prefix = "  ",
 		initial_mode = "insert",
 		prompt_title = false,
 		results_title = false,
