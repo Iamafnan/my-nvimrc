@@ -41,6 +41,7 @@ telescope.setup({
 		find_files = {
 			hidden = true,
 			prompt_title = false,
+			previewer = false,
 			results_title = false,
 			preview_title = false,
 			find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
