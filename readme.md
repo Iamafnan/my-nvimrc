@@ -5,45 +5,48 @@
 <h3>File Structure</h3>
 
 ```
- .
-├──  init.lua
-├──  lua
-│  └──  afnan
-│     ├──  autocommands.lua
-│     ├──  autopairs.lua
-│     ├──  cmp.lua
-│     ├──  comments.lua
-│     ├──  dashboard.lua
-│     ├──  disabled.lua
-│     ├──  github-notification.lua
-│     ├──  gitsigns.lua
-│     ├──  icons.lua
-│     ├──  init.lua
-│     ├──  lsp
-│     │  ├──  handlers.lua
-│     │  ├──  init.lua
-│     │  ├──  kinds.lua
-│     │  ├──  language-servers.lua
-│     │  ├──  null_ls.lua
-│     │  ├──  saga.lua
-│     │  └──  signature.lua
-│     ├──  luasnips.lua
-│     ├──  mapping.lua
-│     ├──  notify.lua
-│     ├──  nvimtree.lua
-│     ├──  packageinfo.lua
-│     ├──  plugins.lua
-│     ├──  settings.lua
-│     ├──  statusline
-│     │  ├──  colors.lua
-│     │  └──  init.lua
-│     ├──  tabline.lua
-│     ├──  telescope.lua
-│     ├──  toggleterm.lua
-│     ├──  treesitter.lua
-│     └──  zen.lua
-└──  readme.md
-
+.
+├── Makefile
+├── init.lua
+├── lua                                                               │   ├── afnan
+│   │   ├── autocommands.lua
+│   │   ├── autopairs.lua
+│   │   ├── cmp.lua
+│   │   ├── comments.lua
+│   │   ├── disabled.lua
+│   │   ├── github-notification.lua
+│   │   ├── gitsigns.lua
+│   │   ├── icons.lua
+│   │   ├── init.lua
+│   │   ├── lsp
+│   │   │   ├── handlers.lua
+│   │   │   ├── init.lua
+│   │   │   ├── kinds.lua
+│   │   │   ├── language-servers.lua
+│   │   │   ├── null_ls.lua
+│   │   │   ├── saga.lua
+│   │   │   └── signature.lua
+│   │   ├── luasnips.lua
+│   │   ├── mapping.lua
+│   │   ├── notify.lua
+│   │   ├── nvimtree.lua
+│   │   ├── packageinfo.lua
+│   │   ├── packer_compiled.lua
+│   │   ├── plugins.lua
+│   │   ├── settings.lua
+│   │   ├── statusline
+│   │   │   ├── colors.lua
+│   │   │   └── init.lua
+│   │   ├── tabline.lua
+│   │   ├── telescope.lua
+│   │   ├── toggleterm.lua
+│   │   ├── treesitter.lua
+│   │   └── zen.lua
+│   └── telescope
+│       └── _extensions
+│           ├── dotfiles.lua
+│           └── work.lua
+└── readme.md
 ```
 
 <h3>Great Neovim Configs</h3>
