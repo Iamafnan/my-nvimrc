@@ -13,7 +13,8 @@ std = {
             "ipairs",
             "io",
             "math",
-            "_G"
+            "_G",
+            "package"
          }
    }
 exclude_files = {
