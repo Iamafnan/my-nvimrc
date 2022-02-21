@@ -65,4 +65,3 @@ telescope.setup({
 load("fzf")
 load("dotfiles")
 load("work")
-load("bookmarks")

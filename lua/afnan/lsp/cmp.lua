@@ -35,6 +35,7 @@ cmp.setup({
 	mapping = {
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
 		["<C-e>"] = cmp.mapping.close(),
+		-- ["<C-a>"] = cmp.mapping.toggle_doc(),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
@@ -52,7 +53,7 @@ cmp.setup({
 	},
 	sources = sources,
 	experimental = { ghost_text = true, native_menu = false, horizontal_search = true },
-	documentation = { border = single },
+	documentation = false,
 	formatting = {
 		fields = { "kind", "abbr" },
 		format = function(entry, vim_item)

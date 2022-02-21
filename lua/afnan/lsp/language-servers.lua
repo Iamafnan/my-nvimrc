@@ -126,6 +126,7 @@ nvim_lsp.html.setup({
 nvim_lsp.tailwindcss.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	filetypes = { "html" },
 })
 
 if not nvim_lsp_config.ls_emmet then
@@ -189,8 +190,15 @@ nvim_lsp.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim", "single" },
-				disable = { "trailing-space", "deprecated" },
+				globals = { "vim", "single", "it", "describe" },
+				disable = { "trailing-space", "deprecated", "lowercase-global" },
+			},
+			runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
+			workspace = {
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+				},
 			},
 		},
 		completion = {
@@ -198,6 +206,7 @@ nvim_lsp.sumneko_lua.setup({
 		},
 	},
 })
+
 nvim_lsp.pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,

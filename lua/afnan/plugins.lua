@@ -1,4 +1,3 @@
----@diagnostic disable: lowercase-global
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
@@ -66,7 +65,7 @@ return packer.startup({
 				require("colorizer").setup()
 			end,
 		})
-		use({ "rcarriga/nvim-notify", opt = true, config = "require('afnan.notify')" })
+		use({ "rcarriga/nvim-notify", config = "require('afnan.notify')" })
 
 		--  Telescope & Its Extentions
 		use({
@@ -76,7 +75,6 @@ return packer.startup({
 			after = "telescope-fzf-native.nvim",
 		})
 		use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make", cmd = "Telescope" })
-		use({ "dhruvmanila/telescope-bookmarks.nvim" })
 
 		-- Tree-Sitter
 		use({
@@ -127,7 +125,7 @@ return packer.startup({
 
 		--  CMP
 		use({
-			"hrsh7th/nvim-cmp",
+			"~/dev/nvim-cmp",
 			event = "BufWinEnter",
 			config = "require('afnan.lsp.cmp')",
 		})
