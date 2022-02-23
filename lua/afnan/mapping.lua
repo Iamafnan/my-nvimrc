@@ -59,7 +59,11 @@ local mappings = {
 			u = { ":Gitsigns undo_stage_hunk<CR>", "Unstage Hunk" },
 			r = { ":Gitsigns reset_hunk<CR>", "Reset Hunk" },
 		},
-		b = { name = "Buffer", s = { ":Gitsigns stage_buffer<CR>", "Stage Buffer" } },
+		b = {
+			name = "Buffer",
+			s = { ":Gitsigns stage_buffer<CR>", "Stage Buffer" },
+			r = { ":Gitsigns reset_buffer", "Reset Buffer" },
+		},
 		p = { name = "Preview", h = { ":Gitsigns preview_hunk<CR>", "Preview Hunk" } },
 	},
 	z = { ":ZenMode<cr>", "ZenMode" },
