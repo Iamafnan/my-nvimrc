@@ -9,24 +9,24 @@ end
 
 local context = require("cmp.config.context")
 
-local function is_in_comment()
-	if vim.api.nvim_get_mode().mode == "c" then
-		return true
-	else
-		return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
-	end
-end
+-- local function is_in_comment()
+-- 	if vim.api.nvim_get_mode().mode == "c" then
+-- 		return true
+-- 	else
+-- 		return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
+-- 	end
+-- end
+
+local border = { "", "", "", " ", "", "", "", " " }
 
 local luasnip = prequire("luasnip")
 local cmp = prequire("cmp")
-local set = vim.opt
-local kind_icons = prequire("afnan.lsp.kinds").kind
+local kind_icons = require("afnan.lsp.kinds")
 local sources = require("afnan.lsp.cmp_sources")
-prequire("'luasnip.loaders.from_vscode'.load()")
 
 -- Configuration
 cmp.setup({
-	enabled = is_in_comment,
+	-- enabled = is_in_comment,
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -36,6 +36,7 @@ cmp.setup({
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
 		["<C-e>"] = cmp.mapping.close(),
 		-- ["<C-a>"] = cmp.mapping.toggle_doc(),
+		["<C-a>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
@@ -52,14 +53,18 @@ cmp.setup({
 		end, { "i", "s" }),
 	},
 	sources = sources,
-	experimental = { ghost_text = true, native_menu = false, horizontal_search = true },
-	documentation = false,
+	experimental = { ghost_text = true },
+	view = { entries = "custom" },
+	documentation = {
+		border = border,
+		optional_doc = true,
+	},
 	formatting = {
 		fields = { "kind", "abbr" },
 		format = function(entry, vim_item)
 			vim_item.abbr = vim_item.abbr:sub(1, 30)
 			vim_item.kind = kind_icons[vim_item.kind]
-			vim_item.dup = { buffer = 1, path = 1, nvim_lsp = 0 }
+			vim_item.dup = { buffer = 0, path = 0, nvim_lsp = 0, nvim_lua = 0 }
 			return vim_item
 		end,
 	},
@@ -88,7 +93,5 @@ cmp.setup({
 })
 
 -- completion menu settings
-set.pumheight = 8
+vim.opt.pumheight = 8
 vim.o.pumblend = 20
-
-vim.api.nvim_set_keymap("i", "<C-l>", "<cmd>function copilot#Accept<cr>", { noremap = true })
