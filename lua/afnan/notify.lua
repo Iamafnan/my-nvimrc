@@ -28,6 +28,6 @@ vim.opt.termguicolors = true
 
 notify.setup(default)
 
-vim.notify = function(msg)
-	notify(msg)
+vim.notify = function(msg, level, opts)
+	notify(msg, level, opts)
 end
