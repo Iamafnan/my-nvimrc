@@ -110,6 +110,7 @@ return packer.startup({
 			event = "BufWinEnter",
 		})
 		use({ "pwntester/octo.nvim", cmd = "Octo" })
+		use({ "TimUntersberger/neogit", requires = { "nvim-lua/plenary.nvim" }, cmd = "Neogit" })
 
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig", config = { "require('afnan.lsp')" }, event = "BufWinEnter" })
