@@ -1,19 +1,20 @@
 local sources = {
-	{ name = "luasnip" },
-	{ name = "nvim_lsp" },
-	{ name = "buffer" },
+	{ name = "luasnip", max_item_count = 2 },
+	{ name = "nvim_lsp", max_item_count = 4 },
+	{ name = "buffer", max_item_count = 2 },
 	{ name = "path" },
 }
-local context = require("cmp.config.context")
 
 if vim.o.ft == "lua" then
 	table.insert(sources, { name = "nvim_lua" })
 end
 
-if context.in_treesitter_capture("comment") or context.in_syntax_group("Comment") then
-	sources = {
-		{ name = "buffer", max_item_count = 3 },
-	}
+if vim.o.ft == "zsh" then
+	table.insert(sources, { name = "zsh" })
+	require("cmp_zsh").setup({
+		zshrc = true,
+		filetypes = { "zsh" },
+	})
 end
 
 return sources

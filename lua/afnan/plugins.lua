@@ -140,6 +140,7 @@ return packer.startup({
 		use({ "hrsh7th/cmp-buffer", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-path", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
+		use({ "tamago324/cmp-zsh", ft = "zsh", event = "InsertEnter" })
 
 		--  Others
 		use({
