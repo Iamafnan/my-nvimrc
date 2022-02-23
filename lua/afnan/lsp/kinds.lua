@@ -1,5 +1,4 @@
-local M = {}
-M.kind = {
+return {
 	Text = "  ",
 	Method = "  ",
 	Function = "  ",
@@ -26,4 +25,3 @@ M.kind = {
 	Operator = "  ",
 	TypeParameter = "  ",
 }
-return M

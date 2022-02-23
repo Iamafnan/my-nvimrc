@@ -8,40 +8,8 @@ end
 
 local nvim_lsp = prequire("lspconfig")
 local nvim_lsp_config = prequire("lspconfig.configs")
-local cmp_lsp = prequire("cmp_nvim_lsp")
 local wk = prequire("which-key")
-
--- Capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_lsp.update_capabilities(capabilities)
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
-capabilities.textDocument.completion.completionItem.preselectSupport = true
-capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-	properties = { "documentation", "detail", "additionalTextEdits" },
-}
-capabilities.textDocument.codeAction = {
-	dynamicRegistration = true,
-	codeActionLiteralSupport = {
-		codeActionKind = {
-			valueSet = {
-				"",
-				"quickfix",
-				"refactor",
-				"refactor.extract",
-				"refactor.inline",
-				"refactor.rewrite",
-				"source",
-				"source.organizeImports",
-			},
-		},
-	},
-}
+local capabilities = require("afnan.lsp.capabilities")
 
 -- On_attach
 local on_attach = function(client)
@@ -147,11 +115,11 @@ nvim_lsp.ls_emmet.setup({
 })
 
 -- Bash / Zsh
-nvim_lsp.bashls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-	filetypes = { "zsh", "bash", "sh" },
-})
+-- nvim_lsp.bashls.setup({
+-- 	on_attach = on_attach,
+-- 	capabilities = capabilities,
+-- 	filetypes = { "zsh", "bash", "sh" },
+-- })
 
 -- Yaml
 nvim_lsp.yamlls.setup({
@@ -190,7 +158,7 @@ nvim_lsp.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim", "single", "it", "describe" },
+				globals = { "vim", "it", "describe", "before_each" },
 				disable = { "trailing-space", "deprecated", "lowercase-global" },
 			},
 			runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
