@@ -32,6 +32,9 @@ set.backup = false
 set.writebackup = false
 
 set.completeopt = { "noinsert", "noselect", "menuone" }
+set.wrap = false
+
+set.title = true
 
 vim.cmd("set clipboard=unnamedplus")
 

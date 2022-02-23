@@ -7,19 +7,8 @@ local conf = require("telescope.config").values
 local fn = vim.fn
 local entry_display = require("telescope.pickers.entry_display")
 
-local function Projects_list()
-	local root
-	if vim.fn.isdirectory("~/dev") then
-		root = "~/dev/"
-	end
-	local dicts = fn.split(fn.globpath(root, "*"))
-
-	return dicts
-end
-
 local function finder()
-	local results = Projects_list()
-
+	local results = fn.split(fn.globpath("~/dev/", "*"))
 	for i = 1, math.floor(#results / 2) do
 		results[i], results[#results - i + 1] = results[#results - i + 1], results[i]
 	end
