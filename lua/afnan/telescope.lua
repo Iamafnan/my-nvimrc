@@ -54,11 +54,6 @@ telescope.setup({
 			override_file_sorter = true,
 			case_mode = "ignore_case",
 		},
-		bookmarks = {
-			selected_browser = "chrome",
-			url_open_command = "termux-open-url",
-			full_path = true,
-		},
 	},
 })
 
