@@ -10,11 +10,14 @@
 ├── init.lua
 ├── lua
 │   ├── afnan
-│   │   ├── autocommands.lua                                    │   │   ├── autopairs.lua
+│   │   ├── autocommands.lua
+│   │   ├── autopairs.lua
 │   │   ├── comments.lua
 │   │   ├── disabled.lua
-│   │   ├── github-notification.lua                             │   │   ├── gitsigns.lua
-│   │   ├── icons.lua                                           │   │   ├── init.lua
+│   │   ├── github-notification.lua
+│   │   ├── gitsigns.lua
+│   │   ├── icons.lua
+│   │   ├── init.lua
 │   │   ├── lsp
 │   │   │   ├── capabilities.lua
 │   │   │   ├── cmp.lua
