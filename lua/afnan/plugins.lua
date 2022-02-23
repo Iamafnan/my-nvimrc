@@ -109,6 +109,7 @@ return packer.startup({
 			end,
 			event = "BufWinEnter",
 		})
+		use({ "pwntester/octo.nvim", cmd = "Octo" })
 
 		--  Language Server Protocol
 		use({ "neovim/nvim-lspconfig", config = { "require('afnan.lsp')" }, event = "BufWinEnter" })
