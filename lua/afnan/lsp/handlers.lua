@@ -64,12 +64,16 @@ local NullLsDSources = {
 	luacheck = "luacheck",
 }
 
+local border = { " ", " ", " ", " ", " ", " ", " ", " " }
+
 vim.diagnostic.config({
+	signs = false,
 	virtual_text = false,
 	update_in_insert = false,
+	underline = true,
 	float = {
 		focusable = false,
-		border = "single",
+		border = border,
 		scope = "cursor",
 		source = "if_many",
 		format = function(diagnostic)
@@ -107,12 +111,6 @@ vim.diagnostic.config({
 	},
 })
 
-vim.fn.sign_define("DiagnosticSignError", { text = "", texthl = "DiagnosticSignError" })
-
-vim.fn.sign_define("DiagnosticSignWarn", { text = "", texthl = "DiagnosticSignWarn" })
-
-vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
-
 -- Autoshow diagnostics
 vim.api.nvim_exec(
 	[[
@@ -126,7 +124,7 @@ vim.api.nvim_exec(
 
 -- Hover
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = "single",
+	border = border,
 })
 
 -- Open defination in split window
