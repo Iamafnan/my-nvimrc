@@ -21,5 +21,5 @@ exclude_files = {
    "lua/afnan/packer_compiled.lua",
    "lua/afnan/luasnips.lua",
    "lua/afnan/lsp/cmp.lua",
-   "lua/afnan/lsp/capabilities.lua"
+   "lua/afnan/lsp/utils.lua"
 }
