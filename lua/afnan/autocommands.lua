@@ -26,6 +26,13 @@ local autocmds = {
 		"*",
 		"silent! lua vim.highlight.on_yank(",
 	} },
+	Diagnostic = {
+		{
+			"CursorHold",
+			"*",
+			"lua vim.diagnostic.open_float(0, {focusable = false, scope = 'line', source = 'if_many'})",
+		},
+	},
 }
 
 nvim_create_augroups(autocmds)

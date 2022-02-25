@@ -113,8 +113,8 @@ return packer.startup({
 		use({ "TimUntersberger/neogit", requires = { "nvim-lua/plenary.nvim" }, cmd = "Neogit" })
 
 		--  Language Server Protocol
-		use({ "neovim/nvim-lspconfig", config = { "require('afnan.lsp')" }, event = "BufWinEnter" })
-		use({ "ray-x/lsp_signature.nvim", config = "require('afnan.lsp.signature')", event = "BufWinEnter" })
+		use({ "neovim/nvim-lspconfig", config = "require('afnan.lsp')", event = "BufWinEnter" })
+		use({ "ray-x/lsp_signature.nvim", event = "BufWinEnter" })
 		use({ "kosayoda/nvim-lightbulb", event = "BufWinEnter" })
 		use({ "tami5/lspsaga.nvim", event = "BufWinEnter", config = "require('afnan.lsp.saga')" })
 		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })

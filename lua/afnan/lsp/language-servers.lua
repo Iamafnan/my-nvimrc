@@ -8,47 +8,8 @@ end
 
 local nvim_lsp = prequire("lspconfig")
 local nvim_lsp_config = prequire("lspconfig.configs")
-local wk = prequire("which-key")
-local capabilities = require("afnan.lsp.capabilities")
-
--- On_attach
-local on_attach = function(client)
-	-- Signature Help
-	require("lsp_signature").on_attach()
-
-	local cmd = vim.api.nvim_command
-
-	-- Disable formatting
-	client.resolved_capabilities.document_formatting = false
-	client.resolved_capabilities.document_range_formatting = false
-
-	-- document highlights
-	if client.resolved_capabilities.document_highlight then
-		cmd([[ augroup document_highlight ]])
-		cmd([[ autocmd! * <buffer> ]])
-		cmd([[ autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight() ]])
-		cmd([[ autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() ]])
-		cmd([[ augroup END ]])
-	end
-
-	-- Some keymaps for jsonls
-	if client.name == "jsonls" then
-		local mappings = {
-			P = {
-				name = "Package Info",
-				s = { ":lua require('package-info').show()<CR>", "Show Package Version" },
-				h = { ":lua require('package-info').hide()<CR>", "Hide Package Version" },
-				u = { ":lua require('package-info').update()<CR>", "Update Package" },
-				d = { ":lua require('package-info').delete()<CR>", "Delete Package" },
-				i = { ":lua require('package-info').install()<CR>", "Install New Package" },
-				r = { ":lua require('package-info').reinstall()<CR>", "Reinstall Package" },
-				c = { ":lua require('package-info').change_version()<CR>", "Change Package Version" },
-			},
-		}
-		local opts = { prefix = ",", icons = { group = "➜" } }
-		wk.register(mappings, opts)
-	end
-end
+local capabilities = require("afnan.lsp.utils").capabilities()
+local on_attach = require("afnan.lsp.utils").on_attach
 
 -- JS / TS
 nvim_lsp.tsserver.setup({
@@ -68,6 +29,7 @@ nvim_lsp.tsserver.setup({
 	root_dir = function()
 		return vim.loop.cwd()
 	end,
+	single_file_support = true,
 })
 
 -- JSON

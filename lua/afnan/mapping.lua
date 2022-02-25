@@ -62,7 +62,7 @@ local mappings = {
 		b = {
 			name = "Buffer",
 			s = { ":Gitsigns stage_buffer<CR>", "Stage Buffer" },
-			r = { ":Gitsigns reset_buffer", "Reset Buffer" },
+			r = { ":Gitsigns reset_buffer<CR>", "Reset Buffer" },
 		},
 		p = { name = "Preview", h = { ":Gitsigns preview_hunk<CR>", "Preview Hunk" } },
 	},

@@ -7,26 +7,14 @@ local function prequire(...)
 	return nil
 end
 
-local context = require("cmp.config.context")
-
--- local function is_in_comment()
--- 	if vim.api.nvim_get_mode().mode == "c" then
--- 		return true
--- 	else
--- 		return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment")
--- 	end
--- end
-
-local border = { "", "", "", " ", "", "", "", " " }
-
 local luasnip = prequire("luasnip")
 local cmp = prequire("cmp")
-local kind_icons = require("afnan.lsp.kinds")
 local sources = require("afnan.lsp.cmp_sources")
+local kind = require("afnan.lsp.utils").kind()
+local border = require("afnan.lsp.utils").borders()
 
 -- Configuration
 cmp.setup({
-	-- enabled = is_in_comment,
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -35,7 +23,6 @@ cmp.setup({
 	mapping = {
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
 		["<C-e>"] = cmp.mapping.close(),
-		-- ["<C-a>"] = cmp.mapping.toggle_doc(),
 		["<C-a>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if luasnip.expand_or_jumpable() then
@@ -57,13 +44,13 @@ cmp.setup({
 	view = { entries = "custom" },
 	documentation = {
 		border = border,
-		optional_doc = true,
+		optional_doc = false,
 	},
 	formatting = {
 		fields = { "kind", "abbr" },
 		format = function(entry, vim_item)
 			vim_item.abbr = vim_item.abbr:sub(1, 30)
-			vim_item.kind = kind_icons[vim_item.kind]
+			vim_item.kind = kind[vim_item.kind]
 			vim_item.dup = { buffer = 0, path = 0, nvim_lsp = 0, nvim_lua = 0 }
 			return vim_item
 		end,
