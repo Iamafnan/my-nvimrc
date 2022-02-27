@@ -37,6 +37,14 @@ set_keymap("n", "ng", ":Neogen<CR>")
 set_keymap("i", "<C-c>", "<C-x><C-v>")
 set_keymap("i", "<C-f>", "<C-x><C-f>")
 
+-- Move lines without ruining registers
+set_keymap("i", "<C-j>", "<esc>:m .+1<CR>==")
+set_keymap("i", "<C-k>", "<esc>:m .-2<CR>==")
+set_keymap("n", ",K", ":m .-2<CR>==")
+set_keymap("n", ",J", ":m .+1<CR>==")
+set_keymap("v", "K", ":m '>+1<CR>gv=gv")
+set_keymap("v", "J", ":m '<-2<CR>gv=gv")
+
 -- Some lsp keymaps
 set_keymap("n", "K", ":Lspsaga hover_doc<CR>")
 set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
@@ -46,7 +54,6 @@ set_keymap("n", "gj", ":lua vim.diagnostic.goto_prev()<CR>")
 set_keymap("n", "gR", ":lua vim.lsp.buf.references()<CR>")
 set_keymap("n", "gr", ":Lspsaga rename<CR>")
 set_keymap("n", "ga", ":Lspsaga code_action<CR>")
--- set_keymap("n", "gF", ":lua vim.lsp.buf.formatting()<CR>")
 
 local mappings = {
 	g = {
