@@ -7,10 +7,24 @@ local cond = require("nvim-autopairs.conds")
 npairs.setup({
 	break_line_filetype = nil,
 	check_ts = true,
+	enable_check_bracket_line = false,
+	ignored_next_char = "[%w%.]",
+	disable_filetype = { "TelescopePrompt", "spectre_panel" },
 	ts_config = {
-		lua = { "string" },
+		lua = { "source" },
 		javascript = { "template_string" },
 		java = false,
+	},
+	fast_wrap = {
+		map = "<M-e>",
+		chars = { "{", "[", "(", '"', "'" },
+		pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+		offset = 0,
+		end_key = "$",
+		keys = "qwertyuiopzxcvbnmasdfghjkl",
+		check_comma = true,
+		highlight = "Search",
+		highlight_grey = "Comment",
 	},
 })
 -- Add spaces between parentheses
