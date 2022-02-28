@@ -32,7 +32,7 @@ return packer.startup({
 		use({ "lewis6991/impatient.nvim" })
 		use({ "nathom/filetype.nvim" })
 		use({ "wbthomason/packer.nvim" })
-		use({ "tweekmonster/startuptime.vim", cmd = "StartupTime" })
+		use({ "tweekmonster/startuptime.vim", cmd = "StartupTime", lock = true })
 		use({
 			"folke/tokyonight.nvim",
 			config = function()
@@ -92,13 +92,13 @@ return packer.startup({
 		})
 
 		--  Quick Tasking
-		use({ "tpope/vim-repeat", keys = "." })
+		use({ "tpope/vim-repeat", keys = ".", lock = true })
 		use({
 			"numToStr/Comment.nvim",
 			keys = { "gcc", "gc", "gb", "gbc" },
 			config = "require('afnan.comments')",
 		})
-		use({ "mg979/vim-visual-multi", keys = "<C-n>" })
+		use({ "mg979/vim-visual-multi", keys = "<C-n>", lock = true })
 
 		--  Git
 		use({ "lewis6991/gitsigns.nvim", config = "require('afnan.gitsigns')", event = "BufReadPost" })
@@ -108,6 +108,7 @@ return packer.startup({
 				require("afnan.github-notification")
 			end,
 			event = "BufWinEnter",
+			lock = true,
 		})
 		use({ "pwntester/octo.nvim", cmd = "Octo" })
 		use({ "TimUntersberger/neogit", requires = { "nvim-lua/plenary.nvim" }, cmd = "Neogit" })
@@ -118,7 +119,7 @@ return packer.startup({
 		use({ "kosayoda/nvim-lightbulb", event = "BufWinEnter" })
 		use({ "tami5/lspsaga.nvim", event = "BufWinEnter", config = "require('afnan.lsp.saga')" })
 		use({ "~/dev/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
-		use({ "b0o/SchemaStore.nvim" })
+		use({ "b0o/SchemaStore.nvim", lock = true })
 		use({
 			"j-hui/fidget.nvim",
 			config = function()
@@ -140,8 +141,12 @@ return packer.startup({
 		use({ "hrsh7th/cmp-nvim-lua", ft = "lua", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-buffer", event = "InsertEnter" })
 		use({ "hrsh7th/cmp-path", event = "InsertEnter" })
-		use({ "hrsh7th/cmp-nvim-lsp" })
-		use({ "tamago324/cmp-zsh", ft = "zsh", event = "InsertEnter" })
+		use({
+			"hrsh7th/cmp-nvim-lsp",
+			requires = "~/dev/nvim-cmp",
+			event = "BufWinEnter",
+		})
+		use({ "tamago324/cmp-zsh", ft = "zsh", event = "InsertEnter", lock = true })
 
 		--  Others
 		use({
@@ -167,6 +172,7 @@ return packer.startup({
 			"folke/zen-mode.nvim",
 			config = 'require("afnan.zen")',
 			cmd = "ZenMode",
+			lock = true,
 		})
 
 		--  Bootstraping Packer.nvim
