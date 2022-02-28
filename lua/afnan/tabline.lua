@@ -1,15 +1,3 @@
-local function diagnostics_indicator(_, _, diagnostics)
-	local symbols = { error = " ", warning = " ", info = " " }
-	local result = {}
-	for name, count in pairs(diagnostics) do
-		if symbols[name] and count > 0 then
-			table.insert(result, symbols[name] .. count)
-		end
-	end
-	result = table.concat(result, " ")
-	return #result > 0 and result or ""
-end
-
 local function sort_by_mtime(a, b)
 	local astat = vim.loop.fs_stat(a.path)
 	local bstat = vim.loop.fs_stat(b.path)
@@ -24,9 +12,6 @@ require("bufferline").setup({
 		close_command = "bdelete! %d",
 		sort_by = sort_by_mtime,
 		indicator_icon = "  ",
-		diagnostics = "nvim_lsp",
-		diagnostics_update_in_insert = true,
-		diagnostics_indicator = diagnostics_indicator,
 		offsets = {
 			{
 				filetype = "NvimTree",
