@@ -139,39 +139,6 @@ local function GetModeColor()
 	return " "
 end
 
--- local unstaged_files = 0
--- local function GetGitComponent()
--- 	Job
--- 		:new({
--- 			"git",
--- 			"diff",
--- 			"--name-only",
--- 			on_exit = function(job)
--- 				for _ in pairs(job:result()) do
--- 					unstaged_files = unstaged_files + 1
--- 				end
--- 				return unstaged_files
--- 			end,
--- 		})
--- 		:start()
---
--- 	local total_files = 0
--- 	Job
--- 		:new({
--- 			"git",
--- 			"ls-files",
--- 			on_exit = function(job)
--- 				for _ in pairs(job:result()) do
--- 					total_files = total_files + 1
--- 				end
--- 				return total_files
--- 			end,
--- 		})
--- 		:start()
--- end
-
--- GetGitComponent()
-
 local function GetLeftBracket()
 	if vim.bo.filetype == "dashboard" then
 		return ""

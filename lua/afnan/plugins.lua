@@ -117,7 +117,7 @@ return packer.startup({
 		use({ "ray-x/lsp_signature.nvim", event = "BufWinEnter" })
 		use({ "kosayoda/nvim-lightbulb", event = "BufWinEnter" })
 		use({ "tami5/lspsaga.nvim", event = "BufWinEnter", config = "require('afnan.lsp.saga')" })
-		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
+		use({ "~/dev/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
 		use({ "b0o/SchemaStore.nvim" })
 		use({
 			"j-hui/fidget.nvim",

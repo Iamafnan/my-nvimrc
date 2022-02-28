@@ -17,17 +17,23 @@ set_keymap("n", "<A-right>", "$")
 set_keymap("i", "<A-right>", "<ESC>$ i")
 set_keymap("i", "<A-left>", "<ESC>0 i")
 
--- basic visual mode maps
+-- Indentation
 set_keymap("v", "<", "<gv")
 set_keymap("v", ">", ">gv")
+set_keymap("n", "<", "<<")
+set_keymap("n", ">", ">>")
 
 set_keymap("t", "<ESC>", "<C-\\><C-n>")
 
 -- for split movement
-set_keymap("", "<C-h>", "<C-w>h")
-set_keymap("", "<C-j>", "<C-w>j")
-set_keymap("", "<C-k>", "<C-w>k")
-set_keymap("", "<C-l>", "<C-w>l")
+set_keymap("", "<A-h>", "<C-w>h")
+set_keymap("", "<A-j>", "<C-w>j")
+set_keymap("", "<A-k>", "<C-w>k")
+set_keymap("", "<A-l>", "<C-w>l")
+
+-- For quickfix list
+set_keymap("n", "<C-j>", ":cnext<CR>")
+set_keymap("n", "<C-h>", ":cprev<CR>")
 
 set_keymap("n", "Y", "y$")
 
