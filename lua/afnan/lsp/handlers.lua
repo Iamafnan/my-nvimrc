@@ -8,7 +8,6 @@ end
 local NullLsDSources = { luacheck = "luacheck" }
 local border = prequire("afnan.lsp.utils").borders()
 local codes = prequire("afnan.lsp.utils").diagnosticsCode()
-local signature = prequire("lsp_signature")
 local function format(diagnostic)
 	if diagnostic.source == NullLsDSources[diagnostic.source] then
 		return diagnostic.message
@@ -52,7 +51,7 @@ vim.diagnostic.config({
 		scope = "cursor",
 		source = "if_many",
 		format = format,
-		header = { "Cursor Diagnostics: ", "DiagnosticError" },
+		header = { "Cursor Diagnostics: ", "DiagnosticInfo" },
 		pos = 1,
 		prefix = prefix,
 	},
@@ -63,14 +62,8 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = border,
 })
 
--- Signature
-signature.setup({
-	hint_enable = false,
-	handler_opts = { border = border },
-	max_width = 40,
-	max_height = 50,
-	zindex = 1002,
-	floating_window_above_cur_line = true,
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = border,
 })
 
 -- Defination
@@ -119,4 +112,4 @@ function _G.open_lsp_log()
 end
 
 vim.cmd("command! -nargs=0 LspLog call v:lua.open_lsp_log()")
-vim.cmd("command! -nargs=0 LspRestart call v:lua.reload_lsp()")
+vim.cmd("command! LspRestart call v:lua.reload_lsp()")

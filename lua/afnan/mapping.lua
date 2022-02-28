@@ -54,6 +54,7 @@ set_keymap("n", "gj", ":lua vim.diagnostic.goto_prev()<CR>")
 set_keymap("n", "gR", ":lua vim.lsp.buf.references()<CR>")
 set_keymap("n", "gr", ":Lspsaga rename<CR>")
 set_keymap("n", "ga", ":Lspsaga code_action<CR>")
+set_keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 
 local mappings = {
 	g = {

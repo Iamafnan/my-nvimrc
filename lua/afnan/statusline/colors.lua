@@ -1,4 +1,4 @@
-local colors = {
+return {
 	bg_dark = "#1f2335",
 	bg = "#24283b",
 	bg_highlight = "#292e42",
@@ -34,4 +34,3 @@ local colors = {
 	lspBg = "#364463",
 	fileinfoBg = "#5C2C2E",
 }
-return colors

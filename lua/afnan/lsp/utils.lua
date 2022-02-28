@@ -13,11 +13,11 @@ M.capabilities = function()
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = cmp_lsp.update_capabilities(capabilities)
 
+	local valueSet = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26 }
+
 	capabilities = {
 		textDocument = {
-			callHierarchy = {
-				dynamicRegistration = false,
-			},
+			callHierarchy = { dynamicRegistration = false },
 			codeAction = {
 				codeActionLiteralSupport = {
 					codeActionKind = {
@@ -36,20 +36,12 @@ M.capabilities = function()
 				dataSupport = true,
 				dynamicRegistration = true,
 				isPreferredSupport = true,
-				resolveSupport = {
-					properties = {
-						"edit",
-						"command",
-					},
-				},
+				resolveSupport = { properties = { "edit", "command" } },
 			},
 			completion = {
 				completionItem = {
 					deprecatedSupport = true,
-					documentationFormat = {
-						"markdown",
-						"plaintext",
-					},
+					documentationFormat = { "markdown", "plaintext" },
 					insertReplaceSupport = true,
 					insertTextModeSupport = { valueSet = { 1, 2 } },
 					resolveAdditionalTextEditsSupport = true,
@@ -65,12 +57,8 @@ M.capabilities = function()
 				},
 				contextSupport = true,
 			},
-			declaration = {
-				linkSupport = true,
-			},
-			definition = {
-				linkSupport = true,
-			},
+			declaration = { linkSupport = true },
+			definition = { linkSupport = true },
 			documentLink = {
 				dynamicRegistration = true,
 				tooltipSupport = true,
@@ -78,76 +66,27 @@ M.capabilities = function()
 			documentSymbol = {
 				hierarchicalDocumentSymbolSupport = true,
 				symbolKind = {
-					valueSet = {
-						1,
-						2,
-						3,
-						4,
-						5,
-						6,
-						7,
-						8,
-						9,
-						10,
-						11,
-						12,
-						13,
-						14,
-						15,
-						16,
-						17,
-						18,
-						19,
-						20,
-						21,
-						22,
-						23,
-						24,
-						25,
-						26,
-					},
+					valueSet = valueSet,
 				},
 			},
-			foldingRange = {
-				dynamicRegistration = true,
-			},
-			formatting = {
-				dynamicRegistration = true,
-			},
-			hover = {
-				contentFormat = {
-					"markdown",
-					"plaintext",
-				},
-			},
-			implementation = {
-				linkSupport = true,
-			},
-			linkedEditingRange = {
-				dynamicRegistration = true,
-			},
+			foldingRange = { dynamicRegistration = true },
+			formatting = { dynamicRegistration = true },
+			hover = { contentFormat = { "markdown", "plaintext" } },
+			implementation = { linkSupport = true },
+			linkedEditingRange = { dynamicRegistration = true },
 			publishDiagnostics = {
 				relatedInformation = true,
-				tagSupport = {
-					valueSet = {
-						1,
-						2,
-					},
-				},
+				tagSupport = { valueSet = { 1, 2 } },
 				versionSupport = true,
 			},
-			rangeFormatting = {
-				dynamicRegistration = true,
-			},
+			rangeFormatting = { dynamicRegistration = true },
 			rename = {
 				dynamicRegistration = true,
 				prepareSupport = true,
 			},
 			signatureHelp = {
 				signatureInformation = {
-					parameterInformation = {
-						labelOffsetSupport = true,
-					},
+					parameterInformation = { labelOffsetSupport = true },
 				},
 			},
 			synchronization = {
@@ -155,72 +94,29 @@ M.capabilities = function()
 				willSave = true,
 				willSaveWaitUntil = true,
 			},
-			typeDefinition = {
-				linkSupport = true,
-			},
+			typeDefinition = { linkSupport = true },
 		},
 		window = {
-			showDocument = {
-				support = true,
-			},
+			showDocument = { support = true },
 			workDoneProgress = true,
 		},
 		workspace = {
 			applyEdit = true,
-			codeLens = {
-				refreshSupport = true,
-			},
+			codeLens = { refreshSupport = true },
 			configuration = true,
-			executeCommand = {
-				dynamicRegistration = false,
-			},
+			executeCommand = { dynamicRegistration = true },
 			fileOperations = {
-				didCreate = false,
-				didDelete = false,
-				didRename = false,
-				willCreate = false,
-				willDelete = false,
-				willRename = false,
+				didCreate = true,
+				didDelete = true,
+				didRename = true,
+				willCreate = true,
+				willDelete = true,
+				willRename = true,
 			},
-			symbol = {
-				symbolKind = {
-					valueSet = {
-						1,
-						2,
-						3,
-						4,
-						5,
-						6,
-						7,
-						8,
-						9,
-						10,
-						11,
-						12,
-						13,
-						14,
-						15,
-						16,
-						17,
-						18,
-						19,
-						20,
-						21,
-						22,
-						23,
-						24,
-						25,
-						26,
-					},
-				},
-			},
+			symbol = { symbolKind = { valueSet = valueSet } },
 			workspaceEdit = {
 				documentChanges = true,
-				resourceOperations = {
-					"create",
-					"rename",
-					"delete",
-				},
+				resourceOperations = { "create", "rename", "delete" },
 			},
 			workspaceFolders = true,
 		},
@@ -231,9 +127,6 @@ end
 
 M.on_attach = function(client)
 	local wk = prequire("whick-key")
-
-	-- Signature Help
-	require("lsp_signature").on_attach()
 
 	local cmd = vim.api.nvim_command
 
@@ -270,16 +163,7 @@ M.on_attach = function(client)
 end
 
 M.borders = function()
-	return {
-		{ " " },
-		{ " " },
-		{ " " },
-		{ " " },
-		{ " " },
-		{ " " },
-		{ " " },
-		{ " " },
-	}
+	return { " ", " ", " ", " ", " ", " ", " ", " " }
 end
 
 M.diagnosticsCode = function()
@@ -289,10 +173,7 @@ M.diagnosticsCode = function()
 			"redundant-parameter",
 			"ovl_no_viable_function_in_call",
 		},
-		empty_block = {
-			message = " That shouldn't be empty here",
-			"empty-block",
-		},
+		empty_block = { message = " That shouldn't be empty here", "empty-block" },
 		missing_symbol = {
 			message = " Here should be a symbol",
 			"miss-symbol",
