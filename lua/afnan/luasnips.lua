@@ -1,13 +1,13 @@
 local ls = require("luasnip")
 local loader = require("luasnip.loaders.from_vscode").load
 
-function LuaSnipLoad()
+function _G.LuaSnipLoad()
 	loader({
 		path = "~/.local/share/nvim/site/pack/packer/opt/friendly-snippets/snippets/",
 	})
 end
 
-vim.cmd("command! LuaSnipLoad :lua LuaSnipLoad()")
+vim.cmd("command! LuaSnipLoad :lua _G.LuaSnipLoad()")
 
 ls.config.setup({
 	history = true,
