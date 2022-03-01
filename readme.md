@@ -14,6 +14,7 @@
 │   │   ├── autopairs.lua
 │   │   ├── comments.lua
 │   │   ├── disabled.lua
+│   │   ├── filetype.lua
 │   │   ├── github-notification.lua
 │   │   ├── gitsigns.lua
 │   │   ├── icons.lua
