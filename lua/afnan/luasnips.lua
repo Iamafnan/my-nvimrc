@@ -29,7 +29,6 @@ ls.snippets = {
 		s("cl", "local $1 = {}\n $0 \n return $1"),
 		s("rt", "return $1"),
 		s("p", 'print("$1")$0'),
-		s("pi", "print(vim.inspect($1))$0"),
 	},
 	markdown = {
 		s("h1", "<h1 $1 >$2</h1>$0"),

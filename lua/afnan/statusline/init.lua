@@ -160,7 +160,6 @@ end
 local a = 1
 gls.left[a] = {
 	ModeColor = {
-		icon = "  ",
 		separator = "",
 		separator_highlight = "GalaxyModeColorReverse",
 		highlight = { colors.bg, mode_color() },

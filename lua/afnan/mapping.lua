@@ -52,7 +52,7 @@ set_keymap("v", "K", ":m '>+1<CR>gv=gv")
 set_keymap("v", "J", ":m '<-2<CR>gv=gv")
 
 -- Some lsp keymaps
-set_keymap("n", "K", ":Lspsaga hover_doc<CR>")
+set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>")
 set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
 set_keymap("n", "gI", ":lua vim.lsp.buf.implementation()<CR>")
 set_keymap("n", "gk", ":lua vim.diagnostic.goto_next()<CR>")

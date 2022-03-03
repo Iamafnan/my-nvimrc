@@ -59,10 +59,16 @@ return packer.startup({
 
 		--  UI
 		use({
-			"norcalli/nvim-colorizer.lua",
+			"br1anchen/nvim-colorizer.lua",
 			cmd = "ColorizerToggle",
 			config = function()
-				require("colorizer").setup()
+				require("colorizer").setup({
+					"css",
+					"javascript",
+					lua = {
+						mode = "virtualtext",
+					},
+				})
 			end,
 		})
 		use({ "rcarriga/nvim-notify", config = "require('afnan.notify')" })
@@ -114,9 +120,11 @@ return packer.startup({
 		use({ "TimUntersberger/neogit", requires = { "nvim-lua/plenary.nvim" }, cmd = "Neogit" })
 
 		--  Language Server Protocol
-		use({ "neovim/nvim-lspconfig", config = "require('afnan.lsp')", event = "BufWinEnter" })
-		use({ "ray-x/lsp_signature.nvim", event = "BufWinEnter" })
-		use({ "kosayoda/nvim-lightbulb", event = "BufWinEnter" })
+		use({
+			"neovim/nvim-lspconfig",
+			config = "require('afnan.lsp')",
+			after = "cmp-nvim-lsp",
+		})
 		use({ "tami5/lspsaga.nvim", event = "BufWinEnter", config = "require('afnan.lsp.saga')" })
 		use({ "~/dev/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
 		use({ "b0o/SchemaStore.nvim", lock = true })
@@ -155,6 +163,7 @@ return packer.startup({
 			ft = "json",
 			config = "require('afnan.packageinfo')",
 		})
+		use({ "rafcamlet/nvim-luapad", cmd = { "Luapad", "LuaRun" }, ft = "lus" })
 
 		use({ "github/copilot.vim" })
 		use({
@@ -174,6 +183,8 @@ return packer.startup({
 			cmd = "ZenMode",
 			lock = true,
 		})
+
+		use({ "~/dev/glean.nvim" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then

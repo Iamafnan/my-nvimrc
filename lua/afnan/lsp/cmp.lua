@@ -23,7 +23,7 @@ cmp.setup({
 	mapping = {
 		["<cr>"] = cmp.mapping.confirm({ select = true }),
 		["<C-e>"] = cmp.mapping.close(),
-		["<C-a>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		-- ["<C-a>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
@@ -44,7 +44,7 @@ cmp.setup({
 	view = { entries = "custom" },
 	documentation = {
 		border = border,
-		optional_doc = false,
+		optional_doc = true,
 	},
 	formatting = {
 		fields = { "kind", "abbr" },
