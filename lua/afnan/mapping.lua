@@ -10,6 +10,7 @@ set_keymap("n", "q", ":q<CR>")
 set_keymap("n", "w", ":w<CR>")
 set_keymap("n", "<space>", ":")
 set_keymap("v", "<space>", ":")
+set_keymap("n", ",,x", ":write<CR> :source %<CR>")
 
 -- single line movement
 set_keymap("n", "<A-left>", "0")
@@ -88,10 +89,6 @@ local mappings = {
 		n = { ":lua require('github-notifications.menu').notifications()<CR>", "Github Notifications" },
 		h = { ":Telescope help_tags<CR>", "Help tags" },
 		d = { ":Telescope diagnostics<cr>", "WorkSpace Diagnostics" },
-	},
-	r = {
-		name = "Source",
-		c = { ":so %<CR>", "Source Buffer" },
 	},
 	b = {
 		name = "Buffer",
