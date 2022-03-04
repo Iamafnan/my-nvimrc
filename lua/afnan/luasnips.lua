@@ -18,8 +18,30 @@ ls.config.setup({
 })
 
 local s = ls.parser.parse_snippet
+local snip = ls.snippet
+local t = ls.text_node
+local i = ls.insert_node
+
+local f = ls.function_node
+local function len(args)
+	local a = args[1][1]
+	return (a and #a or 0) + 2
+end
 
 ls.snippets = {
+	all = {
+		snip({ trig = "box", name = "Box" }, {
+			f(function(args)
+				return "┌" .. string.rep("─", len(args)) .. "┐"
+			end, 1),
+			t({ "", "| " }),
+			i(1),
+			t({ " |", "" }),
+			f(function(args)
+				return "└" .. string.rep("─", len(args)) .. "┘"
+			end, 1),
+		}),
+	},
 	lua = {
 		s("l", "local $1"),
 		s("ll", "local $1 = $2"),

@@ -26,7 +26,7 @@ local autocmds = {
 		"*",
 		"silent! lua vim.highlight.on_yank(",
 	} },
-	Diagnostic = {
+	Diagnostics = {
 		{
 			"CursorHold",
 			"*",

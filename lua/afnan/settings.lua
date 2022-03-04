@@ -1,6 +1,6 @@
 local set = vim.opt
 
-vim.cmd("set nocompatible")
+set.compatible = false
 vim.cmd("set t_Co=256")
 
 vim.cmd("colorscheme tokyonight ")
@@ -36,7 +36,7 @@ set.wrap = false
 
 set.title = true
 
-vim.cmd("set clipboard=unnamedplus")
+set.clipboard = "unnamedplus"
 
 set.autoindent = true
 set.smartindent = true
@@ -57,7 +57,7 @@ set.scrolloff = 14
 set.splitright = true
 set.splitbelow = true
 
-vim.cmd("set formatoptions-=cro")
+set.formatoptions:remove("cro")
 set.shortmess:append("c")
 set.hlsearch = false
 
