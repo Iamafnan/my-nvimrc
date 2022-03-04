@@ -1,5 +1,4 @@
 local lspsaga = require("lspsaga")
-local border = require("afnan.lsp.utils").borders()
 
 lspsaga.setup({
 	debug = false,
