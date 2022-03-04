@@ -19,5 +19,5 @@ lspsaga.setup({
 		quit = "<C-c>",
 		exec = "<CR>",
 	},
-	border_style = border,
+	border_style = "single",
 })
