@@ -32,6 +32,10 @@ set_keymap("", "<A-j>", "<C-w>j")
 set_keymap("", "<A-k>", "<C-w>k")
 set_keymap("", "<A-l>", "<C-w>l")
 
+-- for quick buffer switching
+set_keymap("n", "<tab>", ":bnext<CR>")
+set_keymap("n", "<S-tab>", ":bprevious<CR>")
+
 -- For quickfix list
 set_keymap("n", "<C-j>", ":cnext<CR>")
 set_keymap("n", "<C-h>", ":cprev<CR>")
@@ -88,7 +92,8 @@ local mappings = {
 		r = { ":Telescope live_grep<CR>", "Grep" },
 		n = { ":lua require('github-notifications.menu').notifications()<CR>", "Github Notifications" },
 		h = { ":Telescope help_tags<CR>", "Help tags" },
-		d = { ":Telescope diagnostics<cr>", "WorkSpace Diagnostics" },
+		d = { ":Telescope dotfiles<cr>", "Dotfiles" },
+		w = { ":Telescope work<cr>", "Work" },
 	},
 	b = {
 		name = "Buffer",
