@@ -157,12 +157,6 @@ return packer.startup({
 		use({ "tamago324/cmp-zsh", ft = "zsh", event = "InsertEnter", lock = true })
 
 		--  Others
-		use({
-			"vuki656/package-info.nvim",
-			requires = { "MunifTanjim/nui.nvim", ft = "json" },
-			ft = "json",
-			config = "require('afnan.packageinfo')",
-		})
 		use({ "rafcamlet/nvim-luapad", cmd = { "Luapad", "LuaRun" }, ft = "lus" })
 
 		use({ "github/copilot.vim" })

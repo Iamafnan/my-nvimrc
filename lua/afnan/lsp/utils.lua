@@ -126,8 +126,6 @@ M.capabilities = function()
 end
 
 M.on_attach = function(client)
-	local wk = prequire("whick-key")
-
 	local cmd = vim.api.nvim_command
 
 	-- Disable formatting
@@ -141,24 +139,6 @@ M.on_attach = function(client)
 		cmd([[ autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight() ]])
 		cmd([[ autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() ]])
 		cmd([[ augroup END ]])
-	end
-
-	-- Some keymaps for jsonls
-	if client.name == "jsonls" then
-		local mappings = {
-			P = {
-				name = "Package Info",
-				s = { ":lua require('package-info').show()<CR>", "Show Package Version" },
-				h = { ":lua require('package-info').hide()<CR>", "Hide Package Version" },
-				u = { ":lua require('package-info').update()<CR>", "Update Package" },
-				d = { ":lua require('package-info').delete()<CR>", "Delete Package" },
-				i = { ":lua require('package-info').install()<CR>", "Install New Package" },
-				r = { ":lua require('package-info').reinstall()<CR>", "Reinstall Package" },
-				c = { ":lua require('package-info').change_version()<CR>", "Change Package Version" },
-			},
-		}
-		local opts = { prefix = ",", icons = { group = "➜" } }
-		wk.register(mappings, opts)
 	end
 end
 
