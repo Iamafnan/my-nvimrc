@@ -86,6 +86,7 @@ return packer.startup({
 			end,
 		})
 		use({ "rcarriga/nvim-notify", config = "require('afnan.notify')" })
+		use({ "petertriho/nvim-scrollbar", config = "require('afnan.scrollbar')" })
 
 		--  Telescope & Its Extentions
 		use({
