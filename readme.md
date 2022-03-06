@@ -35,6 +35,7 @@
 │   │   ├── packageinfo.lua
 │   │   ├── packer_compiled.lua
 │   │   ├── plugins.lua
+│   │   ├── scrollbar.lua
 │   │   ├── settings.lua
 │   │   ├── statusline
 │   │   │   ├── colors.lua
