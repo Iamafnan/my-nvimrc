@@ -33,6 +33,13 @@ local autocmds = {
 			"lua vim.diagnostic.open_float(0, {focusable = false, scope = 'line', source = 'if_many'})",
 		},
 	},
+	formatoptions = {
+		{
+			"BufWinEnter",
+			"*",
+			":set formatoptions-=cro",
+		},
+	},
 }
 
 nvim_create_augroups(autocmds)
