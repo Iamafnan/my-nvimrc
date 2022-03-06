@@ -16,14 +16,28 @@ end
 local packer = require("packer")
 local utils = require("packer.util")
 
+local border = { " ", " ", " ", " ", " ", " ", " ", " " }
+
 packer.init({
-	git = { clone_timeout = 350 },
-	compile_path = "~/.config/nvim/lua/afnan/packer_compiled.lua",
+	profile = { enable = true, threshold = 1 },
+	log = { level = "debug" },
+	max_jobs = 10,
+	git = {
+		clone_timeout = 350,
+		subcommands = {
+			fetch = "fetch --no-tags --no-recurse-submodules --update-shallow --progress",
+			install = "clone --depth %i --progress",
+		},
+	},
+	compile_path = vim.fn.stdpath("config") .. "/lua/afnan/packer_compiled.lua",
 	display = {
 		title = "Packer",
 		done_sym = "",
 		error_syn = "×",
 		keybindings = { toggle_info = "o" },
+		open_fn = function()
+			return utils.float({ border = border })
+		end,
 	},
 })
 
@@ -185,21 +199,4 @@ return packer.startup({
 			packer.sync()
 		end
 	end,
-	config = {
-		display = {
-			open_fn = function()
-				return utils.float({ border = "double" })
-			end,
-		},
-		profile = { enable = true, threshold = 1 },
-		log = { level = "debug" },
-		max_jobs = 10,
-		git = {
-			clone_timeout = 300,
-			subcommands = {
-				fetch = "fetch --no-tags --no-recurse-submodules --update-shallow --progress",
-				install = "clone --depth %i --progress",
-			},
-		},
-	},
 })

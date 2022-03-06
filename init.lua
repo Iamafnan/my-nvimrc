@@ -1,5 +1,9 @@
-require("afnan.disabled")
+-- ┌─────────────────────────────┐
+-- | Welcome to my neovim config |
+-- └─────────────────────────────┘
+
+pcall(require, "afnan.disabled")
 pcall(require, "impatient")
-require("afnan.packer_compiled")
+pcall(require, "afnan.packer_compiled")
 
 pcall(require, "afnan")
