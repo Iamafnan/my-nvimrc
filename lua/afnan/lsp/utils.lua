@@ -128,6 +128,11 @@ end
 M.on_attach = function(client)
 	local cmd = vim.api.nvim_command
 
+	vim.notify("Language Server: " .. client.name .. " is started!", "INFO", {
+		title = "Language Server Protocol",
+		icon = "",
+		hide_from_history = true,
+	})
 	-- Disable formatting
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
