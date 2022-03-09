@@ -42,7 +42,6 @@
 │   │   │   └── init.lua
 │   │   ├── tabline.lua
 │   │   ├── telescope.lua
-│   │   ├── toggleterm.lua
 │   │   ├── treesitter.lua
 │   │   └── zen.lua
 │   └── telescope
