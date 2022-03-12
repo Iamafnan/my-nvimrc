@@ -139,7 +139,6 @@ return packer.startup({
 			config = "require('afnan.lsp')",
 			after = "cmp-nvim-lsp",
 		})
-		use({ "tami5/lspsaga.nvim", event = "BufWinEnter", config = "require('afnan.lsp.saga')" })
 		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
 		use({ "b0o/SchemaStore.nvim", lock = true })
 		use({

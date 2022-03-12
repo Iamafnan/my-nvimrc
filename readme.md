@@ -26,7 +26,6 @@
 │   │   │   ├── init.lua
 │   │   │   ├── language-servers.lua
 │   │   │   ├── null_ls.lua
-│   │   │   ├── saga.lua
 │   │   │   └── utils.lua
 │   │   ├── luasnips.lua
 │   │   ├── mapping.lua
