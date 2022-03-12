@@ -20,7 +20,6 @@ local border = { " ", " ", " ", " ", " ", " ", " ", " " }
 
 packer.init({
 	profile = { enable = true, threshold = 1 },
-	log = { level = "debug" },
 	max_jobs = 10,
 	git = {
 		clone_timeout = 350,
@@ -141,7 +140,7 @@ return packer.startup({
 			after = "cmp-nvim-lsp",
 		})
 		use({ "tami5/lspsaga.nvim", event = "BufWinEnter", config = "require('afnan.lsp.saga')" })
-		use({ "~/dev/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
+		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
 		use({ "b0o/SchemaStore.nvim", lock = true })
 		use({
 			"j-hui/fidget.nvim",
@@ -157,7 +156,7 @@ return packer.startup({
 
 		--  CMP
 		use({
-			"~/dev/nvim-cmp",
+			"hrsh7th/nvim-cmp",
 			event = "BufWinEnter",
 			config = "require('afnan.lsp.cmp')",
 		})
