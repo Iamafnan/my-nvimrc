@@ -118,10 +118,10 @@ local function GetGitBranch()
 end
 
 local function GetGitNotifications()
-	if vim.bo.filetype == "dashboard" then
+	if notifications.statusline_notification_count() == "" then
 		return ""
 	else
-		return notifications.statusline_notification_count() .. ""
+		return notifications.statusline_notification_count() .. " "
 	end
 end
 

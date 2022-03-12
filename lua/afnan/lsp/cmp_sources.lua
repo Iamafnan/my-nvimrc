@@ -19,8 +19,8 @@ if vim.o.ft == "zsh" then
 	})
 end
 
---Reference: https://github.com/hrsh7th/nvim-cmp/discussions/702
---nvim-web-devicons source for nvim-cmp
+--- Reference: https://github.com/hrsh7th/nvim-cmp/discussions/702
+--- nvim-web-devicons source for nvim-cmp
 function _G.DeviconsCompletion()
 	local cmp = require("cmp")
 	local devicons = require("nvim-web-devicons")
@@ -39,6 +39,6 @@ function _G.DeviconsCompletion()
 	})
 end
 
-vim.cmd(" command! -nargs=0 CmpDeicons call v:lua.DeviconsCompletion() ")
+vim.cmd(" command! -nargs=0 CmpDevicons call v:lua.DeviconsCompletion() ")
 
 return sources
