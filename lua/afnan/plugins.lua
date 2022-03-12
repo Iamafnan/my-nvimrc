@@ -194,6 +194,8 @@ return packer.startup({
 
 		use({ "~/dev/glean.nvim" })
 
+		use({ "MunifTanjim/nui.nvim", config = "require('afnan.ui')" })
+
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
 			packer.sync()
