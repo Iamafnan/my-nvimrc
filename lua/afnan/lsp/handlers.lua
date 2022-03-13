@@ -38,6 +38,16 @@ local function prefix(diagnostic, i, total)
 	end
 	return i .. "/" .. total .. " " .. icon .. "  ", highlight
 end
+local function wrap_options(custom, handler)
+	return function(opts)
+		opts = opts and vim.tbl_extend(opts, custom) or custom
+		if type(handler) == "string" then
+			require("telescope.builtin")[handler](opts)
+		else
+			handler(opts)
+		end
+	end
+end
 
 -- Diagnostics Setup
 vim.diagnostic.config({
@@ -62,9 +72,18 @@ vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = border,
 })
 
+-- Signature Help
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 	border = border,
 })
+
+-- Reference
+-- Reference: https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/lua/config/lsp/handlers.lua#L16
+vim.lsp.handlers["textDocument/references"] = wrap_options({ layout_strategy = "vertical" }, "lsp_references")
+
+-- Document Symbol
+-- Reference: https://github.com/rcarriga/dotfiles/blob/master/.config/nvim/lua/config/lsp/handlers.lua#L20
+vim.lsp.handlers["textDocument/documentSymbol"] = require("telescope.builtin").lsp_document_symbols
 
 -- Defination
 local function goto_definition(split_cmd)
