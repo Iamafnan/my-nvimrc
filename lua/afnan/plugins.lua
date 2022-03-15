@@ -164,7 +164,7 @@ return packer.startup({
 		use({ "hrsh7th/cmp-path", event = "InsertEnter" })
 		use({
 			"hrsh7th/cmp-nvim-lsp",
-			requires = "~/dev/nvim-cmp",
+			requires = "nvim-cmp",
 			event = "BufWinEnter",
 		})
 		use({ "tamago324/cmp-zsh", ft = "zsh", event = "InsertEnter", lock = true })

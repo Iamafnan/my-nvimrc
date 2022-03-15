@@ -21,7 +21,7 @@ telescope.setup({
 			vertical = { mirror = true },
 		},
 		file_ignore_patterns = { "__pycache__", "node_modules", ".git/*", ".cache", "storage", ".ssh" },
-		winblend = 20,
+		winblend = 30,
 		border = {},
 		borderchars = {
 			preview = { " ", " ", " ", " ", " ", " ", " ", " " },

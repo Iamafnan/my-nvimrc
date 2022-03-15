@@ -135,6 +135,36 @@ nvim_lsp.sumneko_lua.setup({
 		completion = {
 			showWord = "Disable",
 		},
+		IntelliSense = {
+			traceBeSetted = true,
+			traceFieldInject = true,
+			traceLocalSet = true,
+			traceReturn = true,
+		},
+		hint = {
+			arrayIndex = "Auto",
+			enable = true,
+			paramName = "All",
+			paramType = true,
+			setType = false,
+		},
+		hover = {
+			enable = true,
+			enumsLimit = 5,
+			previewFields = 20,
+			viewNumber = true,
+			viewString = true,
+			viewStringMax = 1000,
+		},
+		misc = { parameters = { "self" } },
+		semantic = {
+			annotation = true,
+			enable = true,
+			keyword = true,
+			variable = true,
+		},
+		window = { progressBar = true, statusBar = true },
+		format = { enable = true },
 	},
 })
 
