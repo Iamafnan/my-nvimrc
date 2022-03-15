@@ -48,6 +48,8 @@ set_keymap("n", "ng", ":Neogen<CR>")
 set_keymap("i", "<C-c>", "<C-x><C-v>")
 set_keymap("i", "<C-f>", "<C-x><C-f>")
 
+vim.api.nvim_set_keymap("i", "<A-n>", "<Plug>luasnip-next-choice", {})
+
 -- Move lines without ruining registers
 set_keymap("i", "<C-j>", "<esc>:m .+1<CR>==")
 set_keymap("i", "<C-k>", "<esc>:m .-2<CR>==")

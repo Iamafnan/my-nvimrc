@@ -1,5 +1,6 @@
 local ls = require("luasnip")
 local loader = require("luasnip.loaders.from_vscode").load
+local types = require("luasnip.util.types")
 
 function _G.LuaSnipLoad()
 	loader({
@@ -11,18 +12,28 @@ vim.cmd("command! LuaSnipLoad :lua _G.LuaSnipLoad()")
 
 ls.config.setup({
 	history = true,
-	updateevents = "InsertLeave",
+	updateevents = "TextChangedI",
+	enable_autosnippets = true,
 	ft_func = function()
 		return vim.split(vim.bo.filetype, ".", true)
 	end,
+	ext_opts = {
+		[types.choiceNode] = {
+			active = {
+				virt_text = { { "<-", "Error" } },
+			},
+		},
+	},
 })
 
 local s = ls.parser.parse_snippet
 local snip = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
-
 local f = ls.function_node
+local c = ls.choice_node
+local fmt = require("luasnip.extras.fmt").fmt
+
 local function len(args)
 	local a = args[1][1]
 	return (a and #a or 0) + 2
@@ -44,10 +55,27 @@ ls.snippets = {
 	},
 	lua = {
 		s("l", "local $1"),
-		s("ll", "local $1 = $2"),
-		s("lreq", 'local $1 = require("$2")$0'),
-		s("req", 'require("$1")$0'),
-		s("u", 'use({ "$1" , $0 })'),
+		snip(
+			"ll",
+			fmt([[ local {} = {} ]], {
+				f(function(name)
+					local parts = vim.split(name[1][1], ".", true)
+					return parts[#parts] or ""
+				end, { 1 }),
+				i(1),
+			})
+		),
+		s("req", 'require("$1")'),
+		snip(
+			"lreq",
+			fmt([[local {} = require "{}"]], {
+				f(function(name)
+					local parts = vim.split(name[1][1], ".", true)
+					return parts[#parts] or ""
+				end, { 1 }),
+				i(1),
+			})
+		),
 		s("cl", "local $1 = {}\n $0 \n return $1"),
 		s("rt", "return $1"),
 		s("p", 'print("$1")$0'),
