@@ -168,6 +168,7 @@ return packer.startup({
 			event = "BufWinEnter",
 		})
 		use({ "tamago324/cmp-zsh", ft = "zsh", event = "InsertEnter", lock = true })
+		use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "cmp-nvim-lsp", requires = "nvim-cmp" })
 
 		--  Others
 		use({ "rafcamlet/nvim-luapad", cmd = { "Luapad", "LuaRun" }, ft = "lus" })

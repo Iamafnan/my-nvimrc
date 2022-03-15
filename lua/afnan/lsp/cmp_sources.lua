@@ -2,6 +2,7 @@
 local sources = {
 	{ name = "luasnip", max_item_count = 2 },
 	{ name = "nvim_lsp", max_item_count = 4 },
+	{ name = "nvim_lsp_signature_help" },
 	{ name = "buffer", max_item_count = 2 },
 	{ name = "path" },
 	{ name = "devicons", priority = 500 },
