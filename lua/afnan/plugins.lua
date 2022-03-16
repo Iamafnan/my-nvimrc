@@ -57,7 +57,6 @@ return packer.startup({
 				}
 			end,
 		})
-		use({ "NTBBloodbath/galaxyline.nvim", config = "require('afnan.statusline')" })
 		use({ "akinsho/bufferline.nvim", config = "require('afnan.tabline')" })
 		use({ "folke/which-key.nvim" })
 		use({ "kyazdani42/nvim-tree.lua", config = "require('afnan.nvimtree')", cmd = "NvimTreeToggle" })
