@@ -85,6 +85,7 @@ return packer.startup({
 		})
 		use({ "rcarriga/nvim-notify", config = "require('afnan.notify')" })
 		use({ "petertriho/nvim-scrollbar", config = "require('afnan.scrollbar')" })
+		use({ "MunifTanjim/nui.nvim", config = "require('afnan.ui')" })
 
 		--  Telescope & Its Extentions
 		use({
@@ -140,12 +141,6 @@ return packer.startup({
 		})
 		use({ "jose-elias-alvarez/null-ls.nvim", config = "require('afnan.lsp.null_ls')", event = "BufWinEnter" })
 		use({ "b0o/SchemaStore.nvim", lock = true })
-		use({
-			"j-hui/fidget.nvim",
-			config = function()
-				require("fidget").setup()
-			end,
-		})
 
 		--  Snippets
 		use({ "L3MON4D3/LuaSnip", event = "BufWinEnter", config = [[require("afnan.luasnips")]] })
@@ -191,9 +186,7 @@ return packer.startup({
 			lock = true,
 		})
 
-		use({ "~/dev/glean.nvim" })
-
-		use({ "MunifTanjim/nui.nvim", config = "require('afnan.ui')" })
+		use({ "~/dev/glean.nvim", cmd = "LoadGlean" })
 
 		--  Bootstraping Packer.nvim
 		if packer_bootstrap then
