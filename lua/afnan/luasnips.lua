@@ -55,16 +55,7 @@ ls.snippets = {
 	},
 	lua = {
 		s("l", "local $1"),
-		snip(
-			"ll",
-			fmt([[ local {} = {} ]], {
-				f(function(name)
-					local parts = vim.split(name[1][1], ".", true)
-					return parts[#parts] or ""
-				end, { 1 }),
-				i(1),
-			})
-		),
+		s("ll", "local $1 = $2 $0"),
 		s("req", 'require("$1")'),
 		snip(
 			"lreq",
@@ -234,7 +225,7 @@ ls.snippets = {
 		s("ro", "return {\n\t${0}\n}"),
 		s("ra", "return [\n\t${0}\n]"),
 		s("rp", "return new Promise((resolve, reject) => {\n\t${0}\n})"),
-		s("wrap selection in arrow function", "() => {\n\t{$TM_SELECTED_TEXT}\n}"),
-		s("wrap selection in async arrow function", "async () => {\n\t{$TM_SELECTED_TEXT}\n}"),
+		s("arrow", "() => {\n\t{$TM_SELECTED_TEXT}\n}"),
+		s("async", "async () => {\n\t{$TM_SELECTED_TEXT}\n}"),
 	},
 }

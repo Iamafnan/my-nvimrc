@@ -11,14 +11,14 @@ null_ls.setup({
 			filetypes = { "bash", "zsh", "sh" },
 		}),
 	},
-	on_attach = function(client)
+	on_attach = function(client, bufnr)
 		if client.resolved_capabilities.document_formatting then
-			vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 4000)
-            augroup END
-            ]])
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				callback = function()
+					vim.lsp.buf.formatting_seq_sync(nil, 4000)
+				end,
+				buffer = bufnr,
+			})
 		end
 	end,
 })
