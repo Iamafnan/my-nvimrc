@@ -8,17 +8,17 @@ vim.cmd([[
    highlight link NotifyWARNBorder NotifyBg
    highlight link NotifyINFOBorder NotifyBg
    highlight link NotifyDEBUGBorder NotifyBg
-   highlight link NotifyTRACEBorder  NotifyBg 
-   highlight link NotifyERRORIcon    NotifyIcon
-   highlight link NotifyWARNIcon     NotifyIcon
-   highlight link NotifyINFOIcon     NotifyIcon
-   highlight link NotifyDEBUGIcon    NotifyIcon 
-   highlight link NotifyTRACEIcon    NotifyIcon
-   highlight link NotifyERRORTitle   NotifyTitle  
-   highlight link NotifyWARNTitle    NotifyTitle 
-   highlight link NotifyINFOTitle    NotifyTitle 
-   highlight link NotifyDEBUGTitle   NotifyTitle
-   highlight link NotifyTRACETitle   NotifyTitle
+   highlight link NotifyTRACEBorder NotifyBg 
+   highlight link NotifyERRORIcon NotifyIcon
+   highlight link NotifyWARNIcon NotifyIcon
+   highlight link NotifyINFOIcon NotifyIcon
+   highlight link NotifyDEBUGIcon NotifyIcon 
+   highlight link NotifyTRACEIcon NotifyIcon
+   highlight link NotifyERRORTitle NotifyTitle  
+   highlight link NotifyWARNTitle NotifyTitle 
+   highlight link NotifyINFOTitle NotifyTitle 
+   highlight link NotifyDEBUGTitle NotifyTitle
+   highlight link NotifyTRACETitle NotifyTitle
    highlight link NotifyERRORBody NotifyFg
    highlight link NotifyWARNBody NotifyFg
    highlight link NotifyINFOBody NotifyFg

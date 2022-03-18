@@ -125,9 +125,7 @@ M.capabilities = function()
 	return capabilities
 end
 
-M.on_attach = function(client)
-	local cmd = vim.api.nvim_command
-
+M.on_attach = function(client, bufnr)
 	vim.notify("Language Server: " .. client.name .. " is started!", "INFO", {
 		title = "Language Server Protocol",
 		icon = "",
@@ -139,11 +137,19 @@ M.on_attach = function(client)
 
 	-- document highlights
 	if client.resolved_capabilities.document_highlight then
-		cmd([[ augroup document_highlight ]])
-		cmd([[ autocmd! * <buffer> ]])
-		cmd([[ autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight() ]])
-		cmd([[ autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references() ]])
-		cmd([[ augroup END ]])
+		vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
+		vim.api.nvim_create_autocmd("CursorHold", {
+			callback = function()
+				vim.lsp.buf.document_highlight()
+			end,
+			buffer = bufnr,
+		})
+		vim.api.nvim_create_autocmd("CursorMoved", {
+			callback = function()
+				vim.lsp.buf.clear_references()
+			end,
+			buffer = bufnr,
+		})
 	end
 end
 

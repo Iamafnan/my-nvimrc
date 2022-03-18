@@ -1,45 +1,57 @@
-local function nvim_create_augroups(definitions)
-	for group_name, definition in pairs(definitions) do
-		vim.api.nvim_command("augroup " .. group_name)
-		vim.api.nvim_command("autocmd!")
-		for _, def in ipairs(definition) do
-			local command = table.concat(vim.tbl_flatten({ "autocmd", def }), " ")
-			vim.api.nvim_command(command)
-		end
-		vim.api.nvim_command("augroup END")
-	end
-end
+local augroup = vim.api.nvim_create_augroup
+local cmd = vim.api.nvim_create_autocmd
 
-local autocmds = {
-	packer = { {
-		"BufWritePost",
-		"plugins.lua",
-		"source % | PackerCompile",
-	} },
-	autoInsert = { {
-		"BufEnter",
-		"*",
-		"if &buftype == 'terminal' | :startinsert | endif",
-	} },
-	YankHighlight = { {
-		"TextYankPost",
-		"*",
-		"silent! lua vim.highlight.on_yank(",
-	} },
-	Diagnostics = {
-		{
-			"CursorHold",
-			"*",
-			"lua vim.diagnostic.open_float(0, {focusable = false, scope = 'line', source = 'if_many'})",
-		},
-	},
-	formatoptions = {
-		{
-			"BufWinEnter",
-			"*",
-			":set formatoptions-=cro",
-		},
-	},
-}
+cmd("BufEnter", {
+	desc = "Disable Autocommenting",
+	command = "set fp-=c fo-=r fo-=o",
+})
 
-nvim_create_augroups(autocmds)
+augroup("_term", {})
+
+cmd("TermOpen", {
+	desc = "Auto Insert",
+	group = "_term",
+	command = "startinsert",
+})
+
+cmd("TermOpen", {
+	desc = "Unset numbers",
+	group = "_term",
+	command = "set nonu",
+})
+
+augroup("_buffer", {})
+
+---@diagnostic disable-next-line: unused-local
+local NoWhitespace = vim.api.nvim_exec(
+	[[
+    function! NoWhitespace()
+        let l:save = winsaveview()
+        keeppatterns %s/\s\+$//e
+        call winrestview(l:save)
+    endfunction
+    call NoWhitespace()
+    ]],
+	true
+)
+
+cmd("BufWritePre", {
+	desc = "Trim whitespace on save",
+	group = "_buffer",
+	command = [[call NoWhitespace()]],
+})
+
+cmd("TextYankPost", {
+	desc = "Highlight while yanking",
+	group = "_buffer",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "Visual" })
+	end,
+})
+
+augroup("_lsp", {})
+cmd({ "CursorHold" }, {
+	desc = "Open float when there is diagnostics",
+	group = "_lsp",
+	callback = vim.diagnostic.open_float,
+})

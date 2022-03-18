@@ -120,7 +120,7 @@ nvim_lsp.sumneko_lua.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
-				globals = { "vim", "it", "describe", "before_each" },
+				globals = { "vim", "it", "describe", "before_each", "self" },
 				disable = { "trailing-space", "deprecated", "lowercase-global" },
 			},
 			runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
