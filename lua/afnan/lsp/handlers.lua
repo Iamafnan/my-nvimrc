@@ -130,5 +130,5 @@ function _G.open_lsp_log()
 	vim.cmd("edit " .. path)
 end
 
-vim.cmd("command! -nargs=0 LspLog call v:lua.open_lsp_log()")
-vim.cmd("command! LspRestart call v:lua.reload_lsp()")
+vim.api.nvim_add_user_command("LspLog", _G.open_lsp_log, {})
+vim.api.nvim_add_user_command("LspRestart", _G.reload_lsp, {})

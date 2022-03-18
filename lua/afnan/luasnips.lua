@@ -8,7 +8,7 @@ function _G.LuaSnipLoad()
 	})
 end
 
-vim.cmd("command! LuaSnipLoad :lua _G.LuaSnipLoad()")
+vim.api.nvim_add_user_command("LuaSnipLoad", _G.LuaSnipLoad, {})
 
 ls.config.setup({
 	history = true,

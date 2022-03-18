@@ -17,7 +17,7 @@ cmd("TermOpen", {
 cmd("TermOpen", {
 	desc = "Unset numbers",
 	group = "_term",
-	command = "set nonu",
+	command = "setlocal nonu",
 })
 
 augroup("_buffer", {})

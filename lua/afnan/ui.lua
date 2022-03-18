@@ -132,5 +132,4 @@ local function override_ui_select()
 	end
 end
 
-override_ui_input()
-override_ui_select()
+vim.api.nvim_add_user_command("Substitute", subUi, {})

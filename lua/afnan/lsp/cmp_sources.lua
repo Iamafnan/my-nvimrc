@@ -40,6 +40,6 @@ function _G.DeviconsCompletion()
 	})
 end
 
-vim.cmd(" command! -nargs=0 CmpDevicons call v:lua.DeviconsCompletion() ")
+vim.api.nvim_add_user_command("CmpDevicons", _G.DeviconsCompletion, {})
 
 return sources

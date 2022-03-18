@@ -48,6 +48,8 @@ set.smarttab = true
 set.expandtab = true
 
 set.laststatus = 3
+vim.cmd("hi WinSeparator guibg=none")
+
 set.showtabline = 2
 
 set.updatetime = 250
