@@ -1,5 +1,5 @@
 local function set_keymap(mode, lhs, rhs)
-	vim.api.nvim_set_keymap(mode, lhs, rhs, { silent = true, noremap = true })
+	vim.keymap.set(mode, lhs, rhs, { silent = true, noremap = true })
 end
 local wk = require("which-key")
 
@@ -42,13 +42,12 @@ set_keymap("n", "<C-h>", ":cprev<CR>")
 
 set_keymap("n", "Y", "y$")
 
-set_keymap("n", "ng", ":Neogen<CR>")
-
 --Some custom completion
 set_keymap("i", "<C-c>", "<C-x><C-v>")
 set_keymap("i", "<C-f>", "<C-x><C-f>")
 
-vim.api.nvim_set_keymap("i", "<A-n>", "<Plug>luasnip-next-choice", {})
+-- luasnip
+set_keymap("i", "<A-n>", require("luasnip.extras.select_choice"))
 
 -- Move lines without ruining registers
 set_keymap("i", "<C-j>", "<esc>:m .+1<CR>==")
@@ -59,15 +58,15 @@ set_keymap("v", "K", ":m '>+1<CR>gv=gv")
 set_keymap("v", "J", ":m '<-2<CR>gv=gv")
 
 -- Some lsp keymaps
-set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>")
-set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
-set_keymap("n", "gI", ":lua vim.lsp.buf.implementation()<CR>")
-set_keymap("n", "gk", ":lua vim.diagnostic.goto_next()<CR>")
-set_keymap("n", "gj", ":lua vim.diagnostic.goto_prev()<CR>")
-set_keymap("n", "gR", ":lua vim.lsp.buf.references()<CR>")
-set_keymap("n", "gr", ":lua vim.lsp.buf.rename()<CR>")
-set_keymap("n", "ga", ":lua vim.lsp.buf.code_action()<CR>")
-set_keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+set_keymap("n", "K", vim.lsp.buf.hover)
+set_keymap("n", "gd", vim.lsp.buf.definition)
+set_keymap("n", "gI", vim.lsp.buf.implementation)
+set_keymap("n", "gk", vim.diagnostic.goto_next)
+set_keymap("n", "gj", vim.diagnostic.goto_prev)
+set_keymap("n", "gR", vim.lsp.buf.references)
+set_keymap("n", "gr", vim.lsp.buf.rename)
+set_keymap("n", "ga", vim.lsp.buf.code_action)
+set_keymap("i", "<C-s>", vim.lsp.buf.signature_help)
 
 local mappings = {
 	g = {
