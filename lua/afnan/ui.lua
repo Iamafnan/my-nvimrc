@@ -6,8 +6,8 @@ local Text = require("nui.text")
 local borders = { " ", " ", " ", " ", " ", " " }
 local input_ui
 
-vim.cmd(" highlight NuiTitle ctermfg=225 guifg=#7aa2f7")
-vim.cmd(" highlight NuiPrompt guifg=#9ece6a gui=bold")
+vim.api.nvim_set_hl(0, "NuiTitle", { fg = "#7aa2f7" })
+vim.api.nvim_set_hl(0, "NuiTitle", { fg = "#9ece6a", bold = true })
 
 vim.ui.input = function(opts, on_confirm)
 	if input_ui then

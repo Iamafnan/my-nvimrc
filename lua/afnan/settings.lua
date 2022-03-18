@@ -48,7 +48,7 @@ set.smarttab = true
 set.expandtab = true
 
 set.laststatus = 3
-vim.cmd("hi WinSeparator guibg=none")
+vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none" })
 
 set.showtabline = 2
 
