@@ -22,25 +22,6 @@ cmd("TermOpen", {
 
 augroup("_buffer", {})
 
----@diagnostic disable-next-line: unused-local
-local NoWhitespace = vim.api.nvim_exec(
-	[[
-    function! NoWhitespace()
-        let l:save = winsaveview()
-        keeppatterns %s/\s\+$//e
-        call winrestview(l:save)
-    endfunction
-    call NoWhitespace()
-    ]],
-	true
-)
-
-cmd("BufWritePre", {
-	desc = "Trim whitespace on save",
-	group = "_buffer",
-	command = [[call NoWhitespace()]],
-})
-
 cmd("TextYankPost", {
 	desc = "Highlight while yanking",
 	group = "_buffer",
@@ -49,7 +30,15 @@ cmd("TextYankPost", {
 	end,
 })
 
+cmd("BufWritePost", {
+	desc = "Auto Compile plugins.lua file",
+	group = "_buffer",
+	command = "PackerCompile",
+	pattern = "plugins.lua",
+})
+
 augroup("_lsp", {})
+
 cmd({ "CursorHold" }, {
 	desc = "Open float when there is diagnostics",
 	group = "_lsp",

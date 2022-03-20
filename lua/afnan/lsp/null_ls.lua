@@ -13,11 +13,13 @@ null_ls.setup({
 	},
 	on_attach = function(client, bufnr)
 		if client.resolved_capabilities.document_formatting then
+			local group = vim.api.nvim_create_augroup("NullLsFormatting", { clear = true })
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				callback = function()
-					vim.lsp.buf.formatting_seq_sync(nil, 4000)
+					vim.lsp.buf.formatting_sync(nil, 4000)
 				end,
 				buffer = bufnr,
+				group = group,
 			})
 		end
 	end,

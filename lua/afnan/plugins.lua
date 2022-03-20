@@ -149,7 +149,7 @@ return packer.startup({
 
 		--  CMP
 		use({
-			"hrsh7th/nvim-cmp",
+			"~/dev/nvim-cmp",
 			event = "BufWinEnter",
 			config = "require('afnan.lsp.cmp')",
 		})
@@ -158,7 +158,7 @@ return packer.startup({
 		use({ "hrsh7th/cmp-path", event = "InsertEnter" })
 		use({
 			"hrsh7th/cmp-nvim-lsp",
-			requires = "nvim-cmp",
+			requires = "hrsh7th/nvim-cmp",
 			event = "BufWinEnter",
 		})
 		use({ "tamago324/cmp-zsh", ft = "zsh", event = "InsertEnter", lock = true })
