@@ -57,17 +57,6 @@ set_keymap("n", ",J", ":m .+1<CR>==")
 set_keymap("v", "K", ":m '>+1<CR>gv=gv")
 set_keymap("v", "J", ":m '<-2<CR>gv=gv")
 
--- Some lsp keymaps
-set_keymap("n", "K", vim.lsp.buf.hover)
-set_keymap("n", "gd", vim.lsp.buf.definition)
-set_keymap("n", "gI", vim.lsp.buf.implementation)
-set_keymap("n", "gk", vim.diagnostic.goto_next)
-set_keymap("n", "gj", vim.diagnostic.goto_prev)
-set_keymap("n", "gR", vim.lsp.buf.references)
-set_keymap("n", "gr", vim.lsp.buf.rename)
-set_keymap("n", "ga", vim.lsp.buf.code_action)
-set_keymap("i", "<C-s>", vim.lsp.buf.signature_help)
-
 local mappings = {
 	g = {
 		name = "Gitsigns",

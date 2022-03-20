@@ -135,6 +135,20 @@ M.on_attach = function(client, bufnr)
 	client.resolved_capabilities.document_formatting = false
 	client.resolved_capabilities.document_range_formatting = false
 
+	local function set_keymap(mode, lhs, rhs)
+		vim.api.nvim_buf_set_keymap(bufnr, mode, lhs, rhs, { silent = true, noremap = true })
+	end
+
+	set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>")
+	set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>")
+	set_keymap("n", "gI", ":lua vim.lsp.buf.implementation()<CR>")
+	set_keymap("n", "gk", ":lua vim.diagnostic.goto_next()<CR>")
+	set_keymap("n", "gj", ":lua vim.diagnostic.goto_prev()<CR>")
+	set_keymap("n", "gR", ":lua vim.lsp.buf.references()<CR>")
+	set_keymap("n", "gr", ":lua vim.lsp.buf.rename()<CR>")
+	set_keymap("n", "ga", ":lua vim.lsp.buf.code_action()<CR>")
+	set_keymap("i", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+
 	-- document highlights
 	if client.resolved_capabilities.document_highlight then
 		vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
